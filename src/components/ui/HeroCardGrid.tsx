@@ -101,13 +101,21 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
     setMounted(true);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  /* Four mobile corners: pick indices spread across the shuffled pool */
-  const mobileCorners = [
-    { card: display[0],  pos: { top: '6%',    left: '3%'  }, rotate: '-5deg'  },
-    { card: display[2],  pos: { top: '6%',    right: '3%' }, rotate:  '5deg'  },
-    { card: display[7],  pos: { bottom: '6%', left: '3%'  }, rotate:  '4deg'  },
-    { card: display[10], pos: { bottom: '6%', right: '3%' }, rotate: '-4deg'  },
-  ];
+  /* ── Mobile 3×4 grid layout ──
+     Mirrors the desktop grid mathematics but tailored for portrait screens.
+     Cards are brought fully inside the display bounds (16%-84% width). 
+     Center is calculated at col 1, row 1.5 */
+  const MOBILE_COLS = ['16%', '50%', '84%'];
+  const MOBILE_ROWS = ['12%', '36%', '64%', '88%'];
+  const MOBILE_MAX_DIST = Math.sqrt(Math.pow(1, 2) + Math.pow(1.5, 2)); // center is (1, 1.5)
+
+  // Generate 12 slots
+  const mobileSlots = [];
+  for (let r = 0; r < 4; r++) {
+    for (let c = 0; c < 3; c++) {
+      mobileSlots.push({ col: c, row: r });
+    }
+  }
 
   return (
     <>
@@ -140,24 +148,37 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
         })}
       </div>
 
-      {/* ── Mobile 4-corner layout ── */}
+      {/* ── Mobile 3×4 grid ── */}
       <div className="pointer-events-none select-none absolute inset-0 overflow-hidden block lg:hidden">
-        {mobileCorners.map(({ card, pos, rotate }, i) => (
-          <div
-            key={`mobile-${i}`}
-            style={{
-              position: 'absolute',
-              ...pos,
-              transform: `rotate(${rotate})`,
-              width: 100,
-              opacity: mounted ? 0.82 : 0,
-              filter: 'blur(2.5px) saturate(0.90)',
-              transition: 'opacity 0.55s ease',
-            }}
-          >
-            <CardFace label={card.label} category={card.category} gradient={card.gradient} size={100} />
-          </div>
-        ))}
+        {mobileSlots.map((slot, i) => {
+           const card = display[i % display.length];
+           // Calculate distance from center grid point (col 1, row 1.5)
+           const dist     = Math.sqrt(Math.pow(slot.col - 1, 2) + Math.pow(slot.row - 1.5, 2));
+           const norm     = dist / MOBILE_MAX_DIST;
+           
+           // Slightly reduced blur/fade radius for tighter mobile screens
+           const blurPx   = (norm * 3.5).toFixed(1);
+           const opacity  = (mounted ? 0.95 : 0) - norm * 0.22;
+           const saturate = (0.98 - norm * 0.15).toFixed(2);
+
+           return (
+             <div
+               key={`mobile-grid-${slot.col}-${slot.row}`}
+               style={{
+                 position: 'absolute',
+                 left: MOBILE_COLS[slot.col],
+                 top: MOBILE_ROWS[slot.row],
+                 transform: `translate(-50%, -50%) rotate(${card.rotate})`,
+                 width: 90, // Slightly smaller to ensure 3 columns fit well side-by-side
+                 opacity,
+                 filter: `blur(${blurPx}px) saturate(${saturate})`,
+                 transition: 'opacity 0.55s ease',
+               }}
+             >
+               <CardFace label={card.label} category={card.category} gradient={card.gradient} size={90} />
+             </div>
+           );
+        })}
       </div>
     </>
   );

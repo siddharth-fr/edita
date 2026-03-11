@@ -1,122 +1,171 @@
 'use client';
 import { useCallback, useState } from 'react';
-import { UploadCloud, ShieldCheck } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 interface UploadDropzoneProps {
-    onUpload: (files: File[]) => void;
-    accept?: string;
-    multiple?: boolean;
+  onUpload: (files: File[]) => void;
+  accept?: string;
+  multiple?: boolean;
 }
 
+/* Spring easing for buttery smooth transitions */
+const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+
 export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDropzoneProps) {
-    const [isDragging, setIsDragging] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
-    const handleDrag = useCallback((e: React.DragEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (e.type === 'dragenter' || e.type === 'dragover') {
-            setIsDragging(true);
-        } else if (e.type === 'dragleave') {
-            setIsDragging(false);
-        }
-    }, []);
+  const handleDrag = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === 'dragenter' || e.type === 'dragover') {
+      setIsDragging(true);
+    } else if (e.type === 'dragleave') {
+      setIsDragging(false);
+    }
+  }, []);
 
-    const handleDrop = useCallback(
-        (e: React.DragEvent) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsDragging(false);
-            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-                onUpload(Array.from(e.dataTransfer.files));
-            }
-        },
-        [onUpload]
-    );
+  const handleDrop = useCallback(
+    (e: React.DragEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIsDragging(false);
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        onUpload(Array.from(e.dataTransfer.files));
+      }
+    },
+    [onUpload]
+  );
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files.length > 0) {
-            onUpload(Array.from(e.target.files));
-            e.target.value = '';
-        }
-    };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      onUpload(Array.from(e.target.files));
+      e.target.value = '';
+    }
+  };
 
-    return (
-        <div
-            onDragEnter={handleDrag}
-            onDragLeave={handleDrag}
-            onDragOver={handleDrag}
-            onDrop={handleDrop}
-            className={cn(
-                'group relative flex flex-col items-center justify-center w-full min-h-[340px] rounded-3xl p-10 text-center transition-all duration-300 cursor-pointer overflow-hidden',
-                isDragging
-                    ? 'bg-primary/5 scale-[1.01]'
-                    : 'bg-card hover:bg-muted/40'
-            )}
+  return (
+    <div
+      onDragEnter={handleDrag}
+      onDragLeave={handleDrag}
+      onDragOver={handleDrag}
+      onDrop={handleDrop}
+      className="relative flex flex-col items-center justify-center w-full min-h-[300px] text-center cursor-pointer overflow-hidden border-2"
+      style={{
+        borderRadius: 24,
+        background: isDragging ? 'rgba(52, 211, 153, 0.04)' : '#ffffff',
+        borderColor: isDragging ? 'rgba(52, 211, 153, 0.4)' : 'rgba(0,0,0,0.06)',
+        borderStyle: isDragging ? 'solid' : 'dashed',
+        boxShadow: isDragging 
+            ? '0 0 0 4px rgba(52,211,153,0.08), 0 20px 40px rgba(52,211,153,0.05)'
+            : '0 2px 10px rgba(0,0,0,0.02)',
+        transform: isDragging ? 'scale(1.02)' : 'scale(1)',
+        transition: `all 0.4s ${SPRING}`,
+      }}
+    >
+      <input
+        type="file"
+        multiple={multiple}
+        accept={accept}
+        onChange={handleChange}
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        title=""
+      />
+
+      <div className="flex flex-col items-center pointer-events-none">
+        
+        {/* Miniature Green Folder/Toolcard */}
+        <div 
+          style={{ 
+            position: 'relative', 
+            width: 48, 
+            height: 38, 
+            marginBottom: 20,
+            transform: isDragging ? 'scale(1.1) translateY(-4px)' : 'scale(1)',
+            transition: `all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)`,
+          }}
+        >
+          {/* Subtle back shadow/card to give depth */}
+          <div style={{
+            position: 'absolute', top: 3, left: 3, right: -3, bottom: -3,
+            background: 'rgba(52,211,153,0.15)', borderRadius: 10, transform: 'rotate(6deg)',
+            transition: 'all 0.4s ease'
+          }} />
+          
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: '#ffffff', borderRadius: 10,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.95)',
+          }}>
+             {/* Gradient top area */}
+             <div style={{
+                 position: 'absolute', inset: 2, borderRadius: 8,
+                 background: 'linear-gradient(135deg, #34D399, #059669)',
+                 overflow: 'hidden'
+             }}>
+                 <div style={{
+                     position: 'absolute', inset: 0,
+                     background: 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 70%)',
+                 }} />
+             </div>
+             
+             {/* White folder body bottom half */}
+             <div style={{
+                 position: 'absolute', bottom: 2, left: 2, right: 2, height: '56%',
+                 background: '#ffffff', borderRadius: '0 0 7px 7px',
+             }}>
+                 {/* Folder notch tab */}
+                 <div style={{
+                     position: 'absolute', top: -6, left: 0, width: '45%', height: 6,
+                     background: '#ffffff', borderRadius: '4px 4px 0 0',
+                 }} />
+                 <div style={{
+                     position: 'absolute', top: -6, left: '45%', height: 6, width: 6,
+                     boxShadow: '-3px 3px 0 0 #ffffff', borderRadius: '0 0 0 4px',
+                 }} />
+             </div>
+          </div>
+        </div>
+
+        <h3 
             style={{
-                border: isDragging
-                    ? '2px solid #05c6ff'
-                    : '2px dashed var(--border)',
-                boxShadow: isDragging
-                    ? '0 0 0 4px rgba(5,198,255,0.12), 0 20px 60px rgba(5,198,255,0.08)'
-                    : '0 1px 4px rgba(0,0,0,0.04)',
+                fontFamily: 'var(--font-display), sans-serif',
+                fontSize: 24,
+                fontWeight: 800,
+                color: '#0C0F17',
+                letterSpacing: '-0.03em',
+                marginBottom: 4,
             }}
         >
-            {/* Animated ring on drag */}
-            {isDragging && (
-                <div className="absolute inset-0 rounded-3xl pointer-events-none animate-pulse"
-                    style={{ boxShadow: 'inset 0 0 40px rgba(5,198,255,0.08)' }}
-                />
-            )}
+          {isDragging ? 'Drop to upload' : 'Select files'}
+        </h3>
+        
+        <p style={{
+            fontSize: 13.5,
+            fontWeight: 500,
+            color: '#8B9CBD',
+            letterSpacing: '-0.01em',
+            marginBottom: 26,
+        }}>
+          or drag and drop them here
+        </p>
 
-            <input
-                type="file"
-                multiple={multiple}
-                accept={accept}
-                onChange={handleChange}
-                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                title=""
-            />
-
-            {/* Upload icon */}
-            <div
-                className={cn(
-                    'w-20 h-20 rounded-2xl flex items-center justify-center mb-6 pointer-events-none transition-all duration-300',
-                    isDragging
-                        ? 'scale-110 text-white'
-                        : 'text-primary group-hover:scale-105'
-                )}
-                style={{
-                    background: isDragging
-                        ? 'linear-gradient(135deg, #05c6ff, #0066ff)'
-                        : 'rgba(5,198,255,0.10)',
-                    boxShadow: isDragging ? '0 8px 32px rgba(5,198,255,0.35)' : 'none',
-                }}
-            >
-                <UploadCloud className="w-10 h-10" />
-            </div>
-
-            <h3 className="text-2xl font-black tracking-tight text-foreground mb-2 pointer-events-none">
-                {isDragging ? 'Release to upload' : 'Drop files here'}
-            </h3>
-            <p className="text-muted-foreground pointer-events-none max-w-sm mb-8 font-medium leading-relaxed">
-                {isDragging ? 'Looking good!' : 'or click anywhere to browse your files'}
-            </p>
-
-            {/* CTA button */}
-            <div
-                className="pointer-events-none inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white transition-all"
-                style={{ background: 'linear-gradient(135deg, #05c6ff, #0066ff)' }}
-            >
-                <UploadCloud className="w-4 h-4" />
-                Select Files
-            </div>
-
-            {/* Privacy note */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs text-muted-foreground pointer-events-none whitespace-nowrap">
-                <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                Processed locally · Never uploaded
-            </div>
+        {/* Minimal CTA pill */}
+        <div
+          style={{
+            padding: '7px 20px',
+            borderRadius: 999,
+            background: isDragging ? 'rgba(52,211,153,0.15)' : 'rgba(52,211,153,0.08)',
+            border: '1px solid rgba(52,211,153,0.25)',
+            color: '#065F46',
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: '-0.01em',
+            transition: 'all 0.2s ease',
+            boxShadow: isDragging ? '0 2px 8px rgba(52,211,153,0.1)' : 'none',
+          }}
+        >
+          Browse device
         </div>
-    );
+      </div>
+    </div>
+  );
 }

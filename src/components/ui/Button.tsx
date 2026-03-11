@@ -11,7 +11,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = 'default', size = 'default', isLoading, children, disabled, style, ...props }, ref) => {
         const gradientStyle = variant === 'default'
-            ? { background: 'linear-gradient(135deg, #05c6ff, #0066ff)', ...style }
+            ? { 
+                background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
+                boxShadow: '0 3px 12px rgba(5,150,105,0.20)',
+                ...style 
+              }
             : style;
 
         return (
@@ -20,9 +24,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 disabled={isLoading || disabled}
                 style={gradientStyle}
                 className={cn(
-                    'inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97]',
+                    'inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97]',
                     {
-                        'text-white shadow-md hover:shadow-lg hover:shadow-primary/20 hover:scale-[1.02]': variant === 'default',
+                        'text-white hover:scale-[1.04]': variant === 'default',
                         'border border-border bg-card hover:bg-muted text-foreground': variant === 'outline',
                         'hover:bg-muted text-foreground': variant === 'ghost',
                         'bg-red-500 text-white hover:bg-red-600 shadow-sm': variant === 'destructive',
