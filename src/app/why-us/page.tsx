@@ -37,34 +37,35 @@ export default function WhyUsPage() {
       <section className="w-full max-w-6xl px-4 sm:px-8 mt-12 mb-10">
         <div className="text-center max-w-2xl mx-auto mb-16 relative">
           {/* Static Floating Cards decorating the Title */}
-          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 140, filter: 'blur(0.5px)' }}>
+          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
             <CardFace label="Merge PDF" category="PDF" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
           </div>
-          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 125, filter: 'blur(0px)' }}>
+          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
             <CardFace label="Image Compressor" category="IMAGE" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
           </div>
-          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none" style={{ width: 100, filter: 'blur(1.5px)' }}>
+          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
              <CardFace label="Word to PDF" category="CONVERT" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
           </div>
-          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none" style={{ width: 110, filter: 'blur(1px)' }}>
+          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
              <CardFace label="Split PDF" category="PDF" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
           </div>
 
-          <div
-            className="inline-flex items-center gap-2 mb-6"
-            style={{
-              padding: '6px 14px',
-              borderRadius: 999,
-              border: '1px solid rgba(52, 211, 153, 0.25)',
-              background: 'rgba(197, 255, 234, 0.08)',
-              color: '#065F46',
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            <span>Why Choose EDDIT?</span>
-          </div>
+          <div className="relative z-10 w-full flex flex-col items-center">
+            <div
+              className="inline-flex items-center gap-2 mb-6"
+              style={{
+                padding: '6px 14px',
+                borderRadius: 999,
+                border: '1px solid rgba(52, 211, 153, 0.25)',
+                background: 'rgba(197, 255, 234, 0.08)',
+                color: '#065F46',
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: '-0.01em',
+              }}
+            >
+              <span>Why Choose EDDIT?</span>
+            </div>
 
           <h1 style={{
             margin: '0 0 18px',
@@ -83,14 +84,15 @@ export default function WhyUsPage() {
               backgroundClip: 'text',
             }}>Free Online File Tools</span>
           </h1>
-          <p style={{
-            fontSize: '17px',
-            lineHeight: 1.6,
-            color: '#6B7280',
-            fontWeight: 400,
-          }}>
-            Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, EDDIT provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
-          </p>
+            <p style={{
+              fontSize: '17px',
+              lineHeight: 1.6,
+              color: '#6B7280',
+              fontWeight: 400,
+            }}>
+              Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, EDDIT provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 w-full max-w-6xl relative z-10 px-2 mb-20">

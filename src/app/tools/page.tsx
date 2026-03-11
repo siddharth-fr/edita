@@ -46,34 +46,35 @@ export default function ToolsPage() {
         <div className="text-center max-w-2xl mx-auto mb-16 relative">
 
           {/* Static Floating Cards decorating the Title */}
-          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 140, filter: 'blur(0.5px)' }}>
+          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
             <CardFace label="PDF to Word" category="CONVERT" gradient="linear-gradient(135deg,#F2FDFF,#DCF8FF)" size={140} />
           </div>
-          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 125, filter: 'blur(0px)' }}>
+          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
             <CardFace label="JPG to PDF" category="IMAGE" gradient="linear-gradient(135deg,#FFF3F7,#FFE5F0)" size={125} />
           </div>
-          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none" style={{ width: 100, filter: 'blur(1.5px)' }}>
+          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
             <CardFace label="PNG to JPG" category="IMAGE" gradient="linear-gradient(135deg,#F4FFF9,#E5FBEF)" size={100} />
           </div>
-          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none" style={{ width: 110, filter: 'blur(1px)' }}>
+          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
             <CardFace label="Compress PDF" category="PDF" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={110} />
           </div>
 
-          <div
-            className="inline-flex items-center gap-2 mb-6"
-            style={{
-              padding: '6px 14px',
-              borderRadius: 999,
-              border: '1px solid rgba(52, 211, 153, 0.25)',
-              background: 'rgba(197, 255, 234, 0.08)',
-              color: '#065F46',
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            <span>All Tools</span>
-          </div>
+          <div className="relative z-10 w-full flex flex-col items-center">
+            <div
+              className="inline-flex items-center gap-2 mb-6"
+              style={{
+                padding: '6px 14px',
+                borderRadius: 999,
+                border: '1px solid rgba(52, 211, 153, 0.25)',
+                background: 'rgba(197, 255, 234, 0.08)',
+                color: '#065F46',
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: '-0.01em',
+              }}
+            >
+              <span>All Tools</span>
+            </div>
 
           <h1 style={{
             margin: '0 0 18px',
@@ -92,14 +93,15 @@ export default function ToolsPage() {
               backgroundClip: 'text',
             }}>In One Place</span>
           </h1>
-          <p style={{
-            fontSize: '17px',
-            lineHeight: 1.6,
-            color: '#6B7280',
-            fontWeight: 400,
-          }}>
-            Explore our complete collection of lightning-fast utilities. Convert, compress, and edit entirely securely within your browser.
-          </p>
+            <p style={{
+              fontSize: '17px',
+              lineHeight: 1.6,
+              color: '#6B7280',
+              fontWeight: 400,
+            }}>
+              Discover our complete collection of fast, secure, and free online file tools. From PDF conversion and compression to robust image editing, EDDIT has everything you need to manage your files effortlessly right in your browser.
+            </p>
+          </div>
         </div>
 
         <div style={{

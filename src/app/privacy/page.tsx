@@ -32,55 +32,55 @@ export default function PrivacyPage() {
         <div className="text-center max-w-2xl mx-auto mb-16 relative">
           
           {/* Static Floating Cards decorating the Title */}
-          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 140, filter: 'blur(0.5px)' }}>
+          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
             <CardFace label="Privacy Shield" category="SECURITY" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
           </div>
-          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 125, filter: 'blur(0px)' }}>
+          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
             <CardFace label="Local Processing" category="WASM" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
           </div>
-          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none" style={{ width: 100, filter: 'blur(1.5px)' }}>
+          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
              <CardFace label="No Tracking" category="PRIVACY" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
           </div>
-          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none" style={{ width: 110, filter: 'blur(1px)' }}>
+          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
              <CardFace label="Secure Docs" category="PROTECT" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
           </div>
 
-          <div
-            className="inline-flex items-center gap-2 mb-6"
-            style={{
-              padding: '6px 14px',
-              borderRadius: 999,
-              border: '1px solid rgba(52, 211, 153, 0.3)',
-              background: 'rgba(197, 255, 234, 0.15)',
-              color: '#065F46',
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            <ShieldCheck size={14} />
-            <span>100% Client-Side Processing</span>
+          <div className="relative z-10 w-full flex flex-col items-center">
+            <div
+              className="inline-flex items-center gap-2 mb-6"
+              style={{
+                padding: '6px 14px',
+                borderRadius: 999,
+                border: '1px solid rgba(52, 211, 153, 0.25)',
+                background: 'rgba(197, 255, 234, 0.08)',
+                color: '#065F46',
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: '-0.01em',
+              }}
+            >
+              <span>Commitment to Privacy</span>
+            </div>
+            <h1 style={{
+              margin: '0 0 18px',
+              fontFamily: 'var(--font-display), sans-serif',
+              fontWeight: 800,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.1,
+              fontSize: 'clamp(38px, 6vw, 48px)',
+              color: '#0C0F17',
+            }}>
+              Privacy Policy
+            </h1>
+            <p style={{
+              fontSize: '17px',
+              lineHeight: 1.6,
+              color: '#6B7280',
+              fontWeight: 400,
+            }}>
+              Your privacy is our highest priority at EDDIT. We've designed our platform from the ground up to ensure your files remain exclusively yours. By leveraging in-browser processing, your data never hits our servers, guaranteeing absolute confidentiality. 
+            </p>
           </div>
-
-          <h1 style={{
-            margin: '0 0 18px',
-            fontFamily: 'var(--font-display), sans-serif',
-            fontWeight: 800,
-            letterSpacing: '-0.03em',
-            lineHeight: 1.1,
-            fontSize: 'clamp(38px, 6vw, 48px)',
-            color: '#0C0F17',
-          }}>
-            Privacy Policy
-          </h1>
-          <p style={{
-            fontSize: '17px',
-            lineHeight: 1.6,
-            color: '#6B7280',
-            fontWeight: 400,
-          }}>
-            Your data is your business. At EDDIT, we have built our entire architecture around ensuring your files never leave your device.
-          </p>
         </div>
 
         <div className="max-w-3xl mx-auto flex flex-col gap-12 sm:gap-16 pt-8">
