@@ -6,7 +6,7 @@ import { CardFace } from '@/components/ui/HeroCardGrid';
 export default function WhyUsPage() {
   return (
     <main
-      className="flex flex-col items-center w-full min-h-screen pb-28 pt-8 relative overflow-x-hidden"
+      className="flex flex-col items-center w-full min-h-screen pb-28 pt-28 relative overflow-x-hidden"
       style={{
         background: '#FAFBFF',
       }}

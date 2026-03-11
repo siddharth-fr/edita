@@ -20,7 +20,7 @@ const tools = [
 export default function ToolsPage() {
   return (
     <main
-      className="flex flex-col items-center w-full min-h-screen pb-28 pt-8 relative overflow-x-hidden"
+      className="flex flex-col items-center w-full min-h-screen pb-28 pt-28 relative overflow-x-hidden"
       style={{
         background: '#FAFBFF',
       }}
@@ -60,7 +60,7 @@ export default function ToolsPage() {
           </div>
 
           <div
-            className="inline-flex items-center gap-2 mb-5"
+            className="inline-flex items-center gap-2 mb-6"
             style={{
               padding: '6px 14px',
               borderRadius: 999,

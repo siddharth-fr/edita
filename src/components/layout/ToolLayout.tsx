@@ -8,7 +8,7 @@ interface ToolLayoutProps {
 
 export function ToolLayout({ title, description, children }: ToolLayoutProps) {
   return (
-    <main className="flex-1 flex flex-col items-center w-full min-h-screen pb-28 pt-8 relative overflow-x-hidden">
+    <main className="flex-1 flex flex-col items-center w-full min-h-screen pb-28 pt-28 relative overflow-x-hidden">
       
       {/* ── Decorative green-white aurora glow (matching homepage) ── */}
       <div className="pointer-events-none absolute top-0 inset-x-0 -z-10 h-[500px] overflow-hidden">
