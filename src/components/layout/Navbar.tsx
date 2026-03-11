@@ -1,12 +1,17 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
-  { label: 'Tools',   href: '/#tools'   },
-  { label: 'Why Us',  href: '/#why-us'  },
-  { label: 'Privacy', href: '/#privacy' },
+  { label: 'Tools',   href: '/tools'   },
+  { label: 'Why Us',  href: '/why-us'   },
+  { label: 'Privacy', href: '/privacy' },
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Frosted glass — matches hero bg */}
@@ -86,26 +91,28 @@ export function Navbar() {
 
         {/* RIGHT — Single CTA */}
         <div style={{ justifySelf: 'end' }}>
-          <Link
-            href="/#tools"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              padding: '7px 15px',
-              borderRadius: 10,
-              background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
-              boxShadow: '0 3px 12px rgba(5,150,105,0.20)',
-              color: '#fff',
-              fontSize: 13,
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              textDecoration: 'none',
-              transition: 'transform 0.15s, box-shadow 0.15s',
-            }}
-            className="hover:scale-[1.04] active:scale-[0.97]"
-          >
-            Try it free
-          </Link>
+          {pathname === '/' && (
+            <Link
+              href="/tools"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '7px 15px',
+                borderRadius: 10,
+                background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
+                boxShadow: '0 3px 12px rgba(5,150,105,0.20)',
+                color: '#fff',
+                fontSize: 13,
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+                textDecoration: 'none',
+                transition: 'transform 0.15s, box-shadow 0.15s',
+              }}
+              className="hover:scale-[1.04] active:scale-[0.97]"
+            >
+              Try it free
+            </Link>
+          )}
         </div>
       </div>
     </header>

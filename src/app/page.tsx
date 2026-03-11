@@ -258,7 +258,7 @@ export default function Home() {
                 textDecoration: 'none',
               }}
             >
-              Browse all tools
+              Popular Tools
               <ArrowRight size={15} strokeWidth={2.5} />
             </a>
             <div
@@ -351,10 +351,10 @@ export default function Home() {
             <CardFace label="Image Compressor" category="IMAGE" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
           </div>
           <div className="hidden lg:block absolute -right-40 top-36 -rotate-3 opacity-60" style={{ width: 100, filter: 'blur(1.5px)' }}>
-             <CardFace label="Word to PDF" category="CONVERT" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
+            <CardFace label="Word to PDF" category="CONVERT" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
           </div>
           <div className="hidden lg:block absolute -left-36 top-40 rotate-6 opacity-70" style={{ width: 110, filter: 'blur(1px)' }}>
-             <CardFace label="Split PDF" category="PDF" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
+            <CardFace label="Split PDF" category="PDF" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
           </div>
           <div
             className="inline-flex items-center gap-2 mb-6"

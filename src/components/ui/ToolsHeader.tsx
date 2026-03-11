@@ -44,7 +44,7 @@ export default function ToolsHeader({
           className="text-2xl sm:text-3xl font-black tracking-tight"
           style={{ color: '#0F172A' }}
         >
-          All tools
+          Popular Tools
         </h2>
         <p className="text-sm mt-1 font-medium" style={{ color: '#94A3B8' }}>
           {active
