@@ -104,7 +104,7 @@ export function PdfToJpgClient() {
                             </Button>
                         ) : (
                             <div className="flex flex-col items-center gap-4 w-full">
-                                <p className="text-sm font-medium text-green-600 dark:text-green-500 bg-green-50 dark:bg-green-950/30 px-4 py-2 rounded-full border border-green-200 dark:border-green-900">
+                                <p className="text-sm font-medium text-green-700 bg-green-50 px-4 py-2 rounded-full border border-green-200">
                                     Successfully extracted {progress === 100 ? 'all' : ''} pages!
                                 </p>
                                 <a href={resultZipUrl} download={`${file.name.replace(/\.pdf$/i, '')}_images.zip`}>

@@ -114,7 +114,7 @@ export default function MergePdfClient() {
                         </DragDropContext>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-card p-4 rounded-[1.5rem] border border-border shadow-sm">
-                            <label className="text-sm cursor-pointer hover:underline text-primary font-medium px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors">
+                            <label className="text-sm cursor-pointer hover:underline text-primary font-medium px-4 py-2 hover:bg-black/5 rounded-full transition-colors">
                                 + Add more files
                                 <input
                                     type="file"

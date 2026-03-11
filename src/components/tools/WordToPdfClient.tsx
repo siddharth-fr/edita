@@ -95,7 +95,7 @@ export function WordToPdfClient() {
 
                     <div className="bg-card p-6 md:p-8 rounded-3xl border border-border shadow-sm flex flex-col gap-6 items-center">
 
-                        <div className="flex items-center gap-2 text-amber-600 dark:text-amber-500 bg-amber-50 dark:bg-amber-950/20 px-4 py-3 rounded-xl border border-amber-200 dark:border-amber-900 w-full text-sm">
+                        <div className="flex items-center gap-2 text-amber-700 bg-amber-50 px-4 py-3 rounded-xl border border-amber-200 w-full text-sm">
                             <AlertTriangle className="w-5 h-5 shrink-0" />
                             <p>Browser processing uses basic visual snapshots. Exact native margins & page-breaks from Word will not be perfectly preserved.</p>
                         </div>

@@ -1,20 +1,26 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --background: #f8faff;
-  --foreground: #0a0f1e;
+  /* Always light — no dark mode override */
+  color-scheme: light;
+
+  --background: #f7f9ff;
+  --foreground: #08101e;
   --card: #ffffff;
-  --card-foreground: #0a0f1e;
-  --border: #e1e8f0;
-  --muted: #f0f4ff;
-  --muted-foreground: #6b7a99;
+  --card-foreground: #08101e;
+  --border: #dde5f0;
+  --muted: #eef2fb;
+  --muted-foreground: #647191;
   --primary: #05c6ff;
   --primary-foreground: #ffffff;
   --primary-hover: #04aee6;
-  --primary-subtle: #e8faff;
+  --primary-subtle: #e6faff;
   --accent: #0066ff;
   --radius: 1.5rem;
+
+  /* Subtle surface tints */
+  --surface-1: #ffffff;
+  --surface-2: #f3f7ff;
 }
 
 @theme inline {
@@ -28,39 +34,34 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-hover: var(--primary-hover);
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #060912;
-    --foreground: #f0f4ff;
-    --card: #0d1225;
-    --card-foreground: #f0f4ff;
-    --border: #1a2240;
-    --muted: #0d1225;
-    --muted-foreground: #7a8ab0;
-    --primary: #05c6ff;
-    --primary-foreground: #060912;
-    --primary-hover: #38d4ff;
-    --primary-subtle: #051524;
-  }
-}
-
-* {
+/* ── Reset ── */
+*,
+*::before,
+*::after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+html {
+  /* Force browser to render in light mode even on dark-OS devices */
+  color-scheme: light;
+  background-color: #f7f9ff;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100dvh;
 }
 
-/* Custom scrollbar */
+/* ── Custom scrollbar ── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -76,7 +77,7 @@ body {
   background: var(--muted-foreground);
 }
 
-/* Smooth animations */
+/* ── Animations ── */
 @keyframes float {
 
   0%,
@@ -99,6 +100,38 @@ body {
   }
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

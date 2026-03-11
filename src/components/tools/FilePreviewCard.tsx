@@ -18,23 +18,26 @@ export function formatBytes(bytes: number, decimals = 2) {
 
 export function FilePreviewCard({ file, onRemove, isDraggable = false }: FilePreviewCardProps) {
     return (
-        <div className="flex items-center p-4 bg-card border border-border rounded-2xl gap-4 shadow-sm group hover:border-primary/30 hover:shadow-md transition-all duration-300">
+        <div className="flex items-center p-4 bg-card border border-border rounded-2xl gap-4 group hover:border-primary/30 hover:shadow-md transition-all duration-200">
             {isDraggable && (
-                <div className="text-muted-foreground cursor-grab active:cursor-grabbing hover:text-primary transition-colors">
+                <div className="text-muted-foreground cursor-grab active:cursor-grabbing hover:text-primary transition-colors shrink-0">
                     <GripVertical className="w-5 h-5" />
                 </div>
             )}
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <FileText className="w-6 h-6 text-primary" />
+            <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                style={{ background: 'linear-gradient(135deg, rgba(5,198,255,0.15), rgba(0,102,255,0.1))' }}
+            >
+                <FileText className="w-5 h-5 text-primary" />
             </div>
             <div className="flex-1 min-w-0">
                 <p className="text-sm font-bold truncate text-foreground">{file.name}</p>
-                <p className="text-xs text-muted-foreground font-medium">{formatBytes(file.size)}</p>
+                <p className="text-xs text-muted-foreground font-medium mt-0.5">{formatBytes(file.size)}</p>
             </div>
             <button
                 type="button"
                 onClick={onRemove}
-                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-500/10 text-muted-foreground hover:text-red-500 transition-colors"
+                className="w-8 h-8 shrink-0 flex items-center justify-center rounded-lg hover:bg-red-50 text-muted-foreground hover:text-red-500 transition-all duration-150"
             >
                 <X className="w-4 h-4" />
             </button>
