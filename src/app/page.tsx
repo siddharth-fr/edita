@@ -2,7 +2,8 @@ import Link from 'next/link';
 import {
   ShieldCheck, Zap, Globe, ArrowRight, Layers,
 } from 'lucide-react';
-import ToolCard from '@/components/ui/ToolCard';
+import ToolsSection from '@/components/ui/ToolsSection';
+import HeroCardGrid from '@/components/ui/HeroCardGrid';
 
 /* ─────────────────────────────────────────────────────────
   Tool catalogue (used in the tools grid below the fold)
@@ -28,35 +29,35 @@ const tools = [
     - float animation class
     - a unique pastel accent
 ───────────────────────────────────────────────────────── */
-const ambientCards = [
-  // ── Layer 1 — farthest back ──
-  { layer: 1, label: 'Resize Image', category: 'Image', gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)', pos: { top: '5%', left: '10%' }, float: 'float-a', rotate: '-4deg' },
-  { layer: 1, label: 'Compress PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F8F4FF,#EDE5FF)', pos: { top: '55%', left: '8%' }, float: 'float-b-rev', rotate: '3deg' },
-  { layer: 1, label: 'MP4 to MP3', category: 'Audio', gradient: 'linear-gradient(135deg,#F7F5FF,#EEE9FF)', pos: { top: '6%', right: '10%' }, float: 'float-b', rotate: '4deg' },
-  { layer: 1, label: 'Split PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#FFF6EC,#FFEAD8)', pos: { bottom: '8%', right: '8%' }, float: 'float-a-rev', rotate: '-3deg' },
+/*
+  Hero background grid — 5 columns × 3 rows, centre slot (col 2, row 1) is
+  behind the hero text so we omit it. Blur and opacity are computed per-card
+  from geometry, not hardcoded layers.
+*/
+const heroGridCards = [
+  // row 0 — top row (all 5 columns)
+  { label: 'Merge PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)', col: 0, row: 0, rotate: '-3deg' },
+  { label: 'Compress PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F8F4FF,#EDE5FF)', col: 1, row: 0, rotate: '2deg' },
+  { label: 'Image Compressor', category: 'Image', gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)', col: 2, row: 0, rotate: '-1deg' },
+  { label: 'PNG to JPG', category: 'Image', gradient: 'linear-gradient(135deg,#F4FFF9,#E5FBEF)', col: 3, row: 0, rotate: '2.5deg' },
+  { label: 'MP4 to MP3', category: 'Audio', gradient: 'linear-gradient(135deg,#F7F5FF,#EEE9FF)', col: 4, row: 0, rotate: '-2deg' },
 
-  // ── Layer 2 — middle ──
-  { layer: 2, label: 'PDF to Word', category: 'Convert', gradient: 'linear-gradient(135deg,#F2FDFF,#DCF8FF)', pos: { top: '24%', left: '13%' }, float: 'float-c', rotate: '1.5deg' },
-  { layer: 2, label: 'Image Compressor', category: 'Image', gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)', pos: { top: '67%', left: '11%' }, float: 'float-d', rotate: '-2deg' },
-  { layer: 2, label: 'Merge PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)', pos: { top: '22%', right: '13%' }, float: 'float-a-rev', rotate: '-1.5deg' },
-  { layer: 2, label: 'PNG to JPG', category: 'Image', gradient: 'linear-gradient(135deg,#FFF3F7,#FFE5F0)', pos: { top: '70%', right: '11%' }, float: 'float-b', rotate: '2deg' },
+  // row 1 — middle row (skip col 2 — hero text lives there)
+  { label: 'PDF to Word', category: 'Convert', gradient: 'linear-gradient(135deg,#F2FDFF,#DCF8FF)', col: 0, row: 1, rotate: '2deg' },
+  { label: 'Split PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#FFF6EC,#FFEAD8)', col: 1, row: 1, rotate: '-1.5deg' },
+  { label: 'Word to PDF', category: 'Convert', gradient: 'linear-gradient(135deg,#F3F5FF,#E5E9FF)', col: 3, row: 1, rotate: '1.5deg' },
+  { label: 'JPG to PDF', category: 'Image', gradient: 'linear-gradient(135deg,#FFF3F7,#FFE5F0)', col: 4, row: 1, rotate: '-2.5deg' },
 
-  // ── Layer 3 — nearest bg ──
-  { layer: 3, label: 'Word to PDF', category: 'Convert', gradient: 'linear-gradient(135deg,#F3F5FF,#E5E9FF)', pos: { top: '40%', left: '17%' }, float: 'float-a', rotate: '0.5deg' },
-  { layer: 3, label: 'JPG to PDF', category: 'Image', gradient: 'linear-gradient(135deg,#FFF3F7,#FFE5F0)', pos: { top: '41%', right: '17%' }, float: 'float-c', rotate: '-0.5deg' },
+  // row 2 — bottom row (all 5 columns)
+  { label: 'PDF to JPG', category: 'Image', gradient: 'linear-gradient(135deg,#FFF4F4,#FFE7E7)', col: 0, row: 2, rotate: '-2deg' },
+  { label: 'Resize Image', category: 'Image', gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)', col: 1, row: 2, rotate: '1deg' },
+  { label: 'Audio Extract', category: 'Audio', gradient: 'linear-gradient(135deg,#F7F5FF,#EEE9FF)', col: 2, row: 2, rotate: '-1.5deg' },
+  { label: 'Merge PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F8F4FF,#EDE5FF)', col: 3, row: 2, rotate: '2deg' },
+  { label: 'Image Crop', category: 'Image', gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)', col: 4, row: 2, rotate: '-1deg' },
 ];
 
-/* Layer visual parameters */
-const layerStyle: Record<number, {
-  opacity: number;
-  blur: string;
-  scale: number;
-  saturate: string;
-}> = {
-  1: { opacity: 0.42, blur: 'blur(8px)', scale: 1.13, saturate: 'saturate(0.55)' },
-  2: { opacity: 0.56, blur: 'blur(4px)', scale: 1.07, saturate: 'saturate(0.70)' },
-  3: { opacity: 0.68, blur: 'blur(2px)', scale: 1.02, saturate: 'saturate(0.82)' },
-};
+/* Grid geometry constants — now live inside HeroCardGrid.tsx */
+
 
 /* ─────────────────────────────────────────────────────────
   Page
@@ -117,184 +118,166 @@ export default function Home() {
           />
         </div>
 
-        {/* ── Ambient depth-layer floating cards (new folder style) ── */}
-        <div className="pointer-events-none select-none absolute inset-0 overflow-visible hidden lg:block">
-          {ambientCards.map((card) => {
-            const lp = layerStyle[card.layer];
-            return (
-              <div
-                key={`${card.label}-${card.layer}`}
-                className={`absolute ${card.float}`}
-                style={{
-                  ...card.pos,
-                  opacity: lp.opacity,
-                  filter: `${lp.blur} ${lp.saturate}`,
-                  transform: `scale(${lp.scale}) rotate(${card.rotate})`,
-                  transformOrigin: 'center center',
-                  width: 156,
-                }}
-              >
-                {/* New folder-style card — matches the tools grid design */}
-                <div style={{ position: 'relative', width: '100%', aspectRatio: '4 / 3' }}>
-                  {/* Card shell */}
-                  <div style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '100%',
-                    background: '#ffffff',
-                    borderRadius: 18,
-                    padding: 3,
-                    overflow: 'hidden',
-                    boxShadow: '0 6px 24px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.9)',
-                  }}>
-                    {/* Pastel gradient fill */}
-                    <div style={{
-                      position: 'absolute',
-                      inset: 3,
-                      borderRadius: 15,
-                      background: card.gradient,
-                      overflow: 'hidden',
-                    }}>
-                      {/* Ambient light */}
-                      <div style={{
-                        position: 'absolute', inset: 0,
-                        background: 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.5), transparent 70%)',
-                      }} />
-                    </div>
 
-                    {/* White folder body (bottom 58%) */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: 3, left: 3, right: 3,
-                      height: '58%',
-                      background: '#ffffff',
-                      borderRadius: '0 0 14px 14px',
-                      padding: '10px 12px 10px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'flex-end',
-                    }}>
-                      {/* Category notch tab */}
-                      <div style={{
-                        position: 'absolute',
-                        top: -20, left: 0,
-                        width: '55%', height: 20,
-                        background: '#ffffff',
-                        borderRadius: '7px 7px 0 0',
-                        padding: '3px 10px 0 12px',
-                        fontSize: 8,
-                        fontWeight: 600,
-                        letterSpacing: '0.07em',
-                        color: '#9CA3AF',
-                        textTransform: 'uppercase',
-                      }}>
-                        {card.category}
-                      </div>
-                      {/* Curve seam */}
-                      <div style={{
-                        position: 'absolute',
-                        top: -20, left: '55%',
-                        width: 12, height: 20,
-                        background: 'transparent',
-                        boxShadow: '-6px 6px 0 0 #ffffff',
-                        borderRadius: '0 0 0 7px',
-                      }} />
-                      {/* Card label */}
-                      <p style={{
-                        margin: 0, fontSize: 11, fontWeight: 600,
-                        color: '#1F2937', letterSpacing: '-0.01em', lineHeight: 1.3,
-                      }}>
-                        {card.label}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {/* ── Hero background grid (shuffled each load by client component) ── */}
+        <HeroCardGrid cards={heroGridCards} />
+
 
         {/* ── Hero content — sits above everything ── */}
-        <div className="relative z-10 flex flex-col items-center text-center max-w-[540px] px-2 py-16 sm:py-20">
+        <div className="relative z-10 flex flex-col items-center text-center max-w-[520px] px-4 py-20 sm:py-24">
 
 
-          {/* Badge — soft mint pill */}
+          {/* ── Decorative green-white aurora behind the title ── */}
+          {/* Outer diffuse green bloom */}
           <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-8 tracking-wide"
+            className="pointer-events-none absolute -z-[1]"
             style={{
-              background: 'rgba(167,243,208,0.25)',
-              border: '1px solid rgba(52,211,153,0.35)',
-              color: '#0D7A4E',
+              top: '40%', left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 480, height: 320,
+              background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.22) 0%, rgba(249, 255, 253, 0.1) 40%, transparent 70%)',
+              filter: 'blur(2px)',
+            }}
+          />
+          {/* Inner brighter emerald core */}
+          <div
+            className="pointer-events-none absolute -z-[1]"
+            style={{
+              top: '22%', left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 260, height: 160,
+              background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.28) 0%, transparent 65%)',
+              filter: 'blur(1px)',
+            }}
+          />
+          {/* White softener — bleeds the glow into the page bg */}
+          <div
+            className="pointer-events-none absolute -z-[1]"
+            style={{
+              top: '22%', left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 340, height: 200,
+              background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.18) 45%, transparent 70%)',
+            }}
+          />
+
+          {/* ── Status chip ── */}
+          <div
+            className="inline-flex items-center gap-2 mb-9"
+            style={{
+              padding: '6px 14px',
+              borderRadius: 999,
+              border: '1px solid rgba(52, 211, 153, 0.25)',
+              background: 'rgba(197, 255, 234, 0.08)',
+              color: '#065F46',
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: '-0.01em',
             }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Browser-native · Zero uploads · Always free
+
+            <span>100% Private & Free</span>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-5xl sm:text-6xl xl:text-[70px] font-black tracking-[-0.04em] leading-[0.9] mb-5">
-            <span className="block" style={{ color: '#1E1B2E' }}>All your file tools.</span>
-            <span
-              className="block mt-2"
-              style={{
-                background: 'linear-gradient(130deg, #34D399 0%, #1A9B68 50%, #059669 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Right here.
-            </span>
+          {/* ── Headline ── */}
+          <h1 style={{
+            margin: '0 0 22px',
+            fontFamily: 'var(--font-display), sans-serif',
+            fontWeight: 800,
+            letterSpacing: '-0.04em',
+            lineHeight: 0.92,
+            fontSize: 'clamp(52px, 7.5vw, 78px)',
+            overflow: 'visible',
+          }}>
+            <span style={{ display: 'block', color: '#0C0F17' }}>The file tools</span>
+            <span style={{
+              display: 'block',
+              marginTop: 6,
+              paddingBottom: '0.15em',
+              background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>you need.</span>
           </h1>
 
-          {/* Sub */}
-          <p
-            className="text-[15px] sm:text-base leading-relaxed font-medium mb-9 max-w-[340px]"
-            style={{ color: '#8892A4' }}
-          >
-            Convert, compress and edit PDFs, images and audio — entirely in your browser. Nothing is ever sent anywhere.
+          {/* ── Subtext ── */}
+          <p style={{
+            margin: '0 0 36px',
+            fontSize: 15,
+            fontWeight: 400,
+            lineHeight: 1.65,
+            letterSpacing: '-0.01em',
+            color: '#6B7280',
+            maxWidth: 300,
+          }}>
+            Convert, compress and edit - entirely in your browser.
+            <br />Nothing ever leaves your device.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+          {/* ── CTAs ── */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 32 }}>
             <a
               href="#tools"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.04] active:scale-[0.97]"
+              className="transition-all duration-200 hover:scale-[1.04] active:scale-[0.97]"
               style={{
+                display: 'inline-flex', alignItems: 'center', gap: 7,
+                padding: '13px 26px',
+                borderRadius: 14,
                 background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
-                boxShadow: '0 10px 30px rgba(5,150,105,0.28), 0 2px 8px rgba(5,150,105,0.15)'
+                boxShadow: '0 8px 26px rgba(5,150,105,0.30)',
+                color: '#fff',
+                fontSize: 14,
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+                textDecoration: 'none',
               }}
             >
               Browse all tools
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight size={15} strokeWidth={2.5} />
             </a>
             <div
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl text-sm font-semibold"
               style={{
-                border: '1px solid rgba(52,211,153,0.25)',
-                background: 'rgba(255,255,255,0.85)',
-                color: '#0D7A4E',
+                display: 'inline-flex', alignItems: 'center', gap: 7,
+                padding: '13px 22px',
+                borderRadius: 14,
+                background: 'rgba(255,255,255,0.78)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(0,0,0,0.08)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                color: '#374151',
+                fontSize: 14,
+                fontWeight: 600,
+                letterSpacing: '-0.02em',
               }}
             >
-              <ShieldCheck className="w-4 h-4" style={{ color: '#34D399' }} />
-              No account needed
+              <ShieldCheck size={15} style={{ color: '#34D399' }} />
+              No sign-up needed
             </div>
           </div>
 
-          {/* Trust row — pill tags */}
-          <div className="flex flex-wrap justify-center gap-2">
+          {/* ── Feature pills ── */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8 }}>
             {[
-              { icon: <Zap className="w-3 h-3" style={{ color: '#FBBF24' }} />, label: 'WebAssembly fast' },
-              { icon: <Globe className="w-3 h-3" style={{ color: '#60A5FA' }} />, label: 'Works offline' },
-              { icon: <ShieldCheck className="w-3 h-3" style={{ color: '#4ADE80' }} />, label: '100% private' },
+              { icon: <Zap size={11} style={{ color: '#F59E0B' }} />, label: 'WebAssembly fast' },
+              { icon: <Globe size={11} style={{ color: '#60A5FA' }} />, label: 'Works offline' },
+              { icon: <ShieldCheck size={11} style={{ color: '#34D399' }} />, label: '100% private' },
             ].map(({ icon, label }) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold"
                 style={{
-                  background: 'rgba(255,255,255,0.75)',
+                  display: 'inline-flex', alignItems: 'center', gap: 5,
+                  padding: '5px 13px',
+                  borderRadius: 999,
+                  background: 'rgba(255,255,255,0.65)',
+                  backdropFilter: 'blur(10px)',
+                  WebkitBackdropFilter: 'blur(10px)',
                   border: '1px solid rgba(0,0,0,0.06)',
-                  color: '#64748B',
+                  fontSize: 11.5,
+                  fontWeight: 600,
+                  color: '#6B7280',
+                  letterSpacing: '-0.015em',
                 }}
               >
                 {icon}{label}
@@ -315,38 +298,7 @@ export default function Home() {
             'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.95) 100%)'
         }}
       >
-        {/* Section header */}
-        <div className="flex items-end justify-between mb-7 sm:mb-9">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-black tracking-tight" style={{ color: '#0F172A' }}>
-              All tools
-            </h2>
-            <p className="text-sm mt-1 font-medium" style={{ color: '#94A3B8' }}>
-              Pick any tool and get started instantly
-            </p>
-          </div>
-          <div
-            className="flex items-center gap-2 text-xs px-3 sm:px-4 py-2 rounded-full font-semibold shadow-sm shrink-0"
-            style={{ color: '#94A3B8', background: '#fff', border: '1px solid #dde5f0' }}
-          >
-            <Layers className="w-3 h-3" style={{ color: '#05c6ff' }} />
-            <span className="hidden sm:inline">{tools.length} tools</span>
-            <span className="sm:hidden">{tools.length}</span>
-          </div>
-        </div>
-
-        {/* Tools grid — Apple folder style */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-7">
-          {tools.map((tool) => (
-            <ToolCard
-              key={tool.slug}
-              name={tool.name}
-              slug={tool.slug}
-              theme={tool.theme as 'blue'}
-              category={tool.category}
-            />
-          ))}
-        </div>
+        <ToolsSection tools={tools} />
 
         {/* Trust strip */}
         <div
