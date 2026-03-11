@@ -5,7 +5,7 @@ import { ShieldCheck, Lock, Globe } from 'lucide-react';
 export default function PrivacyPage() {
   return (
     <main
-      className="flex flex-col items-center w-full min-h-screen py-24 px-4 overflow-hidden relative"
+      className="flex flex-col items-center w-full min-h-screen pb-28 pt-8 relative overflow-x-hidden"
       style={{
         background: '#FAFBFF',
       }}
@@ -27,8 +27,8 @@ export default function PrivacyPage() {
         />
       </div>
 
-      <section className="w-full max-w-4xl relative z-10">
-        <div className="text-center mb-16">
+      <section className="w-full max-w-4xl px-4 sm:px-8 mt-12 mb-10 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-16 relative">
           <div
             className="inline-flex items-center gap-2 mb-6"
             style={{
@@ -47,76 +47,67 @@ export default function PrivacyPage() {
           </div>
 
           <h1 style={{
-            margin: 0,
+            margin: '0 0 18px',
             fontFamily: 'var(--font-display), sans-serif',
-            fontSize: 'clamp(36px, 5vw, 48px)',
             fontWeight: 800,
             letterSpacing: '-0.03em',
-            color: '#0C0F17',
-            marginBottom: '20px',
             lineHeight: 1.1,
+            fontSize: 'clamp(38px, 6vw, 48px)',
+            color: '#0C0F17',
           }}>
             Privacy Policy
           </h1>
           <p style={{
             fontSize: '17px',
             lineHeight: 1.6,
-            color: '#4B5563',
+            color: '#6B7280',
             fontWeight: 400,
-            maxWidth: '600px',
-            margin: '0 auto'
           }}>
             Your data is your business. At EDDIT, we have built our entire architecture around ensuring your files never leave your device.
           </p>
         </div>
 
-        <div className="bg-white rounded-[24px] p-8 sm:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col gap-10">
-          
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-[12px] bg-emerald-50 flex items-center justify-center border border-emerald-100">
-                <Lock size={20} className="text-emerald-600" />
+        <div className="max-w-3xl mx-auto flex flex-col gap-12 sm:gap-16 pt-8">
+
+          <div className="relative">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-[14px] bg-white/60 backdrop-blur-md flex items-center justify-center border border-white/80 shadow-[0_8px_20px_rgba(0,0,0,0.03)]">
+                <Lock size={22} className="text-emerald-500" strokeWidth={2} />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight m-0">Zero Data Collection</h2>
+              <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight m-0">Zero Data Collection</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed m-0 text-[15.5px]">
-              EDDIT operates entirely within your browser utilizing advanced WebAssembly (WASM) technology. When you convert, compress, or manipulate files using our tools, the processing happens directly on your own device's hardware. <strong>We do not upload your files to our servers, we do not store them, and we have absolutely no access to their contents.</strong>
+            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px] pl-[64px]">
+              EDDIT operates entirely within your browser utilizing advanced WebAssembly (WASM) technology. When you convert, compress, or manipulate files using our tools, the processing happens directly on your own device's hardware. <strong className="text-gray-900 font-semibold">We do not upload your files to our servers, we do not store them, and we have absolutely no access to their contents.</strong>
             </p>
           </div>
 
-          <div className="h-px w-full bg-gray-100" />
-
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-[12px] bg-indigo-50 flex items-center justify-center border border-indigo-100">
-                <Globe size={20} className="text-indigo-600" />
+          <div className="relative">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-[14px] bg-white/60 backdrop-blur-md flex items-center justify-center border border-white/80 shadow-[0_8px_20px_rgba(0,0,0,0.03)]">
+                <Globe size={22} className="text-blue-500" strokeWidth={2} />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight m-0">No Accounts, No Tracking</h2>
+              <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight m-0">No Accounts, No Tracking</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed m-0 text-[15.5px]">
+            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px] pl-[64px]">
               We believe privacy implies anonymity. We do not require you to create an account, provide an email address, or log in to use our services. We intentionally avoid integrating intrusive third-party ad-trackers or analytics platforms that profile your personal web behavior.
             </p>
           </div>
 
-          <div className="h-px w-full bg-gray-100" />
-
-          <div>
-             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-[12px] bg-amber-50 flex items-center justify-center border border-amber-100">
-                <ShieldCheck size={20} className="text-amber-600" />
+          <div className="relative">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-[14px] bg-white/60 backdrop-blur-md flex items-center justify-center border border-white/80 shadow-[0_8px_20px_rgba(0,0,0,0.03)]">
+                <ShieldCheck size={22} className="text-amber-500" strokeWidth={2} />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight m-0">Analytics & Cookies</h2>
+              <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight m-0">Analytics & Cookies</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed m-0 text-[15.5px]">
+            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px] pl-[64px]">
               We may utilize completely anonymized, privacy-friendly analytics exclusively to count the aggregate number of page visits and ensure our application is running smoothly. This minimal data cannot be traced back to you. We do not use persistent tracking cookies.
             </p>
           </div>
 
-          <div className="h-px w-full bg-gray-100" />
-
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 tracking-tight mb-4">Updates to this Policy</h2>
-            <p className="text-gray-600 leading-relaxed m-0 text-[15.5px]">
+          <div className="relative pl-[64px]">
+            <h2 className="text-xl sm:text-[22px] font-bold text-gray-900 tracking-tight mb-3">Updates to this Policy</h2>
+            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px]">
               As our platform evolves, we may occasionally update this Privacy Policy. However, our fundamental commitment to local, client-side processing will never change. Any updates will be reflected directly on this page.
             </p>
           </div>

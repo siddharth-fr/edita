@@ -6,7 +6,7 @@ import { CardFace } from '@/components/ui/HeroCardGrid';
 export default function WhyUsPage() {
   return (
     <main
-      className="flex flex-col items-center w-full min-h-screen py-24 px-4 overflow-hidden relative"
+      className="flex flex-col items-center w-full min-h-screen pb-28 pt-8 relative overflow-x-hidden"
       style={{
         background: '#FAFBFF',
       }}
@@ -34,8 +34,8 @@ export default function WhyUsPage() {
         />
       </div>
 
-      <section className="w-full max-w-7xl pt-10 relative flex flex-col items-center">
-        <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
+      <section className="w-full max-w-6xl px-4 sm:px-8 mt-12 mb-10">
+        <div className="text-center max-w-2xl mx-auto mb-16 relative">
           {/* Static Floating Cards decorating the Title */}
           <div className="hidden lg:block absolute -left-32 top-8 -rotate-6 opacity-80" style={{ width: 140, filter: 'blur(0.5px)' }}>
             <CardFace label="Merge PDF" category="PDF" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
@@ -67,14 +67,13 @@ export default function WhyUsPage() {
           </div>
 
           <h1 style={{
-            margin: 0,
+            margin: '0 0 18px',
             fontFamily: 'var(--font-display), sans-serif',
-            fontSize: 'clamp(38px, 6vw, 56px)',
             fontWeight: 800,
             letterSpacing: '-0.03em',
-            color: '#0C0F17',
-            marginBottom: '20px',
             lineHeight: 1.1,
+            fontSize: 'clamp(38px, 6vw, 48px)',
+            color: '#0C0F17',
           }}>
             The Ultimate Selection of <br className="hidden sm:block" />
             <span style={{
@@ -85,12 +84,10 @@ export default function WhyUsPage() {
             }}>Free Online File Tools</span>
           </h1>
           <p style={{
-            fontSize: '18px',
+            fontSize: '17px',
             lineHeight: 1.6,
-            color: '#4B5563',
+            color: '#6B7280',
             fontWeight: 400,
-            maxWidth: '680px',
-            margin: '0 auto'
           }}>
             Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, EDDIT provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
           </p>

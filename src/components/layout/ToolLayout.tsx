@@ -8,7 +8,7 @@ interface ToolLayoutProps {
 
 export function ToolLayout({ title, description, children }: ToolLayoutProps) {
   return (
-    <main className="flex-1 flex flex-col items-center w-full pb-20 sm:pb-24 relative overflow-hidden">
+    <main className="flex-1 flex flex-col items-center w-full min-h-screen pb-28 pt-8 relative overflow-x-hidden">
       
       {/* ── Decorative green-white aurora glow (matching homepage) ── */}
       <div className="pointer-events-none absolute top-0 inset-x-0 -z-10 h-[500px] overflow-hidden">
@@ -46,30 +46,28 @@ export function ToolLayout({ title, description, children }: ToolLayoutProps) {
         />
       </div>
 
-      <div className="max-w-4xl w-full px-5 sm:px-8">
+      <div className="max-w-4xl w-full px-4 sm:px-8 mt-12 mb-10">
         {/* ── Header ── */}
-        <div className="flex flex-col items-center text-center pt-16 sm:pt-20 pb-10 sm:pb-12 max-w-2xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-16 relative">
           <h1
             style={{
+              margin: '0 0 18px',
               fontFamily: 'var(--font-display), sans-serif',
               fontWeight: 800,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.1,
+              fontSize: 'clamp(38px, 6vw, 48px)',
               color: '#0C0F17',
-              letterSpacing: '-0.04em',
-              lineHeight: 0.95,
-              fontSize: 'clamp(36px, 5vw, 56px)',
-              marginBottom: 16,
             }}
           >
             {title}
           </h1>
           <p
             style={{
-              fontSize: 15,
-              fontWeight: 400,
+              fontSize: '17px',
               lineHeight: 1.6,
               color: '#6B7280',
-              letterSpacing: '-0.01em',
-              maxWidth: 420,
+              fontWeight: 400,
             }}
           >
             {description}
