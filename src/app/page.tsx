@@ -342,16 +342,16 @@ export default function Home() {
       <section className="w-full max-w-6xl px-4 sm:px-8 mt-12 mb-10">
         <div className="text-center max-w-2xl mx-auto mb-16 relative">
           {/* Static Floating Cards decorating the Title */}
-          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-40 sm:opacity-60 lg:opacity-80 scale-[0.35] sm:scale-75 lg:scale-100 origin-center -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
+          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-40 sm:opacity-60 lg:opacity-80 scale-[0.35] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 140, filter: 'blur(0.5px)' }}>
             <CardFace label="Merge PDF" category="PDF" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
           </div>
-          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-50 sm:opacity-70 lg:opacity-90 scale-[0.4] sm:scale-75 lg:scale-100 origin-center -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
+          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-50 sm:opacity-70 lg:opacity-90 scale-[0.4] sm:scale-75 lg:scale-100 origin-center pointer-events-none" style={{ width: 125, filter: 'blur(0px)' }}>
             <CardFace label="Image Compressor" category="IMAGE" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
           </div>
-          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-30 sm:opacity-50 lg:opacity-60 scale-[0.35] sm:scale-50 lg:scale-100 origin-center -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
+          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-30 sm:opacity-50 lg:opacity-60 scale-[0.35] sm:scale-50 lg:scale-100 origin-center pointer-events-none" style={{ width: 100, filter: 'blur(1.5px)' }}>
             <CardFace label="Word to PDF" category="CONVERT" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
           </div>
-          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-30 sm:opacity-50 lg:opacity-70 scale-[0.35] sm:scale-[0.55] lg:scale-100 origin-center -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
+          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-30 sm:opacity-50 lg:opacity-70 scale-[0.35] sm:scale-[0.55] lg:scale-100 origin-center pointer-events-none" style={{ width: 110, filter: 'blur(1px)' }}>
             <CardFace label="Split PDF" category="PDF" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
           </div>
           <div
