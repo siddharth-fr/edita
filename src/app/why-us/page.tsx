@@ -35,7 +35,7 @@ export default function WhyUsPage() {
       </div>
 
       <section className="w-full max-w-6xl px-4 sm:px-8 mt-12 mb-10">
-        <div className="text-center max-w-2xl mx-auto mb-16 relative">
+        <div className="text-center max-w-2xl mx-auto mb-16 relative z-0">
           {/* Static Floating Cards decorating the Title */}
           <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
             <CardFace label="Merge PDF" category="PDF" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
