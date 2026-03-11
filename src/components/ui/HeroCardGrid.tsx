@@ -26,7 +26,7 @@ function shuffled<T>(arr: T[]): T[] {
 }
 
 /** Shared folder card face — used by both desktop grid and mobile layout */
-function CardFace({
+export function CardFace({
   label, category, gradient, size,
 }: { label: string; category: string; gradient: string; size: number }) {
   const tabH   = size < 130 ? 14 : 18;
@@ -136,13 +136,13 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
                 left: COL_POSITIONS[card.col],
                 top:  ROW_POSITIONS[card.row],
                 transform: `translate(-50%, -50%) rotate(${card.rotate})`,
-                width: 152,
+                width: 184,
                 opacity,
                 filter: `blur(${blurPx}px) saturate(${saturate})`,
                 transition: 'opacity 0.55s ease',
               }}
             >
-              <CardFace label={card.label} category={card.category} gradient={card.gradient} size={152} />
+              <CardFace label={card.label} category={card.category} gradient={card.gradient} size={184} />
             </div>
           );
         })}
@@ -169,13 +169,13 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
                  left: MOBILE_COLS[slot.col],
                  top: MOBILE_ROWS[slot.row],
                  transform: `translate(-50%, -50%) rotate(${card.rotate})`,
-                 width: 90, // Slightly smaller to ensure 3 columns fit well side-by-side
+                 width: 110, // Slightly smaller to ensure 3 columns fit well side-by-side
                  opacity,
                  filter: `blur(${blurPx}px) saturate(${saturate})`,
                  transition: 'opacity 0.55s ease',
                }}
              >
-               <CardFace label={card.label} category={card.category} gradient={card.gradient} size={90} />
+               <CardFace label={card.label} category={card.category} gradient={card.gradient} size={110} />
              </div>
            );
         })}
