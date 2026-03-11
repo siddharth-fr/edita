@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import {
   ShieldCheck, Zap, Globe, ArrowRight, Layers, Lock, Sparkles,
@@ -65,6 +66,15 @@ const heroGridCards = [
   Page
 ───────────────────────────────────────────────────────── */
 export default function Home() {
+  useEffect(() => {
+    // Prevent browser from restoring scroll position on refresh
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    // Scroll to top on mount
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleBrowseTools = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const element = document.getElementById('tools');
