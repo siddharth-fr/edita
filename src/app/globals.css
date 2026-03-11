@@ -47,6 +47,7 @@
 }
 
 html {
+  scroll-behavior: ease;
   /* Force browser to render in light mode even on dark-OS devices */
   color-scheme: light;
   background-color: #f7f9ff;

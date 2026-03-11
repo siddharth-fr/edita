@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import {
   ShieldCheck, Zap, Globe, ArrowRight, Layers, Lock, Sparkles,
@@ -63,6 +65,18 @@ const heroGridCards = [
   Page
 ───────────────────────────────────────────────────────── */
 export default function Home() {
+  const handleBrowseTools = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById('tools');
+    if (element) {
+      const top = element.getBoundingClientRect().top + window.scrollY - 64; // Adjust for scroll padding
+      window.scrollTo({
+        top,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <main
       className="flex-1 flex flex-col items-center w-full pb-28 relative overflow-x-hidden"
@@ -219,6 +233,7 @@ export default function Home() {
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 32 }}>
             <a
               href="#tools"
+              onClick={handleBrowseTools}
               className="transition-all duration-200 hover:scale-[1.04] active:scale-[0.97]"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
