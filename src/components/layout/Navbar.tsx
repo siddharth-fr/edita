@@ -35,10 +35,10 @@ export function Navbar() {
 
         {/* Symmetric Layout Container */}
         <div
-          className={`relative mx-auto pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] grid grid-cols-[1fr_auto_1fr] items-center ${
+          className={`relative mx-auto pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between ${
             isHome
               ? 'h-[60px] px-5 sm:px-10 w-full max-w-[1200px]'
-              : 'h-[52px] px-5 sm:px-7 w-[calc(100%-24px)] md:w-fit md:min-w-[500px] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.06)] border'
+              : 'h-[52px] px-4 sm:px-6 w-[calc(100%-32px)] md:w-fit md:min-w-[500px] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.06)] border mt-2 sm:mt-0'
           }`}
           style={{
             background: isHome ? 'transparent' : 'rgba(255,255,255,0.85)',
@@ -50,8 +50,8 @@ export function Navbar() {
           {/* LEFT — Logo */}
           <Link
             href="/"
-            className="flex items-center gap-1.5 shrink-0 transition-transform active:scale-95"
-            style={{ textDecoration: 'none', justifySelf: 'start' }}
+            className="flex items-center gap-1.5 shrink-0 transition-transform active:scale-95 z-20"
+            style={{ textDecoration: 'none' }}
           >
             <span
               style={{
@@ -78,7 +78,7 @@ export function Navbar() {
           </Link>
 
           {/* CENTRE — Nav links */}
-          <nav className={`${isHome ? 'hidden md:flex' : 'hidden sm:flex'} items-center gap-1 lg:gap-2 justify-self-center`}>
+          <nav className={`absolute left-1/2 -translate-x-1/2 z-10 ${isHome ? 'hidden md:flex' : 'hidden sm:flex'} items-center gap-1 lg:gap-2`}>
             {NAV_LINKS.map(({ label, href }) => {
               const isActive = pathname.startsWith(href);
               return (
@@ -105,7 +105,7 @@ export function Navbar() {
           </nav>
 
           {/* RIGHT — CTAs + Mobile Dropdown Trigger */}
-          <div style={{ justifySelf: 'end' }} className="shrink-0 flex items-center gap-1.5 sm:gap-3">
+          <div className="shrink-0 flex items-center gap-2 sm:gap-3 z-20">
             {isHome && (
               <Link
                 href="/tools"
@@ -132,7 +132,7 @@ export function Navbar() {
             {/* Hamburger Menu Toggle (Mobile Only) */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`${isHome ? 'md:hidden' : 'sm:hidden'} flex items-center justify-center p-2 -mr-2 rounded-full text-gray-500 active:scale-95 transition-transform`}
+              className={`${isHome ? 'md:hidden' : 'sm:hidden'} flex items-center justify-center p-2 rounded-full transition-colors active:scale-95 ${isHome ? 'text-gray-600 hover:bg-white/50' : 'text-gray-500 hover:bg-black/5'}`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? <X size={22} strokeWidth={2.5} /> : <Menu size={22} strokeWidth={2.5} />}
