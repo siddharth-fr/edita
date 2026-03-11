@@ -44,7 +44,7 @@ export default function ToolsPage() {
 
       <section className="w-full max-w-6xl px-4 sm:px-8 mt-12 mb-10">
         <div className="text-center max-w-2xl mx-auto mb-16 relative">
-          
+
           {/* Static Floating Cards decorating the Title */}
           <div className="hidden lg:block absolute -left-32 top-8 -rotate-6 opacity-80" style={{ width: 140, filter: 'blur(0.5px)' }}>
             <CardFace label="PDF to Word" category="CONVERT" gradient="linear-gradient(135deg,#F2FDFF,#DCF8FF)" size={140} />
@@ -53,10 +53,10 @@ export default function ToolsPage() {
             <CardFace label="JPG to PDF" category="IMAGE" gradient="linear-gradient(135deg,#FFF3F7,#FFE5F0)" size={125} />
           </div>
           <div className="hidden lg:block absolute -right-40 top-36 -rotate-3 opacity-60" style={{ width: 100, filter: 'blur(1.5px)' }}>
-             <CardFace label="PNG to JPG" category="IMAGE" gradient="linear-gradient(135deg,#F4FFF9,#E5FBEF)" size={100} />
+            <CardFace label="PNG to JPG" category="IMAGE" gradient="linear-gradient(135deg,#F4FFF9,#E5FBEF)" size={100} />
           </div>
           <div className="hidden lg:block absolute -left-36 top-40 rotate-6 opacity-70" style={{ width: 110, filter: 'blur(1px)' }}>
-             <CardFace label="Compress PDF" category="PDF" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={110} />
+            <CardFace label="Compress PDF" category="PDF" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={110} />
           </div>
 
           <div
