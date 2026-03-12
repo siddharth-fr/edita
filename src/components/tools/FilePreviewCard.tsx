@@ -19,10 +19,10 @@ export function formatBytes(bytes: number, decimals = 2) {
 export function FilePreviewCard({ file, onRemove, isDraggable = false }: FilePreviewCardProps) {
   return (
     <div 
-      className="flex items-center p-4 bg-white rounded-[18px] gap-4 group transition-all duration-200"
+      className="flex items-center p-4 bg-white rounded-[18px] gap-4 group transition-all duration-300 hover:-translate-y-1"
       style={{
-        border: '1px solid rgba(0,0,0,0.06)',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
+        border: '1px solid rgba(16, 185, 129, 0.12)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.01)',
       }}
     >
       {isDraggable && (

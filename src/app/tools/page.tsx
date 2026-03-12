@@ -105,20 +105,29 @@ export default function ToolsPage() {
         </div>
 
         <div style={{
-          background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 15%, rgba(255,255,255,0.95) 100%)',
+          background: '#FFFFFF',
           borderRadius: 32,
-          padding: '24px 0 40px'
+          padding: '40px 0',
+          border: '1px solid rgba(16, 185, 129, 0.08)',
+          boxShadow: '0 4px 30px rgba(0,0,0,0.01)',
+          position: 'relative',
+          marginTop: '24px'
         }}>
           <ToolsSection tools={tools} />
 
           {/* Trust strip */}
           <div
-            className="mt-14 pt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold"
-            style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
+            className="mt-14 pt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-xs font-semibold"
+            style={{ 
+              borderTop: '1px solid rgba(16, 185, 129, 0.06)', 
+              color: '#8b9cbd',
+              margin: '0 40px',
+              paddingTop: '32px'
+            }}
           >
-            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />Files never leave your device</span>
-            <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-amber-400" />WebAssembly-powered</span>
-            <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5" style={{ color: '#05c6ff' }} />No account required · Always free</span>
+            <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-emerald-500" />Files never leave your device</span>
+            <span className="flex items-center gap-2"><Zap className="w-4 h-4 text-amber-500" />WebAssembly-powered</span>
+            <span className="flex items-center gap-2"><Globe className="w-4 h-4 text-blue-400" />No account required · Always free</span>
           </div>
         </div>
       </section>

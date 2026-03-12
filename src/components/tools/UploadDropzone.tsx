@@ -1,5 +1,6 @@
 'use client';
 import { useCallback, useState } from 'react';
+import { CardFace } from '@/components/ui/HeroCardGrid';
 
 interface UploadDropzoneProps {
   onUpload: (files: File[]) => void;
@@ -48,16 +49,16 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
       onDragLeave={handleDrag}
       onDragOver={handleDrag}
       onDrop={handleDrop}
-      className="relative flex flex-col items-center justify-center w-full min-h-[300px] text-center cursor-pointer overflow-hidden border-2"
+      className="relative flex flex-col items-center justify-center w-full min-h-[320px] text-center cursor-pointer overflow-hidden"
       style={{
-        borderRadius: 24,
-        background: isDragging ? 'rgba(52, 211, 153, 0.04)' : '#ffffff',
-        borderColor: isDragging ? 'rgba(52, 211, 153, 0.4)' : 'rgba(0,0,0,0.06)',
-        borderStyle: isDragging ? 'solid' : 'dashed',
-        boxShadow: isDragging 
-            ? '0 0 0 4px rgba(52,211,153,0.08), 0 20px 40px rgba(52,211,153,0.05)'
-            : '0 2px 10px rgba(0,0,0,0.02)',
-        transform: isDragging ? 'scale(1.02)' : 'scale(1)',
+        borderRadius: 32,
+        background: isDragging ? 'rgba(52, 211, 153, 0.03)' : '#ffffff',
+        border: '2px dotted',
+        borderColor: isDragging ? '#10B981' : 'rgba(16, 185, 129, 0.25)',
+        boxShadow: isDragging
+          ? '0 20px 40px rgba(52,211,153,0.06)'
+          : '0 4px 20px rgba(0,0,0,0.01)',
+        transform: isDragging ? 'translateY(-2px)' : 'none',
         transition: `all 0.4s ${SPRING}`,
       }}
     >
@@ -70,101 +71,51 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
         title=""
       />
 
-      <div className="flex flex-col items-center pointer-events-none">
-        
-        {/* Miniature Green Folder/Toolcard */}
-        <div 
-          style={{ 
-            position: 'relative', 
-            width: 48, 
-            height: 38, 
-            marginBottom: 20,
-            transform: isDragging ? 'scale(1.1) translateY(-4px)' : 'scale(1)',
-            transition: `all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)`,
-          }}
-        >
-          {/* Subtle back shadow/card to give depth */}
-          <div style={{
-            position: 'absolute', top: 3, left: 3, right: -3, bottom: -3,
-            background: 'rgba(52,211,153,0.15)', borderRadius: 10, transform: 'rotate(6deg)',
-            transition: 'all 0.4s ease'
-          }} />
-          
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: '#ffffff', borderRadius: 10,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.95)',
-          }}>
-             {/* Gradient top area */}
-             <div style={{
-                 position: 'absolute', inset: 2, borderRadius: 8,
-                 background: 'linear-gradient(135deg, #34D399, #059669)',
-                 overflow: 'hidden'
-             }}>
-                 <div style={{
-                     position: 'absolute', inset: 0,
-                     background: 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 70%)',
-                 }} />
-             </div>
-             
-             {/* White folder body bottom half */}
-             <div style={{
-                 position: 'absolute', bottom: 2, left: 2, right: 2, height: '56%',
-                 background: '#ffffff', borderRadius: '0 0 7px 7px',
-             }}>
-                 {/* Folder notch tab */}
-                 <div style={{
-                     position: 'absolute', top: -6, left: 0, width: '45%', height: 6,
-                     background: '#ffffff', borderRadius: '4px 4px 0 0',
-                 }} />
-                 <div style={{
-                     position: 'absolute', top: -6, left: '45%', height: 6, width: 6,
-                     boxShadow: '-3px 3px 0 0 #ffffff', borderRadius: '0 0 0 4px',
-                 }} />
-             </div>
-          </div>
-        </div>
+      <div className="flex flex-col items-center pointer-events-none px-8">
 
-        <h3 
-            style={{
-                fontFamily: 'var(--font-display), sans-serif',
-                fontSize: 24,
-                fontWeight: 800,
-                color: '#0C0F17',
-                letterSpacing: '-0.03em',
-                marginBottom: 4,
-            }}
-        >
-          {isDragging ? 'Drop to upload' : 'Select files'}
-        </h3>
-        
-        <p style={{
-            fontSize: 13.5,
-            fontWeight: 500,
-            color: '#8B9CBD',
-            letterSpacing: '-0.01em',
-            marginBottom: 26,
-        }}>
-          or drag and drop them here
-        </p>
-
-        {/* Minimal CTA pill */}
+        {/* Toolcard — Proportional & Sharp (Scaled down from a larger base) */}
         <div
           style={{
-            padding: '7px 20px',
-            borderRadius: 999,
-            background: isDragging ? 'rgba(52,211,153,0.15)' : 'rgba(52,211,153,0.08)',
-            border: '1px solid rgba(52,211,153,0.25)',
-            color: '#065F46',
-            fontSize: 13,
-            fontWeight: 700,
-            letterSpacing: '-0.01em',
-            transition: 'all 0.2s ease',
-            boxShadow: isDragging ? '0 2px 8px rgba(52,211,153,0.1)' : 'none',
+            position: 'relative',
+            width: 140, // Base size for accurate proportions
+            marginBottom: 12,
+            marginTop: -20,
+            transform: `scale(0.58) ${isDragging ? 'translateY(-12px) rotate(8deg)' : 'rotate(3deg)'}`,
+            transition: `all 0.6s ${SPRING}`,
+            filter: 'drop-shadow(0 14px 30px rgba(0,0,0,0.09))',
           }}
         >
-          Browse device
+          <CardFace
+            label="Upload"
+            category="SECURE"
+            gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)"
+            size={140}
+          />
         </div>
+
+        <h3
+          style={{
+            fontFamily: 'var(--font-display), sans-serif',
+            fontSize: 22,
+            fontWeight: 800,
+            color: '#0C0F17',
+            letterSpacing: '-0.025em',
+            marginBottom: 10,
+          }}
+        >
+          {isDragging ? 'Drop to start' : 'Select files to begin'}
+        </h3>
+
+        <p style={{
+          fontSize: 14.5,
+          fontWeight: 500,
+          color: '#64748B',
+          letterSpacing: '-0.01em',
+          maxWidth: '260px',
+          lineHeight: 1.6
+        }}>
+          Drag and drop your files here or click anywhere to browse
+        </p>
       </div>
     </div>
   );

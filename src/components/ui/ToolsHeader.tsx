@@ -67,17 +67,17 @@ export default function ToolsHeader({
               display: 'flex',
               alignItems: 'center',
               gap: 6,
-              padding: '8px 14px',
+              padding: '10px 16px',
               borderRadius: 999,
               background: '#fff',
-              border: `1px solid ${active ? 'rgba(52,211,153,0.5)' : 'rgba(0,0,0,0.08)'}`,
+              border: `1px solid ${active ? '#34D399' : 'rgba(16, 185, 129, 0.12)'}`,
               boxShadow: active
-                ? '0 0 0 3px rgba(52,211,153,0.10), 0 1px 4px rgba(0,0,0,0.04)'
-                : '0 1px 4px rgba(0,0,0,0.04)',
+                ? '0 10px 25px rgba(52,211,153,0.08)'
+                : '0 4px 12px rgba(0,0,0,0.01)',
               cursor: 'text',
-              transition: 'border-color 0.2s ease, box-shadow 0.25s ease',
+              transition: 'all 0.3s ease',
               flex: 1,
-              maxWidth: 300,
+              maxWidth: 320,
             }}
           >
             <Search

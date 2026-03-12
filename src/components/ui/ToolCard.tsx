@@ -56,11 +56,12 @@ export default function ToolCard({
           borderRadius: '22px',
           padding: '4px',
           overflow: 'hidden',
-          transition: 'all .28s ease',
-          transform: hovered ? 'translateY(-4px)' : 'none',
+          transition: 'all .4s cubic-bezier(0.16, 1, 0.3, 1)',
+          transform: hovered ? 'translateY(-6px)' : 'none',
+          border: '1px solid rgba(16, 185, 129, 0.08)',
           boxShadow: hovered
-            ? '0 18px 40px rgba(0,0,0,0.08)'
-            : '0 8px 20px rgba(0,0,0,0.04)'
+            ? '0 25px 50px rgba(16, 185, 129, 0.08), 0 10px 20px rgba(0,0,0,0.02)'
+            : '0 8px 20px rgba(0,0,0,0.02)'
         }}
       >
 
