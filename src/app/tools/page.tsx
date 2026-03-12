@@ -20,7 +20,7 @@ const tools = [
 export default function ToolsPage() {
   return (
     <main
-      className="flex-1 flex flex-col items-center w-full pb-28 pt-28 relative"
+      className="flex-1 flex flex-col items-center w-full pb-28 pt-28 relative overflow-x-clip"
       style={{
         background: '#FAFBFF',
       }}
