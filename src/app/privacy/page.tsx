@@ -78,7 +78,7 @@ export default function PrivacyPage() {
               color: '#6B7280',
               fontWeight: 400,
             }}>
-              Your privacy is our highest priority at EDDIT. We've designed our platform from the ground up to ensure your files remain exclusively yours. By leveraging in-browser processing, your data never hits our servers, guaranteeing absolute confidentiality. 
+              Your privacy is our highest priority at Edita. We've designed our platform from the ground up to ensure your files remain exclusively yours. By leveraging in-browser processing, your data never hits our servers, guaranteeing absolute confidentiality. 
             </p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight m-0">Zero Data Collection</h2>
             </div>
             <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px] pl-[64px]">
-              EDDIT operates entirely within your browser utilizing advanced WebAssembly (WASM) technology. When you convert, compress, or manipulate files using our tools, the processing happens directly on your own device's hardware. <strong className="text-gray-900 font-semibold">We do not upload your files to our servers, we do not store them, and we have absolutely no access to their contents.</strong>
+              Edita operates entirely within your browser utilizing advanced WebAssembly (WASM) technology. When you convert, compress, or manipulate files using our tools, the processing happens directly on your own device's hardware. <strong className="text-gray-900 font-semibold">We do not upload your files to our servers, we do not store them, and we have absolutely no access to their contents.</strong>
             </p>
           </div>
 

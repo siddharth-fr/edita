@@ -72,7 +72,7 @@ export function Footer() {
                                     lineHeight: 1,
                                 }}
                             >
-                                eddit
+                                edita
                             </span>
                             <span
                                 style={{
@@ -164,7 +164,7 @@ export function Footer() {
                     style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}
                 >
                     <div style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500 }}>
-                        © {new Date().getFullYear()} eddit. All rights reserved.
+                        © {new Date().getFullYear()} edita. All rights reserved.
                     </div>
                     <div className="flex gap-6">
                         <Link href="/#privacy" style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500, textDecoration: 'none' }} className="hover:text-[#111827]">

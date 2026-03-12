@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://eddit.com';
+    const baseUrl = 'https://edita.com';
 
     const tools = [
         'merge-pdf', 'compress-pdf', 'split-pdf', 'pdf-to-word',

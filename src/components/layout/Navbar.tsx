@@ -64,7 +64,7 @@ export function Navbar() {
                 lineHeight: 1,
               }}
             >
-              eddit
+              edita
             </span>
             <span
               style={{

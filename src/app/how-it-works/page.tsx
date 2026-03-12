@@ -89,7 +89,7 @@ export default function HowItWorksPage() {
               color: '#6B7280',
               fontWeight: 400,
             }}>
-              EDDIT is designed to be powerful yet remarkably simple. 
+              Edita is designed to be powerful yet remarkably simple. 
               Everything happens right in your browser, keeping your data entirely private.
             </p>
           </div>
@@ -175,7 +175,7 @@ export default function HowItWorksPage() {
             {
               icon: <Lock size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
               title: "Privacy by Design",
-              desc: "Unlike traditional online tools that upload your files to a central server, EDDIT runs entirely in your web browser. Using advanced technologies like WebAssembly (WASM), we bring the processing power to your computer.",
+              desc: "Unlike traditional online tools that upload your files to a central server, Edita runs entirely in your web browser. Using advanced technologies like WebAssembly (WASM), we bring the processing power to your computer.",
               gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)',
               category: 'SECURITY'
             },

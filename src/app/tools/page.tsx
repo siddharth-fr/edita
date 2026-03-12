@@ -99,7 +99,7 @@ export default function ToolsPage() {
               color: '#6B7280',
               fontWeight: 400,
             }}>
-              Discover our complete collection of fast, secure, and free online file tools. From PDF conversion and compression to robust image editing, EDDIT has everything you need to manage your files effortlessly right in your browser.
+              Discover our complete collection of fast, secure, and free online file tools. From PDF conversion and compression to robust image editing, Edita has everything you need to manage your files effortlessly right in your browser.
             </p>
           </div>
         </div>

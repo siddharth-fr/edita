@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import MergePdfClient from './MergePdfClient';
 
 export const metadata: Metadata = {
-    title: 'Merge PDF – Edit',
+    title: 'Merge PDF – Edita',
     description: 'Combine multiple PDFs into a single file quickly and securely in your browser.',
     alternates: {
         canonical: '/tools/merge-pdf',

@@ -1,6 +1,6 @@
 {
-    "name": "Edit (EDDIT)",
-    "short_name": "Edit",
+    "name": "Edita",
+    "short_name": "Edita",
     "description": "Fast. Private. Browser-based file tools.",
     "start_url": "/",
     "display": "standalone",

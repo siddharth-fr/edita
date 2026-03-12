@@ -19,7 +19,7 @@ const displayFont = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Edit – Fast. Private. Browser-based file tools.",
+  title: "Edita – Fast. Private. Browser-based file tools.",
   description: "Browser-based file editing and conversion platform that runs tools locally in the user's browser whenever possible.",
   manifest: '/manifest.json',
 };

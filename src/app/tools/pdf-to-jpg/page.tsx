@@ -3,7 +3,7 @@ import { ToolLayout } from '@/components/layout/ToolLayout';
 import { PdfToJpgClient } from '@/components/tools/PdfToJpgClient';
 
 export const metadata: Metadata = {
-  title: 'PDF to JPG – Edit',
+  title: 'PDF to JPG – Edita',
   description: 'Extract images from your PDFs.',
   alternates: { canonical: '/tools/pdf-to-jpg' },
 };

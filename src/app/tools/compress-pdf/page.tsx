@@ -3,7 +3,7 @@ import { ToolLayout } from '@/components/layout/ToolLayout';
 import { CompressPdfClient } from '@/components/tools/CompressPdfClient';
 
 export const metadata: Metadata = {
-  title: 'Compress PDF – Edit',
+  title: 'Compress PDF – Edita',
   description: 'Reduce the file size of your PDFs.',
   alternates: { canonical: '/tools/compress-pdf' },
 };

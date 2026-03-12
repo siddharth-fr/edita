@@ -385,7 +385,7 @@ export default function Home() {
             color: '#6B7280',
             fontWeight: 400,
           }}>
-            EDDIT is designed to be powerful yet remarkably simple. 
+            Edita is designed to be powerful yet remarkably simple. 
             Everything happens right in your browser, keeping your data entirely private.
           </p>
         </div>
@@ -496,7 +496,7 @@ export default function Home() {
                 letterSpacing: '-0.01em',
               }}
             >
-              <span>Why Choose EDDIT?</span>
+              <span>Why Choose Edita?</span>
             </div>
 
 
@@ -523,7 +523,7 @@ export default function Home() {
               color: '#6B7280',
               fontWeight: 400,
             }}>
-              Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, EDDIT provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
+              Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, Edita provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
             </p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { ToolLayout } from '@/components/layout/ToolLayout';
 import { PdfToWordClient } from '@/components/tools/PdfToWordClient';
 
 export const metadata: Metadata = {
-  title: 'PDF to Word – Edit',
+  title: 'PDF to Word – Edita',
   description: 'Convert PDFs to editable Word documents.',
   alternates: { canonical: '/tools/pdf-to-word' },
 };

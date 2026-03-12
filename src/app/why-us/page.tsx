@@ -64,7 +64,7 @@ export default function WhyUsPage() {
                 letterSpacing: '-0.01em',
               }}
             >
-              <span>Why Choose EDDIT?</span>
+              <span>Why Choose Edita?</span>
             </div>
 
           <h1 style={{
@@ -90,7 +90,7 @@ export default function WhyUsPage() {
               color: '#6B7280',
               fontWeight: 400,
             }}>
-              Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, EDDIT provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
+              Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, Edita provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
             </p>
           </div>
         </div>
