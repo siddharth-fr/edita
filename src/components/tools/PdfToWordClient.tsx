@@ -115,13 +115,13 @@ export function PdfToWordClient() {
 
                         {isProcessing && (
                             <div className="w-full max-w-md mx-auto mb-4">
-                                <div className="flex justify-between text-sm font-medium mb-2 text-primary">
+                                <div className="flex justify-between text-sm font-medium mb-2 text-emerald-600">
                                     <span>Reading text structure...</span>
                                     <span>{progress}%</span>
                                 </div>
                                 <div className="w-full bg-muted rounded-full h-3 overflow-hidden border border-border/50">
                                     <div
-                                        className="bg-primary h-full transition-all duration-300"
+                                        className="bg-emerald-500 h-full transition-all duration-300"
                                         style={{ width: `${progress}%` }}
                                     />
                                 </div>
@@ -147,7 +147,7 @@ export function PdfToWordClient() {
                                 </div>
 
                                 <a href={result.url} download={`${file.name.replace(/\.pdf$/i, '')}.docx`}>
-                                    <Button size="lg" className="shadow-lg shadow-primary/20 bg-blue-600 hover:bg-blue-700 text-white">
+                                    <Button size="lg" className="shadow-lg shadow-primary/20 bg-emerald-600 hover:bg-emerald-700 text-white">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download Word Document
                                     </Button>

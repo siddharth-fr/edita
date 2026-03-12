@@ -287,7 +287,7 @@ export default function Home() {
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8 }}>
             {[
               { icon: <Zap size={11} style={{ color: '#F59E0B' }} />, label: 'WebAssembly fast' },
-              { icon: <Globe size={11} style={{ color: '#60A5FA' }} />, label: 'Works offline' },
+              { icon: <Globe size={11} style={{ color: '#10B981' }} />, label: 'Works offline' },
               { icon: <ShieldCheck size={11} style={{ color: '#34D399' }} />, label: '100% private' },
             ].map(({ icon, label }) => (
               <span
@@ -330,7 +330,7 @@ export default function Home() {
         >
           <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />Files never leave your device</span>
           <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-amber-400" />WebAssembly-powered</span>
-          <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5" style={{ color: '#05c6ff' }} />No account required · Always free</span>
+          <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5" style={{ color: '#10B981' }} />No account required · Always free</span>
         </div>
       </section>
 
@@ -413,8 +413,8 @@ export default function Home() {
               step: "03",
               title: "Instant Save",
               desc: "Get your processed file in seconds and download it directly to your folder.",
-              icon: <Download size={28} style={{ color: '#2563EB' }} />,
-              gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)'
+              icon: <Download size={28} style={{ color: '#059669' }} />,
+              gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)'
             }
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center group">
@@ -545,10 +545,10 @@ export default function Home() {
               category: 'PERFORMANCE'
             },
             {
-              icon: <Globe size={22} style={{ color: '#2563EB' }} strokeWidth={2.5} />,
+              icon: <Globe size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
               title: "Free With No Limits",
               desc: "Access premium PDF and image tools with zero paywalls, and absolutely no account required.",
-              gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)',
+              gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)',
               category: 'ACCESS'
             },
             {

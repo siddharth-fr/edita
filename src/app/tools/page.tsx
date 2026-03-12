@@ -127,7 +127,7 @@ export default function ToolsPage() {
           >
             <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-emerald-500" />Files never leave your device</span>
             <span className="flex items-center gap-2"><Zap className="w-4 h-4 text-amber-500" />WebAssembly-powered</span>
-            <span className="flex items-center gap-2"><Globe className="w-4 h-4 text-blue-400" />No account required · Always free</span>
+            <span className="flex items-center gap-2"><Globe className="w-4 h-4 text-emerald-500" />No account required · Always free</span>
           </div>
         </div>
       </section>

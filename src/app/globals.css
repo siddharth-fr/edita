@@ -11,11 +11,11 @@
   --border: #dde5f0;
   --muted: #eef2fb;
   --muted-foreground: #647191;
-  --primary: #05c6ff;
+  --primary: #10B981;
   --primary-foreground: #ffffff;
-  --primary-hover: #04aee6;
-  --primary-subtle: #e6faff;
-  --accent: #0066ff;
+  --primary-hover: #059669;
+  --primary-subtle: #ECFDF5;
+  --accent: #34D399;
   --radius: 1.5rem;
 
   /* Subtle surface tints */
