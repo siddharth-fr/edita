@@ -13,16 +13,23 @@ interface Tool {
 
 export default function ToolsSection({ tools }: { tools: Tool[] }) {
   const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('All');
+
+  const categories = useMemo(() => {
+    const cats = Array.from(new Set(tools.map(t => t.category)));
+    return ['All', ...cats];
+  }, [tools]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return tools;
-    return tools.filter(
-      t =>
+    return tools.filter(t => {
+      const matchesQuery = !q || 
         t.name.toLowerCase().includes(q) ||
-        t.category.toLowerCase().includes(q)
-    );
-  }, [tools, query]);
+        t.category.toLowerCase().includes(q);
+      const matchesCategory = category === 'All' || t.category === category;
+      return matchesQuery && matchesCategory;
+    });
+  }, [tools, query, category]);
 
   return (
     <>
@@ -31,6 +38,9 @@ export default function ToolsSection({ tools }: { tools: Tool[] }) {
         filteredCount={filtered.length}
         query={query}
         onSearch={setQuery}
+        selectedCategory={category}
+        onCategoryChange={setCategory}
+        categories={categories}
       />
 
       {filtered.length === 0 ? (
