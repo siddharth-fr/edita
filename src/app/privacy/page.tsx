@@ -31,18 +31,18 @@ export default function PrivacyPage() {
       <section className="w-full max-w-4xl px-4 sm:px-8 mt-12 mb-10 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16 relative z-0">
           
-          {/* Static Floating Cards decorating the Title */}
-          <div className="absolute -left-3 sm:-left-12 lg:-left-32 top-[-10px] sm:top-2 lg:top-8 -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
-            <CardFace label="Privacy Shield" category="SECURITY" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
+          {/* Static Floating Cards decorating the Title — Differentiated for Privacy */}
+          <div className="absolute -left-12 sm:-left-32 lg:-left-56 top-[-40px] sm:top-[-60px] lg:top-[-80px] -rotate-12 opacity-60 sm:opacity-60 lg:opacity-75 scale-[0.55] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
+            <CardFace label="Zero Log" category="ANONYMOUS" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
           </div>
-          <div className="absolute -right-3 sm:-right-12 lg:-right-28 top-[-20px] sm:top-[-10px] lg:top-2 rotate-3 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
-            <CardFace label="Local Processing" category="WASM" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
+          <div className="absolute -right-12 sm:-right-32 lg:-right-56 top-[-20px] sm:top-[-40px] lg:top-[-50px] rotate-12 opacity-60 sm:opacity-70 lg:opacity-85 scale-[0.6] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
+            <CardFace label="End-to-End" category="SECURE" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
           </div>
-          <div className="absolute -right-6 sm:-right-20 lg:-right-40 top-[50px] sm:top-[70px] lg:top-36 -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
-             <CardFace label="No Tracking" category="PRIVACY" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
+          <div className="absolute -right-8 sm:-right-24 lg:-right-60 top-[180px] sm:top-[240px] lg:top-[300px] -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
+             <CardFace label="No Tracking" category="USER" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
           </div>
-          <div className="absolute -left-6 sm:-left-16 lg:-left-36 top-[60px] sm:top-[80px] lg:top-40 rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
-             <CardFace label="Secure Docs" category="PROTECT" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
+          <div className="absolute -left-8 sm:-left-24 lg:-left-60 top-[160px] sm:top-[220px] lg:top-[280px] rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
+             <CardFace label="Encrypted" category="LOCAL" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
           </div>
 
           <div className="relative z-10 w-full flex flex-col items-center">

@@ -30,8 +30,9 @@ const CATEGORIES = [
     {
         title: 'Company',
         links: [
-            { label: 'Why Us', href: '/#why-us' },
-            { label: 'Privacy Policy', href: '/#privacy' },
+            { label: 'How it Works', href: '/how-it-works' },
+            { label: 'Why Us', href: '/why-us' },
+            { label: 'Privacy Policy', href: '/privacy' },
             { label: 'Terms of Service', href: '/#terms' },
             { label: 'Contact', href: '/#contact' },
         ],

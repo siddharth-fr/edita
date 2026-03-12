@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Tools',   href: '/tools'   },
+  { label: 'How it Works', href: '/how-it-works' },
   { label: 'Why Us',  href: '/why-us'   },
   { label: 'Privacy', href: '/privacy' },
 ];
@@ -38,7 +39,7 @@ export function Navbar() {
           className={`relative mx-auto pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between ${
             isHome
               ? 'h-[60px] px-5 sm:px-10 w-full max-w-[1200px]'
-              : 'h-[52px] px-4 sm:px-6 w-[calc(100%-32px)] md:w-fit md:min-w-[500px] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.06)] border mt-2 sm:mt-0'
+              : 'h-[52px] px-4 sm:px-6 w-[calc(100%-32px)] md:w-fit md:min-w-[620px] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.06)] border mt-2 sm:mt-0'
           }`}
           style={{
             background: isHome ? 'transparent' : 'rgba(255,255,255,0.85)',
@@ -50,7 +51,7 @@ export function Navbar() {
           {/* LEFT — Logo */}
           <Link
             href="/"
-            className="flex items-center gap-1.5 shrink-0 transition-transform active:scale-95 z-20"
+            className="flex items-center gap-1.5 shrink-0 transition-transform active:scale-95 z-20 whitespace-nowrap"
             style={{ textDecoration: 'none' }}
           >
             <span
@@ -78,7 +79,7 @@ export function Navbar() {
           </Link>
 
           {/* CENTRE — Nav links */}
-          <nav className={`absolute left-1/2 -translate-x-1/2 z-10 ${isHome ? 'hidden md:flex' : 'hidden sm:flex'} items-center gap-1 lg:gap-2`}>
+          <nav className={`absolute left-1/2 -translate-x-1/2 z-10 ${isHome ? 'hidden md:flex' : 'hidden sm:flex'} items-center gap-1 lg:gap-2 whitespace-nowrap`}>
             {NAV_LINKS.map(({ label, href }) => {
               const isActive = pathname.startsWith(href);
               return (
@@ -95,6 +96,7 @@ export function Navbar() {
                     letterSpacing: '-0.01em',
                     transition: 'all 0.2s ease',
                     background: isActive ? 'rgba(52, 211, 153, 0.1)' : 'transparent',
+                    whiteSpace: 'nowrap',
                   }}
                   className={isActive ? '' : 'hover:text-[#0C0F17] hover:bg-black/[0.04]'}
                 >
