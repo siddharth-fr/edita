@@ -99,7 +99,7 @@ export function PdfToJpgClient() {
                         )}
 
                         {!resultZipUrl ? (
-                            <Button size="lg" onClick={convertPdfToJpg} disabled={isProcessing} isLoading={isProcessing}>
+                            <Button size="lg" onClick={convertPdfToJpg} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
                                 {isProcessing ? 'Processing...' : 'Convert to JPG Images'}
                             </Button>
                         ) : (
@@ -107,8 +107,8 @@ export function PdfToJpgClient() {
                                 <p className="text-sm font-medium text-green-700 bg-green-50 px-4 py-2 rounded-full border border-green-200">
                                     Successfully extracted {progress === 100 ? 'all' : ''} pages!
                                 </p>
-                                <a href={resultZipUrl} download={`${file.name.replace(/\.pdf$/i, '')}_images.zip`}>
-                                    <Button size="lg" className="shadow-lg shadow-primary/20">
+                                <a href={resultZipUrl} download={`${file.name.replace(/\.pdf$/i, '')}_images.zip`} className="w-full sm:w-auto">
+                                    <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download ZIP Archive
                                     </Button>

@@ -144,6 +144,7 @@ export function JpgToPdfClient() {
                                 onClick={convertToPdf}
                                 disabled={imageFiles.length === 0 || isProcessing}
                                 isLoading={isProcessing}
+                                className="w-full sm:w-auto"
                             >
                                 {isProcessing ? 'Converting...' : 'Convert to PDF'}
                             </Button>
@@ -151,8 +152,9 @@ export function JpgToPdfClient() {
                             <a
                                 href={resultUrl}
                                 download="Converted_Images.pdf"
+                                className="w-full sm:w-auto"
                             >
-                                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white shadow-md">
+                                <Button size="lg" className="w-full shadow-lg shadow-emerald-500/20 hover:scale-[1.02] active:scale-[0.98]">
                                     <Download className="w-5 h-5 mr-2" />
                                     Download PDF
                                 </Button>

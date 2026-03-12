@@ -118,8 +118,8 @@ export function WordToPdfClient() {
                                     </div>
                                 </div>
 
-                                <a href={result.url} download={`${file.name.replace(/\.docx$/i, '')}.pdf`}>
-                                    <Button size="lg" className="shadow-lg shadow-primary/20 bg-red-600 hover:bg-red-700 text-white">
+                                <a href={result.url} download={`${file.name.replace(/\.docx$/i, '')}.pdf`} className="w-full sm:w-auto">
+                                    <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download PDF Snapshot
                                     </Button>

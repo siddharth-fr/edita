@@ -109,13 +109,13 @@ export function SplitPdfClient() {
 
                         <div className="flex justify-center pt-4 border-t border-border/50">
                             {!result ? (
-                                <Button size="lg" onClick={splitPdf} disabled={isProcessing} isLoading={isProcessing}>
+                                <Button size="lg" onClick={splitPdf} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
                                     {isProcessing ? 'Splitting...' : 'Split PDF'}
                                 </Button>
                             ) : (
                                 <div className="flex flex-col items-center gap-4 w-full">
-                                    <a href={result} download={`Split_Pages_${startPage}-${endPage}_${file.name}`}>
-                                        <Button size="lg" className="shadow-lg shadow-primary/20 bg-green-600 hover:bg-green-700 text-white">
+                                    <a href={result} download={`Split_Pages_${startPage}-${endPage}_${file.name}`} className="w-full sm:w-auto">
+                                        <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                             <Download className="w-5 h-5 mr-2" />
                                             Download Extracted Pages
                                         </Button>

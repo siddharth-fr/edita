@@ -118,7 +118,7 @@ export function Mp4ToMp3Client() {
                         )}
 
                         {!result ? (
-                            <Button size="lg" onClick={convertVideo} disabled={isProcessing} isLoading={isProcessing}>
+                            <Button size="lg" onClick={convertVideo} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
                                 {isProcessing ? 'Processing Audio...' : 'Extract Audio (MP3)'}
                             </Button>
                         ) : (
@@ -135,8 +135,8 @@ export function Mp4ToMp3Client() {
                                     </div>
                                 </div>
 
-                                <a href={result.url} download={`${file.name.replace(/\.[^/.]+$/, "")}.mp3`}>
-                                    <Button size="lg" className="shadow-lg shadow-primary/20 bg-green-600 hover:bg-green-700 text-white">
+                                <a href={result.url} download={`${file.name.replace(/\.[^/.]+$/, "")}.mp3`} className="w-full sm:w-auto">
+                                    <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download MP3 Audio
                                     </Button>

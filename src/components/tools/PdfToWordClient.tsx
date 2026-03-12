@@ -129,7 +129,7 @@ export function PdfToWordClient() {
                         )}
 
                         {!result ? (
-                            <Button size="lg" onClick={convertPdfToWord} disabled={isProcessing} isLoading={isProcessing}>
+                            <Button size="lg" onClick={convertPdfToWord} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
                                 {isProcessing ? 'Processing Document...' : 'Convert to Word (.docx)'}
                             </Button>
                         ) : (
@@ -146,8 +146,8 @@ export function PdfToWordClient() {
                                     </div>
                                 </div>
 
-                                <a href={result.url} download={`${file.name.replace(/\.pdf$/i, '')}.docx`}>
-                                    <Button size="lg" className="shadow-lg shadow-primary/20 bg-emerald-600 hover:bg-emerald-700 text-white">
+                                <a href={result.url} download={`${file.name.replace(/\.pdf$/i, '')}.docx`} className="w-full sm:w-auto">
+                                    <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download Word Document
                                     </Button>

@@ -64,7 +64,7 @@ export function CompressPdfClient() {
 
                         <div className="flex justify-center">
                             {!result ? (
-                                <Button size="lg" onClick={compressPdf} disabled={isProcessing} isLoading={isProcessing}>
+                                <Button size="lg" onClick={compressPdf} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
                                     {isProcessing ? 'Compressing...' : 'Compress PDF'}
                                 </Button>
                             ) : (
@@ -80,8 +80,8 @@ export function CompressPdfClient() {
                                             <p className="text-primary text-lg font-bold">{formatBytes(result.size)}</p>
                                         </div>
                                     </div>
-                                    <a href={result.url} download={`Compressed_${file.name}`}>
-                                        <Button size="lg" className="shadow-lg shadow-primary/20">
+                                    <a href={result.url} download={`Compressed_${file.name}`} className="w-full sm:w-auto">
+                                        <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                             <Download className="w-5 h-5 mr-2" />
                                             Download Compressed PDF
                                         </Button>
