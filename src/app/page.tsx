@@ -90,7 +90,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex-1 flex flex-col items-center w-full pb-28 relative overflow-x-hidden"
+      className="flex-1 flex flex-col items-center w-full pb-28 relative"
       style={{
         background: '#FAFBFF',
       }}

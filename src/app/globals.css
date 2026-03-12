@@ -47,7 +47,7 @@
 }
 
 html {
-  scroll-behavior: ease;
+  scroll-behavior: smooth;
   /* Force browser to render in light mode even on dark-OS devices */
   color-scheme: light;
   background-color: #f7f9ff;
@@ -58,6 +58,7 @@ body {
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
   min-height: 100dvh;
+  overflow-x: hidden;
 }
 
 /* ── Custom scrollbar ── */
