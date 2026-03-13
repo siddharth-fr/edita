@@ -1,4 +1,7 @@
 import { ReactNode } from 'react';
+import HowItWorksSection from '@/components/ui/HowItWorksSection';
+import SimilarToolsSection from '@/components/ui/SimilarToolsSection';
+
 
 interface ToolLayoutProps {
   title: string;
@@ -79,7 +82,15 @@ export function ToolLayout({ title, description, children }: ToolLayoutProps) {
           {children}
         </div>
       </div>
+
+      <div className="w-full max-w-5xl px-4 sm:px-8">
+        <HowItWorksSection />
+      </div>
+
+      <div className="w-full max-w-6xl px-4 sm:px-8">
+        <SimilarToolsSection />
+      </div>
+
     </main>
   );
 }
-
