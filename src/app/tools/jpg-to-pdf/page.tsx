@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { ToolLayout } from '@/components/layout/ToolLayout';
-import { JpgToPdfClient } from '@/components/tools/JpgToPdfClient';
+const JpgToPdfClient = dynamic(() => import('@/components/tools/JpgToPdfClient').then(mod => mod.JpgToPdfClient), {
+  loading: () => <div className="h-[400px] w-full animate-pulse bg-muted rounded-3xl" />
+});
 
 export const metadata: Metadata = {
   title: 'JPG to PDF – Edita',

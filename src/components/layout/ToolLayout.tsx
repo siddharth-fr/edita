@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
-import HowItWorksSection from '@/components/ui/HowItWorksSection';
-import SimilarToolsSection from '@/components/ui/SimilarToolsSection';
+import dynamic from 'next/dynamic';
+const HowItWorksSection = dynamic(() => import('@/components/ui/HowItWorksSection'));
+const SimilarToolsSection = dynamic(() => import('@/components/ui/SimilarToolsSection'));
 
 
 interface ToolLayoutProps {

@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import ToolCard from '@/components/ui/ToolCard';
 import { usePathname } from 'next/navigation';
 
@@ -21,8 +22,11 @@ export default function SimilarToolsSection() {
   const currentSlug = pathname.split('/').pop();
 
   // Filter out the current tool and pick 5 random/popular ones
-  const filteredTools = ALL_TOOLS.filter(t => t.slug !== currentSlug);
-  const displayTools = filteredTools.slice(0, 5);
+  const displayTools = useMemo(() => {
+    return ALL_TOOLS
+      .filter(t => t.slug !== currentSlug)
+      .slice(0, 5);
+  }, [currentSlug]);
 
   return (
     <section className="w-full mt-24 pt-20 border-t border-border/40 relative">

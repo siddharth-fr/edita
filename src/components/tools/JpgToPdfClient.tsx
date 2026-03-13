@@ -131,6 +131,7 @@ export function JpgToPdfClient() {
                                 multiple
                                 accept="image/jpeg,image/png"
                                 className="hidden"
+                                aria-label="Add more images"
                                 onChange={(e) => {
                                     if (e.target.files) handleUpload(Array.from(e.target.files));
                                     e.target.value = '';

@@ -18,11 +18,11 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
     e.preventDefault();
     e.stopPropagation();
     if (e.type === 'dragenter' || e.type === 'dragover') {
-      setIsDragging(true);
+      if (!isDragging) setIsDragging(true);
     } else if (e.type === 'dragleave') {
       setIsDragging(false);
     }
-  }, []);
+  }, [isDragging]);
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
@@ -59,7 +59,8 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
           ? '0 20px 40px rgba(52,211,153,0.06)'
           : '0 4px 20px rgba(0,0,0,0.01)',
         transform: isDragging ? 'translateY(-2px)' : 'none',
-        transition: `all 0.4s ${SPRING}`,
+        transition: `transform 0.4s ${SPRING}, background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease`,
+        willChange: 'transform, background, border-color, box-shadow',
       }}
     >
       <input
@@ -68,6 +69,7 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
         accept={accept}
         onChange={handleChange}
         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        aria-label="Upload files"
         title=""
       />
 
@@ -81,7 +83,8 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
             marginBottom: 12,
             marginTop: -20,
             transform: `scale(0.58)`,
-            transition: `all 0.6s ${SPRING}`,
+            transition: `transform 0.6s ${SPRING}`,
+            willChange: 'transform',
           }}
         >
           {/* Back Card 2 - Blue Theme */}
@@ -89,9 +92,10 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
             position: 'absolute',
             inset: 0,
             transform: isDragging ? 'translate(28px, -14px) rotate(14deg)' : 'translate(15px, -6px) rotate(9deg)',
-            transition: `all 0.7s ${SPRING}`,
+            transition: `transform 0.7s ${SPRING}, opacity 0.7s ease`,
             opacity: 0.5,
             filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.06))',
+            willChange: 'transform, opacity',
           }}>
             <CardFace
               label="Secure"
@@ -106,9 +110,10 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
             position: 'absolute',
             inset: 0,
             transform: isDragging ? 'translate(-24px, -18px) rotate(-12deg)' : 'translate(-12px, -10px) rotate(-7deg)',
-            transition: `all 0.65s ${SPRING}`,
+            transition: `transform 0.65s ${SPRING}, opacity 0.65s ease`,
             opacity: 0.75,
             filter: 'drop-shadow(0 12px 30px rgba(0,0,0,0.08))',
+            willChange: 'transform, opacity',
           }}>
             <CardFace
               label="Private"
@@ -123,8 +128,9 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
             style={{
               position: 'relative',
               transform: isDragging ? 'translateY(-12px) rotate(3deg)' : 'rotate(1.5deg)',
-              transition: `all 0.6s ${SPRING}`,
+              transition: `transform 0.6s ${SPRING}`,
               filter: 'drop-shadow(0 16px 45px rgba(0,0,0,0.14))',
+              willChange: 'transform',
             }}
           >
             <CardFace

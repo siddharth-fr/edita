@@ -121,6 +121,7 @@ export default function MergePdfClient() {
                                     multiple
                                     accept=".pdf,application/pdf"
                                     className="hidden"
+                                    aria-label="Add more files"
                                     onChange={(e) => {
                                         if (e.target.files) handleUpload(Array.from(e.target.files));
                                         e.target.value = '';

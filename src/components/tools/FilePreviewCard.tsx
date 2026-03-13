@@ -71,6 +71,7 @@ export function FilePreviewCard({ file, onRemove, isDraggable = false }: FilePre
       <button
         type="button"
         onClick={onRemove}
+        aria-label="Remove item"
         className="w-8 h-8 shrink-0 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-all duration-150"
       >
         <X className="w-4 h-4" />

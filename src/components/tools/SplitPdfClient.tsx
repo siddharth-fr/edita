@@ -83,8 +83,9 @@ export function SplitPdfClient() {
 
                         <div className="flex items-center justify-center gap-4 max-w-xs mx-auto w-full">
                             <div className="flex flex-col gap-2 w-full">
-                                <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">From Page</label>
+                                <label htmlFor="startPage" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">From Page</label>
                                 <input
+                                    id="startPage"
                                     type="number"
                                     min={1}
                                     max={endPage}
@@ -95,8 +96,9 @@ export function SplitPdfClient() {
                             </div>
                             <div className="text-muted-foreground font-bold mt-6">-</div>
                             <div className="flex flex-col gap-2 w-full">
-                                <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">To Page</label>
+                                <label htmlFor="endPage" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">To Page</label>
                                 <input
+                                    id="endPage"
                                     type="number"
                                     min={startPage}
                                     max={pageCount}

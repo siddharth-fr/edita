@@ -56,12 +56,13 @@ export default function ToolCard({
           borderRadius: '22px',
           padding: '4px',
           overflow: 'hidden',
-          transition: 'all .4s cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: 'transform .4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .4s cubic-bezier(0.16, 1, 0.3, 1)',
           transform: hovered ? 'translateY(-6px)' : 'none',
           border: '1px solid rgba(16, 185, 129, 0.08)',
           boxShadow: hovered
             ? '0 25px 50px rgba(16, 185, 129, 0.08), 0 10px 20px rgba(0,0,0,0.02)'
-            : '0 8px 20px rgba(0,0,0,0.02)'
+            : '0 8px 20px rgba(0,0,0,0.02)',
+          willChange: 'transform, box-shadow',
         }}
       >
 
@@ -74,10 +75,11 @@ export default function ToolCard({
             borderRadius: '18px',
             background: pal.gradient,
             overflow: 'hidden',
-            transition: 'all .3s ease',
+            transition: 'filter 0.3s ease',
             filter: hovered
               ? 'saturate(1.08) brightness(1.02)'
-              : 'none'
+              : 'none',
+            willChange: 'filter',
           }}
         >
 
@@ -90,7 +92,7 @@ export default function ToolCard({
               background: hovered
                 ? 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.55), transparent 65%)'
                 : 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.35), transparent 70%)',
-              transition: 'all .35s ease'
+              transition: 'background 0.35s ease'
             }}
           />
 

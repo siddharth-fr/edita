@@ -95,6 +95,7 @@ export default function ToolsHeader({
               value={query}
               onChange={handleChange}
               placeholder="Search tools…"
+              aria-label="Search tools"
               style={{
                 border: 'none',
                 outline: 'none',

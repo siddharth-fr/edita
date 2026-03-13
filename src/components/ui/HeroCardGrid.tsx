@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 const COL_POSITIONS = ['8%', '27%', '50%', '74%', '92%'];
 const ROW_POSITIONS = ['14%', '50%', '86%'];
@@ -26,9 +26,9 @@ function shuffled<T>(arr: T[]): T[] {
 }
 
 /** Shared folder card face — used by both desktop grid and mobile layout */
-export function CardFace({
+export const CardFace = memo(({
   label, category, gradient, size,
-}: { label: string; category: string; gradient: string; size: number }) {
+}: { label: string; category: string; gradient: string; size: number }) => {
   const tabH   = size < 130 ? 14 : 18;
   const radius = size < 130 ? 12 : 18;
   const inner  = size < 130 ? 10 : 15;
@@ -87,7 +87,9 @@ export function CardFace({
       </div>
     </div>
   );
-}
+});
+
+CardFace.displayName = 'CardFace';
 
 export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
   const [display, setDisplay] = useState<HeroCard[]>(cards);
@@ -139,7 +141,8 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
                 width: 184,
                 opacity,
                 filter: `blur(${blurPx}px) saturate(${saturate})`,
-                transition: 'opacity 0.55s ease',
+                transition: 'opacity 0.55s ease, filter 0.55s ease',
+                willChange: 'opacity, filter',
               }}
             >
               <CardFace label={card.label} category={card.category} gradient={card.gradient} size={184} />
@@ -172,7 +175,8 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
                  width: 110, // Slightly smaller to ensure 3 columns fit well side-by-side
                  opacity,
                  filter: `blur(${blurPx}px) saturate(${saturate})`,
-                 transition: 'opacity 0.55s ease',
+                 transition: 'opacity 0.55s ease, filter 0.55s ease',
+                 willChange: 'opacity, filter',
                }}
              >
                <CardFace label={card.label} category={card.category} gradient={card.gradient} size={110} />
