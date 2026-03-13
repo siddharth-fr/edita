@@ -73,24 +73,67 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
 
       <div className="flex flex-col items-center pointer-events-none px-8">
 
-        {/* Toolcard — Proportional & Sharp (Scaled down from a larger base) */}
+        {/* Toolcard Stack — Modern & Clean folder clusters */}
         <div
           style={{
             position: 'relative',
-            width: 140, // Base size for accurate proportions
+            width: 140,
             marginBottom: 12,
             marginTop: -20,
-            transform: `scale(0.58) ${isDragging ? 'translateY(-12px) rotate(8deg)' : 'rotate(3deg)'}`,
+            transform: `scale(0.58)`,
             transition: `all 0.6s ${SPRING}`,
-            filter: 'drop-shadow(0 14px 30px rgba(0,0,0,0.09))',
           }}
         >
-          <CardFace
-            label="Upload"
-            category="SECURE"
-            gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)"
-            size={140}
-          />
+          {/* Back Card 2 - Blue Theme */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            transform: isDragging ? 'translate(28px, -14px) rotate(14deg)' : 'translate(15px, -6px) rotate(9deg)',
+            transition: `all 0.7s ${SPRING}`,
+            opacity: 0.5,
+            filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.06))',
+          }}>
+            <CardFace
+              label="Secure"
+              category="ENCRYPT"
+              gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)"
+              size={140}
+            />
+          </div>
+
+          {/* Back Card 1 - Orange Theme */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            transform: isDragging ? 'translate(-24px, -18px) rotate(-12deg)' : 'translate(-12px, -10px) rotate(-7deg)',
+            transition: `all 0.65s ${SPRING}`,
+            opacity: 0.75,
+            filter: 'drop-shadow(0 12px 30px rgba(0,0,0,0.08))',
+          }}>
+            <CardFace
+              label="Private"
+              category="CLOUD"
+              gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)"
+              size={140}
+            />
+          </div>
+
+          {/* Front Card - Green Theme (Main) */}
+          <div
+            style={{
+              position: 'relative',
+              transform: isDragging ? 'translateY(-12px) rotate(3deg)' : 'rotate(1.5deg)',
+              transition: `all 0.6s ${SPRING}`,
+              filter: 'drop-shadow(0 16px 45px rgba(0,0,0,0.14))',
+            }}
+          >
+            <CardFace
+              label="Upload"
+              category="SECURE"
+              gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)"
+              size={140}
+            />
+          </div>
         </div>
 
         <h3
