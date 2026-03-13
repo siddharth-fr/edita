@@ -72,12 +72,7 @@ const heroGridCards = [
 ───────────────────────────────────────────────────────── */
 export default function Home() {
   useEffect(() => {
-    // Prevent browser from restoring scroll position on refresh
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-    // Scroll to top on mount
-    window.scrollTo(0, 0);
+    // We let the browser handle scroll restoration naturally (bfcache friendly)
   }, []);
 
   const handleBrowseTools = (e: React.MouseEvent<HTMLAnchorElement>) => {

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import mammoth from 'mammoth';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -13,6 +13,12 @@ export function WordToPdfClient() {
     const [isProcessing, setIsProcessing] = useState(false);
     const [result, setResult] = useState<{ url: string; size: number } | null>(null);
     const renderContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        return () => {
+            if (result?.url) URL.revokeObjectURL(result.url);
+        };
+    }, [result?.url]);
 
     const handleUpload = (files: File[]) => {
         const validFile = files.find((f) =>

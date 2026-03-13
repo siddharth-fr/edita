@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
@@ -10,6 +10,12 @@ export function CompressPdfClient() {
     const [file, setFile] = useState<File | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [result, setResult] = useState<{ url: string; size: number } | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (result?.url) URL.revokeObjectURL(result.url);
+        };
+    }, [result?.url]);
 
     const handleUpload = (files: File[]) => {
         const validFile = files.find((f) => f.type === 'application/pdf');

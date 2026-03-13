@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { PDFDocument } from 'pdf-lib';
 import { UploadDropzone } from '@/components/tools/UploadDropzone';
@@ -18,6 +18,12 @@ export default function MergePdfClient() {
     const [pdfFiles, setPdfFiles] = useState<PdfFile[]>([]);
     const [isProcessing, setIsProcessing] = useState(false);
     const [mergedPdfUrl, setMergedPdfUrl] = useState<string | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (mergedPdfUrl) URL.revokeObjectURL(mergedPdfUrl);
+        };
+    }, [mergedPdfUrl]);
 
     const handleUpload = (newFiles: File[]) => {
         // filter only pdfs

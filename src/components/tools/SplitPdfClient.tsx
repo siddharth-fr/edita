@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard } from '@/components/tools/FilePreviewCard';
@@ -14,6 +14,12 @@ export function SplitPdfClient() {
     const [isProcessing, setIsProcessing] = useState(false);
     const [result, setResult] = useState<string | null>(null);
     const pdfDocRef = useRef<PDFDocument | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (result) URL.revokeObjectURL(result);
+        };
+    }, [result]);
 
     const handleUpload = async (files: File[]) => {
         const validFile = files.find((f) => f.type === 'application/pdf');
