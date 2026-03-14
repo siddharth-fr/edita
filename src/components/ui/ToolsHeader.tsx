@@ -139,7 +139,7 @@ export default function ToolsHeader({
       </div>
 
       {/* ── Bottom Row: Category Filter ── */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex items-center gap-2 overflow-x-auto px-10 -mx-10 pb-6 scrollbar-hide" style={{ marginBottom: -16 }}>
         <div 
           className="flex items-center gap-2"
           style={{ minWidth: 'max-content' }}
