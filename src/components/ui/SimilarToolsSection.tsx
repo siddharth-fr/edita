@@ -29,10 +29,7 @@ export default function SimilarToolsSection() {
   }, [currentSlug]);
 
   return (
-    <section className="w-full mt-24 pt-20 border-t border-border/40 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-1 bg-white border border-border/60 rounded-full text-[11px] font-bold text-emerald-600 tracking-widest uppercase shadow-sm">
-        Discover
-      </div>
+    <section className="w-full mt-20 pt-16 border-t border-border/40 relative">
 
       <div className="text-center max-w-2xl mx-auto mb-16 px-4">
         <h2 style={{
