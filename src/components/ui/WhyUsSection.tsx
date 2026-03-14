@@ -1,6 +1,6 @@
 'use client';
 
-import { Lock, Zap, Globe, Layers } from 'lucide-react';
+import { ShieldCheck, Zap, Globe, Layers } from 'lucide-react';
 import { CardFace } from '@/components/ui/HeroCardGrid';
 
 export default function WhyUsSection() {
@@ -69,14 +69,14 @@ export default function WhyUsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 w-full max-w-6xl relative z-10 px-2">
         {[
           {
-            icon: <Lock size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
+            icon: <ShieldCheck size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
             title: "100% Secure & Private",
             desc: "Files never leave your device. All compression and formatting is executed locally via browser.",
             gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)',
             category: 'PRIVACY'
           },
           {
-            icon: <Zap size={22} style={{ color: '#D97706' }} strokeWidth={2.5} />,
+            icon: <Zap size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
             title: "Blazing Fast Speeds",
             desc: "Powered by advanced WebAssembly (WASM), skipping long server uploads for immediate results.",
             gradient: 'linear-gradient(135deg,#FFF6EC,#FFEAD8)',

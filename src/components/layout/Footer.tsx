@@ -34,7 +34,7 @@ const CATEGORIES = [
             { label: 'Why Us', href: '/why-us' },
             { label: 'Privacy Policy', href: '/privacy' },
             { label: 'Terms of Service', href: '/terms' },
-            { label: 'Contact', href: '/#contact' },
+            { label: 'Contact', href: '/contact' },
         ],
     },
 ];

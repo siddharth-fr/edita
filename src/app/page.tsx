@@ -327,9 +327,9 @@ export default function Home() {
           className="mt-14 pt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold"
           style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
         >
-          <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />Files never leave your device</span>
-          <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-amber-400" />WebAssembly-powered</span>
-          <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5" style={{ color: '#10B981' }} />No account required · Always free</span>
+          <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />Files never leave your device</span>
+          <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-emerald-500" />WebAssembly-powered</span>
+          <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-emerald-500" />No account required · Always free</span>
         </div>
       </section>
 
