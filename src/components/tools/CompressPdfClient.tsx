@@ -5,6 +5,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function CompressPdfClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -22,6 +23,7 @@ export function CompressPdfClient() {
         if (validFile) {
             setFile(validFile);
             setResult(null);
+            trackFileUploaded(validFile.type, validFile.size);
         }
     };
 
@@ -47,6 +49,8 @@ export function CompressPdfClient() {
                 url: URL.createObjectURL(blob),
                 size: blob.size,
             });
+            trackToolUsed('Compress PDF');
+            trackConversion('Compress PDF');
         } catch (error) {
             console.error('Compression failed', error);
             alert('Failed to compress PDF. Please try again.');
@@ -86,7 +90,12 @@ export function CompressPdfClient() {
                                             <p className="text-primary text-lg font-bold">{formatBytes(result.size)}</p>
                                         </div>
                                     </div>
-                                    <a href={result.url} download={`Compressed_${file.name}`} className="w-full sm:w-auto">
+                                    <a 
+                                        href={result.url} 
+                                        download={`Compressed_${file.name}`} 
+                                        className="w-full sm:w-auto"
+                                        onClick={() => trackFileDownloaded('Compress PDF', 'application/pdf')}
+                                    >
                                         <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                             <Download className="w-5 h-5 mr-2" />
                                             Download Compressed PDF

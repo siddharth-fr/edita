@@ -7,6 +7,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download, AlertTriangle } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function WordToPdfClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -28,6 +29,7 @@ export function WordToPdfClient() {
         if (validFile) {
             setFile(validFile);
             setResult(null);
+            trackFileUploaded(validFile.type, validFile.size);
         } else {
             alert("Please upload a .docx file.");
         }
@@ -76,6 +78,8 @@ export function WordToPdfClient() {
                 size: pdfBlob.size
             });
 
+            trackToolUsed('Word to PDF');
+            trackConversion('Word to PDF');
         } catch (error) {
             console.error('Conversion failed', error);
             alert('Failed to parse Word Document. Complex formatting may not be supported by the browser engine.');
@@ -124,7 +128,12 @@ export function WordToPdfClient() {
                                     </div>
                                 </div>
 
-                                <a href={result.url} download={`${file.name.replace(/\.docx$/i, '')}.pdf`} className="w-full sm:w-auto">
+                                <a 
+                                    href={result.url} 
+                                    download={`${file.name.replace(/\.docx$/i, '')}.pdf`} 
+                                    className="w-full sm:w-auto"
+                                    onClick={() => trackFileDownloaded('Word to PDF', 'application/pdf')}
+                                >
                                     <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download PDF Snapshot

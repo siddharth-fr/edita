@@ -5,6 +5,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function PdfToWordClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -18,6 +19,7 @@ export function PdfToWordClient() {
             setFile(validFile);
             setResult(null);
             setProgress(0);
+            trackFileUploaded(validFile.type, validFile.size);
         }
     };
 
@@ -95,6 +97,8 @@ export function PdfToWordClient() {
                 size: blob.size
             });
 
+            trackToolUsed('PDF to Word');
+            trackConversion('PDF to Word');
         } catch (error) {
             console.error('Conversion failed', error);
             alert('Failed to extract text from PDF. Ensure it contains text and is not purely scanned images.');
@@ -146,7 +150,12 @@ export function PdfToWordClient() {
                                     </div>
                                 </div>
 
-                                <a href={result.url} download={`${file.name.replace(/\.pdf$/i, '')}.docx`} className="w-full sm:w-auto">
+                                <a 
+                                    href={result.url} 
+                                    download={`${file.name.replace(/\.pdf$/i, '')}.docx`} 
+                                    className="w-full sm:w-auto"
+                                    onClick={() => trackFileDownloaded('PDF to Word', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')}
+                                >
                                     <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download Word Document

@@ -8,6 +8,7 @@ import { FilePreviewCard } from '@/components/tools/FilePreviewCard';
 import { ToolLayout } from '@/components/layout/ToolLayout';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 interface PdfFile {
     id: string;
@@ -35,6 +36,9 @@ export default function MergePdfClient() {
             }));
             setPdfFiles((prev) => [...prev, ...newItems]);
             setMergedPdfUrl(null);
+            
+            // GA4 Tracking
+            validFiles.forEach(f => trackFileUploaded(f.type, f.size));
         }
     };
 
@@ -70,6 +74,10 @@ export default function MergePdfClient() {
             const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
             const url = URL.createObjectURL(blob);
             setMergedPdfUrl(url);
+
+            // GA4 Tracking
+            trackToolUsed('Merge PDF');
+            trackConversion('Merge PDF');
         } catch (error) {
             console.error('Error merging PDFs', error);
             alert('Failed to merge PDFs. Please try again.');
@@ -148,6 +156,7 @@ export default function MergePdfClient() {
                                 <a
                                     href={mergedPdfUrl}
                                     download="Merged_Document.pdf"
+                                    onClick={() => trackFileDownloaded('Merge PDF', 'application/pdf')}
                                 >
                                     <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white shadow-md">
                                         <Download className="w-5 h-5 mr-2" />

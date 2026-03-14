@@ -5,6 +5,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function SplitPdfClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -32,6 +33,7 @@ export function SplitPdfClient() {
                 setEndPage(pdfDoc.getPageCount());
                 setFile(validFile);
                 setResult(null);
+                trackFileUploaded(validFile.type, validFile.size);
             } catch (err) {
                 alert("Failed to read PDF.");
             }
@@ -65,6 +67,9 @@ export function SplitPdfClient() {
             const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
 
             setResult(URL.createObjectURL(blob));
+            
+            trackToolUsed('Split PDF');
+            trackConversion('Split PDF');
         } catch (error) {
             console.error('Split failed', error);
             alert('Failed to split PDF. Please try again.');
@@ -122,7 +127,12 @@ export function SplitPdfClient() {
                                 </Button>
                             ) : (
                                 <div className="flex flex-col items-center gap-4 w-full">
-                                    <a href={result} download={`Split_Pages_${startPage}-${endPage}_${file.name}`} className="w-full sm:w-auto">
+                                    <a 
+                                        href={result} 
+                                        download={`Split_Pages_${startPage}-${endPage}_${file.name}`} 
+                                        className="w-full sm:w-auto"
+                                        onClick={() => trackFileDownloaded('Split PDF', 'application/pdf')}
+                                    >
                                         <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                             <Download className="w-5 h-5 mr-2" />
                                             Download Extracted Pages

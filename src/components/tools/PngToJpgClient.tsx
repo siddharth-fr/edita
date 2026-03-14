@@ -4,6 +4,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function PngToJpgClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -15,6 +16,7 @@ export function PngToJpgClient() {
         if (validFile) {
             setFile(validFile);
             setResult(null);
+            trackFileUploaded(validFile.type, validFile.size);
         } else {
             alert("Please upload a valid PNG file.");
         }
@@ -44,6 +46,8 @@ export function PngToJpgClient() {
                                 url: URL.createObjectURL(blob),
                                 size: blob.size
                             });
+                            trackToolUsed('PNG to JPG');
+                            trackConversion('PNG to JPG');
                         }
                         setIsProcessing(false);
                     }, 'image/jpeg', 0.9);
@@ -83,7 +87,12 @@ export function PngToJpgClient() {
                                     </div>
                                 </div>
 
-                                <a href={result.url} download={`${file.name.replace(/\.png$/i, '')}.jpg`} className="w-full sm:w-auto">
+                                <a 
+                                    href={result.url} 
+                                    download={`${file.name.replace(/\.png$/i, '')}.jpg`} 
+                                    className="w-full sm:w-auto"
+                                    onClick={() => trackFileDownloaded('PNG to JPG', 'image/jpeg')}
+                                >
                                     <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download JPG Image

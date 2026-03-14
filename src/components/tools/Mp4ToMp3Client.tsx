@@ -6,6 +6,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function Mp4ToMp3Client() {
     const [file, setFile] = useState<File | null>(null);
@@ -47,6 +48,7 @@ export function Mp4ToMp3Client() {
             setFile(validFile);
             setResult(null);
             setProgress(0);
+            trackFileUploaded(validFile.type, validFile.size);
         } else {
             alert("Please upload a valid MP4 file.");
         }
@@ -79,6 +81,9 @@ export function Mp4ToMp3Client() {
                 url: URL.createObjectURL(outputBlob),
                 size: outputBlob.size
             });
+
+            trackToolUsed('MP4 to MP3');
+            trackConversion('MP4 to MP3');
 
             // Clean up memory
             await ffmpeg.deleteFile(inputName);
@@ -135,7 +140,12 @@ export function Mp4ToMp3Client() {
                                     </div>
                                 </div>
 
-                                <a href={result.url} download={`${file.name.replace(/\.[^/.]+$/, "")}.mp3`} className="w-full sm:w-auto">
+                                <a 
+                                    href={result.url} 
+                                    download={`${file.name.replace(/\.[^/.]+$/, "")}.mp3`} 
+                                    className="w-full sm:w-auto"
+                                    onClick={() => trackFileDownloaded('MP4 to MP3', 'audio/mp3')}
+                                >
                                     <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download MP3 Audio

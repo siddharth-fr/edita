@@ -5,6 +5,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function PdfToJpgClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -18,6 +19,7 @@ export function PdfToJpgClient() {
             setFile(validFile);
             setResultZipUrl(null);
             setProgress(0);
+            trackFileUploaded(validFile.type, validFile.size);
         }
     };
 
@@ -65,6 +67,9 @@ export function PdfToJpgClient() {
 
             const zipContent = await zip.generateAsync({ type: 'blob' });
             setResultZipUrl(URL.createObjectURL(zipContent));
+            
+            trackToolUsed('PDF to JPG');
+            trackConversion('PDF to JPG');
         } catch (error) {
             console.error('Conversion failed', error);
             alert('Failed to extract images from PDF.');
@@ -107,7 +112,12 @@ export function PdfToJpgClient() {
                                 <p className="text-sm font-medium text-green-700 bg-green-50 px-4 py-2 rounded-full border border-green-200">
                                     Successfully extracted {progress === 100 ? 'all' : ''} pages!
                                 </p>
-                                <a href={resultZipUrl} download={`${file.name.replace(/\.pdf$/i, '')}_images.zip`} className="w-full sm:w-auto">
+                                <a 
+                                    href={resultZipUrl} 
+                                    download={`${file.name.replace(/\.pdf$/i, '')}_images.zip`} 
+                                    className="w-full sm:w-auto"
+                                    onClick={() => trackFileDownloaded('PDF to JPG', 'application/zip')}
+                                >
                                     <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                         <Download className="w-5 h-5 mr-2" />
                                         Download ZIP Archive

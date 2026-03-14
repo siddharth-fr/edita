@@ -6,6 +6,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download, ImageIcon } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 import { formatBytes } from '@/components/tools/FilePreviewCard';
 
 interface ImageFile {
@@ -27,6 +28,9 @@ export function JpgToPdfClient() {
             }));
             setImageFiles((prev) => [...prev, ...newItems]);
             setResultUrl(null);
+            
+            // GA4 Tracking
+            validFiles.forEach(f => trackFileUploaded(f.type, f.size));
         }
     };
 
@@ -78,6 +82,10 @@ export function JpgToPdfClient() {
             const pdfBytes = await pdfDoc.save();
             const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
             setResultUrl(URL.createObjectURL(blob));
+
+            // GA4 Tracking
+            trackToolUsed('JPG to PDF');
+            trackConversion('JPG to PDF');
         } catch (error) {
             console.error('Conversion failed', error);
             alert('Failed to convert images to PDF. Please ensure they are valid JPG/PNG files.');
@@ -154,6 +162,7 @@ export function JpgToPdfClient() {
                                 href={resultUrl}
                                 download="Converted_Images.pdf"
                                 className="w-full sm:w-auto"
+                                onClick={() => trackFileDownloaded('JPG to PDF', 'application/pdf')}
                             >
                                 <Button size="lg" className="w-full shadow-lg shadow-emerald-500/20 hover:scale-[1.02] active:scale-[0.98]">
                                     <Download className="w-5 h-5 mr-2" />

@@ -5,6 +5,7 @@ import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
 import { Download, RefreshCw } from 'lucide-react';
+import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
 export function ImageCompressorClient() {
     const [file, setFile] = useState<File | null>(null);
@@ -16,6 +17,7 @@ export function ImageCompressorClient() {
         if (validFile) {
             setFile(validFile);
             setResult(null);
+            trackFileUploaded(validFile.type, validFile.size);
         }
     };
 
@@ -36,6 +38,8 @@ export function ImageCompressorClient() {
                 url,
                 size: compressedFile.size,
             });
+            trackToolUsed('Image Compressor');
+            trackConversion('Image Compressor');
         } catch (error) {
             console.error('Compression failed', error);
             alert('Failed to compress image.');
@@ -86,7 +90,12 @@ export function ImageCompressorClient() {
                                         <RefreshCw className="w-4 h-4 mr-2" />
                                         Compress Another
                                     </Button>
-                                    <a href={result.url} download={`Compressed_${file.name}`} className="w-full sm:w-auto">
+                                    <a 
+                                        href={result.url} 
+                                        download={`Compressed_${file.name}`} 
+                                        className="w-full sm:w-auto"
+                                        onClick={() => trackFileDownloaded('Image Compressor', file.type)}
+                                    >
                                         <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                             <Download className="w-5 h-5 mr-2" />
                                             Download Image

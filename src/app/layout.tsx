@@ -3,6 +3,7 @@ import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${displayFont.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`}
       >
+        <GoogleAnalytics />
         <Navbar />
         {children}
         <Footer />
