@@ -72,18 +72,9 @@ export function Footer() {
                                     lineHeight: 1,
                                 }}
                             >
-                                edita
+                                edit
+                                <span style={{ color: '#059669' }}>a</span>
                             </span>
-                            <span
-                                style={{
-                                    width: 6, height: 6,
-                                    borderRadius: '50%',
-                                    background: 'linear-gradient(135deg, #34D399, #059669)',
-                                    display: 'inline-block',
-                                    marginBottom: 2,
-                                    flexShrink: 0,
-                                }}
-                            />
                         </Link>
 
                         <p style={{
@@ -164,7 +155,7 @@ export function Footer() {
                     style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}
                 >
                     <div style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500 }}>
-                        © {new Date().getFullYear()} edita. All rights reserved.
+                        © {new Date().getFullYear()} edita All rights reserved.
                     </div>
                     <div className="flex gap-6">
                         <Link href="/#privacy" style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500, textDecoration: 'none' }} className="hover:text-[#111827]">

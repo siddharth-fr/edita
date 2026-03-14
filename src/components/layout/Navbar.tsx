@@ -64,18 +64,9 @@ export function Navbar() {
                 lineHeight: 1,
               }}
             >
-              edita
+              edit
+              <span style={{ color: '#059669' }}>a</span>
             </span>
-            <span
-              style={{
-                width: 5, height: 5,
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #34D399, #059669)',
-                display: 'inline-block',
-                marginBottom: 1,
-                flexShrink: 0,
-              }}
-            />
           </Link>
 
           {/* CENTRE — Nav links */}
