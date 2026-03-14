@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { label: 'Tools',   href: '/tools'   },
   { label: 'How it Works', href: '/how-it-works' },
   { label: 'Why Us',  href: '/why-us'   },
-  { label: 'Privacy', href: '/privacy' },
 ];
 
 export function Navbar() {
@@ -38,8 +37,8 @@ export function Navbar() {
         <div
           className={`relative mx-auto pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between ${
             isHome
-              ? 'h-[60px] px-5 sm:px-10 w-full max-w-[1200px]'
-              : 'h-[52px] px-4 sm:px-6 w-[calc(100%-32px)] md:w-fit md:min-w-[620px] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.06)] border mt-2 sm:mt-0'
+              ? 'h-[54px] px-5 sm:px-10 w-full max-w-[1200px]'
+              : 'h-[46px] px-4 sm:px-6 w-[calc(100%-32px)] md:w-fit md:min-w-[500px] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.06)] border mt-2 sm:mt-0'
           }`}
           style={{
             background: isHome ? 'transparent' : 'rgba(255,255,255,0.85)',
@@ -78,10 +77,10 @@ export function Navbar() {
                   key={label}
                   href={href}
                   style={{
-                    fontSize: 13.5,
+                    fontSize: 13,
                     fontWeight: isActive ? 600 : 500,
                     color: isActive ? '#065F46' : '#6B7280',
-                    padding: '6px 14px',
+                    padding: '5px 12px',
                     borderRadius: 999,
                     textDecoration: 'none',
                     letterSpacing: '-0.01em',
@@ -139,7 +138,7 @@ export function Navbar() {
           className={`absolute w-full pointer-events-none transition-all duration-300 ${
             isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
-          style={{ top: isHome ? '64px' : '72px', zIndex: 100 }}
+          style={{ top: isHome ? '58px' : '64px', zIndex: 100 }}
         >
           <div 
             className={`mx-3 bg-white/95 backdrop-blur-2xl border border-gray-100/50 shadow-[0_12px_40px_rgba(0,0,0,0.08)] rounded-[20px] p-2 flex flex-col ${
