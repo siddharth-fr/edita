@@ -80,30 +80,88 @@ export default function PrivacyPage() {
         <div className="max-w-3xl mx-auto flex flex-col gap-12 sm:gap-16 pt-8">
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">Zero Data Collection</h2>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">1. Introduction</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              Edita operates entirely within your browser utilizing advanced WebAssembly (WASM) technology. When you convert, compress, or manipulate files using our tools, the processing happens directly on your own device's hardware. At no point are your files uploaded to any remote server. Since the data never leaves your system, we do not store, view, or have any access to your private information or content.
+              Welcome to Edita. Your privacy is not just a policy for us; it is a fundamental architectural requirement. This Privacy Policy outlines how Edita ("we," "our," or "the Platform") handles information when you interact with our web-based file conversion and editing tools. By using Edita, you consent to the practices described in this policy.
             </p>
           </div>
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">No Accounts or Profiling</h2>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">2. The "Local-First" Absolute</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              We believe that the best way to protect your data is to never ask for it. Edita does not require you to create an account, provide an email address, or link any social media profiles to use our services. We do not build user profiles, track your cross-site behavior, or use invasive third-party advertising cookies that compromise your digital identity.
+              The core distinction of Edita is our commitment to client-side processing. Leveraging advanced WebAssembly (WASM) and modern browser APIs, the vast majority of our tools process your files directly on your device. <strong className="text-gray-900 font-semibold">Your files are never uploaded to our servers for processing.</strong> They remain in your browser's temporary memory and are cleared once the session ends or the tab is closed. We have no technical means to see, store, or intercept your documents.
             </p>
           </div>
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">Anonymized Analytics</h2>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">3. Information We Collect</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              To maintain the health of our platform and understand general usage trends, we utilize privacy-focused, anonymized analytics. This data is limited to aggregate statistics such as page view counts and success rates of tool usage. This information is completely ephemeral, contains no personally identifiable information (PII), and cannot be used to trace activity back to an individual user.
+              We operate on a principle of data minimization. 
+              <br /><br />
+              <strong>Personally Identifiable Information (PII):</strong> We do not require account registration, email addresses, or any personal details to use our tools. We do not collect names, addresses, or billing information.
+              <br /><br />
+              <strong>Technical Log Data:</strong> Like most web services, our hosting providers may record basic HTTP request headers (IP address, browser type, referral URL) to ensure security and prevent platform abuse. This data is standard and not used by us to profile individual users.
             </p>
           </div>
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">Updates to this Policy</h2>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">4. Analytics and Cookies</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              We may occasionally update this Privacy Policy to reflect technical improvements or changes in our operational practices. However, our core philosophy remains unchanged: your files are processed locally, and your privacy is absolute. We encourage you to review this page periodically for any updates.
+              We use Google Analytics 4 (GA4) to understand aggregate usage trends and improve our tools. GA4 collects anonymized data such as page views, button clicks (e.g., "Merge PDF"), and general geographic location (Country level).
+              <br /><br />
+              This data is strictly non-identifiable. We do not use persistent advertising cookies, and we do not share this data with third-party brokers. You can opt-out of analytics tracking by using browser extensions or disabling cookies in your browser settings.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">5. How We Use Information</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              The limited information we collect is used solely to:
+              <br />• Maintain and optimize platform performance.
+              <br />• Monitor for technical errors and debugging.
+              <br />• Analyze which tools are most popular to guide future development.
+              <br />• Protect the platform from automated attacks and malicious use.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">6. Data Security</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              Because we do not store your files or personal data, the risk of a centralized data breach is virtually eliminated. Our website is served over an encrypted SSL (HTTPS) connection to ensure that your interaction with the Platform is secure. You are responsible for the security of your own device and the files stored thereon.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">7. International Users & Compliance</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              Edita is accessible globally. Our "no-data" architecture is designed to exceed the requirements of global privacy regulations, including the GDPR (Europe) and CCPA (California). Since we do not "sell" or "process" personal data as defined by these statutes, your rights to privacy are upheld by default through our technical design.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">8. Children's Privacy</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              Our tools are not directed at children under 13. We do not knowingly collect or solicit any information from anyone under the age of 13. If we learn that we have inadvertently collected such information, we will delete it immediately.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">9. Policy Updates</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              We may update this Privacy Policy from time to time to reflect changes in our tools or legal requirements. The updated date at the bottom of the page will reflect the latest revision. Continued use of Edita after changes are posted constitutes your acceptance of the new policy.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">10. Contact Information</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              If you have questions about this Privacy Policy or our data handling practices, please contact us through the official support channels listed on our Homepage.
+            </p>
+          </div>
+
+          <div className="pt-8 border-t border-border/50">
+            <p className="text-sm text-muted-foreground italic">
+              Last Updated: March 14, 2026
             </p>
           </div>
 

@@ -82,42 +82,68 @@ export default function TermsPage() {
           <div className="relative">
             <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              By accessing and using Edita, you acknowledge that you have read, understood, and agreed to be bound by these terms. These terms constitute a legally binding agreement between you and Edita regarding your use of our website and services. If you do not agree with any part of these terms, you must immediately discontinue use of the platform.
+              By accessing and using Edita ("the Platform"), you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service. These terms constitute a legally binding agreement between you and Edita. If you do not agree with any part of these terms, you must immediately discontinue use of the platform.
             </p>
           </div>
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">2. Description of Service</h2>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">2. Description of the Service</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              Edita provides a suite of online file processing tools, including but not limited to PDF conversion, image compression, and audio extraction. Our primary technological distinction is that most processing occurs locally within your web browser using WebAssembly. While we strive for continuous availability, we do not guarantee uninterrupted access to the platform or its tools.
+              Edita provides a suite of browser-based file conversion, compression, and editing utilities. Most of these tools operate using client-side technologies (such as WebAssembly), meaning file processing occurs locally on your device. We provide these services for free, and we reserve the right to modify, suspend, or terminate tools at any time without prior notice.
             </p>
           </div>
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">3. Proper Use and Restrictions</h2>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">3. Acceptable Use</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              You agree to use Edita only for lawful purposes. You are strictly prohibited from using the platform to process content that is illegal, infringing on third-party intellectual property, or containing malicious software. You may not attempt to reverse engineer, decompile, or interfere with the client-side code that powers our browser-based tools.
+              You agree to use Edita only for lawful purposes. You are strictly prohibited from:
+              <br />• Using the Platform to process or transmit content that violates any laws or infringes on third-party rights.
+              <br />• Attempting to disrupt the platform's security, interfere with other users, or extract source code.
+              <br />• Using automated scripts or "bots" to access the tools in a way that places excessive load on our infrastructure.
+              <br />• Obliterating or altering any branding or legal notices on processed files.
             </p>
           </div>
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">4. Ownership and Intellectual Property</h2>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">4. Intellectual Property</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              Edita does not claim any ownership rights over the files you process using our tools. All processed files and their contents remain your property. However, the design, source code, logos, and original content of the Edita platform itself are protected by intellectual property laws and remain the exclusive property of Edita.
+              <strong>Your Content:</strong> Edita does not claim any ownership rights over the files you process. You retain full copyright and all other rights to your data.
+              <br /><br />
+              <strong>Platform Property:</strong> The software, design, logos, and original content of Edita are protected by copyright, trademark, and other laws. Your use of the Platform does not grant you any ownership interest in these assets.
             </p>
           </div>
 
           <div className="relative">
             <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">5. Disclaimer of Warranties</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              Edita provides its services on an "as is" and "as available" basis. We make no warranties, expressed or implied, regarding the accuracy, reliability, or suitability of our tools for any particular purpose. Since processing occurs on your own device, we are not responsible for performance issues or data loss caused by hardware limitations or software conflicts on the browser level.
+              Edita is provided on an "AS IS" and "AS AVAILABLE" basis. We make no warranties, express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the tools will be error-free, that the output will be perfectly accurate in all cases, or that the service will be uninterrupted.
             </p>
           </div>
 
           <div className="relative">
             <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">6. Limitation of Liability</h2>
             <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
-              To the maximum extent permitted by law, Edita and its creators shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use or inability to use the platform. This includes, but is not limited to, damages for loss of profits, data corruption, or business interruption.
+              To the maximum extent permitted by law, Edita and its creators shall not be liable for any indirect, incidental, special, or consequential damages arising out of your use of the Platform. This includes, without limitation, loss of profits, data corruption, or business interruption, even if we have been advised of the possibility of such damages.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">7. Governing Law</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              These terms shall be governed by and construed in accordance with the laws of your local jurisdiction, without regard to its conflict of law provisions. Any legal action or proceeding related to your access to or use of the Platform shall be instituted in a court of competent jurisdiction.
+            </p>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">8. Changes to Terms</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              We reserve the right to revise these terms at any time. When changes are made, we will update the "Last Updated" date below. Your continued use of the Platform signifies your acceptance of the revised terms.
+            </p>
+          </div>
+
+          <div className="pt-8 border-t border-border/50">
+            <p className="text-sm text-muted-foreground italic">
+              Last Updated: March 14, 2026
             </p>
           </div>
 
