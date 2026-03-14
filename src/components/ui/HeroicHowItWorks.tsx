@@ -58,8 +58,6 @@ export default function HeroicHowItWorks() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-        {/* Desktop Connection Line */}
-        <div className="hidden md:block absolute top-[60px] left-[20%] right-[20%] h-[1px] bg-gradient-to-r from-transparent via-emerald-100 to-transparent -z-10" />
 
         {[
           {

@@ -96,8 +96,6 @@ export default function HowItWorksPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
-          {/* Desktop Connection Line */}
-          <div className="hidden md:block absolute top-[60px] left-[20%] right-[20%] h-[1px] bg-gradient-to-r from-transparent via-emerald-100 to-transparent -z-10" />
 
           {[
             {
@@ -118,8 +116,8 @@ export default function HowItWorksPage() {
               step: "03",
               title: "Instant Save",
               desc: "Get your processed file in seconds and download it directly to your folder.",
-              icon: <Download size={28} style={{ color: '#2563EB' }} />,
-              gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)'
+              icon: <Download size={28} style={{ color: '#059669' }} />,
+              gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)'
             }
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center group">
@@ -180,7 +178,7 @@ export default function HowItWorksPage() {
               category: 'SECURITY'
             },
             {
-              icon: <Zap size={22} style={{ color: '#2563EB' }} strokeWidth={2.5} />,
+              icon: <Zap size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
               title: "No Limits, No Fees",
               desc: "Because we don't have to pay for expensive server-side processing for every file, we can offer our tools for free, without any file size limits or paywalls. It's a faster, safer, and cheaper way to manage your files.",
               gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)',

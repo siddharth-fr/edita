@@ -22,8 +22,8 @@ export default function HowItWorksSection() {
       step: "03",
       title: "Instant Save",
       desc: "Get your processed file in seconds and download it directly to your folder.",
-      icon: <Download size={28} style={{ color: '#2563EB' }} />,
-      gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)'
+      icon: <Download size={28} style={{ color: '#059669' }} />,
+      gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)'
     }
   ];
 
@@ -58,8 +58,6 @@ export default function HowItWorksSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 lg:gap-12 relative max-w-5xl mx-auto px-4 sm:px-8">
-        {/* Desktop Connection Line */}
-        <div className="hidden md:block absolute top-[48px] left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-emerald-100/60 to-transparent -z-10" />
 
         {steps.map((item, i) => (
           <div key={i} className="flex flex-col items-center text-center group">

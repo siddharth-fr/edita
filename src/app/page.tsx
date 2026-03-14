@@ -285,8 +285,8 @@ export default function Home() {
           {/* ── Feature pills ── */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8 }}>
             {[
-              { icon: <Zap size={11} style={{ color: '#F59E0B' }} />, label: 'WebAssembly fast' },
-              { icon: <Globe size={11} style={{ color: '#10B981' }} />, label: 'Works offline' },
+              { icon: <Zap size={11} style={{ color: '#34D399' }} />, label: 'WebAssembly fast' },
+              { icon: <Globe size={11} style={{ color: '#34D399' }} />, label: 'Works offline' },
               { icon: <ShieldCheck size={11} style={{ color: '#34D399' }} />, label: '100% private' },
             ].map(({ icon, label }) => (
               <span
