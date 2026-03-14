@@ -1,60 +1,69 @@
 'use client';
 
 import { MousePointerClick, Cpu, Download, Sparkles } from 'lucide-react';
+import { CardFace } from '@/components/ui/HeroCardGrid';
 
 export default function HeroicHowItWorks() {
   return (
     <section className="w-full max-w-6xl px-4 sm:px-8 mt-24 mb-16 relative">
-      <div className="text-center max-w-2xl mx-auto mb-16 relative">
-        {/* Subtle decoration */}
-        <div className="absolute -left-16 top-0 opacity-20 rotate-12 pointer-events-none -z-10 hidden lg:block">
-          <Cpu size={120} className="text-emerald-300" />
+      <div className="text-center max-w-2xl mx-auto mb-16 relative z-0">
+        {/* Static Floating Cards decorating the Title */}
+        <div className="absolute -left-10 sm:-left-32 lg:-left-60 top-[-60px] sm:top-[-80px] lg:top-[-100px] rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
+          <CardFace label="1. Select" category="PICK" gradient="linear-gradient(135deg,#FFF3F7,#FFE5F0)" size={140} />
         </div>
-        <div className="absolute -right-16 bottom-0 opacity-20 -rotate-12 pointer-events-none -z-10 hidden lg:block">
-          <Sparkles size={100} className="text-blue-300" />
+        <div className="absolute -right-10 sm:-right-32 lg:-right-60 top-[-40px] sm:top-[-60px] lg:top-[-80px] -rotate-6 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
+          <CardFace label="2. Process" category="WASM" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
         </div>
-
-        <div
-          className="inline-flex items-center gap-2 mb-6"
-          style={{
-            padding: '6px 14px',
-            borderRadius: 999,
-            border: '1px solid rgba(52, 211, 153, 0.25)',
-            background: 'rgba(197, 255, 234, 0.08)',
-            color: '#065F46',
-            fontSize: 12,
-            fontWeight: 600,
-            letterSpacing: '-0.01em',
-          }}
-        >
-          <span>Simple 3-Step Process</span>
+        <div className="absolute -right-8 sm:-right-24 lg:-right-48 top-[180px] sm:top-[220px] lg:top-[280px] rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
+          <CardFace label="3. Save" category="DONE" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={100} />
+        </div>
+        <div className="absolute -left-8 sm:-left-24 lg:-left-48 top-[160px] sm:top-[200px] lg:top-[260px] -rotate-12 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
+          <CardFace label="Fast & Free" category="LOCAL" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={110} />
         </div>
 
-        <h2 style={{
-          margin: '0 0 18px',
-          fontFamily: 'var(--font-display), sans-serif',
-          fontWeight: 800,
-          letterSpacing: '-0.03em',
-          lineHeight: 1.1,
-          fontSize: 'clamp(38px, 6vw, 48px)',
-          color: '#0C0F17',
-        }}>
-          How it <span style={{
-            background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>Works</span>
-        </h2>
-        <p style={{
-          fontSize: '17px',
-          lineHeight: 1.6,
-          color: '#6B7280',
-          fontWeight: 400,
-        }}>
-          Edita is designed to be powerful yet remarkably simple. 
-          Everything happens right in your browser, keeping your data entirely private.
-        </p>
+        <div className="relative z-10 w-full flex flex-col items-center">
+          <div
+            className="inline-flex items-center gap-2 mb-6"
+            style={{
+              padding: '6px 14px',
+              borderRadius: 999,
+              border: '1px solid rgba(52, 211, 153, 0.25)',
+              background: 'rgba(197, 255, 234, 0.08)',
+              color: '#065F46',
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: '-0.01em',
+            }}
+          >
+            <span>Simple 3-Step Process</span>
+          </div>
+
+          <h2 style={{
+            margin: '0 0 18px',
+            fontFamily: 'var(--font-display), sans-serif',
+            fontWeight: 800,
+            letterSpacing: '-0.03em',
+            lineHeight: 1.1,
+            fontSize: 'clamp(38px, 6vw, 48px)',
+            color: '#0C0F17',
+          }}>
+            How it <span style={{
+              background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>Works</span>
+          </h2>
+          <p style={{
+            fontSize: '17px',
+            lineHeight: 1.6,
+            color: '#6B7280',
+            fontWeight: 400,
+          }}>
+            Edita is designed to be powerful yet remarkably simple. 
+            Everything happens right in your browser, keeping your data entirely private.
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">

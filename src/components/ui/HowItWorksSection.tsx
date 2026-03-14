@@ -1,6 +1,7 @@
 'use client';
 
 import { MousePointerClick, Cpu, Download } from 'lucide-react';
+import { CardFace } from '@/components/ui/HeroCardGrid';
 
 export default function HowItWorksSection() {
   const steps = [
@@ -30,31 +31,41 @@ export default function HowItWorksSection() {
   return (
     <section className="w-full mt-20 pt-16 border-t border-border/40 relative">
 
-      <div className="text-center max-w-2xl mx-auto mb-16 px-4">
-        <h2 style={{
-          margin: '0 0 14px',
-          fontFamily: 'var(--font-display), sans-serif',
-          fontWeight: 800,
-          letterSpacing: '-0.02em',
-          lineHeight: 1.2,
-          fontSize: 'clamp(28px, 5vw, 36px)',
-          color: '#0C0F17',
-        }}>
-          How it <span style={{
-            background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}>Works</span>
-        </h2>
-        <p style={{
-          fontSize: '16px',
-          lineHeight: 1.6,
-          color: '#64748B',
-          fontWeight: 400,
-        }}>
-          Everything happens right in your browser. Private, fast, and completely free.
-        </p>
+      <div className="text-center max-w-2xl mx-auto mb-16 px-4 relative">
+        {/* Static Floating Cards decorating the Title */}
+        <div className="absolute -left-8 sm:-left-16 lg:-left-28 top-[-10px] sm:top-0 lg:top-4 -rotate-6 opacity-40 sm:opacity-50 lg:opacity-60 scale-[0.45] sm:scale-60 lg:scale-75 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
+          <CardFace label="1. Select" category="PICK" gradient="linear-gradient(135deg,#FFF3F7,#FFE5F0)" size={140} />
+        </div>
+        <div className="absolute -right-8 sm:-right-16 lg:-right-24 top-[-15px] sm:top-[-5px] lg:top-0 rotate-3 opacity-40 sm:opacity-50 lg:opacity-70 scale-[0.5] sm:scale-60 lg:scale-75 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
+          <CardFace label="2. Process" category="WASM" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
+        </div>
+
+        <div className="relative z-10">
+          <h2 style={{
+            margin: '0 0 14px',
+            fontFamily: 'var(--font-display), sans-serif',
+            fontWeight: 800,
+            letterSpacing: '-0.02em',
+            lineHeight: 1.2,
+            fontSize: 'clamp(28px, 5vw, 36px)',
+            color: '#0C0F17',
+          }}>
+            How it <span style={{
+              background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>Works</span>
+          </h2>
+          <p style={{
+            fontSize: '16px',
+            lineHeight: 1.6,
+            color: '#64748B',
+            fontWeight: 400,
+          }}>
+            Everything happens right in your browser. Private, fast, and completely free.
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 lg:gap-12 relative max-w-5xl mx-auto px-4 sm:px-8">
