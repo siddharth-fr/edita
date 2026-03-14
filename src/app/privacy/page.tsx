@@ -38,12 +38,6 @@ export default function PrivacyPage() {
           <div className="absolute -right-12 sm:-right-32 lg:-right-56 top-[-20px] sm:top-[-40px] lg:top-[-50px] rotate-12 opacity-60 sm:opacity-70 lg:opacity-85 scale-[0.6] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
             <CardFace label="End-to-End" category="SECURE" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
           </div>
-          <div className="absolute -right-8 sm:-right-24 lg:-right-60 top-[180px] sm:top-[240px] lg:top-[300px] -rotate-3 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
-             <CardFace label="No Tracking" category="USER" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={100} />
-          </div>
-          <div className="absolute -left-8 sm:-left-24 lg:-left-60 top-[160px] sm:top-[220px] lg:top-[280px] rotate-6 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
-             <CardFace label="Encrypted" category="LOCAL" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={110} />
-          </div>
 
           <div className="relative z-10 w-full flex flex-col items-center">
             <div
@@ -86,45 +80,30 @@ export default function PrivacyPage() {
         <div className="max-w-3xl mx-auto flex flex-col gap-12 sm:gap-16 pt-8">
 
           <div className="relative">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 rounded-[14px] bg-white/60 backdrop-blur-md flex items-center justify-center border border-white/80 shadow-[0_8px_20px_rgba(0,0,0,0.03)]">
-                <Lock size={22} className="text-emerald-500" strokeWidth={2} />
-              </div>
-              <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight m-0">Zero Data Collection</h2>
-            </div>
-            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px] pl-[64px]">
-              Edita operates entirely within your browser utilizing advanced WebAssembly (WASM) technology. When you convert, compress, or manipulate files using our tools, the processing happens directly on your own device's hardware. <strong className="text-gray-900 font-semibold">We do not upload your files to our servers, we do not store them, and we have absolutely no access to their contents.</strong>
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">Zero Data Collection</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              Edita operates entirely within your browser utilizing advanced WebAssembly (WASM) technology. When you convert, compress, or manipulate files using our tools, the processing happens directly on your own device's hardware. At no point are your files uploaded to any remote server. Since the data never leaves your system, we do not store, view, or have any access to your private information or content.
             </p>
           </div>
 
           <div className="relative">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 rounded-[14px] bg-white/60 backdrop-blur-md flex items-center justify-center border border-white/80 shadow-[0_8px_20px_rgba(0,0,0,0.03)]">
-                <Globe size={22} className="text-blue-500" strokeWidth={2} />
-              </div>
-              <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight m-0">No Accounts, No Tracking</h2>
-            </div>
-            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px] pl-[64px]">
-              We believe privacy implies anonymity. We do not require you to create an account, provide an email address, or log in to use our services. We intentionally avoid integrating intrusive third-party ad-trackers or analytics platforms that profile your personal web behavior.
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">No Accounts or Profiling</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              We believe that the best way to protect your data is to never ask for it. Edita does not require you to create an account, provide an email address, or link any social media profiles to use our services. We do not build user profiles, track your cross-site behavior, or use invasive third-party advertising cookies that compromise your digital identity.
             </p>
           </div>
 
           <div className="relative">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 rounded-[14px] bg-white/60 backdrop-blur-md flex items-center justify-center border border-white/80 shadow-[0_8px_20px_rgba(0,0,0,0.03)]">
-                <ShieldCheck size={22} className="text-amber-500" strokeWidth={2} />
-              </div>
-              <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight m-0">Analytics & Cookies</h2>
-            </div>
-            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px] pl-[64px]">
-              We may utilize completely anonymized, privacy-friendly analytics exclusively to count the aggregate number of page visits and ensure our application is running smoothly. This minimal data cannot be traced back to you. We do not use persistent tracking cookies.
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">Anonymized Analytics</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              To maintain the health of our platform and understand general usage trends, we utilize privacy-focused, anonymized analytics. This data is limited to aggregate statistics such as page view counts and success rates of tool usage. This information is completely ephemeral, contains no personally identifiable information (PII), and cannot be used to trace activity back to an individual user.
             </p>
           </div>
 
-          <div className="relative pl-[64px]">
-            <h2 className="text-xl sm:text-[22px] font-bold text-gray-900 tracking-tight mb-3">Updates to this Policy</h2>
-            <p className="text-gray-600 leading-[1.7] m-0 text-[16.5px] sm:text-[17.5px]">
-              As our platform evolves, we may occasionally update this Privacy Policy. However, our fundamental commitment to local, client-side processing will never change. Any updates will be reflected directly on this page.
+          <div className="relative">
+            <h2 className="text-2xl sm:text-[26px] font-bold text-gray-900 tracking-tight mb-4">Updates to this Policy</h2>
+            <p className="text-gray-600 leading-[1.8] m-0 text-[16.5px] sm:text-[17.5px]">
+              We may occasionally update this Privacy Policy to reflect technical improvements or changes in our operational practices. However, our core philosophy remains unchanged: your files are processed locally, and your privacy is absolute. We encourage you to review this page periodically for any updates.
             </p>
           </div>
 

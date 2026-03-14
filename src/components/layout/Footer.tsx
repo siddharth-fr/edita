@@ -33,7 +33,7 @@ const CATEGORIES = [
             { label: 'How it Works', href: '/how-it-works' },
             { label: 'Why Us', href: '/why-us' },
             { label: 'Privacy Policy', href: '/privacy' },
-            { label: 'Terms of Service', href: '/#terms' },
+            { label: 'Terms of Service', href: '/terms' },
             { label: 'Contact', href: '/#contact' },
         ],
     },
@@ -158,10 +158,10 @@ export function Footer() {
                         © {new Date().getFullYear()} edita All rights reserved.
                     </div>
                     <div className="flex gap-6">
-                        <Link href="/#privacy" style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500, textDecoration: 'none' }} className="hover:text-[#111827]">
+                        <Link href="/privacy" style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500, textDecoration: 'none' }} className="hover:text-[#111827]">
                             Privacy Policy
                         </Link>
-                        <Link href="/#terms" style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500, textDecoration: 'none' }} className="hover:text-[#111827]">
+                        <Link href="/terms" style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 500, textDecoration: 'none' }} className="hover:text-[#111827]">
                             Terms of Service
                         </Link>
                     </div>
