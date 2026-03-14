@@ -44,40 +44,41 @@ export default function ToolsHeader({
   return (
     <div className="flex flex-col gap-6 mb-10">
       {/* ── Top Row: Title + Search ── */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-        <div>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex-1">
           <h2
             className="text-2xl sm:text-3xl font-black tracking-tight"
             style={{ color: '#0F172A' }}
           >
             Popular Tools
           </h2>
-          <p className="text-sm mt-1 font-medium" style={{ color: '#94A3B8' }}>
+          <p className="text-sm mt-1.5 font-medium" style={{ color: '#94A3B8', maxWidth: 400 }}>
             {active
               ? `${filteredCount} result${filteredCount !== 1 ? 's' : ''} for "${query}"`
               : 'Pick any tool and get started instantly'}
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center">
           {/* Search pill — click anywhere to focus */}
           <div
             onClick={focusPill}
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 6,
-              padding: '10px 16px',
-              borderRadius: 999,
-              background: '#fff',
-              border: `1px solid ${active ? '#34D399' : 'rgba(16, 185, 129, 0.12)'}`,
+              gap: 8,
+              padding: '12px 20px',
+              borderRadius: 16,
+              background: '#F8FAFC',
+              border: `1px solid ${active ? '#34D399' : 'rgba(16, 185, 129, 0.1)'}`,
               boxShadow: active
                 ? '0 10px 25px rgba(52,211,153,0.08)'
-                : '0 4px 12px rgba(0,0,0,0.01)',
+                : 'none',
               cursor: 'text',
               transition: 'all 0.3s ease',
-              flex: 1,
-              maxWidth: 320,
+              width: '100%',
+              minWidth: '300px', // Changed from { sm: 300 } to '300px' for valid CSS
+              maxWidth: 360,
             }}
           >
             <Search
@@ -138,7 +139,7 @@ export default function ToolsHeader({
       </div>
 
       {/* ── Bottom Row: Category Filter ── */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
         <div 
           className="flex items-center gap-2"
           style={{ minWidth: 'max-content' }}

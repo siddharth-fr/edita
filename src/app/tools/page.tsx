@@ -104,15 +104,19 @@ export default function ToolsPage() {
           </div>
         </div>
 
-        <div style={{
-          background: '#FFFFFF',
-          borderRadius: 32,
-          padding: '40px 0',
-          border: '1px solid rgba(16, 185, 129, 0.08)',
-          boxShadow: '0 4px 30px rgba(0,0,0,0.01)',
-          position: 'relative',
-          marginTop: '24px'
-        }}>
+        <div 
+          className="px-6 sm:px-10 lg:px-12"
+          style={{
+            background: '#FFFFFF',
+            borderRadius: 32,
+            paddingTop: '48px',
+            paddingBottom: '48px',
+            border: '1px solid rgba(16, 185, 129, 0.08)',
+            boxShadow: '0 4px 30px rgba(0,0,0,0.01)',
+            position: 'relative',
+            marginTop: '24px'
+          }}
+        >
           <ToolsSection tools={tools} />
 
           {/* Trust strip */}
@@ -121,7 +125,6 @@ export default function ToolsPage() {
             style={{ 
               borderTop: '1px solid rgba(16, 185, 129, 0.06)', 
               color: '#8b9cbd',
-              margin: '0 40px',
               paddingTop: '32px'
             }}
           >
