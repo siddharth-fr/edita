@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import BetaBadge from "@/components/ui/BetaBadge";
+import { constructMetadata } from "@/lib/metadata";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,11 +21,7 @@ const displayFont = Bricolage_Grotesque({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Edita – Fast. Private. Browser-based file tools.",
-  description: "Browser-based file editing and conversion platform that runs tools locally in the user's browser whenever possible.",
-  manifest: '/manifest.json',
-};
+export const metadata: Metadata = constructMetadata();
 
 export default function RootLayout({
   children,

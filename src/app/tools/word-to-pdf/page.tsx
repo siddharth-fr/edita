@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { constructMetadata } from "@/lib/metadata";
+
 const ToolLayout = dynamic(() => import('@/components/layout/ToolLayout').then(mod => mod.ToolLayout), {
   loading: () => <div className="h-[400px] w-full animate-pulse bg-muted rounded-3xl" />
 });
@@ -8,11 +9,12 @@ const WordToPdfClient = dynamic(() => import('@/components/tools/WordToPdfClient
 });
 
 
-export const metadata: Metadata = {
-  title: 'Word to PDF – Edita',
-  description: 'Convert Word documents to PDF formatting.',
-  alternates: { canonical: '/tools/word-to-pdf' },
-};
+export const metadata = constructMetadata({
+  title: "Word to PDF Online Free – Editor.tools",
+  description: "Convert Word documents (.docx, .doc) to PDF formatting online for free. Secure browser-based conversion with zero uploads to servers. Fast and private.",
+  canonical: "/tools/word-to-pdf",
+  keywords: ["word to pdf", "convert docx to pdf", "free word to pdf converter", "secure doc conversion"],
+});
 
 export default function Page() {
   return (
