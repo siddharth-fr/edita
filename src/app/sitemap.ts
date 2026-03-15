@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://edita.com';
+    const baseUrl = 'https://edita.tools';
 
     const pages = [
         '',
