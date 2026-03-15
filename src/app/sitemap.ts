@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '',
         'tools',
         'how-it-works',
-        'why',
+        'why-us',
         'privacy',
         'terms',
         'contact'
