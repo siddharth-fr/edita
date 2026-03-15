@@ -1,9 +1,13 @@
 import { constructMetadata } from "@/lib/metadata";
-import TermsClient from "./TermsClient";
+import dynamic from "next/dynamic";
+
+const TermsClient = dynamic(() => import("./TermsClient"), {
+  loading: () => <div className="h-[400px] w-full animate-pulse bg-muted rounded-3xl" />
+});
 
 export const metadata = constructMetadata({
   title: "Terms of Service – Editor.tools",
-  description: "Read the terms of service for using Editor.tools. Fast, free, and secure browser-based file tools for everyone.",
+  description: "Read the terms of service for using Editor.tools. Our fast, free, and secure browser-based file tools are designed to respect your privacy and data security at all times.",
 });
 
 export default function Terms() {
