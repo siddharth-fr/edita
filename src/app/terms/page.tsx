@@ -6,8 +6,8 @@ const TermsClient = dynamic(() => import("./TermsClient"), {
 });
 
 export const metadata = constructMetadata({
-  title: "Terms of Service – Editor.tools",
-  description: "Read the terms of service for using Editor.tools. Our fast, free, and secure browser-based file tools are designed to respect your privacy and data security at all times.",
+  title: "Terms of Service – Edita.tools",
+  description: "Read the terms of service for using Edita.tools. Our fast, free, and secure browser-based file tools are designed to respect your privacy and data security at all times.",
 });
 
 export default function Terms() {

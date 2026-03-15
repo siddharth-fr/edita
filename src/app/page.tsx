@@ -11,7 +11,7 @@ export const metadata = constructMetadata({
     "pdf to word free",
     "image compressor without upload",
     "private file editor",
-    "editor.tools",
+    "edita.tools",
   ],
 });
 

@@ -7,7 +7,7 @@ const Mp4ToMp3Client = dynamic(() => import('@/components/tools/Mp4ToMp3Client')
 });
 
 export const metadata = constructMetadata({
-  title: "MP4 to MP3 Converter Online Free – Editor.tools",
+  title: "MP4 to MP3 Converter Online Free – Edita.tools",
   description: "Extract audio from MP4 videos and save as MP3. Free online conversion that runs securely in your browser. No file size limits or registration.",
   canonical: "/tools/mp4-to-mp3",
   keywords: ["mp4 to mp3", "extract audio from video", "free video converter", "online mp3 extractor"],

@@ -10,7 +10,7 @@ const WordToPdfClient = dynamic(() => import('@/components/tools/WordToPdfClient
 
 
 export const metadata = constructMetadata({
-  title: "Word to PDF Online Free – Editor.tools",
+  title: "Word to PDF Online Free – Edita.tools",
   description: "Convert Word documents (.docx, .doc) to PDF formatting online for free. Secure browser-based conversion with zero uploads to servers. Fast and private.",
   canonical: "/tools/word-to-pdf",
   keywords: ["word to pdf", "convert docx to pdf", "free word to pdf converter", "secure doc conversion"],

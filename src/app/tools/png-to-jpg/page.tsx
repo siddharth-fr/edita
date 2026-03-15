@@ -7,7 +7,7 @@ const PngToJpgClient = dynamic(() => import('@/components/tools/PngToJpgClient')
 });
 
 export const metadata = constructMetadata({
-  title: "PNG to JPG Online Free – Editor.tools",
+  title: "PNG to JPG Online Free – Edita.tools",
   description: "Convert PNG images to JPG format for free online. Fast, secure, and purely browser-based image conversion. No file size limits or registration.",
   canonical: "/tools/png-to-jpg",
   keywords: ["png to jpg", "convert png to image", "free png to jpg converter", "online image conversion", "secure image tools"],

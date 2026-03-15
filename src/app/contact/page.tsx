@@ -6,8 +6,8 @@ const ContactClient = dynamic(() => import("./ContactClient"), {
 });
 
 export const metadata = constructMetadata({
-  title: "Contact Us – Editor.tools",
-  description: "Have questions or feedback? Get in touch with the Editor.tools team. We are here to help you with all your browser-based file editing and conversion needs securely.",
+  title: "Contact Us – Edita.tools",
+  description: "Have questions or feedback? Get in touch with the Edita.tools team. We are here to help you with all your browser-based file editing and conversion needs securely.",
 });
 
 export default function Contact() {

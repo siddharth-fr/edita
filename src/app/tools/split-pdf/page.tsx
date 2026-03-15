@@ -7,7 +7,7 @@ const SplitPdfClient = dynamic(() => import('@/components/tools/SplitPdfClient')
 });
 
 export const metadata = constructMetadata({
-  title: "Split PDF Online Free – Editor.tools",
+  title: "Split PDF Online Free – Edita.tools",
   description: "Extract specific pages or split your PDF into multiple files online. Secure browser-based PDF splitting. No signup, no uploads, 100% private.",
   canonical: "/tools/split-pdf",
   keywords: ["split pdf", "extract pdf pages", "free pdf splitter", "online pdf tool", "secure pdf processing"],

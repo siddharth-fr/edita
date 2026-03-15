@@ -7,7 +7,7 @@ const JpgToPdfClient = dynamic(() => import('@/components/tools/JpgToPdfClient')
 });
 
 export const metadata = constructMetadata({
-  title: "JPG to PDF Online Free – Editor.tools",
+  title: "JPG to PDF Online Free – Edita.tools",
   description: "Convert JPG images to PDF documents online for free. Secure browser-based conversion. No registration or software installation required.",
   canonical: "/tools/jpg-to-pdf",
   keywords: ["jpg to pdf", "convert image to pdf", "free jpg to pdf converter", "secure image conversion"],

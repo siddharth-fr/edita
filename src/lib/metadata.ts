@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
 export const SITE_CONFIG = {
-  name: "Editor.tools",
+  name: "Edita.tools",
   description: "Free online file tools that run directly in your browser. Fast, private, and no signup required. Compress, convert, and edit PDFs, images, and videos securely.",
-  url: "https://editor.tools",
-  ogImage: "https://editor.tools/og-image.png", // Assuming this exists or will be added
+  url: "https://edita.tools",
+  ogImage: "https://edita.tools/og-image.png", // Assuming this exists or will be added
   keywords: [
     "online editor",
     "free tools",
@@ -66,7 +66,7 @@ export function constructMetadata({
       title: finalTitle,
       description,
       images: [image],
-      creator: "@editor_tools", // Placeholder
+      creator: "@edita_tools", // Placeholder
     },
     icons,
     metadataBase: new URL(SITE_CONFIG.url),

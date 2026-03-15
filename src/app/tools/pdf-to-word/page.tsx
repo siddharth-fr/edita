@@ -7,7 +7,7 @@ const PdfToWordClient = dynamic(() => import('@/components/tools/PdfToWordClient
 });
 
 export const metadata = constructMetadata({
-  title: "PDF to Word Online Free – Editor.tools",
+  title: "PDF to Word Online Free – Edita.tools",
   description: "Convert PDF documents to editable Microsoft Word files online. Secure browser-based conversion. No registration or email required. Purely local processing.",
   canonical: "/tools/pdf-to-word",
   keywords: ["pdf to word", "convert pdf to docx", "free pdf to word converter", "online pdf to word", "secure doc conversion"],

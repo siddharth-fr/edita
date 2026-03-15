@@ -7,7 +7,7 @@ const CompressPdfClient = dynamic(() => import('@/components/tools/CompressPdfCl
 });
 
 export const metadata = constructMetadata({
-  title: "Compress PDF Online Free – Editor.tools",
+  title: "Compress PDF Online Free – Edita.tools",
   description: "Reduce PDF file size online without losing quality. Our free browser-based tool allows you to compress PDF files securely on your device. No signup needed.",
   canonical: "/tools/compress-pdf",
   keywords: ["compress pdf", "reduce pdf size", "shrink pdf online", "free pdf compressor", "private pdf compression"],

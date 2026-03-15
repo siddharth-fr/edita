@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://editor.tools/sitemap.xml',
+        sitemap: 'https://edita.tools/sitemap.xml',
     };
 }
