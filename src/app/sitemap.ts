@@ -3,44 +3,42 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://edita.com';
 
-    const tools = [
-        'merge-pdf', 'compress-pdf', 'split-pdf', 'pdf-to-word',
-        'word-to-pdf', 'jpg-to-pdf', 'pdf-to-jpg', 'image-compressor',
-        'png-to-jpg', 'mp4-to-mp3'
+    const pages = [
+        '',
+        'tools',
+        'how-it-works',
+        'why',
+        'privacy',
+        'terms',
+        'contact'
     ];
 
-    const toolsUrls = tools.map((slug) => ({
+    const tools = [
+        'merge-pdf',
+        'compress-pdf',
+        'split-pdf',
+        'pdf-to-word',
+        'word-to-pdf',
+        'jpg-to-pdf',
+        'pdf-to-jpg',
+        'image-compressor',
+        'png-to-jpg',
+        'mp4-to-mp3'
+    ];
+
+    const pageUrls: MetadataRoute.Sitemap = pages.map((page) => ({
+        url: `${baseUrl}/${page}`,
+        lastModified: new Date(),
+        changeFrequency: page === '' ? 'weekly' : 'monthly',
+        priority: page === '' ? 1 : 0.6,
+    }));
+
+    const toolUrls: MetadataRoute.Sitemap = tools.map((slug) => ({
         url: `${baseUrl}/tools/${slug}`,
         lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
+        changeFrequency: 'weekly',
         priority: 0.8,
     }));
 
-    return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/privacy`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.5,
-        },
-        {
-            url: `${baseUrl}/terms`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.5,
-        },
-        {
-            url: `${baseUrl}/contact`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.5,
-        },
-        ...toolsUrls,
-    ];
+    return [...pageUrls, ...toolUrls];
 }
