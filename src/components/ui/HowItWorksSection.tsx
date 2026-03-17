@@ -3,8 +3,24 @@
 import { MousePointerClick, Cpu, Download } from 'lucide-react';
 import { CardFace } from '@/components/ui/HeroCardGrid';
 
-export default function HowItWorksSection() {
-  const steps = [
+interface HowItWorksStep {
+  title: string;
+  desc: string;
+  icon?: React.ReactNode;
+}
+
+interface HowItWorksSectionProps {
+  title?: string;
+  subtitle?: string;
+  steps?: HowItWorksStep[];
+}
+
+export default function HowItWorksSection({ 
+  title = "How it Works", 
+  subtitle = "Everything happens right in your browser. Private, fast, and completely free.",
+  steps: customSteps
+}: HowItWorksSectionProps) {
+  const defaultSteps = [
     {
       step: "01",
       title: "Select Tool",
@@ -28,6 +44,19 @@ export default function HowItWorksSection() {
     }
   ];
 
+  const displaySteps = customSteps 
+    ? customSteps.map((s, i) => ({
+        ...s,
+        step: `0${i + 1}`,
+        icon: s.icon || defaultSteps[i]?.icon || defaultSteps[0].icon,
+        gradient: defaultSteps[i]?.gradient || defaultSteps[0].gradient
+      }))
+    : defaultSteps;
+
+  const displayTitle = title.split(" ");
+  const lastWord = displayTitle.pop();
+  const firstPart = displayTitle.join(" ");
+
   return (
     <section className="w-full mt-20 pt-16 border-t border-border/40 relative">
 
@@ -50,12 +79,12 @@ export default function HowItWorksSection() {
             fontSize: 'clamp(28px, 5vw, 36px)',
             color: '#0C0F17',
           }}>
-            How it <span style={{
+            {firstPart}{" "}<span style={{
               background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>Works</span>
+            }}>{lastWord}</span>
           </h2>
           <p style={{
             fontSize: '16px',
@@ -63,14 +92,14 @@ export default function HowItWorksSection() {
             color: '#64748B',
             fontWeight: 400,
           }}>
-            Everything happens right in your browser. Private, fast, and completely free.
+            {subtitle}
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 lg:gap-12 relative max-w-5xl mx-auto px-4 sm:px-8">
 
-        {steps.map((item, i) => (
+        {displaySteps.map((item, i) => (
           <div key={i} className="flex flex-col items-center text-center group">
             <div 
               className="w-20 h-20 rounded-[28px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] flex items-center justify-center mb-6 relative transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
@@ -82,11 +111,11 @@ export default function HowItWorksSection() {
               {/* Background Glow */}
               <div 
                 className="absolute inset-2 rounded-[22px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-                style={{ background: item.gradient, filter: 'blur(12px)' }}
+                style={{ background: (item as any).gradient, filter: 'blur(12px)' }}
               />
               
               <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-emerald-500 text-white text-[11px] font-black flex items-center justify-center shadow-md border-4 border-white">
-                {item.step}
+                {(item as any).step}
               </div>
               
               <div className="transition-transform duration-500 group-hover:scale-110">

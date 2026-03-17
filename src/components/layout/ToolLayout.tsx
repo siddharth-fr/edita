@@ -8,9 +8,19 @@ interface ToolLayoutProps {
   title: string;
   description: string;
   children: ReactNode;
+  howItWorksTitle?: string;
+  howItWorksSubtitle?: string;
+  howItWorksSteps?: { title: string; desc: string }[];
 }
 
-export function ToolLayout({ title, description, children }: ToolLayoutProps) {
+export function ToolLayout({ 
+  title, 
+  description, 
+  children,
+  howItWorksTitle,
+  howItWorksSubtitle,
+  howItWorksSteps
+}: ToolLayoutProps) {
   return (
     <main className="flex-1 flex flex-col items-center w-full pb-28 pt-28 relative overflow-x-clip">
       
@@ -85,7 +95,11 @@ export function ToolLayout({ title, description, children }: ToolLayoutProps) {
       </div>
 
       <div className="w-full max-w-5xl px-4 sm:px-8">
-        <HowItWorksSection />
+        <HowItWorksSection 
+          title={howItWorksTitle}
+          subtitle={howItWorksSubtitle}
+          steps={howItWorksSteps}
+        />
       </div>
 
       <div className="w-full max-w-6xl px-4 sm:px-8">

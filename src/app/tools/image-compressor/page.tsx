@@ -7,15 +7,32 @@ const ImageCompressorClient = dynamic(() => import('@/components/tools/ImageComp
 });
 
 export const metadata = constructMetadata({
-  title: "Image Compressor Online Free – Edita.tools",
-  description: "Compress JPG, PNG, and WebP images online without losing quality. Fast, free, and secure browser-based image compression. No upload to server required.",
+  title: "Image Compressor – Compress JPG, PNG & WebP Online",
+  description: "Compress JPG, PNG and WebP images online for free. Reduce image file size quickly while keeping high quality. Fast browser-based compression. No upload to server required.",
   canonical: "/tools/image-compressor",
-  keywords: ["compress image", "image optimizer", "shrink jpg", "reduce png size", "free image compressor"],
+  keywords: ["image compressor", "compress images online", "reduce image size", "compress jpg", "compress png", "webp compressor", "free image compressor"],
 });
 
 export default function Page() {
   return (
-    <ToolLayout title="Image Compressor" description="Compress JPG, PNG, and WebP images.">
+    <ToolLayout
+      title="Image Compressor"
+      description="Compress JPG, PNG and WebP images online to reduce file size while preserving quality."
+      howItWorksSteps={[
+        {
+          title: "Upload",
+          desc: "Select the image file you want to optimize from your device."
+        },
+        {
+          title: "Compress",
+          desc: "Our engine reduces the file size instantly while maintaining quality."
+        },
+        {
+          title: "Download",
+          desc: "Save your optimized image directly to your folder in seconds."
+        }
+      ]}
+    >
       <ImageCompressorClient />
     </ToolLayout>
   );

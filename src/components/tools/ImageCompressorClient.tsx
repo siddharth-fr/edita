@@ -60,7 +60,7 @@ export function ImageCompressorClient() {
                         {!result ? (
                             <div className="flex justify-center">
                                 <Button size="lg" onClick={compressImage} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
-                                    {isProcessing ? 'Compressing...' : 'Compress Image'}
+                                    {isProcessing ? 'Optimizing...' : 'Compress Image Now'}
                                 </Button>
                             </div>
                         ) : (
@@ -98,10 +98,13 @@ export function ImageCompressorClient() {
                                     >
                                         <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                             <Download className="w-5 h-5 mr-2" />
-                                            Download Image
+                                            Download Optimized Image
                                         </Button>
                                     </a>
                                 </div>
+                                <p className="text-[11px] text-muted-foreground/60 text-center mt-2">
+                                    Your images are processed locally in your browser and never leave your device.
+                                </p>
                             </div>
                         )}
                     </div>
