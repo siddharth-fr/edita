@@ -11,6 +11,7 @@ interface ToolLayoutProps {
   howItWorksTitle?: string;
   howItWorksSubtitle?: string;
   howItWorksSteps?: { title: string; desc: string }[];
+  footerContent?: React.ReactNode;
 }
 
 export function ToolLayout({ 
@@ -19,7 +20,8 @@ export function ToolLayout({
   children,
   howItWorksTitle,
   howItWorksSubtitle,
-  howItWorksSteps
+  howItWorksSteps,
+  footerContent
 }: ToolLayoutProps) {
   return (
     <main className="flex-1 flex flex-col items-center w-full pb-28 pt-28 relative overflow-x-clip">
@@ -105,6 +107,12 @@ export function ToolLayout({
       <div className="w-full max-w-6xl px-4 sm:px-8">
         <SimilarToolsSection />
       </div>
+
+      {footerContent && (
+        <div className="w-full max-w-4xl px-4 sm:px-8 mt-24">
+          {footerContent}
+        </div>
+      )}
 
     </main>
   );

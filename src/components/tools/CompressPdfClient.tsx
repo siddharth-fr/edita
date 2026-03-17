@@ -75,7 +75,7 @@ export function CompressPdfClient() {
                         <div className="flex justify-center">
                             {!result ? (
                                 <Button size="lg" onClick={compressPdf} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
-                                    {isProcessing ? 'Compressing...' : 'Compress PDF'}
+                                    {isProcessing ? 'Optimizing...' : 'Compress PDF Now'}
                                 </Button>
                             ) : (
                                 <div className="flex flex-col items-center gap-4 w-full">
@@ -98,12 +98,15 @@ export function CompressPdfClient() {
                                     >
                                         <Button size="lg" className="shadow-lg shadow-emerald-500/20 w-full hover:scale-[1.02] active:scale-[0.98]">
                                             <Download className="w-5 h-5 mr-2" />
-                                            Download Compressed PDF
+                                            Download Optimized PDF
                                         </Button>
                                     </a>
                                 </div>
                             )}
                         </div>
+                        <p className="text-[11px] text-muted-foreground/60 text-center mt-2">
+                             Your files are processed locally in your browser and never leave your device.
+                        </p>
                     </div>
                 </div>
             )}
