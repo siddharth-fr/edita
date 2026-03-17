@@ -7,7 +7,7 @@ const ImageCompressorClient = dynamic(() => import('@/components/tools/ImageComp
 });
 
 export const metadata = constructMetadata({
-  title: "Image Compressor - Compress JPG, PNG & WebP Online",
+  title: "Image Compressor - Compress JPG, PNG & WebP Online | Edita",
   description: "Compress JPG, PNG and WebP images online for free. Reduce image file size quickly while keeping high quality. Fast browser-based compression. No upload to server required.",
   canonical: "/tools/image-compressor",
   keywords: ["image compressor", "compress images online", "reduce image size", "compress jpg", "compress png", "webp compressor", "free image compressor"],

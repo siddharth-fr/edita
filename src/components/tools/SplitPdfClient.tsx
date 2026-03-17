@@ -123,7 +123,7 @@ export function SplitPdfClient() {
                         <div className="flex justify-center pt-4 border-t border-border/50">
                             {!result ? (
                                 <Button size="lg" onClick={splitPdf} disabled={isProcessing} isLoading={isProcessing} className="w-full sm:w-auto">
-                                    {isProcessing ? 'Splitting...' : 'Split PDF'}
+                                    {isProcessing ? 'Processing...' : 'Split PDF Now'}
                                 </Button>
                             ) : (
                                 <div className="flex flex-col items-center gap-4 w-full">
@@ -141,6 +141,9 @@ export function SplitPdfClient() {
                                 </div>
                             )}
                         </div>
+                        <p className="text-[11px] text-muted-foreground/60 text-center mt-2">
+                             Your files are processed locally in your browser and never leave your device.
+                        </p>
                     </div>
                 </div>
             )}
