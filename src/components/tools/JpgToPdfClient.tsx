@@ -9,20 +9,31 @@ import { Download, ImageIcon } from 'lucide-react';
 import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 import { formatBytes } from '@/components/tools/FilePreviewCard';
 
+import { useToast } from '@/hooks/useToast';
+import { validateFiles } from '@/lib/file-validation';
+
 interface ImageFile {
     id: string;
     file: File;
 }
 
+const ACCEPT_STR = 'image/jpeg,image/png';
+
 export function JpgToPdfClient() {
     const [imageFiles, setImageFiles] = useState<ImageFile[]>([]);
     const [isProcessing, setIsProcessing] = useState(false);
     const [resultUrl, setResultUrl] = useState<string | null>(null);
+    const { error } = useToast();
 
     const handleUpload = (newFiles: File[]) => {
-        const validFiles = newFiles.filter((f) => f.type.startsWith('image/'));
-        if (validFiles.length > 0) {
-            const newItems = validFiles.map((f) => ({
+        const { valid, rejectedCount } = validateFiles(newFiles, ACCEPT_STR);
+        
+        if (rejectedCount > 0) {
+            error("Invalid File Type", "Only JPG and PNG images are supported.");
+        }
+
+        if (valid.length > 0) {
+            const newItems = valid.map((f) => ({
                 id: Math.random().toString(36).substring(7),
                 file: f,
             }));
@@ -30,7 +41,7 @@ export function JpgToPdfClient() {
             setResultUrl(null);
             
             // GA4 Tracking
-            validFiles.forEach(f => trackFileUploaded(f.type, f.size));
+            valid.forEach(f => trackFileUploaded(f.type, f.size));
         }
     };
 

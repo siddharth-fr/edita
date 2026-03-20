@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
+import { type HowItWorksStep } from '@/components/ui/HowItWorksSection';
+
 const HowItWorksSection = dynamic(() => import('@/components/ui/HowItWorksSection'));
 const SimilarToolsSection = dynamic(() => import('@/components/ui/SimilarToolsSection'));
 
@@ -10,7 +12,7 @@ interface ToolLayoutProps {
   children: ReactNode;
   howItWorksTitle?: string;
   howItWorksSubtitle?: string;
-  howItWorksSteps?: { title: string; desc: string }[];
+  howItWorksSteps?: HowItWorksStep[];
   footerContent?: React.ReactNode;
 }
 

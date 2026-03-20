@@ -5,7 +5,7 @@ import ToolsSection from '@/components/ui/ToolsSection';
 import { CardFace } from '@/components/ui/HeroCardGrid';
 import { type AppTheme } from '@/config/themes';
 
-const tools = [
+const tools: { name: string; slug: string; iconKey: string; theme: AppTheme; category: string; }[] = [
   { name: 'Merge PDF', slug: 'merge-pdf', iconKey: 'FileText', theme: 'blue', category: 'PDF' },
   { name: 'Compress PDF', slug: 'compress-pdf', iconKey: 'Minimize2', theme: 'purple', category: 'PDF' },
   { name: 'Split PDF', slug: 'split-pdf', iconKey: 'SplitSquareHorizontal', theme: 'orange', category: 'PDF' },
@@ -104,27 +104,27 @@ export default function ToolsPage() {
             </p>
           </div>
         </div>
+      </section>
 
-        <section
-          id="tools"
-          className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 mt-12 pb-8"
-          style={{
-            background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.95) 100%)',
-            borderRadius: 32,
-          }}
+      <section
+        id="tools"
+        className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 mt-12 pb-8"
+        style={{
+          background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.95) 100%)',
+          borderRadius: 32,
+        }}
+      >
+        <ToolsSection tools={tools} />
+
+        {/* Trust strip */}
+        <div
+          className="mt-14 pt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold"
+          style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
         >
-          <ToolsSection tools={tools} />
-
-          {/* Trust strip */}
-          <div
-            className="mt-14 pt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold"
-            style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
-          >
-            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />Files never leave your device</span>
-            <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-emerald-500" />WebAssembly-powered</span>
-            <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-emerald-500" />No account required · Always free</span>
-          </div>
-        </section>
+          <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />Files never leave your device</span>
+          <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-emerald-500" />WebAssembly-powered</span>
+          <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-emerald-500" />No account required · Always free</span>
+        </div>
       </section>
     </main>
   );

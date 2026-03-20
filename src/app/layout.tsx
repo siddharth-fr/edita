@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import BetaBadge from "@/components/ui/BetaBadge";
 import { constructMetadata } from "@/lib/metadata";
+import { ToastProvider } from "@/components/providers/ToastProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,11 +34,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${displayFont.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`}
       >
-        <GoogleAnalytics />
-        <Navbar />
-        {children}
-        <Footer />
-        <BetaBadge />
+        <ToastProvider>
+          <GoogleAnalytics />
+          <Navbar />
+          {children}
+          <Footer />
+          <BetaBadge />
+        </ToastProvider>
       </body>
     </html>
   );

@@ -7,6 +7,11 @@ import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
 import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
+import { useToast } from '@/hooks/useToast';
+import { validateFiles } from '@/lib/file-validation';
+
+const ACCEPT_STR = '.pdf,application/pdf';
+
 export function SplitPdfClient() {
     const [file, setFile] = useState<File | null>(null);
     const [pageCount, setPageCount] = useState<number>(0);
@@ -15,6 +20,7 @@ export function SplitPdfClient() {
     const [isProcessing, setIsProcessing] = useState(false);
     const [result, setResult] = useState<string | null>(null);
     const pdfDocRef = useRef<PDFDocument | null>(null);
+    const { error } = useToast();
 
     useEffect(() => {
         return () => {
@@ -23,8 +29,14 @@ export function SplitPdfClient() {
     }, [result]);
 
     const handleUpload = async (files: File[]) => {
-        const validFile = files.find((f) => f.type === 'application/pdf');
-        if (validFile) {
+        const { valid, rejectedCount } = validateFiles(files, ACCEPT_STR);
+        
+        if (rejectedCount > 0) {
+            error("Invalid File Type", "Please select a valid PDF file for splitting.");
+        }
+
+        if (valid.length > 0) {
+            const validFile = valid[0];
             try {
                 const arrayBuffer = await validFile.arrayBuffer();
                 const pdfDoc = await PDFDocument.load(arrayBuffer);

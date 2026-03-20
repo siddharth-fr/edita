@@ -3,11 +3,12 @@
 import { useState, useMemo } from 'react';
 import ToolCard from '@/components/ui/ToolCard';
 import ToolsHeader from '@/components/ui/ToolsHeader';
+import { type AppTheme } from '@/config/themes';
 
 interface Tool {
   name: string;
   slug: string;
-  theme: string;
+  theme: AppTheme;
   category: string;
 }
 
@@ -63,7 +64,7 @@ export default function ToolsSection({ tools }: { tools: Tool[] }) {
               key={tool.slug}
               name={tool.name}
               slug={tool.slug}
-              theme={tool.theme as 'blue'}
+              theme={tool.theme}
               category={tool.category}
             />
           ))}

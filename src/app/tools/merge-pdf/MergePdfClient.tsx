@@ -9,15 +9,21 @@ import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
 import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
+import { useToast } from '@/hooks/useToast';
+import { validateFiles } from '@/lib/file-validation';
+
 interface PdfFile {
     id: string;
     file: File;
 }
 
+const ACCEPT_STR = '.pdf,application/pdf';
+
 export default function MergePdfClient() {
     const [pdfFiles, setPdfFiles] = useState<PdfFile[]>([]);
     const [isProcessing, setIsProcessing] = useState(false);
     const [mergedPdfUrl, setMergedPdfUrl] = useState<string | null>(null);
+    const { error } = useToast();
 
     useEffect(() => {
         return () => {
@@ -26,10 +32,14 @@ export default function MergePdfClient() {
     }, [mergedPdfUrl]);
 
     const handleUpload = (newFiles: File[]) => {
-        // filter only pdfs
-        const validFiles = newFiles.filter((f) => f.type === 'application/pdf');
-        if (validFiles.length > 0) {
-            const newItems = validFiles.map((f) => ({
+        const { valid, rejectedCount } = validateFiles(newFiles, ACCEPT_STR);
+        
+        if (rejectedCount > 0) {
+            error("Invalid File Type", "Only PDF files are allowed for merging.");
+        }
+
+        if (valid.length > 0) {
+            const newItems = valid.map((f) => ({
                 id: Math.random().toString(36).substring(7),
                 file: f,
             }));
@@ -37,7 +47,7 @@ export default function MergePdfClient() {
             setMergedPdfUrl(null);
             
             // GA4 Tracking
-            validFiles.forEach(f => trackFileUploaded(f.type, f.size));
+            valid.forEach(f => trackFileUploaded(f.type, f.size));
         }
     };
 

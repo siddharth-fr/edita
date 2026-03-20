@@ -8,12 +8,18 @@ import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
 import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
+import { useToast } from '@/hooks/useToast';
+import { validateFiles } from '@/lib/file-validation';
+
+const ACCEPT_STR = 'video/mp4';
+
 export function Mp4ToMp3Client() {
     const [file, setFile] = useState<File | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [progress, setProgress] = useState(0);
     const [result, setResult] = useState<{ url: string; size: number } | null>(null);
+    const { error } = useToast();
 
     const ffmpegRef = useRef<any>(null);
 
@@ -43,14 +49,18 @@ export function Mp4ToMp3Client() {
     };
 
     const handleUpload = (files: File[]) => {
-        const validFile = files.find((f) => f.type.startsWith('video/mp4'));
-        if (validFile) {
+        const { valid, rejectedCount } = validateFiles(files, ACCEPT_STR);
+        
+        if (rejectedCount > 0) {
+            error("Invalid File Type", "Please upload a valid MP4 video file.");
+        }
+
+        if (valid.length > 0) {
+            const validFile = valid[0];
             setFile(validFile);
             setResult(null);
             setProgress(0);
             trackFileUploaded(validFile.type, validFile.size);
-        } else {
-            alert("Please upload a valid MP4 file.");
         }
     };
 

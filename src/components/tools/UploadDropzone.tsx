@@ -2,6 +2,8 @@
 import { useCallback, useState } from 'react';
 import { CardFace } from '@/components/ui/HeroCardGrid';
 import { type AppTheme } from '@/config/themes';
+import { useToast } from '@/hooks/useToast';
+import { validateFiles } from '@/lib/file-validation';
 
 interface UploadDropzoneProps {
   onUpload: (files: File[]) => void;
@@ -14,6 +16,7 @@ const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
 
 export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDropzoneProps) {
   const [isDragging, setIsDragging] = useState(false);
+  const { error } = useToast();
 
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -31,15 +34,37 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
       e.stopPropagation();
       setIsDragging(false);
       if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-        onUpload(Array.from(e.dataTransfer.files));
+        const { valid, rejectedCount } = validateFiles(Array.from(e.dataTransfer.files), accept);
+        
+        if (rejectedCount > 0) {
+          error(
+            "Invalid File Type",
+            `Skipped ${rejectedCount} file${rejectedCount > 1 ? 's' : ''} that don't match the required format.`
+          );
+        }
+
+        if (valid.length > 0) {
+          onUpload(valid);
+        }
       }
     },
-    [onUpload]
+    [onUpload, accept, error]
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      onUpload(Array.from(e.target.files));
+      const { valid, rejectedCount } = validateFiles(Array.from(e.target.files), accept);
+      
+      if (rejectedCount > 0) {
+        error(
+          "Invalid File Type",
+          `Skipped ${rejectedCount} file${rejectedCount > 1 ? 's' : ''} that don't match the required format.`
+        );
+      }
+
+      if (valid.length > 0) {
+        onUpload(valid);
+      }
       e.target.value = '';
     }
   };

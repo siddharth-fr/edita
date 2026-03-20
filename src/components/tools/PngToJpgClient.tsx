@@ -6,19 +6,29 @@ import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
 import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
+import { useToast } from '@/hooks/useToast';
+import { validateFiles } from '@/lib/file-validation';
+
+const ACCEPT_STR = 'image/png';
+
 export function PngToJpgClient() {
     const [file, setFile] = useState<File | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [result, setResult] = useState<{ url: string; size: number } | null>(null);
+    const { error } = useToast();
 
     const handleUpload = (files: File[]) => {
-        const validFile = files.find((f) => f.type === 'image/png');
-        if (validFile) {
+        const { valid, rejectedCount } = validateFiles(files, ACCEPT_STR);
+        
+        if (rejectedCount > 0) {
+            error("Invalid File Type", "Please upload a valid PNG image.");
+        }
+
+        if (valid.length > 0) {
+            const validFile = valid[0];
             setFile(validFile);
             setResult(null);
             trackFileUploaded(validFile.type, validFile.size);
-        } else {
-            alert("Please upload a valid PNG file.");
         }
     };
 

@@ -19,7 +19,7 @@ const FAQSection = dynamic(() => import('@/components/ui/FAQSection'), { ssr: fa
 /* ─────────────────────────────────────────────────────────
   Tool catalogue (used in the tools grid below the fold)
 ───────────────────────────────────────────────────────── */
-const tools = [
+const tools: { name: string; slug: string; iconKey: string; theme: AppTheme; category: string; }[] = [
   { name: 'Merge PDF', slug: 'merge-pdf', iconKey: 'FileText', theme: 'blue', category: 'PDF' },
   { name: 'Compress PDF', slug: 'compress-pdf', iconKey: 'Minimize2', theme: 'purple', category: 'PDF' },
   { name: 'Split PDF', slug: 'split-pdf', iconKey: 'SplitSquareHorizontal', theme: 'orange', category: 'PDF' },

@@ -7,11 +7,17 @@ import { Button } from '@/components/ui/Button';
 import { Download, FileText, Sparkles } from 'lucide-react';
 import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
 
+import { useToast } from '@/hooks/useToast';
+import { validateFiles } from '@/lib/file-validation';
+
+const ACCEPT_STR = '.pdf,application/pdf';
+
 export function PdfToWordClient() {
     const [file, setFile] = useState<File | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [progress, setProgress] = useState(0);
     const [result, setResult] = useState<{ url: string; size: number } | null>(null);
+    const { error } = useToast();
 
     useEffect(() => {
         return () => {
@@ -20,8 +26,14 @@ export function PdfToWordClient() {
     }, [result?.url]);
 
     const handleUpload = (files: File[]) => {
-        const validFile = files.find((f) => f.type === 'application/pdf');
-        if (validFile) {
+        const { valid, rejectedCount } = validateFiles(files, ACCEPT_STR);
+        
+        if (rejectedCount > 0) {
+            error("Invalid File Type", "Please select a valid PDF file for text extraction.");
+        }
+
+        if (valid.length > 0) {
+            const validFile = valid[0];
             setFile(validFile);
             setResult(null);
             setProgress(0);
