@@ -2,6 +2,8 @@
 
 import { useState, useEffect, memo } from 'react';
 
+import { THEME_PALETTE, type AppTheme } from '@/config/themes';
+
 const COL_POSITIONS = ['8%', '27%', '50%', '74%', '92%'];
 const ROW_POSITIONS = ['14%', '50%', '86%'];
 const MAX_DIST = Math.sqrt(4 + 1);
@@ -9,7 +11,7 @@ const MAX_DIST = Math.sqrt(4 + 1);
 export interface HeroCard {
   label: string;
   category: string;
-  gradient: string;
+  theme: AppTheme;
   col: number;
   row: number;
   rotate: string;
@@ -27,31 +29,32 @@ function shuffled<T>(arr: T[]): T[] {
 
 /** Shared folder card face — used by both desktop grid and mobile layout */
 export const CardFace = memo(({
-  label, category, gradient, size,
-}: { label: string; category: string; gradient: string; size: number }) => {
-  const tabH   = size < 130 ? 14 : 18;
-  const radius = size < 130 ? 14 : 22;
-  const inner  = size < 130 ? 11 : 18;
-  const pad    = size < 130 ? 3  : 4;
-  const fsCat  = size < 130 ? 6.5 : 8;
-  const fsLbl  = size < 130 ? 9.5 : 11.5;
+  label, category, theme, size,
+}: { label: string; category: string; theme: AppTheme; size: number }) => {
+  const tabH   = size < 130 ? 16 : 24;
+  const radius = size < 130 ? 16 : 24;
+  const inner  = size < 130 ? 12 : 20;
+  const pad    = 4;
+  const fsCat  = size < 130 ? 6.5 : 9;
+  const fsLbl  = size < 130 ? 10 : 13;
 
-  // Derive a subtle tint from the gradient if possible, or use a neutral blue-tint
-  const shellTint = '#F8FAFF';
+  const pal = THEME_PALETTE[theme] ?? THEME_PALETTE.blue;
+  const shellTint = pal.tint;
+  const topGradient = pal.gradient;
 
   return (
     <div style={{ position: 'relative', width: '100%', aspectRatio: '4 / 3' }}>
       <div style={{
         position: 'relative', width: '100%', height: '100%',
         background: shellTint, borderRadius: radius, padding: pad, overflow: 'hidden',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.02)',
-        border: '1px solid rgba(0,0,0,0.03)',
+        boxShadow: '0 12px 32px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.03)',
+        border: '1.5px solid rgba(0,0,0,0.03)',
       }}>
         {/* Pastel gradient top */}
         <div style={{
-          position: 'absolute', inset: pad, borderRadius: inner,
+          position: 'absolute', inset: pad, borderRadius: `${inner}px ${inner}px 0 0`,
           bottom: '58%',
-          background: gradient, overflow: 'hidden',
+          background: topGradient, overflow: 'hidden',
         }}>
           <div style={{
             position: 'absolute', inset: 0,
@@ -63,14 +66,14 @@ export const CardFace = memo(({
         <div style={{
           position: 'absolute', bottom: pad, left: pad, right: pad, height: '58%',
           background: '#ffffff', borderRadius: `0 0 ${inner}px ${inner}px`,
-          padding: `${pad + 6}px ${pad + 7}px`,
+          padding: `${pad + 6}px ${pad + 8}px`,
           display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
         }}>
           {/* Category notch */}
           <div style={{
-            position: 'absolute', top: -tabH, left: 0, width: '56%', height: tabH,
-            background: '#ffffff', borderRadius: '8px 8px 0 0',
-            padding: `0 6px 0 10px`, fontSize: fsCat, fontWeight: 700,
+            position: 'absolute', top: -tabH, left: 0, width: '54%', height: tabH,
+            background: '#ffffff', borderRadius: '10px 10px 0 0',
+            padding: `0 6px 0 12px`, fontSize: fsCat, fontWeight: 700,
             letterSpacing: '0.06em', color: '#94A3B8', textTransform: 'uppercase',
             display: 'flex', alignItems: 'center'
           }}>
@@ -78,9 +81,9 @@ export const CardFace = memo(({
           </div>
           {/* Curve seam */}
           <div style={{
-            position: 'absolute', top: -tabH, left: '56%',
-            width: 12, height: tabH, background: 'transparent',
-            boxShadow: `-6px 6px 0 0 #ffffff`, borderRadius: '0 0 0 8px',
+            position: 'absolute', top: -tabH, left: '54%',
+            width: 14, height: tabH, background: 'transparent',
+            boxShadow: `-8px 8px 0 0 #ffffff`, borderRadius: '0 0 0 10px',
           }} />
           {/* Label */}
           <p style={{
@@ -103,7 +106,7 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
 
   useEffect(() => {
     const visuals = shuffled(
-      cards.map(c => ({ label: c.label, category: c.category, gradient: c.gradient, rotate: c.rotate }))
+      cards.map(c => ({ label: c.label, category: c.category, theme: c.theme, rotate: c.rotate }))
     );
     setDisplay(cards.map((c, i) => ({ ...c, ...visuals[i] })));
     setMounted(true);
@@ -151,7 +154,7 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
                 willChange: 'opacity, filter',
               }}
             >
-              <CardFace label={card.label} category={card.category} gradient={card.gradient} size={184} />
+              <CardFace label={card.label} category={card.category} theme={card.theme} size={184} />
             </div>
           );
         })}
@@ -168,7 +171,7 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
            // Slightly reduced blur/fade radius for tighter mobile screens
            const blurPx   = (norm * 3.5).toFixed(1);
            const opacity  = (mounted ? 0.95 : 0) - norm * 0.22;
-           const saturate = (0.98 - norm * 0.15).toFixed(2);
+           const saturate = (0.96 - norm * 0.15).toFixed(2);
 
            return (
              <div
@@ -185,7 +188,7 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
                  willChange: 'opacity, filter',
                }}
              >
-               <CardFace label={card.label} category={card.category} gradient={card.gradient} size={110} />
+               <CardFace label={card.label} category={card.category} theme={card.theme} size={110} />
              </div>
            );
         })}

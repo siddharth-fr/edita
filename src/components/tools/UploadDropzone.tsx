@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useState } from 'react';
 import { CardFace } from '@/components/ui/HeroCardGrid';
+import { type AppTheme } from '@/config/themes';
 
 interface UploadDropzoneProps {
   onUpload: (files: File[]) => void;
@@ -100,7 +101,7 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
             <CardFace
               label="Secure"
               category="ENCRYPT"
-              gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)"
+              theme="blue"
               size={140}
             />
           </div>
@@ -118,7 +119,7 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
             <CardFace
               label="Private"
               category="CLOUD"
-              gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)"
+              theme="orange"
               size={140}
             />
           </div>
@@ -136,7 +137,7 @@ export function UploadDropzone({ onUpload, accept, multiple = true }: UploadDrop
             <CardFace
               label="Upload"
               category="SECURE"
-              gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)"
+              theme="emerald"
               size={140}
             />
           </div>

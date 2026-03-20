@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
+import { type AppTheme } from '@/config/themes';
 
 const ToolsSection = dynamic(() => import('@/components/ui/ToolsSection'), { ssr: false });
 const HeroCardGrid = dynamic(() => import('@/components/ui/HeroCardGrid'), { ssr: false });
@@ -46,24 +47,24 @@ const tools = [
 */
 const heroGridCards = [
   // row 0 — top row (all 5 columns)
-  { label: 'Merge PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)', col: 0, row: 0, rotate: '-3deg' },
-  { label: 'Compress PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F8F4FF,#EDE5FF)', col: 1, row: 0, rotate: '2deg' },
-  { label: 'Image Compressor', category: 'Image', gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)', col: 2, row: 0, rotate: '-1deg' },
-  { label: 'PNG to JPG', category: 'Image', gradient: 'linear-gradient(135deg,#F4FFF9,#E5FBEF)', col: 3, row: 0, rotate: '2.5deg' },
-  { label: 'MP4 to MP3', category: 'Audio', gradient: 'linear-gradient(135deg,#F7F5FF,#EEE9FF)', col: 4, row: 0, rotate: '-2deg' },
+  { label: 'Merge PDF', category: 'PDF', theme: 'blue' as AppTheme, col: 0, row: 0, rotate: '-3deg' },
+  { label: 'Compress PDF', category: 'PDF', theme: 'purple' as AppTheme, col: 1, row: 0, rotate: '2deg' },
+  { label: 'Image Compressor', category: 'Image', theme: 'green' as AppTheme, col: 2, row: 0, rotate: '-1deg' },
+  { label: 'PNG to JPG', category: 'Image', theme: 'emerald' as AppTheme, col: 3, row: 0, rotate: '2.5deg' },
+  { label: 'MP4 to MP3', category: 'Audio', theme: 'violet' as AppTheme, col: 4, row: 0, rotate: '-2deg' },
 
   // row 1 — middle row (skip col 2 — hero text lives there)
-  { label: 'PDF to Word', category: 'Convert', gradient: 'linear-gradient(135deg,#F2FDFF,#DCF8FF)', col: 0, row: 1, rotate: '2deg' },
-  { label: 'Split PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#FFF6EC,#FFEAD8)', col: 1, row: 1, rotate: '-1.5deg' },
-  { label: 'Word to PDF', category: 'Convert', gradient: 'linear-gradient(135deg,#F3F5FF,#E5E9FF)', col: 3, row: 1, rotate: '1.5deg' },
-  { label: 'JPG to PDF', category: 'Image', gradient: 'linear-gradient(135deg,#FFF3F7,#FFE5F0)', col: 4, row: 1, rotate: '-2.5deg' },
+  { label: 'PDF to Word', category: 'Convert', theme: 'cyan' as AppTheme, col: 0, row: 1, rotate: '2deg' },
+  { label: 'Split PDF', category: 'PDF', theme: 'orange' as AppTheme, col: 1, row: 1, rotate: '-1.5deg' },
+  { label: 'Word to PDF', category: 'Convert', theme: 'indigo' as AppTheme, col: 3, row: 1, rotate: '1.5deg' },
+  { label: 'JPG to PDF', category: 'Image', theme: 'pink' as AppTheme, col: 4, row: 1, rotate: '-2.5deg' },
 
   // row 2 — bottom row (all 5 columns)
-  { label: 'PDF to JPG', category: 'Image', gradient: 'linear-gradient(135deg,#FFF4F4,#FFE7E7)', col: 0, row: 2, rotate: '-2deg' },
-  { label: 'Resize Image', category: 'Image', gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)', col: 1, row: 2, rotate: '1deg' },
-  { label: 'Audio Extract', category: 'Audio', gradient: 'linear-gradient(135deg,#F7F5FF,#EEE9FF)', col: 2, row: 2, rotate: '-1.5deg' },
-  { label: 'Merge PDF', category: 'PDF', gradient: 'linear-gradient(135deg,#F8F4FF,#EDE5FF)', col: 3, row: 2, rotate: '2deg' },
-  { label: 'Image Crop', category: 'Image', gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)', col: 4, row: 2, rotate: '-1deg' },
+  { label: 'PDF to JPG', category: 'Image', theme: 'rose' as AppTheme, col: 0, row: 2, rotate: '-2deg' },
+  { label: 'Resize Image', category: 'Image', theme: 'blue' as AppTheme, col: 1, row: 2, rotate: '1deg' },
+  { label: 'Audio Extract', category: 'Audio', theme: 'violet' as AppTheme, col: 2, row: 2, rotate: '-1.5deg' },
+  { label: 'Merge PDF', category: 'PDF', theme: 'purple' as AppTheme, col: 3, row: 2, rotate: '2deg' },
+  { label: 'Image Crop', category: 'Image', theme: 'green' as AppTheme, col: 4, row: 2, rotate: '-1deg' },
 ];
 
 /* Grid geometry constants — now live inside HeroCardGrid.tsx */
@@ -250,7 +251,7 @@ export default function Home() {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '13px 26px',
-                borderRadius: 14,
+                borderRadius: 18,
                 background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
                 boxShadow: '0 8px 26px rgba(5,150,105,0.30)',
                 color: '#fff',
@@ -267,7 +268,7 @@ export default function Home() {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '13px 22px',
-                borderRadius: 14,
+                borderRadius: 18,
                 background: 'rgba(255,255,255,0.78)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',

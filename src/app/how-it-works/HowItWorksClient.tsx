@@ -2,6 +2,7 @@
 
 import { MousePointerClick, Cpu, Download, Sparkles, Lock, Zap } from 'lucide-react';
 import { CardFace } from '@/components/ui/HeroCardGrid';
+import { THEME_PALETTE, type AppTheme } from '@/config/themes';
 
 export default function HowItWorksPage() {
   return (
@@ -37,17 +38,17 @@ export default function HowItWorksPage() {
       <section className="w-full max-w-6xl px-4 sm:px-8 mt-12 mb-16 relative">
         <div className="text-center max-w-2xl mx-auto mb-20 relative z-0">
           {/* Static Floating Cards decorating the Title — Differentiated for How it Works */}
-          <div className="absolute -left-12 sm:-left-32 lg:-left-56 top-[-20px] sm:top-[-40px] lg:top-[-60px] -rotate-12 opacity-60 sm:opacity-60 lg:opacity-70 scale-[0.55] sm:scale-75 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
-            <CardFace label="1. Select" category="PICK" gradient="linear-gradient(135deg,#FFF3F7,#FFE5F0)" size={140} />
+          <div className="absolute -left-8 sm:-left-16 lg:-left-24 top-[-20px] sm:top-[-40px] lg:top-[-60px] -rotate-12 opacity-60 sm:opacity-60 lg:opacity-70 scale-[0.55] sm:scale-75 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
+            <CardFace label="1. Select" category="PICK" theme="pink" size={140} />
           </div>
-          <div className="absolute -right-8 sm:-right-24 lg:-right-48 top-[10px] sm:top-[30px] lg:top-[50px] rotate-12 opacity-60 sm:opacity-70 lg:opacity-80 scale-[0.6] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
-            <CardFace label="2. Process" category="WASM" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
+          <div className="absolute -right-8 sm:-right-16 lg:-right-24 top-[10px] sm:top-[30px] lg:top-[50px] rotate-12 opacity-60 sm:opacity-70 lg:opacity-80 scale-[0.6] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
+            <CardFace label="2. Process" category="WASM" theme="emerald" size={125} />
           </div>
-          <div className="absolute -right-12 sm:-right-28 lg:-right-64 top-[140px] sm:top-[160px] lg:top-[220px] -rotate-6 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-115 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
-            <CardFace label="3. Save" category="DONE" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={100} />
+          <div className="absolute -right-6 sm:-right-12 lg:-right-16 top-[140px] sm:top-[160px] lg:top-[220px] -rotate-6 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-115 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
+            <CardFace label="3. Save" category="DONE" theme="blue" size={100} />
           </div>
-          <div className="absolute -left-10 sm:-left-24 lg:-left-48 top-[120px] sm:top-[140px] lg:top-[180px] rotate-3 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
-            <CardFace label="Processing..." category="LOCAL" gradient="linear-gradient(135deg,#F8F4FF,#EDE5FF)" size={110} />
+          <div className="absolute -left-6 sm:-left-12 lg:-left-16 top-[120px] sm:top-[140px] lg:top-[180px] rotate-3 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
+            <CardFace label="Processing..." category="LOCAL" theme="purple" size={110} />
           </div>
 
           <div className="relative z-10 w-full flex flex-col items-center">
@@ -103,21 +104,21 @@ export default function HowItWorksPage() {
               title: "Select Tool",
               desc: "Pick the PDF, Image, or Video tool you need from our growing selection.",
               icon: <MousePointerClick size={28} style={{ color: '#059669' }} />,
-              gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)'
+              theme: 'emerald' as AppTheme
             },
             {
               step: "02",
               title: "Local Magic",
               desc: "Our WASM engine processes your files locally. No data ever leaves your device.",
               icon: <Cpu size={28} style={{ color: '#D97706' }} />,
-              gradient: 'linear-gradient(135deg,#FFF6EC,#FFEAD8)'
+              theme: 'orange' as AppTheme
             },
             {
               step: "03",
               title: "Instant Save",
               desc: "Get your processed file in seconds and download it directly to your folder.",
               icon: <Download size={28} style={{ color: '#059669' }} />,
-              gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)'
+              theme: 'green' as AppTheme
             }
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center group">
@@ -131,7 +132,7 @@ export default function HowItWorksPage() {
                 {/* Background Glow */}
                 <div 
                   className="absolute inset-2 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-                  style={{ background: item.gradient, filter: 'blur(15px)' }}
+                  style={{ background: THEME_PALETTE[item.theme].gradient, filter: 'blur(15px)' }}
                 />
                 
                 <div className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-emerald-500 text-white text-[13px] font-black flex items-center justify-center shadow-lg border-4 border-white">
@@ -174,16 +175,14 @@ export default function HowItWorksPage() {
               icon: <Lock size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
               title: "Privacy by Design",
               desc: "Unlike traditional online tools that upload your files to a central server, Edita runs entirely in your web browser. Using advanced technologies like WebAssembly (WASM), we bring the processing power to your computer.",
-              gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)',
-              tint: '#F0FFF7',
+              theme: 'emerald' as AppTheme,
               category: 'SECURITY'
             },
             {
               icon: <Zap size={22} style={{ color: '#F59E0B' }} strokeWidth={2.5} />,
               title: "No Limits, No Fees",
               desc: "Because we don't have to pay for expensive server-side processing for every file, we can offer our tools for free, without any file size limits or paywalls. It's a faster, safer, and cheaper way to manage your files.",
-              gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)',
-              tint: '#F0F7FF',
+              theme: 'blue' as AppTheme,
               category: 'ACCESS'
             }
           ].map((feature, i) => (
@@ -191,7 +190,7 @@ export default function HowItWorksPage() {
               key={i}
               className="group relative w-full p-1 transition-all duration-400 hover:-translate-y-2 flex flex-col"
               style={{
-                background: feature.tint,
+                background: THEME_PALETTE[feature.theme].tint,
                 borderRadius: '24px',
                 minHeight: '280px',
                 border: '1.5px solid rgba(0,0,0,0.03)',
@@ -206,7 +205,7 @@ export default function HowItWorksPage() {
                   inset: '4px',
                   bottom: '60%',
                   borderRadius: '20px 20px 0 0',
-                  background: feature.gradient,
+                  background: THEME_PALETTE[feature.theme].gradient,
                 }}
               >
                 {/* AMBIENT LIGHT */}

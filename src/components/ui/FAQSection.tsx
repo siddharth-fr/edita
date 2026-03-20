@@ -13,7 +13,7 @@ interface FAQItemProps {
 const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
   return (
     <div
-      className={`group relative transition-all duration-300 rounded-2xl border overflow-hidden ${isOpen
+      className={`group relative transition-all duration-300 rounded-[24px] border overflow-hidden ${isOpen
           ? 'bg-white border-emerald-500/30 shadow-[0_20px_50px_rgba(16,185,129,0.1)] -translate-y-1'
           : 'bg-white border-slate-200/60 hover:border-emerald-500/20 hover:bg-slate-50/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:-translate-y-0.5'
         }`}

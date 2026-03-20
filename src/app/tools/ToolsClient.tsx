@@ -3,6 +3,7 @@
 import { ShieldCheck, Zap, Globe } from 'lucide-react';
 import ToolsSection from '@/components/ui/ToolsSection';
 import { CardFace } from '@/components/ui/HeroCardGrid';
+import { type AppTheme } from '@/config/themes';
 
 const tools = [
   { name: 'Merge PDF', slug: 'merge-pdf', iconKey: 'FileText', theme: 'blue', category: 'PDF' },
@@ -46,17 +47,17 @@ export default function ToolsPage() {
         <div className="text-center max-w-2xl mx-auto mb-16 relative z-0">
 
           {/* Static Floating Cards decorating the Title — Differentiated for Tools */}
-          <div className="absolute -left-14 sm:-left-36 lg:-left-64 top-[-30px] sm:top-[-50px] lg:top-[-70px] -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
-            <CardFace label="Batch PDF" category="TOOLS" gradient="linear-gradient(135deg,#F5F9FF,#E6F0FF)" size={140} />
+          <div className="absolute -left-8 sm:-left-16 lg:-left-24 top-[-30px] sm:top-[-50px] lg:top-[-70px] -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
+            <CardFace label="Batch PDF" category="TOOLS" theme="blue" size={140} />
           </div>
-          <div className="absolute -right-14 sm:-right-36 lg:-right-64 top-[50px] sm:top-[80px] lg:top-[120px] rotate-12 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
-            <CardFace label="Direct Save" category="EXPORT" gradient="linear-gradient(135deg,#F3FFF7,#E2FBEA)" size={125} />
+          <div className="absolute -right-8 sm:-right-16 lg:-right-24 top-[50px] sm:top-[80px] lg:top-[120px] rotate-12 opacity-60 sm:opacity-70 lg:opacity-90 scale-[0.6] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 125, filter: 'blur(0px)' }}>
+            <CardFace label="Direct Save" category="EXPORT" theme="green" size={125} />
           </div>
-          <div className="absolute -right-10 sm:-right-28 lg:-right-52 top-[-20px] sm:top-[-40px] lg:top-[-60px] -rotate-12 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-115 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
-            <CardFace label="Merge All" category="PDF" gradient="linear-gradient(135deg,#FFF6EC,#FFEAD8)" size={100} />
+          <div className="absolute -right-6 sm:-right-12 lg:-right-16 top-[-20px] sm:top-[-40px] lg:top-[-60px] -rotate-12 opacity-50 sm:opacity-50 lg:opacity-60 scale-[0.55] sm:scale-65 lg:scale-115 origin-center pointer-events-none -z-10" style={{ width: 100, filter: 'blur(1.5px)' }}>
+            <CardFace label="Merge All" category="PDF" theme="orange" size={100} />
           </div>
-          <div className="absolute -left-10 sm:-left-28 lg:-left-52 top-[120px] sm:top-[160px] lg:top-[200px] rotate-3 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
-            <CardFace label="Pro Editor" category="EDIT" gradient="linear-gradient(135deg,#F4FFF9,#E5FBEF)" size={110} />
+          <div className="absolute -left-6 sm:-left-12 lg:-left-16 top-[120px] sm:top-[160px] lg:top-[200px] rotate-3 opacity-50 sm:opacity-50 lg:opacity-70 scale-[0.55] sm:scale-65 lg:scale-100 origin-center pointer-events-none -z-10" style={{ width: 110, filter: 'blur(1px)' }}>
+            <CardFace label="Pro Editor" category="EDIT" theme="emerald" size={110} />
           </div>
 
           <div className="relative z-10 w-full flex flex-col items-center">
@@ -76,23 +77,23 @@ export default function ToolsPage() {
               <span>All Tools</span>
             </div>
 
-          <h1 style={{
-            margin: '0 0 18px',
-            fontFamily: 'var(--font-display), sans-serif',
-            fontWeight: 800,
-            letterSpacing: '-0.03em',
-            lineHeight: 1.1,
-            fontSize: 'clamp(38px, 6vw, 48px)',
-            color: '#0C0F17',
-          }}>
-            Everything You Need <br />
-            <span style={{
-              background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>In One Place</span>
-          </h1>
+            <h1 style={{
+              margin: '0 0 18px',
+              fontFamily: 'var(--font-display), sans-serif',
+              fontWeight: 800,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.1,
+              fontSize: 'clamp(38px, 6vw, 48px)',
+              color: '#0C0F17',
+            }}>
+              Everything You Need <br />
+              <span style={{
+                background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>In One Place</span>
+            </h1>
             <p style={{
               fontSize: '17px',
               lineHeight: 1.6,
@@ -104,26 +105,26 @@ export default function ToolsPage() {
           </div>
         </div>
 
-      <section 
-        id="tools"
-        className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 mt-12 pb-8"
-        style={{
-          background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.95) 100%)',
-          borderRadius: 32,
-        }}
-      >
-        <ToolsSection tools={tools} />
-
-        {/* Trust strip */}
-        <div
-          className="mt-14 pt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold"
-          style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
+        <section
+          id="tools"
+          className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 mt-12 pb-8"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.95) 100%)',
+            borderRadius: 32,
+          }}
         >
-          <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />Files never leave your device</span>
-          <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-emerald-500" />WebAssembly-powered</span>
-          <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-emerald-500" />No account required · Always free</span>
-        </div>
-      </section>
+          <ToolsSection tools={tools} />
+
+          {/* Trust strip */}
+          <div
+            className="mt-14 pt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold"
+            style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
+          >
+            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />Files never leave your device</span>
+            <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-emerald-500" />WebAssembly-powered</span>
+            <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-emerald-500" />No account required · Always free</span>
+          </div>
+        </section>
       </section>
     </main>
   );
