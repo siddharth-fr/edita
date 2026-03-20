@@ -5,7 +5,6 @@ import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea
 import { PDFDocument } from 'pdf-lib';
 import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard } from '@/components/tools/FilePreviewCard';
-import { ToolLayout } from '@/components/layout/ToolLayout';
 import { Button } from '@/components/ui/Button';
 import { Download } from 'lucide-react';
 import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion } from '@/lib/ga4';
@@ -87,87 +86,82 @@ export default function MergePdfClient() {
     };
 
     return (
-        <ToolLayout
-            title="Merge PDF"
-            description="Combine multiple PDF files into a single document. Processing happens securely and locally in your browser."
-        >
-            <div className="w-full flex flex-col gap-8 max-w-3xl mx-auto">
-                {pdfFiles.length === 0 ? (
-                    <UploadDropzone onUpload={handleUpload} accept=".pdf,application/pdf" />
-                ) : (
-                    <div className="flex flex-col gap-6 w-full">
-                        <DragDropContext onDragEnd={onDragEnd}>
-                            <Droppable droppableId="pdfList">
-                                {(provided) => (
-                                    <div
-                                        {...provided.droppableProps}
-                                        ref={provided.innerRef}
-                                        className="flex flex-col gap-3"
-                                    >
-                                        {pdfFiles.map((item, index) => (
-                                            <Draggable key={item.id} draggableId={item.id} index={index}>
-                                                {(provided) => (
-                                                    <div
-                                                        ref={provided.innerRef}
-                                                        {...provided.draggableProps}
-                                                        {...provided.dragHandleProps}
-                                                    >
-                                                        <FilePreviewCard
-                                                            file={item.file}
-                                                            onRemove={() => removeFile(item.id)}
-                                                            isDraggable
-                                                        />
-                                                    </div>
-                                                )}
-                                            </Draggable>
-                                        ))}
-                                        {provided.placeholder}
-                                    </div>
-                                )}
-                            </Droppable>
-                        </DragDropContext>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-card p-4 rounded-[1.5rem] border border-border shadow-sm">
-                            <label className="text-sm cursor-pointer hover:underline text-primary font-medium px-4 py-2 hover:bg-black/5 rounded-full transition-colors">
-                                + Add more files
-                                <input
-                                    type="file"
-                                    multiple
-                                    accept=".pdf,application/pdf"
-                                    className="hidden"
-                                    aria-label="Add more files"
-                                    onChange={(e) => {
-                                        if (e.target.files) handleUpload(Array.from(e.target.files));
-                                        e.target.value = '';
-                                    }}
-                                />
-                            </label>
-
-                            {!mergedPdfUrl ? (
-                                <Button
-                                    size="lg"
-                                    onClick={handleMerge}
-                                    disabled={pdfFiles.length < 2 || isProcessing}
-                                    isLoading={isProcessing}
+        <div className="w-full flex flex-col gap-8 max-w-3xl mx-auto">
+            {pdfFiles.length === 0 ? (
+                <UploadDropzone onUpload={handleUpload} accept=".pdf,application/pdf" />
+            ) : (
+                <div className="flex flex-col gap-6 w-full">
+                    <DragDropContext onDragEnd={onDragEnd}>
+                        <Droppable droppableId="pdfList">
+                            {(provided) => (
+                                <div
+                                    {...provided.droppableProps}
+                                    ref={provided.innerRef}
+                                    className="flex flex-col gap-3"
                                 >
-                                    {isProcessing ? 'Merging...' : 'Merge PDFs'}
-                                </Button>
-                            ) : (
-                                <a
-                                    href={mergedPdfUrl}
-                                    download="Merged_Document.pdf"
-                                    onClick={() => trackFileDownloaded('Merge PDF', 'application/pdf')}
-                                >
-                                    <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white shadow-md">
-                                        <Download className="w-5 h-5 mr-2" />
-                                        Download File
-                                    </Button>
-                                </a>
+                                    {pdfFiles.map((item, index) => (
+                                        <Draggable key={item.id} draggableId={item.id} index={index}>
+                                            {(provided) => (
+                                                <div
+                                                    ref={provided.innerRef}
+                                                    {...provided.draggableProps}
+                                                    {...provided.dragHandleProps}
+                                                >
+                                                    <FilePreviewCard
+                                                        file={item.file}
+                                                        onRemove={() => removeFile(item.id)}
+                                                        isDraggable
+                                                    />
+                                                </div>
+                                            )}
+                                        </Draggable>
+                                    ))}
+                                    {provided.placeholder}
+                                </div>
                             )}
-                        </div>
+                        </Droppable>
+                    </DragDropContext>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-card p-4 rounded-[1.5rem] border border-border shadow-sm">
+                        <label className="text-sm cursor-pointer hover:underline text-primary font-medium px-4 py-2 hover:bg-black/5 rounded-full transition-colors">
+                            + Add more files
+                            <input
+                                type="file"
+                                multiple
+                                accept=".pdf,application/pdf"
+                                className="hidden"
+                                aria-label="Add more files"
+                                onChange={(e) => {
+                                    if (e.target.files) handleUpload(Array.from(e.target.files));
+                                    e.target.value = '';
+                                }}
+                            />
+                        </label>
+
+                        {!mergedPdfUrl ? (
+                            <Button
+                                size="lg"
+                                onClick={handleMerge}
+                                disabled={pdfFiles.length < 2 || isProcessing}
+                                isLoading={isProcessing}
+                            >
+                                {isProcessing ? 'Merging...' : 'Merge PDFs'}
+                            </Button>
+                        ) : (
+                            <a
+                                href={mergedPdfUrl}
+                                download="Merged_Document.pdf"
+                                onClick={() => trackFileDownloaded('Merge PDF', 'application/pdf')}
+                            >
+                                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white shadow-md">
+                                    <Download className="w-5 h-5 mr-2" />
+                                    Download File
+                                </Button>
+                            </a>
+                        )}
                     </div>
-                )}
-            </div>
-        </ToolLayout>
+                </div>
+            )}
+        </div>
     );
 }
