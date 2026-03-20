@@ -1,16 +1,13 @@
 import { constructMetadata } from "@/lib/metadata";
+import { STATIC_METADATA } from "@/config/seo";
 import ToolsClient from "./ToolsClient";
 
+const m = STATIC_METADATA.tools;
 export const metadata = constructMetadata({
-  title: "All Free Online Tools – Edita.tools",
-  description: "Browse our complete collection of fast, secure, and free online file tools. PDF merging, image compression, video conversion, and more, all running in your browser.",
-  keywords: [
-    "online file tools",
-    "free pdf tools",
-    "image editor online",
-    "video tools browser",
-    "secure file conversion",
-  ],
+  title: m.title,
+  description: m.description,
+  canonical: m.canonical,
+  keywords: m.keywords,
 });
 
 export default function ToolsPage() {

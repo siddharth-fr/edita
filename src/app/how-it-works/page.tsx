@@ -1,16 +1,13 @@
 import { constructMetadata } from "@/lib/metadata";
+import { STATIC_METADATA } from "@/config/seo";
 import HowItWorksClient from "./HowItWorksClient";
 
+const m = STATIC_METADATA["how-it-works"];
 export const metadata = constructMetadata({
-  title: "How it Works – Secure Browser-Based Processing",
-  description: "Learn how Edita.tools uses WebAssembly to process your files locally in your browser. No uploads, no servers, 100% private file editing.",
-  keywords: [
-    "how it works",
-    "webassembly file processing",
-    "local file editing",
-    "private online tools",
-    "browser based processing",
-  ],
+  title: m.title,
+  description: m.description,
+  canonical: m.canonical,
+  keywords: m.keywords,
 });
 
 export default function HowItWorksPage() {

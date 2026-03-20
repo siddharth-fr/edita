@@ -1,37 +1,26 @@
 import dynamic from 'next/dynamic';
 import { ToolLayout } from '@/components/layout/ToolLayout';
 import { constructMetadata } from "@/lib/metadata";
+import { TOOL_METADATA } from "@/config/seo";
 
 const SplitPdfClient = dynamic(() => import('@/components/tools/SplitPdfClient').then(mod => mod.SplitPdfClient), {
   loading: () => <div className="h-[400px] w-full animate-pulse bg-muted rounded-3xl" />
 });
 
+const m = TOOL_METADATA["split-pdf"];
 export const metadata = constructMetadata({
-  title: "Split PDF Online – Extract Pages from PDF Free | Edita",
-  description: "Split PDF files online for free. Extract specific pages or separate your PDF into multiple documents. Fast browser-based splitting with private, local processing.",
-  canonical: "/tools/split-pdf",
-  keywords: ["split pdf", "extract pdf pages", "online pdf splitter", "free pdf tools", "separate pdf pages"],
+  title: m.title,
+  description: m.description,
+  canonical: m.canonical,
+  keywords: m.keywords,
 });
 
 export default function Page() {
   return (
     <ToolLayout 
-      title="Split PDF" 
-      description="Split PDF files and extract specific pages quickly in your browser while preserving document quality."
-      howItWorksSteps={[
-        {
-          title: "Upload PDF",
-          desc: "Select the PDF file you want to split from your computer or device."
-        },
-        {
-          title: "Select Range",
-          desc: "Choose the specific pages or the range you want to extract from the document."
-        },
-        {
-          title: "Extract Pages",
-          desc: "Our tool processes the split instantly in your browser for you to download."
-        }
-      ]}
+      title={m.toolTitle}
+      description={m.toolDescription}
+      howItWorksSteps={m.howItWorksSteps}
       footerContent={
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm leading-relaxed text-muted-foreground">
           <div className="space-y-4">
@@ -42,7 +31,7 @@ export default function Page() {
               or manage specific document parts.
             </p>
             <p>
-               Whether you're extractng a single invoice from a monthly report or 
+               Whether you're extracting a single invoice from a monthly report or 
                separating chapters of an eBook, our tool makes it simple and fast.
             </p>
           </div>

@@ -41,14 +41,20 @@ export function constructMetadata({
   icons = "/favicon.ico",
   noIndex = false,
   canonical,
-  keywords = SITE_CONFIG.keywords,
+  keywords = [],
 }: MetadataProps = {}): Metadata {
-  const finalTitle = title ? `${title} | ${SITE_CONFIG.name}` : SITE_CONFIG.name;
+  // If title is provided, append site name if it's not already there
+  const finalTitle = title 
+    ? (title.includes(SITE_CONFIG.name) ? title : `${title} | ${SITE_CONFIG.name}`)
+    : SITE_CONFIG.name;
+
+  // Combine provided keywords with site-wide defaults
+  const allKeywords = [...new Set([...keywords, ...SITE_CONFIG.keywords])];
 
   return {
     title: finalTitle,
     description,
-    keywords: keywords.join(", "),
+    keywords: allKeywords.join(", "),
     openGraph: {
       title: finalTitle,
       description,
@@ -66,7 +72,7 @@ export function constructMetadata({
       title: finalTitle,
       description,
       images: [image],
-      creator: "@edita_tools", // Placeholder
+      creator: "@edita_tools",
     },
     icons,
     metadataBase: new URL(SITE_CONFIG.url),
