@@ -12,12 +12,11 @@ interface FAQItemProps {
 
 const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
   return (
-    <div 
-      className={`group relative transition-all duration-300 rounded-2xl border overflow-hidden ${
-        isOpen 
-          ? 'bg-white border-emerald-500/30 shadow-[0_20px_50px_rgba(16,185,129,0.1)] -translate-y-1' 
+    <div
+      className={`group relative transition-all duration-300 rounded-2xl border overflow-hidden ${isOpen
+          ? 'bg-white border-emerald-500/30 shadow-[0_20px_50px_rgba(16,185,129,0.1)] -translate-y-1'
           : 'bg-white border-slate-200/60 hover:border-emerald-500/20 hover:bg-slate-50/50 hover:shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:-translate-y-0.5'
-      }`}
+        }`}
     >
       <button
         onClick={onClick}
@@ -25,16 +24,14 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
         aria-expanded={isOpen}
       >
         <div className="flex-1">
-          <h3 className={`text-lg font-semibold tracking-tight transition-colors duration-200 leading-tight ${
-            isOpen ? 'text-emerald-900' : 'text-slate-800'
-          }`}>
+          <h3 className={`text-lg font-semibold tracking-tight transition-colors duration-200 leading-tight ${isOpen ? 'text-emerald-900' : 'text-slate-800'
+            }`}>
             {question}
           </h3>
-          
-          <div 
-            className={`grid transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isOpen ? 'grid-rows-[1fr] opacity-100 mt-5' : 'grid-rows-[0fr] opacity-0 mt-0'
-            }`}
+
+          <div
+            className={`grid transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-5' : 'grid-rows-[0fr] opacity-0 mt-0'
+              }`}
           >
             <div className="overflow-hidden">
               <p className="text-slate-600 leading-relaxed text-[16px] font-normal pb-1">
@@ -44,9 +41,8 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
           </div>
         </div>
 
-        <div className={`mt-1.5 transition-all duration-500 shrink-0 ${
-          isOpen ? 'rotate-180 text-emerald-500' : 'text-slate-400 group-hover:text-emerald-500'
-        }`}>
+        <div className={`mt-1.5 transition-all duration-500 shrink-0 ${isOpen ? 'rotate-180 text-emerald-500' : 'text-slate-400 group-hover:text-emerald-500'
+          }`}>
           <ChevronDown size={24} strokeWidth={2} />
         </div>
       </button>
@@ -65,7 +61,7 @@ export default function FAQSection() {
   const faqs = [
     {
       question: "Is Edita really free to use?",
-      answer: "Yes, Edita is 100% free. You can compress PDFs, convert images, and use all our browser-based file tools without any subscription or hidden fees. We don't even require a sign-up—just fast, private tools for everyone.",
+      answer: "Yes, Edita is 100% free. You can compress PDFs, convert images, and use all our browser-based file tools without any subscription or hidden fees. We don't even require a sign-up just fast, private tools for everyone.",
     },
     {
       question: "How does Edita ensure my file privacy?",
