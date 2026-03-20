@@ -161,13 +161,14 @@ export default function ToolsHeader({
                     ? 'linear-gradient(135deg, #34D399 0%, #059669 100%)'
                     : '#ffffff',
                   color: isSelected ? '#ffffff' : '#64748B',
+                  opacity: 0.9,
                   border: isSelected ? '1px solid rgba(5, 150, 105, 0.2)' : '1px solid #E2E8F0',
                   boxShadow: isSelected
                     ? '0 6px 18px rgba(5, 150, 105, 0.25)'
                     : '0 2px 4px rgba(0,0,0,0.02)',
                   cursor: 'pointer',
                   transition: `all 0.4s ${SPRING}`,
-                  willChange: 'transform, box-shadow, background',
+                  willChange: 'transform, box-shadow, background, opacity',
                 }}
               >
                 {cat === 'All' ? cat : `${cat} Tools`}
