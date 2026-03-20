@@ -13,33 +13,57 @@ interface FAQItemProps {
 
 const FAQItem = ({ question, answer, isOpen, onClick, icon }: FAQItemProps) => {
   return (
-    <div className="border-b border-slate-200/60 last:border-0 overflow-hidden">
+    <div 
+      className={`group relative transition-all duration-300 rounded-[2rem] border overflow-hidden ${
+        isOpen 
+          ? 'bg-white border-emerald-500/20 shadow-[0_15px_40px_rgba(16,185,129,0.08)] -translate-y-1' 
+          : 'bg-white/40 border-slate-200/60 hover:border-emerald-500/10 hover:bg-white hover:shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:-translate-y-0.5'
+      }`}
+    >
       <button
         onClick={onClick}
-        className="w-full py-6 flex items-start gap-4 text-left transition-all duration-200 group"
+        className="w-full px-7 py-6 flex items-start gap-5 text-left transition-all duration-200"
         aria-expanded={isOpen}
       >
-        <div className={`mt-0.5 p-2 rounded-lg transition-colors duration-200 ${isOpen ? 'bg-emerald-50 text-emerald-600' : 'bg-slate-50 text-slate-400 group-hover:text-slate-600'}`}>
+        <div className={`shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+          isOpen 
+            ? 'bg-emerald-500 text-white scale-110 shadow-lg shadow-emerald-200/50' 
+            : 'bg-slate-50 text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-500'
+        }`}>
           {icon}
         </div>
-        <div className="flex-1 pr-8">
-          <h3 className={`text-lg font-semibold transition-colors duration-200 ${isOpen ? 'text-emerald-700' : 'text-slate-800'}`}>
+        
+        <div className="flex-1 pt-2">
+          <h3 className={`text-[17px] font-bold tracking-tight transition-colors duration-200 leading-snug ${
+            isOpen ? 'text-emerald-950' : 'text-slate-800'
+          }`}>
             {question}
           </h3>
+          
           <div 
-            className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0'}`}
+            className={`grid transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
+            }`}
           >
             <div className="overflow-hidden">
-              <p className="text-slate-600 leading-relaxed text-[15px]">
+              <p className="text-slate-600 leading-relaxed text-[15px] font-medium pb-1">
                 {answer}
               </p>
             </div>
           </div>
         </div>
-        <div className={`mt-1.5 transition-transform duration-300 ${isOpen ? 'rotate-180 text-emerald-500' : 'text-slate-300'}`}>
-          <ChevronDown size={20} />
+
+        <div className={`mt-3 transition-all duration-500 ${
+          isOpen ? 'rotate-180 text-emerald-500' : 'text-slate-300 group-hover:text-emerald-400'
+        }`}>
+          <ChevronDown size={22} strokeWidth={2.5} />
         </div>
       </button>
+
+      {/* Decorative ambient glow for open item */}
+      {isOpen && (
+        <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      )}
     </div>
   );
 };
@@ -93,15 +117,28 @@ export default function FAQSection() {
   return (
     <section className="w-full max-w-4xl px-4 sm:px-8 py-24 mb-12">
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0C0F17] tracking-tight mb-4">
-          Frequently Asked Questions
+        <h2 style={{
+          margin: '0 0 16px',
+          fontFamily: 'var(--font-display), sans-serif',
+          fontWeight: 800,
+          letterSpacing: '-0.03em',
+          lineHeight: 1.1,
+          fontSize: 'clamp(32px, 5vw, 42px)',
+          color: '#0C0F17',
+        }}>
+          Frequently Asked <span style={{
+            background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}>Questions</span>
         </h2>
         <p className="text-lg text-slate-500 max-w-2xl mx-auto">
           Everything you need to know about our private, browser-based file tools.
         </p>
       </div>
 
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm px-6 sm:px-10 py-4">
+      <div className="flex flex-col gap-4 w-full">
         {faqs.map((faq, index) => (
           <FAQItem
             key={index}
