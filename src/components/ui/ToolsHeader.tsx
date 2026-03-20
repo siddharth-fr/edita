@@ -67,24 +67,24 @@ export default function ToolsHeader({
               display: 'flex',
               alignItems: 'center',
               gap: 8,
-              padding: '12px 20px',
-              borderRadius: 16,
-              background: '#F8FAFC',
-              border: `1px solid ${active ? '#34D399' : 'rgba(16, 185, 129, 0.1)'}`,
+              padding: '12px 24px',
+              borderRadius: 18,
+              background: '#ffffff',
+              border: `1px solid ${active ? '#10B981' : '#E2E8F0'}`,
               boxShadow: active
-                ? '0 10px 25px rgba(52,211,153,0.08)'
-                : 'none',
+                ? '0 6px 15px rgba(16,185,129,0.06)'
+                : '0 2px 4px rgba(0,0,0,0.02)',
               cursor: 'text',
               transition: 'all 0.3s ease',
               width: '100%',
-              minWidth: '300px', // Changed from { sm: 300 } to '300px' for valid CSS
+              minWidth: '300px',
               maxWidth: 360,
             }}
           >
             <Search
               size={14}
               style={{
-                color: active ? '#34D399' : '#94A3B8',
+                color: active ? '#10B981' : '#94A3B8',
                 flexShrink: 0,
                 transition: 'color 0.2s ease',
               }}
@@ -103,7 +103,7 @@ export default function ToolsHeader({
                 background: 'transparent',
                 fontSize: 13,
                 fontWeight: 500,
-                color: '#1F2937',
+                color: '#1E293B',
                 letterSpacing: '-0.01em',
                 width: '100%',
                 minWidth: 0,
@@ -121,7 +121,7 @@ export default function ToolsHeader({
                 width: active ? 18 : 0,
                 height: active ? 18 : 0,
                 borderRadius: '50%',
-                background: '#E5E7EB',
+                background: '#F1F5F9',
                 border: 'none',
                 cursor: 'pointer',
                 flexShrink: 0,
@@ -132,15 +132,15 @@ export default function ToolsHeader({
                 transition: `width 0.25s ${SPRING}, height 0.25s ${SPRING}, opacity 0.2s ease, transform 0.25s ${SPRING}`,
               }}
             >
-              <X size={10} style={{ color: '#6B7280' }} />
+              <X size={10} style={{ color: '#64748B' }} />
             </button>
           </div>
         </div>
       </div>
 
       {/* ── Bottom Row: Category Filter ── */}
-      <div className="flex items-center gap-2 overflow-x-auto px-10 -mx-10 pb-6 scrollbar-hide" style={{ marginBottom: -16 }}>
-        <div 
+      <div className="flex items-center gap-2 overflow-x-auto px-10 -mx-10 py-4 pb-6 scrollbar-hide" style={{ marginBottom: -16 }}>
+        <div
           className="flex items-center gap-2"
           style={{ minWidth: 'max-content' }}
         >
@@ -150,20 +150,24 @@ export default function ToolsHeader({
               <button
                 key={cat}
                 onClick={() => onCategoryChange(cat)}
-                className="transition-all duration-300"
+                className="transition-all duration-400 hover:scale-[1.04] active:scale-[0.96]"
                 style={{
-                  padding: '8px 18px',
-                  borderRadius: 999,
+                  padding: '10px 24px',
+                  borderRadius: 18,
                   fontSize: 13,
-                  fontWeight: 600,
+                  fontWeight: 700,
                   letterSpacing: '-0.01em',
-                  background: isSelected ? 'linear-gradient(135deg, #34D399 0%, #059669 100%)' : '#fff',
-                  color: isSelected ? '#fff' : '#6B7280',
-                  border: `1px solid ${isSelected ? 'transparent' : 'rgba(0,0,0,0.06)'}`,
-                  boxShadow: isSelected 
-                    ? '0 8px 20px rgba(5,150,105,0.20)' 
-                    : '0 2px 8px rgba(0,0,0,0.02)',
+                  background: isSelected
+                    ? 'linear-gradient(135deg, #34D399 0%, #059669 100%)'
+                    : '#ffffff',
+                  color: isSelected ? '#ffffff' : '#64748B',
+                  border: isSelected ? '1px solid rgba(5, 150, 105, 0.2)' : '1px solid #E2E8F0',
+                  boxShadow: isSelected
+                    ? '0 6px 18px rgba(5, 150, 105, 0.25)'
+                    : '0 2px 4px rgba(0,0,0,0.02)',
                   cursor: 'pointer',
+                  transition: `all 0.4s ${SPRING}`,
+                  willChange: 'transform, box-shadow, background',
                 }}
               >
                 {cat === 'All' ? cat : `${cat} Tools`}

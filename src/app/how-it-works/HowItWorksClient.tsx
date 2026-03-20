@@ -175,30 +175,37 @@ export default function HowItWorksPage() {
               title: "Privacy by Design",
               desc: "Unlike traditional online tools that upload your files to a central server, Edita runs entirely in your web browser. Using advanced technologies like WebAssembly (WASM), we bring the processing power to your computer.",
               gradient: 'linear-gradient(135deg,#F3FFF7,#E2FBEA)',
+              tint: '#F0FFF7',
               category: 'SECURITY'
             },
             {
-              icon: <Zap size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
+              icon: <Zap size={22} style={{ color: '#F59E0B' }} strokeWidth={2.5} />,
               title: "No Limits, No Fees",
               desc: "Because we don't have to pay for expensive server-side processing for every file, we can offer our tools for free, without any file size limits or paywalls. It's a faster, safer, and cheaper way to manage your files.",
               gradient: 'linear-gradient(135deg,#F5F9FF,#E6F0FF)',
+              tint: '#F0F7FF',
               category: 'ACCESS'
             }
           ].map((feature, i) => (
             <div
               key={i}
-              className="group relative w-full bg-white p-1 transition-all duration-300 hover:-translate-y-1 flex flex-col shadow-[0_8px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
+              className="group relative w-full p-1 transition-all duration-400 hover:-translate-y-2 flex flex-col"
               style={{
-                borderRadius: '22px',
+                background: feature.tint,
+                borderRadius: '24px',
                 minHeight: '280px',
+                border: '1.5px solid rgba(0,0,0,0.03)',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
+                willChange: 'transform, box-shadow',
               }}
             >
               {/* PASTEL BACKGROUND */}
               <div
-                className="absolute overflow-hidden transition-all duration-300 group-hover:saturate-[1.08] group-hover:brightness-[1.02]"
+                className="absolute overflow-hidden transition-all duration-300 group-hover:saturate-[1.1] group-hover:brightness-[1.02]"
                 style={{
                   inset: '4px',
-                  borderRadius: '18px',
+                  bottom: '60%',
+                  borderRadius: '20px 20px 0 0',
                   background: feature.gradient,
                 }}
               >
@@ -206,26 +213,26 @@ export default function HowItWorksPage() {
                 <div
                   className="absolute inset-0 transition-all duration-300"
                   style={{
-                    background: 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.35), transparent 70%)',
+                    background: 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.4), transparent 70%)',
                   }}
                 />
                 
                 {/* Icon */}
-                <div className="absolute top-5 right-5 w-10 h-10 bg-white/70 backdrop-blur-md rounded-[12px] flex items-center justify-center shadow-sm border border-white/60 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div className="absolute top-5 right-5 w-11 h-11 bg-white/75 backdrop-blur-md rounded-xl flex items-center justify-center shadow-sm border border-white/40 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                   {feature.icon}
                 </div>
               </div>
 
               {/* FOLDER BODY */}
               <div
-                className="absolute bg-white flex flex-col justify-start"
+                className="absolute bg-white flex flex-col justify-start transition-all duration-300"
                 style={{
                   bottom: '4px',
                   left: '4px',
                   right: '4px',
-                  height: '62%',
-                  borderRadius: '0 0 18px 18px',
-                  padding: '24px 20px 20px',
+                  height: '60%',
+                  borderRadius: '0 0 20px 20px',
+                  padding: '28px 20px 20px',
                 }}
               >
                 {/* CATEGORY NOTCH */}
@@ -234,16 +241,18 @@ export default function HowItWorksPage() {
                     position: 'absolute',
                     top: '-24px',
                     left: 0,
-                    width: '52%',
+                    width: '54%',
                     height: '24px',
                     background: '#ffffff',
-                    borderRadius: '9px 9px 0 0',
-                    padding: '4px 14px 0 20px',
-                    fontSize: '10.5px',
-                    fontWeight: 600,
-                    letterSpacing: '0.06em',
-                    color: '#6B7280',
-                    textTransform: 'uppercase'
+                    borderRadius: '10px 10px 0 0',
+                    padding: '0 14px 0 16px',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    color: '#94A3B8',
+                    textTransform: 'uppercase',
+                    display: 'flex',
+                    alignItems: 'center'
                   }}
                 >
                   {feature.category}
@@ -254,12 +263,12 @@ export default function HowItWorksPage() {
                   style={{
                     position: 'absolute',
                     top: '-24px',
-                    left: '52%',
-                    width: '16px',
+                    left: '54%',
+                    width: '20px',
                     height: '24px',
                     background: 'transparent',
-                    boxShadow: '-8px 8px 0 0 #ffffff',
-                    borderRadius: '0 0 0 9px'
+                    boxShadow: '-10px 10px 0 0 #ffffff',
+                    borderRadius: '0 0 0 10px'
                   }}
                 />
 
@@ -267,9 +276,9 @@ export default function HowItWorksPage() {
                   style={{
                     fontSize: '18px',
                     fontWeight: 700,
-                    color: '#1F2937',
-                    letterSpacing: '-0.015em',
-                    lineHeight: 1.35,
+                    color: '#1E293B',
+                    letterSpacing: '-0.02em',
+                    lineHeight: 1.3,
                     marginBottom: '10px'
                   }}
                 >
@@ -278,7 +287,7 @@ export default function HowItWorksPage() {
                 <div
                   style={{
                     fontSize: '14px',
-                    color: '#6B7280',
+                    color: '#64748B',
                     lineHeight: 1.6,
                     fontWeight: 400,
                   }}

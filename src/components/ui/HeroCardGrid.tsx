@@ -30,27 +30,32 @@ export const CardFace = memo(({
   label, category, gradient, size,
 }: { label: string; category: string; gradient: string; size: number }) => {
   const tabH   = size < 130 ? 14 : 18;
-  const radius = size < 130 ? 12 : 18;
-  const inner  = size < 130 ? 10 : 15;
-  const pad    = size < 130 ? 2  : 3;
-  const fsCat  = size < 130 ? 6  : 7.5;
-  const fsLbl  = size < 130 ? 8.5 : 10.5;
+  const radius = size < 130 ? 14 : 22;
+  const inner  = size < 130 ? 11 : 18;
+  const pad    = size < 130 ? 3  : 4;
+  const fsCat  = size < 130 ? 6.5 : 8;
+  const fsLbl  = size < 130 ? 9.5 : 11.5;
+
+  // Derive a subtle tint from the gradient if possible, or use a neutral blue-tint
+  const shellTint = '#F8FAFF';
 
   return (
     <div style={{ position: 'relative', width: '100%', aspectRatio: '4 / 3' }}>
       <div style={{
         position: 'relative', width: '100%', height: '100%',
-        background: '#ffffff', borderRadius: radius, padding: pad, overflow: 'hidden',
-        boxShadow: '0 8px 28px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.95)',
+        background: shellTint, borderRadius: radius, padding: pad, overflow: 'hidden',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.02)',
+        border: '1px solid rgba(0,0,0,0.03)',
       }}>
         {/* Pastel gradient top */}
         <div style={{
           position: 'absolute', inset: pad, borderRadius: inner,
+          bottom: '58%',
           background: gradient, overflow: 'hidden',
         }}>
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.55), transparent 68%)',
+            background: 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.6), transparent 70%)',
           }} />
         </div>
 
@@ -63,23 +68,24 @@ export const CardFace = memo(({
         }}>
           {/* Category notch */}
           <div style={{
-            position: 'absolute', top: -tabH, left: 0, width: '55%', height: tabH,
-            background: '#ffffff', borderRadius: '6px 6px 0 0',
-            padding: `2px 6px 0 8px`, fontSize: fsCat, fontWeight: 600,
-            letterSpacing: '0.07em', color: '#9CA3AF', textTransform: 'uppercase',
+            position: 'absolute', top: -tabH, left: 0, width: '56%', height: tabH,
+            background: '#ffffff', borderRadius: '8px 8px 0 0',
+            padding: `0 6px 0 10px`, fontSize: fsCat, fontWeight: 700,
+            letterSpacing: '0.06em', color: '#94A3B8', textTransform: 'uppercase',
+            display: 'flex', alignItems: 'center'
           }}>
             {category}
           </div>
           {/* Curve seam */}
           <div style={{
-            position: 'absolute', top: -tabH, left: '55%',
-            width: 9, height: tabH, background: 'transparent',
-            boxShadow: `-4px 4px 0 0 #ffffff`, borderRadius: '0 0 0 5px',
+            position: 'absolute', top: -tabH, left: '56%',
+            width: 12, height: tabH, background: 'transparent',
+            boxShadow: `-6px 6px 0 0 #ffffff`, borderRadius: '0 0 0 8px',
           }} />
           {/* Label */}
           <p style={{
-            margin: 0, fontSize: fsLbl, fontWeight: 600,
-            color: '#1F2937', letterSpacing: '-0.01em', lineHeight: 1.3,
+            margin: 0, fontSize: fsLbl, fontWeight: 700,
+            color: '#1E293B', letterSpacing: '-0.025em', lineHeight: 1.3,
           }}>
             {label}
           </p>
