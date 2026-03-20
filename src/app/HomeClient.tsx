@@ -7,11 +7,13 @@ import {
   MousePointerClick, Cpu, Download,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import Script from 'next/script';
 
 const ToolsSection = dynamic(() => import('@/components/ui/ToolsSection'), { ssr: false });
 const HeroCardGrid = dynamic(() => import('@/components/ui/HeroCardGrid'), { ssr: false });
 const HeroicHowItWorks = dynamic(() => import('@/components/ui/HeroicHowItWorks'), { ssr: false });
 const WhyUsSection = dynamic(() => import('@/components/ui/WhyUsSection'), { ssr: false });
+const FAQSection = dynamic(() => import('@/components/ui/FAQSection'), { ssr: false });
 
 /* ─────────────────────────────────────────────────────────
   Tool catalogue (used in the tools grid below the fold)
@@ -335,6 +337,81 @@ export default function Home() {
 
       <HeroicHowItWorks />
       <WhyUsSection />
+      <FAQSection />
+
+      {/* FAQ Structured Data for SEO */}
+      <Script id="faq-schema" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Edita really free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Edita is 100% free. You can compress PDFs, convert images, and use all our browser-based file tools without any subscription or hidden fees. We don't even require a sign-up—just fast, private tools for everyone."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Edita ensure my file privacy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Unlike other online file tools, Edita processes everything locally in your browser using WebAssembly. This means your files are never uploaded to any server. Your sensitive data stays on your device, ensuring 100% privacy and security."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to install any software to use these tools?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No software installation is required. Edita is a suite of web-based tools that run directly in any modern web browser. Simply visit our site and start editing your files instantly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there a file size limit for processing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Since your files are processed locally on your machine, there are no traditional 'upload' limits. The performance depends on your computer's resources, but most common file sizes are handled easily."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which file formats does Edita support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We currently support a wide range of popular formats including PDF, JPG, PNG, WebP, MP4, MP3, and Word (.docx)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use Edita tools offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Once the website and tools are loaded, many of our utilities can work without an active internet connection because the processing logic remains on your device."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is Edita faster than other online converters?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Edita is faster because it eliminates the time-consuming steps of uploading your files to a cloud server and downloading the results. Computation happens immediately in your browser."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are these tools secure for business and legal documents?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Because Edita follows a strict 'no-upload' policy, your private business contracts and legal documents never leave your local environment."
+              }
+            }
+          ]
+        })}
+      </Script>
     </main>
   );
 }
