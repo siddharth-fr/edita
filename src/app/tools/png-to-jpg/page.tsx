@@ -7,6 +7,9 @@ const PngToJpgClient = dynamic(() => import('@/components/tools/PngToJpgClient')
   loading: () => <div className="h-[400px] w-full animate-pulse bg-muted rounded-3xl" />
 });
 
+import { ToolFooter } from '@/components/ui/ToolFooter';
+import { ImageIcon, ShieldCheck } from 'lucide-react';
+
 const m = TOOL_METADATA["png-to-jpg"];
 export const metadata = constructMetadata({
   title: m.title,
@@ -22,34 +25,20 @@ export default function Page() {
       description={m.toolDescription}
       howItWorksSteps={m.howItWorksSteps}
       footerContent={
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm leading-relaxed text-muted-foreground">
-          <div className="space-y-4">
-            <h2 className="text-xl font-bold text-foreground">Effortless PNG to JPG Conversion</h2>
-            <p>
-              PNG files are great for transparency but can be much larger than 
-              JPGs. Our converter helps you transform your PNG images into 
-              space-efficient JPG format while maintaining excellent visual 
-              quality. Perfect for optimizing web images and reducing storage.
-            </p>
-            <p>
-              Edita handles the conversion instantly, allowing you to quickly 
-              get the file format you need for your project.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <h2 className="text-xl font-bold text-foreground">Privacy-First Image Conversion</h2>
-            <p>
-              Most online image converters upload your files to their servers. 
-              Edita is different. All image processing happens locally in your 
-              browser. Your private photos never leave your device, ensuring 
-              absolute privacy and security.
-            </p>
-            <p>
-              Enjoy the speed and safety of local browser-based tools—fast, 
-              free, and 100% private.
-            </p>
-          </div>
-        </div>
+        <ToolFooter 
+          blocks={[
+            {
+              title: "Effortless PNG to JPG Conversion",
+              description: "PNG files are great for transparency but can be much larger than JPGs. Our converter transforms your PNGs into space-efficient JPG format while maintaining visual quality. Perfect for web optimization.",
+              icon: ImageIcon
+            },
+            {
+              title: "Privacy-First Image Conversion",
+              description: "Most online converters require cloud uploads. Edita is different. All processing happens locally in your browser. Your private photos never leave your device, ensuring absolute 100% privacy and security.",
+              icon: ShieldCheck
+            }
+          ]}
+        />
       }
     >
       <PngToJpgClient />
