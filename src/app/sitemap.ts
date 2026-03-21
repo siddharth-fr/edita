@@ -23,6 +23,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'pdf-to-jpg',
         'image-compressor',
         'png-to-jpg',
+        'jpg-to-png',
+        'png-to-webp',
+        'webp-to-png',
+        'jpg-to-webp',
+        'webp-to-jpg',
+        'png-to-avif',
+        'jpg-to-avif',
+        'avif-to-png',
+        'avif-to-jpg',
+        'svg-to-png',
+        'svg-to-jpg',
+        'svg-to-webp',
         'mp4-to-mp3'
     ];
 
