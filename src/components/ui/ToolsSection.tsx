@@ -17,8 +17,8 @@ export default function ToolsSection({ tools }: { tools: Tool[] }) {
   const [category, setCategory] = useState('Popular');
 
   const categories = useMemo(() => {
-    const cats = Array.from(new Set(tools.map(t => t.category)));
-    return ['Popular', ...cats];
+    const cats = Array.from(new Set(tools.map(t => t.category))).filter(c => c !== 'QR Code');
+    return ['Popular', 'Utility Tools', ...cats];
   }, [tools]);
 
   const filtered = useMemo(() => {
@@ -27,7 +27,16 @@ export default function ToolsSection({ tools }: { tools: Tool[] }) {
       const matchesQuery = !q || 
         t.name.toLowerCase().includes(q) ||
         t.category.toLowerCase().includes(q);
-      const matchesCategory = category === 'Popular' || t.category === category;
+      
+      let matchesCategory = false;
+      if (category === 'Popular') {
+        matchesCategory = true;
+      } else if (category === 'Utility Tools') {
+        matchesCategory = t.category === 'Utility Tools' || t.category === 'QR Code';
+      } else {
+        matchesCategory = t.category === category;
+      }
+      
       return matchesQuery && matchesCategory;
     });
 
