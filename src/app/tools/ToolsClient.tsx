@@ -1,6 +1,6 @@
 'use client';
 
-import { ShieldCheck, Zap, Globe } from 'lucide-react';
+import { ShieldCheck, Zap, Globe, QrCode } from 'lucide-react';
 import ToolsSection from '@/components/ui/ToolsSection';
 import { CardFace } from '@/components/ui/HeroCardGrid';
 import { type AppTheme } from '@/config/themes';
@@ -28,6 +28,7 @@ const tools: { name: string; slug: string; iconKey: string; theme: AppTheme; cat
   { name: 'SVG to JPG', slug: 'svg-to-jpg', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'SVG to WebP', slug: 'svg-to-webp', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'MP4 to MP3', slug: 'mp4-to-mp3', iconKey: 'Music', theme: 'violet', category: 'Audio' },
+  { name: 'QR Code Generator', slug: 'qr-code-generator', iconKey: 'QrCode', theme: 'indigo', category: 'Utility' },
 ];
 
 export default function ToolsPage() {

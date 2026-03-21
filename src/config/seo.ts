@@ -609,6 +609,37 @@ export const TOOL_METADATA = {
         answer: "No. We use FFmpeg compiled to WebAssembly, which allows your browser to do all the heavy lifting locally. Your video never leaves your computer."
       }
     ]
+  },
+  "qr-code-generator": {
+    title: "QR Code Generator – Create Free Custom QR Codes Online",
+    description: "Generate custom QR codes for free. Fast, private, and 100% browser-based QR code generator. Customize colors, styles, and download as PNG or JPG.",
+    keywords: ["qr code generator", "free qr code generator", "generate qr code online", "custom qr code creator", "private qr code generator"],
+    canonical: "/tools/qr-code-generator",
+    toolTitle: "QR Code Generator",
+    toolDescription: "Create custom, high-quality QR codes instantly in your browser for URLs, text, and more.",
+    howItWorksSteps: [
+      { title: "Enter Content", desc: "Type or paste the URL or text you want to encode into your QR code." },
+      { title: "Customize Design", desc: "Change colors, adjust corners, and choose between square or rounded modules." },
+      { title: "Download & Use", desc: "Export your custom QR code as a high-resolution PNG or JPG file instantly." }
+    ],
+    faqs: [
+      {
+        question: "Is it free to create QR codes here?",
+        answer: "Yes, Edita's QR Code Generator is 100% free with no hidden costs, limits, or account requirements. You can generate as many codes as you need."
+      },
+      {
+        question: "Do these QR codes ever expire?",
+        answer: "No. The QR codes you generate are static, meaning the data is encoded directly into the pattern. They will work forever as long as the destination URL or content remains valid."
+      },
+      {
+        question: "Can I customize the look of my QR code?",
+        answer: "Absolutely. You can change the foreground and background colors, use transparent backgrounds for PNGs, and choose between sharp square or soft rounded modules to match your brand."
+      },
+      {
+        question: "Is my data privacy protected?",
+        answer: "Total privacy is our priority. Your text or URLs are processed entirely in your browser memory to generate the QR code. We never see or store the data you encode."
+      }
+    ]
   }
 };
 
