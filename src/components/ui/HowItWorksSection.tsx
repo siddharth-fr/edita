@@ -106,7 +106,13 @@ export default function HowItWorksSection({ steps, title, subtitle }: HowItWorks
                 </div>
                 
                 <div className="transition-transform duration-500 group-hover:scale-110">
-                  {item.icon || <MousePointerClick className="w-8 h-8 text-emerald-600" />}
+                  {item.icon || (
+                    <>
+                      {i === 0 && <MousePointerClick className="w-8 h-8 text-emerald-600" />}
+                      {i === 1 && <Cpu className="w-8 h-8 text-emerald-600" />}
+                      {i === 2 && <Download className="w-8 h-8 text-emerald-600" />}
+                    </>
+                  )}
                 </div>
               </div>
 
