@@ -10,7 +10,9 @@ const ImageConverter = dynamic(() => import('@/components/tools/ImageConverter')
 import { ToolFooter } from '@/components/ui/ToolFooter';
 import { ImageIcon, ShieldCheck } from 'lucide-react';
 
-const m = TOOL_METADATA["png-to-jpg"];
+const TOOL_ID = "jpg-to-webp";
+const m = TOOL_METADATA[TOOL_ID as keyof typeof TOOL_METADATA];
+
 export const metadata = constructMetadata({
   title: m.title,
   description: m.description,
@@ -28,8 +30,8 @@ export default function Page() {
         <ToolFooter 
           blocks={[
             {
-              title: "Effortless PNG to JPG Conversion",
-              description: "PNG files are great for transparency but can be much larger than JPGs. Our converter transforms your PNGs into space-efficient JPG format while maintaining visual quality. Perfect for web optimization.",
+              title: "Efficient JPG to WebP Conversion",
+              description: "Bridge the gap between JPG and modern WebP. Reduce your image file sizes significantly without sacrificing visual quality.",
               icon: ImageIcon
             },
             {
@@ -41,7 +43,7 @@ export default function Page() {
         />
       }
     >
-      <ImageConverter initialInputFormat="png" initialOutputFormat="jpg" />
+      <ImageConverter initialInputFormat="jpg" initialOutputFormat="webp" />
     </ToolLayout>
   );
 }

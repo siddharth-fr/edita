@@ -29,6 +29,18 @@ const tools: { name: string; slug: string; iconKey: string; theme: AppTheme; cat
   { name: 'PDF to JPG', slug: 'pdf-to-jpg', iconKey: 'Maximize2', theme: 'rose', category: 'Image' },
   { name: 'Image Compressor', slug: 'image-compressor', iconKey: 'FileArchive', theme: 'green', category: 'Image' },
   { name: 'PNG to JPG', slug: 'png-to-jpg', iconKey: 'ImageIcon', theme: 'emerald', category: 'Image' },
+  { name: 'JPG to PNG', slug: 'jpg-to-png', iconKey: 'ImageIcon', theme: 'pink', category: 'Image' },
+  { name: 'PNG to WebP', slug: 'png-to-webp', iconKey: 'ImageIcon', theme: 'emerald', category: 'Image' },
+  { name: 'WebP to PNG', slug: 'webp-to-png', iconKey: 'ImageIcon', theme: 'cyan', category: 'Image' },
+  { name: 'JPG to WebP', slug: 'jpg-to-webp', iconKey: 'ImageIcon', theme: 'pink', category: 'Image' },
+  { name: 'WebP to JPG', slug: 'webp-to-jpg', iconKey: 'ImageIcon', theme: 'cyan', category: 'Image' },
+  { name: 'PNG to AVIF', slug: 'png-to-avif', iconKey: 'ImageIcon', theme: 'emerald', category: 'Image' },
+  { name: 'JPG to AVIF', slug: 'jpg-to-avif', iconKey: 'ImageIcon', theme: 'pink', category: 'Image' },
+  { name: 'AVIF to PNG', slug: 'avif-to-png', iconKey: 'ImageIcon', theme: 'indigo', category: 'Image' },
+  { name: 'AVIF to JPG', slug: 'avif-to-jpg', iconKey: 'ImageIcon', theme: 'indigo', category: 'Image' },
+  { name: 'SVG to PNG', slug: 'svg-to-png', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
+  { name: 'SVG to JPG', slug: 'svg-to-jpg', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
+  { name: 'SVG to WebP', slug: 'svg-to-webp', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'MP4 to MP3', slug: 'mp4-to-mp3', iconKey: 'Music', theme: 'violet', category: 'Audio' },
 ];
 
@@ -61,10 +73,10 @@ const heroGridCards = [
 
   // row 2 — bottom row (all 5 columns)
   { label: 'PDF to JPG', category: 'Image', theme: 'rose' as AppTheme, col: 0, row: 2, rotate: '-2deg' },
-  { label: 'Resize Image', category: 'Image', theme: 'blue' as AppTheme, col: 1, row: 2, rotate: '1deg' },
-  { label: 'Audio Extract', category: 'Audio', theme: 'violet' as AppTheme, col: 2, row: 2, rotate: '-1.5deg' },
+  { label: 'JPG to PNG', category: 'Image', theme: 'pink' as AppTheme, col: 1, row: 2, rotate: '1deg' },
+  { label: 'MP4 to MP3', category: 'Audio', theme: 'violet' as AppTheme, col: 2, row: 2, rotate: '-1.5deg' },
   { label: 'Merge PDF', category: 'PDF', theme: 'purple' as AppTheme, col: 3, row: 2, rotate: '2deg' },
-  { label: 'Image Crop', category: 'Image', theme: 'green' as AppTheme, col: 4, row: 2, rotate: '-1deg' },
+  { label: 'SVG to WebP', category: 'Image', theme: 'orange' as AppTheme, col: 4, row: 2, rotate: '-1deg' },
 ];
 
 /* Grid geometry constants — now live inside HeroCardGrid.tsx */

@@ -10,7 +10,9 @@ const ImageConverter = dynamic(() => import('@/components/tools/ImageConverter')
 import { ToolFooter } from '@/components/ui/ToolFooter';
 import { ImageIcon, ShieldCheck } from 'lucide-react';
 
-const m = TOOL_METADATA["png-to-jpg"];
+const TOOL_ID = "png-to-avif";
+const m = TOOL_METADATA[TOOL_ID as keyof typeof TOOL_METADATA];
+
 export const metadata = constructMetadata({
   title: m.title,
   description: m.description,
@@ -28,8 +30,8 @@ export default function Page() {
         <ToolFooter 
           blocks={[
             {
-              title: "Effortless PNG to JPG Conversion",
-              description: "PNG files are great for transparency but can be much larger than JPGs. Our converter transforms your PNGs into space-efficient JPG format while maintaining visual quality. Perfect for web optimization.",
+              title: "Next-Gen PNG to AVIF Conversion",
+              description: "AVIF is the future of image compression. Convert your PNGs to AVIF for the best possible quality-to-size ratio available today.",
               icon: ImageIcon
             },
             {
@@ -41,7 +43,7 @@ export default function Page() {
         />
       }
     >
-      <ImageConverter initialInputFormat="png" initialOutputFormat="jpg" />
+      <ImageConverter initialInputFormat="png" initialOutputFormat="avif" />
     </ToolLayout>
   );
 }

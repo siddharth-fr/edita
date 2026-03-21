@@ -116,6 +116,162 @@ export const TOOL_METADATA = {
       { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
     ]
   },
+  "jpg-to-png": {
+    title: "JPG to PNG Converter – Convert JPEG to PNG Online Free",
+    description: "Convert JPG images to PNG format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["jpg to png", "convert jpeg to png", "jpg to png converter", "free image converter", "online jpg to png"],
+    canonical: "/tools/jpg-to-png",
+    toolTitle: "JPG to PNG",
+    toolDescription: "Efficiently convert JPG images to PNG format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select JPGs", desc: "Upload the JPG images you want to convert to PNG format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ]
+  },
+  "png-to-webp": {
+    title: "PNG to WebP Converter – Convert PNG to WebP Online Free",
+    description: "Convert PNG images to WebP format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["png to webp", "convert png to webp", "png to webp converter", "free image converter", "online png to webp"],
+    canonical: "/tools/png-to-webp",
+    toolTitle: "PNG to WebP",
+    toolDescription: "Efficiently convert PNG images to WebP format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select PNGs", desc: "Upload the PNG images you want to convert to WebP format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as WebP", desc: "Download your converted WebP images individually or together." }
+    ]
+  },
+  "webp-to-png": {
+    title: "WebP to PNG Converter – Convert WebP to PNG Online Free",
+    description: "Convert WebP images to PNG format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["webp to png", "convert webp to png", "webp to png converter", "free image converter", "online webp to png"],
+    canonical: "/tools/webp-to-png",
+    toolTitle: "WebP to PNG",
+    toolDescription: "Efficiently convert WebP images to PNG format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select WebPs", desc: "Upload the WebP images you want to convert to PNG format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ]
+  },
+  "jpg-to-webp": {
+    title: "JPG to WebP Converter – Convert JPEG to WebP Online Free",
+    description: "Convert JPG images to WebP format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["jpg to webp", "convert jpeg to webp", "jpg to webp converter", "free image converter", "online jpg to webp"],
+    canonical: "/tools/jpg-to-webp",
+    toolTitle: "JPG to WebP",
+    toolDescription: "Efficiently convert JPG images to WebP format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select JPGs", desc: "Upload the JPG images you want to convert to WebP format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as WebP", desc: "Download your converted WebP images individually or together." }
+    ]
+  },
+  "webp-to-jpg": {
+    title: "WebP to JPG Converter – Convert WebP to JPEG Online Free",
+    description: "Convert WebP images to JPG format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["webp to jpg", "convert webp to jpeg", "webp to jpg converter", "free image converter", "online webp to jpg"],
+    canonical: "/tools/webp-to-jpg",
+    toolTitle: "WebP to JPG",
+    toolDescription: "Efficiently convert WebP images to JPG format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select WebPs", desc: "Upload the WebP images you want to convert to JPG format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
+    ]
+  },
+  "png-to-avif": {
+    title: "PNG to AVIF Converter – Convert PNG to AVIF Online Free",
+    description: "Convert PNG images to AVIF format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["png to avif", "convert png to avif", "png to avif converter", "free image converter", "online png to avif"],
+    canonical: "/tools/png-to-avif",
+    toolTitle: "PNG to AVIF",
+    toolDescription: "Efficiently convert PNG images to AVIF format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select PNGs", desc: "Upload the PNG images you want to convert to AVIF format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as AVIF", desc: "Download your converted AVIF images individually or together." }
+    ]
+  },
+  "jpg-to-avif": {
+    title: "JPG to AVIF Converter – Convert JPEG to AVIF Online Free",
+    description: "Convert JPG images to AVIF format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["jpg to avif", "convert jpeg to avif", "jpg to avif converter", "free image converter", "online jpg to avif"],
+    canonical: "/tools/jpg-to-avif",
+    toolTitle: "JPG to AVIF",
+    toolDescription: "Efficiently convert JPG images to AVIF format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select JPGs", desc: "Upload the JPG images you want to convert to AVIF format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as AVIF", desc: "Download your converted AVIF images individually or together." }
+    ]
+  },
+  "avif-to-png": {
+    title: "AVIF to PNG Converter – Convert AVIF to PNG Online Free",
+    description: "Convert AVIF images to PNG format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["avif to png", "convert avif to png", "avif to png converter", "free image converter", "online avif to png"],
+    canonical: "/tools/avif-to-png",
+    toolTitle: "AVIF to PNG",
+    toolDescription: "Efficiently convert AVIF images to PNG format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select AVIFs", desc: "Upload the AVIF images you want to convert to PNG format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ]
+  },
+  "avif-to-jpg": {
+    title: "AVIF to JPG Converter – Convert AVIF to JPEG Online Free",
+    description: "Convert AVIF images to JPG format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["avif to jpg", "convert avif to jpeg", "avif to jpg converter", "free image converter", "online avif to jpg"],
+    canonical: "/tools/avif-to-jpg",
+    toolTitle: "AVIF to JPG",
+    toolDescription: "Efficiently convert AVIF images to JPG format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select AVIFs", desc: "Upload the AVIF images you want to convert to JPG format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
+      { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
+    ]
+  },
+  "svg-to-png": {
+    title: "SVG to PNG Converter – Convert SVG to PNG Online Free",
+    description: "Convert SVG vectors to PNG images for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["svg to png", "convert svg to png", "svg to png converter", "free vector converter", "online svg to png"],
+    canonical: "/tools/svg-to-png",
+    toolTitle: "SVG to PNG",
+    toolDescription: "Efficiently convert SVG vector images to PNG format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select SVGs", desc: "Upload the SVG vector files you want to convert to PNG format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your vectors into high-quality raster images." },
+      { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ]
+  },
+  "svg-to-jpg": {
+    title: "SVG to JPG Converter – Convert SVG to JPEG Online Free",
+    description: "Convert SVG vectors to JPG format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["svg to jpg", "convert svg to jpeg", "svg to jpg converter", "free vector converter", "online svg to jpg"],
+    canonical: "/tools/svg-to-jpg",
+    toolTitle: "SVG to JPG",
+    toolDescription: "Efficiently convert SVG vector images to JPG format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select SVGs", desc: "Upload the SVG vector files you want to convert to JPG format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your vectors into clean JPG images." },
+      { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
+    ]
+  },
+  "svg-to-webp": {
+    title: "SVG to WebP Converter – Convert SVG to WebP Online Free",
+    description: "Convert SVG vectors to WebP format for free. Fast, secure, and private browser-based image converter with no cloud uploads.",
+    keywords: ["svg to webp", "convert svg to webp", "svg to webp converter", "free vector converter", "online svg to webp"],
+    canonical: "/tools/svg-to-webp",
+    toolTitle: "SVG to WebP",
+    toolDescription: "Efficiently convert SVG vector images to WebP format directly in your browser.",
+    howItWorksSteps: [
+      { title: "Select SVGs", desc: "Upload the SVG vector files you want to convert to WebP format." },
+      { title: "Fast Processing", desc: "Wait a split second as we transform your vectors into modern WebP images." },
+      { title: "Save as WebP", desc: "Download your converted WebP images individually or together." }
+    ]
+  },
   "mp4-to-mp3": {
     title: "MP4 to MP3 Converter – Extract Audio from Video Free",
     description: "Convert MP4 videos to MP3 audio online for free. Fast, private audio extraction directly in your browser using FFmpeg WASM.",
