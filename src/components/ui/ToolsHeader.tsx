@@ -171,7 +171,7 @@ export default function ToolsHeader({
                   willChange: 'transform, box-shadow, background, opacity',
                 }}
               >
-                {cat === 'All' ? cat : `${cat} Tools`}
+                {cat === 'Popular' ? cat : `${cat} Tools`}
               </button>
             );
           })}

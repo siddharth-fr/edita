@@ -14,22 +14,27 @@ interface Tool {
 
 export default function ToolsSection({ tools }: { tools: Tool[] }) {
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('All');
+  const [category, setCategory] = useState('Popular');
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(tools.map(t => t.category)));
-    return ['All', ...cats];
+    return ['Popular', ...cats];
   }, [tools]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return tools.filter(t => {
+    const matches = tools.filter(t => {
       const matchesQuery = !q || 
         t.name.toLowerCase().includes(q) ||
         t.category.toLowerCase().includes(q);
-      const matchesCategory = category === 'All' || t.category === category;
+      const matchesCategory = category === 'Popular' || t.category === category;
       return matchesQuery && matchesCategory;
     });
+
+    if (category === 'Popular' && !q) {
+      return matches.slice(0, 10);
+    }
+    return matches;
   }, [tools, query, category]);
 
   return (

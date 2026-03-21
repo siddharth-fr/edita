@@ -4,7 +4,6 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import BetaBadge from "@/components/ui/BetaBadge";
 import { constructMetadata } from "@/lib/metadata";
 import { ToastProvider } from "@/components/providers/ToastProvider";
 
@@ -40,7 +39,6 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <BetaBadge />
         </ToastProvider>
       </body>
     </html>
