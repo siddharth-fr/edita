@@ -4,6 +4,10 @@ import { type HowItWorksStep } from '@/components/ui/HowItWorksSection';
 
 const HowItWorksSection = dynamic(() => import('@/components/ui/HowItWorksSection'));
 const SimilarToolsSection = dynamic(() => import('@/components/ui/SimilarToolsSection'));
+const FAQSection = dynamic(() => import('@/components/ui/FAQSection'));
+
+import { type FAQ } from '@/components/ui/FAQSection';
+import { GENERAL_FAQS } from '@/config/seo';
 
 
 interface ToolLayoutProps {
@@ -13,6 +17,9 @@ interface ToolLayoutProps {
   howItWorksTitle?: string;
   howItWorksSubtitle?: string;
   howItWorksSteps?: HowItWorksStep[];
+  faqItems?: FAQ[];
+  faqTitle?: string;
+  faqSubtitle?: string;
   footerContent?: React.ReactNode;
 }
 
@@ -23,6 +30,9 @@ export function ToolLayout({
   howItWorksTitle,
   howItWorksSubtitle,
   howItWorksSteps,
+  faqItems,
+  faqTitle,
+  faqSubtitle,
   footerContent
 }: ToolLayoutProps) {
   return (
@@ -109,6 +119,16 @@ export function ToolLayout({
       <div className="w-full max-w-6xl px-4 sm:px-8">
         <SimilarToolsSection />
       </div>
+
+      {faqItems && (
+        <div className="w-full max-w-5xl px-4 sm:px-8">
+          <FAQSection 
+            items={[...faqItems, ...GENERAL_FAQS]}
+            title={faqTitle}
+            subtitle={faqSubtitle}
+          />
+        </div>
+      )}
 
       {footerContent && (
         <div className="w-full max-w-4xl px-4 sm:px-8 mt-24">

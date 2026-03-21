@@ -55,43 +55,55 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
   );
 };
 
-export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+export interface FAQ {
+  question: string;
+  answer: string;
+}
 
-  const faqs = [
-    {
-      question: "Is Edita really free to use?",
-      answer: "Yes, Edita is 100% free. You can compress PDFs, convert images, and use all our browser-based file tools without any subscription or hidden fees. We don't even require a sign-up just fast, private tools for everyone.",
-    },
-    {
-      question: "How does Edita ensure my file privacy?",
-      answer: "Unlike other online file tools, Edita processes everything locally in your browser using WebAssembly. This means your files are never uploaded to any server. Your sensitive data stays on your device, ensuring 100% privacy and security for all your documents.",
-    },
-    {
-      question: "Do I need to install any software to use these tools?",
-      answer: "No software installation is required. Edita is a suite of web-based tools that run directly in any modern web browser. Simply visit our site and start editing your files instantly, no matter your operating system.",
-    },
-    {
-      question: "Is there a file size limit for processing?",
-      answer: "Since your files are processed locally on your machine, there are no traditional 'upload' limits. The performance depends on your computer's resources, but most common file sizes for PDFs and images (even large ones) are handled easily and quickly by our local engine.",
-    },
-    {
-      question: "Which file formats does Edita support?",
-      answer: "We currently support a wide range of popular formats including PDF, JPG, PNG, WebP, MP4, MP3, and Word (.docx). We are constantly adding new secure file tools and conversion options to our collection.",
-    },
-    {
-      question: "Can I use Edita tools offline?",
-      answer: "Once the website and tools are loaded, many of our utilities can work without an active internet connection because the processing logic is executed entirely on your device. This is one of the many benefits of private, local file tools.",
-    },
-    {
-      question: "Why is Edita faster than other online converters?",
-      answer: "Edita is faster because it eliminates the time-consuming steps of uploading your files to a cloud server and downloading the results. The computation happens immediately in your browser, saving you bandwidth and frustration.",
-    },
-    {
-      question: "Are these tools secure for business and legal documents?",
-      answer: "Absolutely. Because Edita follows a strict 'no-upload' policy, your private business contracts and legal documents never leave your local environment. This makes it the most secure choice for professionals who handle sensitive information.",
-    }
-  ];
+interface FAQSectionProps {
+  items?: FAQ[];
+  title?: string;
+  subtitle?: string;
+}
+
+export const HOME_FAQS: FAQ[] = [
+  {
+    question: "Is Edita really free to use?",
+    answer: "Yes, Edita is 100% free. You can compress PDFs, convert images, and use all our browser-based file tools without any subscription or hidden fees. We don't even require a sign-up—just fast, private tools for everyone.",
+  },
+  {
+    question: "How does Edita ensure my file privacy?",
+    answer: "Unlike other online file tools, Edita processes everything locally in your browser using WebAssembly. This means your files are never uploaded to any server. Your sensitive data stays on your device, ensuring 100% privacy and security for all your documents.",
+  },
+  {
+    question: "Do I need to install any software to use these tools?",
+    answer: "No software installation is required. Edita is a suite of web-based tools that run directly in any modern web browser. Simply visit our site and start editing your files instantly, no matter your operating system.",
+  },
+  {
+    question: "Is there a file size limit for processing?",
+    answer: "Since your files are processed locally on your machine, there are no traditional 'upload' limits. The performance depends on your computer's resources, but most common file sizes for PDFs and images (even large ones) are handled easily and quickly by our local engine.",
+  },
+  {
+    question: "Which file formats does Edita support?",
+    answer: "We currently support a wide range of popular formats including PDF, JPG, PNG, WebP, MP4, MP3, and Word (.docx). We are constantly adding new secure file tools and conversion options to our collection.",
+  },
+  {
+    question: "Can I use Edita tools offline?",
+    answer: "Once the website and tools are loaded, many of our utilities can work without an active internet connection because the processing logic is executed entirely on your device. This is one of the many benefits of private, local file tools.",
+  },
+  {
+    question: "Why is Edita faster than other online converters?",
+    answer: "Edita is faster because it eliminates the time-consuming steps of uploading your files to a cloud server and downloading the results. The computation happens immediately in your browser, saving you bandwidth and frustration.",
+  },
+  {
+    question: "Are these tools secure for business and legal documents?",
+    answer: "Absolutely. Because Edita follows a strict 'no-upload' policy, your private business contracts and legal documents never leave your local environment. This makes it the most secure choice for professionals who handle sensitive information.",
+  }
+];
+
+export default function FAQSection({ items, title, subtitle }: FAQSectionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const displayItems = items || HOME_FAQS;
 
   return (
     <section className="w-full max-w-4xl px-4 sm:px-8 py-24 mb-12 mx-auto">
@@ -105,20 +117,20 @@ export default function FAQSection() {
           fontSize: 'clamp(32px, 5vw, 42px)',
           color: '#0C0F17',
         }}>
-          Frequently Asked <span style={{
+          {title || "Frequently Asked"} <span style={{
             background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-          }}>Questions</span>
+          }}>{title ? "" : "Questions"}</span>
         </h2>
         <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-          Everything you need to know about our private, browser-based file tools.
+          {subtitle || "Everything you need to know about our private, browser-based file tools."}
         </p>
       </div>
 
       <div className="flex flex-col gap-5 w-full">
-        {faqs.map((faq, index) => (
+        {displayItems.map((faq, index) => (
           <FAQItem
             key={index}
             question={faq.question}

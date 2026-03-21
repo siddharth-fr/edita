@@ -1,3 +1,20 @@
+import { type FAQ } from '@/components/ui/FAQSection';
+
+export const GENERAL_FAQS: FAQ[] = [
+  {
+    question: "Is it safe to use Edita for sensitive files?",
+    answer: "Absolutely. Edita processes all your files locally in your browser using WASM (WebAssembly) technology. Your documents never leave your device and are never uploaded to our servers, ensuring total privacy."
+  },
+  {
+    question: "Does Edita store my data or file history?",
+    answer: "No. We have a strict 'no-storage' policy. Once you close your browser tab, all traces of your processed files are gone. We don't track your content or keep any logs of your file data."
+  },
+  {
+    question: "Why is Edita faster than other online converters?",
+    answer: "Traditional tools require you to upload large files to a server, wait for processing, and then download them back. Edita eliminates all network lag by processing everything instantly on your own hardware."
+  }
+];
+
 export const TOOL_METADATA = {
   "merge-pdf": {
     title: "Merge PDF Online – Combine PDF Files Free",
@@ -10,6 +27,20 @@ export const TOOL_METADATA = {
       { title: "Select PDFs", desc: "Choose multiple PDF files from your device to combine." },
       { title: "Arrange Order", desc: "Drag and drop the files to set the perfect order for your merged document." },
       { title: "Merge & Save", desc: "Our local engine joins them instantly—download your new PDF in seconds." }
+    ],
+    faqs: [
+      {
+        question: "How many PDF files can I merge at once?",
+        answer: "There's no hard limit on the number of files you can merge. Since processing happens locally on your machine, it depends on your device's memory. Most users can easily merge dozens of PDFs at once."
+      },
+      {
+        question: "Will the formatting of my PDFs be preserved?",
+        answer: "Yes. Our merging engine preserves all fonts, formatting, and layouts exactly as they appear in the original documents."
+      },
+      {
+        question: "Can I reorder pages after selecting files?",
+        answer: "Currently, you can reorder entire files before merging. If you need to reorder individual pages, we recommend using our Split PDF tool first to extract them."
+      }
     ]
   },
   "compress-pdf": {
@@ -23,6 +54,20 @@ export const TOOL_METADATA = {
       { title: "Upload PDF", desc: "Select the PDF file you want to compress from your computer or device." },
       { title: "Compress Online", desc: "Our engine optimizes the file size instantly without uploading to any server." },
       { title: "Save Result", desc: "Download your compressed PDF with reduced file size in just seconds." }
+    ],
+    faqs: [
+      {
+        question: "Will I lose quality when I compress my PDF?",
+        answer: "We use smart compression algorithms that target redundant data and optimize images within the PDF. You'll get a significantly smaller file with minimal to no visible loss in document quality."
+      },
+      {
+        question: "How much can I reduce my PDF file size?",
+        answer: "Most PDFs can be reduced by 40-80% of their original size, depending on how many images and high-resolution assets are inside the document."
+      },
+      {
+        question: "Is it safe to compress confidential legal or business PDFs here?",
+        answer: "Yes, it's safer than almost any other online tool. Your files are compressed entirely in your browser memory and are never sent to a cloud server, ensuring your data remains private."
+      }
     ]
   },
   "split-pdf": {
@@ -36,6 +81,20 @@ export const TOOL_METADATA = {
       { title: "Choose PDF", desc: "Select the PDF document you want to split or extract pages from." },
       { title: "Select Pages", desc: "Choose the specific pages or ranges you want to separate into new files." },
       { title: "Split & Download", desc: "Generate your split PDF files instantly and download them to your device." }
+    ],
+    faqs: [
+      {
+        question: "Can I extract specific page ranges from a PDF?",
+        answer: "Yes. Our tool allows you to specify exact page numbers or ranges (e.g., 1-5, 8, 12) to extract only the content you need into a new PDF document."
+      },
+      {
+        question: "Will splitting a PDF ruin my original file?",
+        answer: "Not at all. Your original file remains untouched. We create new PDF files based on your selection and process everything in your browser's memory."
+      },
+      {
+        question: "Is there a limit to how many files I can split into?",
+        answer: "There's no set limit. You can split a large document into individual pages or several smaller documents. It's fast, private, and efficient."
+      }
     ]
   },
   "pdf-to-word": {
@@ -49,6 +108,20 @@ export const TOOL_METADATA = {
       { title: "Upload PDF", desc: "Select the PDF file you wish to convert into an editable Word document." },
       { title: "Auto-Convert", desc: "Our tool extracts text and formatting locally in your browser to create a .docx file." },
       { title: "Download Docx", desc: "Save the converted Word file and start editing right away." }
+    ],
+    faqs: [
+      {
+        question: "Will the Word document be fully editable?",
+        answer: "Yes. We extract the text and layout from your PDF to create a standard .docx file that you can edit using Microsoft Word, Google Docs, or any other compatible editor."
+      },
+      {
+        question: "Does this tool support OCR for scanned PDFs?",
+        answer: "Currently, our local converter works best with native digital PDFs. For scanned PDF images, text extraction might be limited as we focus on 100% private, local processing."
+      },
+      {
+        question: "Is my document formatting preserved?",
+        answer: "We strive to maintain your original layout, fonts, and images as closely as possible during the PDF to Word conversion process."
+      }
     ]
   },
   "word-to-pdf": {
@@ -62,6 +135,20 @@ export const TOOL_METADATA = {
       { title: "Select Word File", desc: "Choose the .doc or .docx file you want to convert to PDF." },
       { title: "Fast Conversion", desc: "Wait a moment while we transform your document into a high-quality PDF." },
       { title: "Save PDF", desc: "Download your new PDF document directly to your device." }
+    ],
+    faqs: [
+      {
+        question: "Will my Word document's fonts look the same in the PDF?",
+        answer: "Yes. Our converter embeds formatting to ensure your PDF looks exactly like your Word document, preserving layout and typography."
+      },
+      {
+        question: "Can I convert old .doc files or only .docx?",
+        answer: "We support both legacy .doc and modern .docx formats for conversion to PDF."
+      },
+      {
+        question: "Is there a page limit for Word to PDF conversion?",
+        answer: "Since it's processed on your device, you can convert long documents. Most standard business and academic papers are converted in seconds."
+      }
     ]
   },
   "jpg-to-pdf": {
@@ -75,6 +162,20 @@ export const TOOL_METADATA = {
       { title: "Add Images", desc: "Upload your JPG files. You can select multiple images at once." },
       { title: "Organize Pages", desc: "Drag to reorder your images to set the page sequence in the final PDF." },
       { title: "Create PDF", desc: "Download your images combined into a single professional PDF file." }
+    ],
+    faqs: [
+      {
+        question: "Can I combine multiple JPGs into one PDF?",
+        answer: "Yes. You can select multiple images and our tool will merge them into a single, multi-page PDF document in the order you choose."
+      },
+      {
+        question: "Will my images lose quality in the PDF?",
+        answer: "We preserve the original resolution of your JPGs during the conversion to ensure your PDF looks professional and high-quality."
+      },
+      {
+        question: "How do I reorder pages in the PDF?",
+        answer: "Once you upload your images, you can simply drag and drop them to arrange the perfect page sequence before clicking 'Create PDF'."
+      }
     ]
   },
   "pdf-to-jpg": {
@@ -88,6 +189,20 @@ export const TOOL_METADATA = {
       { title: "Select PDF", desc: "Choose the PDF document whose pages you want to convert into images." },
       { title: "Extract Images", desc: "Our tool processes the conversion locally, ensuring high-resolution JPG output." },
       { title: "Save Gallery", desc: "Download each page as an individual JPG image or as a single zip archive." }
+    ],
+    faqs: [
+      {
+        question: "Can I convert a specific page from a PDF to JPG?",
+        answer: "Currently, our tool converts all pages of the document. You can then choose to download only the specific images you need from the list."
+      },
+      {
+        question: "What resolution will the output JPGs have?",
+        answer: "We extract pages at high resolution (typically 300 DPI or the original document's quality) to ensure your images are crisp and readable."
+      },
+      {
+        question: "Is it safe to convert private PDF documents to images?",
+        answer: "Yes. All extraction happens directly in your browser. Your PDF and its contents never touch our servers, providing ultimate privacy for sensitive work."
+      }
     ]
   },
   "image-compressor": {
@@ -101,6 +216,20 @@ export const TOOL_METADATA = {
       { title: "Upload Images", desc: "Select the JPG, PNG, or WebP images you want to optimize." },
       { title: "Set Compression", desc: "Our engine automatically finds the best balance between size and quality." },
       { title: "Download Small", desc: "Save your optimized images instantly—perfect for web use and sharing." }
+    ],
+    faqs: [
+      {
+        question: "Which image formats can I compress?",
+        answer: "Our image compressor supports all popular formats including JPG, JPEG, PNG, and WebP, optimizing each one for its specific format strengths."
+      },
+      {
+        question: "Will my images look blurry after compression?",
+        answer: "No. We use intelligent lossy and lossless algorithms to strip away unneeded data while keeping the visual details sharp. Most users see no difference in quality."
+      },
+      {
+        question: "Can I compress multiple images at the same time?",
+        answer: "Yes, you can upload and optimize dozens of images in a single batch session, with all processing happening locally in your browser."
+      }
     ]
   },
   "png-to-jpg": {
@@ -114,6 +243,20 @@ export const TOOL_METADATA = {
       { title: "Select PNGs", desc: "Upload the PNG images you want to convert to JPG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "What happens to the transparent background when I convert PNG to JPG?",
+        answer: "Since the JPG format doesn't support transparency, any transparent areas in your PNG will be converted to a solid white background by default."
+      },
+      {
+        question: "Will the image quality decrease after conversion?",
+        answer: "PNG is lossless while JPG uses compression. You might see a tiny difference in file size and detail, but we use high-quality encoding to ensure your images look sharp."
+      },
+      {
+        question: "Is there a limit to how many PNGs I can convert?",
+        answer: "No. You can upload and convert as many PNG images as you need. Since the work is done by your own browser, there's no server queue or usage limit."
+      }
     ]
   },
   "jpg-to-png": {
@@ -127,6 +270,20 @@ export const TOOL_METADATA = {
       { title: "Select JPGs", desc: "Upload the JPG images you want to convert to PNG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Will converting JPG to PNG make the background transparent?",
+        answer: "No. Since JPG doesn't support transparency, the background is already solid. Converting it to PNG preserves the solid background while using a lossless format for future editing."
+      },
+      {
+        question: "Is PNG better than JPG for quality?",
+        answer: "PNG is a lossless format, meaning it doesn't lose data when saved. Converting a JPG to PNG won't 'restore' quality already lost in the JPG, but it prevents further degradation during future edits."
+      },
+      {
+        question: "Is my image uploaded to a server for conversion?",
+        answer: "Never. Edita performs the conversion locally in your browser. Your images stay on your device throughout the entire process."
+      }
     ]
   },
   "png-to-webp": {
@@ -140,6 +297,20 @@ export const TOOL_METADATA = {
       { title: "Select PNGs", desc: "Upload the PNG images you want to convert to WebP format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as WebP", desc: "Download your converted WebP images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "How much smaller are WebP files compared to PNG?",
+        answer: "WebP files are typically 25-35% smaller than PNGs while maintaining the same visual quality and transparency support, making them ideal for faster website loading."
+      },
+      {
+        question: "Does WebP support transparent backgrounds?",
+        answer: "Yes. WebP supports full alpha transparency just like PNG, but with much better compression."
+      },
+      {
+        question: "Are WebP images compatible with all browsers?",
+        answer: "Yes, all modern browsers including Chrome, Firefox, Safari, and Edge fully support WebP images."
+      }
     ]
   },
   "webp-to-png": {
@@ -153,6 +324,20 @@ export const TOOL_METADATA = {
       { title: "Select WebPs", desc: "Upload the WebP images you want to convert to PNG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Will transparency be kept when converting WebP to PNG?",
+        answer: "Yes. Our converter fully preserves the alpha channel (transparency) during the transition from WebP to PNG."
+      },
+      {
+        question: "Why would I convert WebP back to PNG?",
+        answer: "While WebP is great for the web, some older image editors or specific software might still require the more universal PNG format for editing or specialized use."
+      },
+      {
+        question: "Is this conversion lossless?",
+        answer: "Yes. Since both formats support high-quality data, we ensure that no visual quality is lost during the local conversion on your device."
+      }
     ]
   },
   "jpg-to-webp": {
@@ -166,6 +351,20 @@ export const TOOL_METADATA = {
       { title: "Select JPGs", desc: "Upload the JPG images you want to convert to WebP format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as WebP", desc: "Download your converted WebP images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Is WebP better than JPG for web use?",
+        answer: "Generally, yes. WebP provides superior compression, resulting in smaller files that load faster while maintaining the same or better visual quality than JPG."
+      },
+      {
+        question: "Can I convert high-resolution JPGs to WebP?",
+        answer: "Yes. Our local engine handles high-resolution images easily, optimizing them for modern web standards without compromising their clarity."
+      },
+      {
+        question: "How safe is my photo data here?",
+        answer: "Completely safe. Since the conversion happens in your browser's local sandbox, your photos are never seen or stored by anyone else."
+      }
     ]
   },
   "webp-to-jpg": {
@@ -179,6 +378,20 @@ export const TOOL_METADATA = {
       { title: "Select WebPs", desc: "Upload the WebP images you want to convert to JPG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Will my images look different after converting WebP to JPG?",
+        answer: "You won't notice a visual difference. We use high-quality encoding to ensure the resulting JPG captures all the detail of the original WebP file."
+      },
+      {
+        question: "What happens to the background of a transparent WebP when converting to JPG?",
+        answer: "Since JPG doesn't support transparency, any transparent areas will be filled with a solid white background."
+      },
+      {
+        question: "Why use Edita for this conversion?",
+        answer: "Privacy and speed. Most converters require an upload; Edita works instantly in your browser, keeping your images private and saving you data."
+      }
     ]
   },
   "png-to-avif": {
@@ -192,6 +405,20 @@ export const TOOL_METADATA = {
       { title: "Select PNGs", desc: "Upload the PNG images you want to convert to AVIF format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as AVIF", desc: "Download your converted AVIF images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Is AVIF better than WebP or PNG?",
+        answer: "AVIF offers even better compression than WebP, often saving 50% more space than a PNG while maintaining incredible detail and transparency support."
+      },
+      {
+        question: "Do all browsers support AVIF?",
+        answer: "Most modern browsers like Chrome, Firefox, and recent versions of Safari support AVIF. It's the future of web image formats."
+      },
+      {
+        question: "Will my PNG look the same in AVIF?",
+        answer: "Yes. AVIF is designed to handle transparency and wide color gamuts, ensuring your high-quality PNGs translate perfectly to a smaller file size."
+      }
     ]
   },
   "jpg-to-avif": {
@@ -205,6 +432,20 @@ export const TOOL_METADATA = {
       { title: "Select JPGs", desc: "Upload the JPG images you want to convert to AVIF format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as AVIF", desc: "Download your converted AVIF images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "How much space can I save by converting JPG to AVIF?",
+        answer: "You can often reduce your file size by up to 50% or more without losing any noticeable image quality."
+      },
+      {
+        question: "Is this tool free for large JPG files?",
+        answer: "Yes, Edita is completely free. Since the conversion happens on your device, there are no file size limits imposed by our servers."
+      },
+      {
+        question: "Why convert to AVIF instead of staying with JPG?",
+        answer: "AVIF is a modern 'next-gen' format that provides much better efficiency, making your website or gallery load lightning-fast for your visitors."
+      }
     ]
   },
   "avif-to-png": {
@@ -218,6 +459,20 @@ export const TOOL_METADATA = {
       { title: "Select AVIFs", desc: "Upload the AVIF images you want to convert to PNG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Will converting AVIF to PNG preserve transparency?",
+        answer: "Yes. Our converter maintains the full alpha channel, ensuring any transparent regions in your AVIF remain transparent in the resulting PNG."
+      },
+      {
+        question: "Why convert AVIF to PNG?",
+        answer: "While AVIF is superior for web size, PNG is often required for high-end editing in software that hasn't fully adopted the AVIF standard yet."
+      },
+      {
+        question: "Is the conversion quality same as the original?",
+        answer: "Yes. We use lossless rendering to ensure your PNG output is a pixel-perfect representation of the source AVIF file."
+      }
     ]
   },
   "avif-to-jpg": {
@@ -231,6 +486,20 @@ export const TOOL_METADATA = {
       { title: "Select AVIFs", desc: "Upload the AVIF images you want to convert to JPG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your files without any quality loss." },
       { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Will my JPG file be larger than the original AVIF?",
+        answer: "Likely yes. AVIF is much more efficient than JPG, so expect a larger file size after converting for compatibility reasons."
+      },
+      {
+        question: "Does AVIF to JPG conversion affect resolution?",
+        answer: "No. We maintain the original dimensions and pixel density of your image, ensuring a high-quality JPG output."
+      },
+      {
+        question: "Can I use these JPGs anywhere?",
+        answer: "Yes. JPG is the most universally compatible image format, supported by every device, website, and social media platform."
+      }
     ]
   },
   "svg-to-png": {
@@ -244,6 +513,20 @@ export const TOOL_METADATA = {
       { title: "Select SVGs", desc: "Upload the SVG vector files you want to convert to PNG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your vectors into high-quality raster images." },
       { title: "Save as PNG", desc: "Download your converted PNG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Will the PNG output be blurry if I scale up my SVG?",
+        answer: "No. Since SVG is a vector format, we render it at high resolution during the conversion process to ensure your PNG looks crisp regardless of the original SVG's defined dimensions."
+      },
+      {
+        question: "Does the converter preserve SVG transparency?",
+        answer: "Yes, when converting SVG to PNG, the transparency is fully preserved, unlike when converting to JPG."
+      },
+      {
+        question: "Is this tool suitable for logo conversion?",
+        answer: "Absolutely. This is the perfect tool for turning vector logos into web-ready raster images for social media, websites, or presentations."
+      }
     ]
   },
   "svg-to-jpg": {
@@ -257,6 +540,20 @@ export const TOOL_METADATA = {
       { title: "Select SVGs", desc: "Upload the SVG vector files you want to convert to JPG format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your vectors into clean JPG images." },
       { title: "Save as JPG", desc: "Download your converted JPG images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "What happens to the transparent background of my SVG?",
+        answer: "Since JPG doesn't support transparency, any transparent areas in your SVG will be filled with a solid white background in the final JPG image."
+      },
+      {
+        question: "Can I scale the SVG up during conversion?",
+        answer: "Yes. Because SVGs are vectors, we can render them at any size without losing sharpness, resulting in a crisp JPG output."
+      },
+      {
+        question: "Is this tool free for commercial logos?",
+        answer: "Yes, Edita is 100% free for all users, including professionals converting brand assets and logos."
+      }
     ]
   },
   "svg-to-webp": {
@@ -270,6 +567,20 @@ export const TOOL_METADATA = {
       { title: "Select SVGs", desc: "Upload the SVG vector files you want to convert to WebP format." },
       { title: "Fast Processing", desc: "Wait a split second as we transform your vectors into modern WebP images." },
       { title: "Save as WebP", desc: "Download your converted WebP images individually or together." }
+    ],
+    faqs: [
+      {
+        question: "Is WebP better than PNG for SVG conversion?",
+        answer: "Yes, typically WebP provides much smaller file sizes than PNG while still supporting the full transparency of your original SVG."
+      },
+      {
+        question: "Will my vector look blurry after converting to WebP?",
+        answer: "No. We render the SVG at high resolution before encoding it to WebP, ensuring your icons and illustrations remain sharp."
+      },
+      {
+        question: "Can I batch convert SVGs to WebP?",
+        answer: "Yes. You can upload multiple SVG files and convert them all to WebP in a single, secure browser session."
+      }
     ]
   },
   "mp4-to-mp3": {
@@ -283,6 +594,20 @@ export const TOOL_METADATA = {
       { title: "Upload Video", desc: "Select the MP4 video file you want to extract audio from." },
       { title: "Extract Audio", desc: "Our tool uses local FFmpeg processing to pull the audio track safely." },
       { title: "Save MP3", desc: "Download your high-bitrate MP3 file and enjoy your audio." }
+    ],
+    faqs: [
+      {
+        question: "What audio bitrate is used for the MP3 extraction?",
+        answer: "We typically extract audio at a high quality (usually 192kbps or higher, depending on the source) to ensure your music and dialogue sound great."
+      },
+      {
+        question: "Can I extract audio from very long MP4 videos?",
+        answer: "Yes, you can. However, since the processing happens in your browser's memory, very long or high-bitrate videos might take longer to process and require more RAM."
+      },
+      {
+        question: "Is my video uploaded to a server to extract the audio?",
+        answer: "No. We use FFmpeg compiled to WebAssembly, which allows your browser to do all the heavy lifting locally. Your video never leaves your computer."
+      }
     ]
   }
 };

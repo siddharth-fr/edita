@@ -24,8 +24,9 @@ export default function Page() {
       title={m.toolTitle}
       description={m.toolDescription}
       howItWorksSteps={m.howItWorksSteps}
+      faqItems={m.faqs}
       footerContent={
-        <ToolFooter 
+        <ToolFooter
           blocks={[
             {
               title: "Why Compress Images Online?",
