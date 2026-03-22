@@ -640,6 +640,33 @@ export const TOOL_METADATA = {
         answer: "Total privacy is our priority. Your text or URLs are processed entirely in your browser memory to generate the QR code. We never see or store the data you encode."
       }
     ]
+  },
+  "image-color-palette-generator": {
+    title: "Image Color Palette Generator – Extract Colors from Photos Free",
+    description: "Generate a beautiful color palette from any image online for free. Fast, private, browser-based color extraction. Perfect for designers and artists.",
+    keywords: ["color palette generator", "extract colors from image", "image color picker", "photo palette creator", "free design tool"],
+    canonical: "/tools/image-color-palette-generator",
+    toolTitle: "Image Color Palette",
+    toolDescription: "Create a stunning color palette from your images instantly in your browser.",
+    howItWorksSteps: [
+      { title: "Upload Image", desc: "Select a photo or graphic from your device to extract its color palette." },
+      { title: "Auto-Extract", desc: "Our local engine analyzes the image and identifies dominant colors instantly." },
+      { title: "Copy Colors", desc: "Click any color to copy its HEX or RGB code directly to your clipboard." }
+    ],
+    faqs: [
+      {
+        question: "How does the color extraction work?",
+        answer: "Our tool uses a browser-based quantization algorithm to analyze the pixels in your image and identify the most dominant and visually representative colors."
+      },
+      {
+        question: "Is my image uploaded to a server?",
+        answer: "No. Like all Edita tools, the color extraction happens entirely in your browser. Your images never leave your device, ensuring total privacy."
+      },
+      {
+        question: "Can I download the extracted palette?",
+        answer: "Currently, you can copy individual color codes. We are working on a feature to download the entire palette as a CSS or JSON file."
+      }
+    ]
   }
 };
 

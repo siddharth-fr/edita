@@ -36,7 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'svg-to-jpg',
         'svg-to-webp',
         'mp4-to-mp3',
-        'qr-code-generator'
+        'qr-code-generator',
+        'image-color-palette-generator'
     ];
 
     const pageUrls: MetadataRoute.Sitemap = pages.map((page) => ({
