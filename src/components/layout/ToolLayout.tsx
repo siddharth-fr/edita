@@ -96,6 +96,13 @@ export function ToolLayout({
           <SimilarToolsSection />
         </div>
 
+        {/* Custom Footer Content (if any) - Privacy/Features Cards */}
+        {footerContent && (
+          <div className="w-full max-w-4xl px-4 sm:px-8 py-20">
+            {footerContent}
+          </div>
+        )}
+
         {/* FAQ Section */}
         {faqItems && (
           <div className="w-full max-w-5xl px-4 sm:px-8 py-20 bg-slate-50/20 border-t border-slate-100/10">
@@ -104,13 +111,6 @@ export function ToolLayout({
               title={faqTitle}
               subtitle={faqSubtitle}
             />
-          </div>
-        )}
-
-        {/* Custom Footer Content (if any) */}
-        {footerContent && (
-          <div className="w-full max-w-4xl px-4 sm:px-8 py-12">
-            {footerContent}
           </div>
         )}
       </div>
