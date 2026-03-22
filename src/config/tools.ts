@@ -31,6 +31,6 @@ export const TOOLS: Tool[] = [
   { name: 'SVG to JPG Converter', slug: 'svg-to-jpg', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'SVG to WebP Converter', slug: 'svg-to-webp', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'MP4 to MP3 Converter', slug: 'mp4-to-mp3', iconKey: 'Music', theme: 'violet', category: 'Audio' },
-  { name: 'QR Code Generator', slug: 'qr-code-generator', iconKey: 'QrCode', theme: 'indigo', category: 'Utility' },
+  { name: 'QR Code Generator', slug: 'qr-code-generator', iconKey: 'QrCode', theme: 'emerald', category: 'Utility' },
   { name: 'Image Color Palette', slug: 'image-color-palette-generator', iconKey: 'Palette', theme: 'emerald', category: 'Utility' },
 ];

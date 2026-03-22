@@ -42,7 +42,8 @@ const tools: { name: string; slug: string; iconKey: string; theme: AppTheme; cat
   { name: 'SVG to JPG', slug: 'svg-to-jpg', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'SVG to WebP', slug: 'svg-to-webp', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'MP4 to MP3', slug: 'mp4-to-mp3', iconKey: 'Music', theme: 'violet', category: 'Audio' },
-  { name: 'QR Code Generator', slug: 'qr-code-generator', iconKey: 'QrCode', theme: 'emerald', category: 'QR Code' },
+  { name: 'QR Code Generator', slug: 'qr-code-generator', iconKey: 'QrCode', theme: 'emerald', category: 'Utility' },
+  { name: 'Image Color Palette', slug: 'image-color-palette-generator', iconKey: 'Palette', theme: 'emerald', category: 'Utility' },
 ];
 
 /* ─────────────────────────────────────────────────────────
