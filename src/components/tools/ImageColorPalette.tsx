@@ -148,17 +148,15 @@ export function ImageColorPalette() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-8 max-w-6xl mx-auto items-stretch">
+    <div className={`w-full flex flex-col gap-8 mx-auto items-stretch ${!image ? 'max-w-3xl' : 'max-w-6xl'}`}>
       {!image ? (
-        <div className="w-full bg-card p-6 md:p-8 rounded-3xl border border-border shadow-sm">
-          <UploadDropzone 
-            onUpload={handleUpload} 
-            accept="image/*" 
-            multiple={false} 
-          />
-        </div>
+        <UploadDropzone 
+          onUpload={handleUpload} 
+          accept="image/*" 
+          multiple={false} 
+        />
       ) : (
-        <div className="flex flex-col lg:flex-row gap-8 min-h-[500px]">
+        <div className="flex flex-col lg:flex-row gap-8 min-h-[500px] w-full animate-in slide-in-from-bottom-4 fade-in duration-500">
           {/* Left: Image Preview */}
           <div className="w-full lg:w-[45%] flex flex-col gap-6">
             <div className="bg-card p-6 md:p-8 rounded-3xl border border-border shadow-sm flex flex-col gap-6 h-full">
