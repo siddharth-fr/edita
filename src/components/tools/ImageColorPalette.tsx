@@ -62,47 +62,91 @@ export function ImageColorPalette() {
     if (!ctx) return;
 
     // Scale down for performance
-    const size = 100;
+    const size = 120; // Slightly larger for better accuracy
     canvas.width = size;
     canvas.height = size;
     ctx.drawImage(imgElement, 0, 0, size, size);
 
     try {
       const imageData = ctx.getImageData(0, 0, size, size).data;
-      const colorMap: Record<string, { r: number, g: number, b: number, count: number }> = {};
+      const pixels: { r: number, g: number, b: number }[] = [];
 
       for (let i = 0; i < imageData.length; i += 4) {
         const r = imageData[i];
         const g = imageData[i + 1];
         const b = imageData[i + 2];
         const a = imageData[i + 3];
-
-        if (a < 128) continue; // Skip transparent pixels
-
-        // Quantize colors to group similar ones (32 bins per channel)
-        const qr = Math.round(r / 8) * 8;
-        const qg = Math.round(g / 8) * 8;
-        const qb = Math.round(b / 8) * 8;
-        const key = `${qr},${qg},${qb}`;
-
-        if (colorMap[key]) {
-          colorMap[key].count++;
-        } else {
-          colorMap[key] = { r: qr, g: qg, b: qb, count: 1 };
+        if (a >= 128) {
+          pixels.push({ r, g, b });
         }
       }
 
-      const totalPixels = size * size;
-      const sortedColors = Object.values(colorMap)
-        .sort((a, b) => b.count - a.count)
-        .slice(0, 8) // Get top 8 colors
-        .map(c => ({
-          hex: rgbToHex(c.r, c.g, c.b),
-          rgb: `${c.r}, ${c.g}, ${c.b}`,
-          hsl: rgbToHsl(c.r, c.g, c.b),
-          percentage: Math.round((c.count / totalPixels) * 100),
-          isDark: getIsDark(c.r, c.g, c.b),
-        }));
+      if (pixels.length === 0) {
+        setIsProcessing(false);
+        return;
+      }
+
+      // Median Cut Implementation
+      const quantize = (pixelList: typeof pixels, depth: number): typeof pixels[] => {
+        if (depth === 0 || pixelList.length === 0) {
+          return [pixelList];
+        }
+
+        // Find dimension with max range
+        let minR = 255, maxR = 0, minG = 255, maxG = 0, minB = 255, maxB = 0;
+        pixelList.forEach(p => {
+          minR = Math.min(minR, p.r); maxR = Math.max(maxR, p.r);
+          minG = Math.min(minG, p.g); maxG = Math.max(maxG, p.g);
+          minB = Math.min(minB, p.b); maxB = Math.max(maxB, p.b);
+        });
+
+        const rangeR = maxR - minR;
+        const rangeG = maxG - minG;
+        const rangeB = maxB - minB;
+
+        let component: 'r' | 'g' | 'b' = 'r';
+        if (rangeG >= rangeR && rangeG >= rangeB) component = 'g';
+        else if (rangeB >= rangeR && rangeB >= rangeG) component = 'b';
+
+        // Sort by the chosen component
+        pixelList.sort((a, b) => a[component] - b[component]);
+
+        // Split at median
+        const mid = Math.floor(pixelList.length / 2);
+        return [
+          ...quantize(pixelList.slice(0, mid), depth - 1),
+          ...quantize(pixelList.slice(mid), depth - 1)
+        ];
+      };
+
+      // Get 8 clusters (depth 3 = 2^3 clusters)
+      const clusters = quantize(pixels, 3);
+      
+      const totalPixels = pixels.length;
+      const sortedColors = clusters
+        .filter(cluster => cluster.length > 0)
+        .map(cluster => {
+          const sum = cluster.reduce((acc, p) => ({
+            r: acc.r + p.r,
+            g: acc.g + p.g,
+            b: acc.b + p.b
+          }), { r: 0, g: 0, b: 0 });
+
+          const avg = {
+            r: Math.round(sum.r / cluster.length),
+            g: Math.round(sum.g / cluster.length),
+            b: Math.round(sum.b / cluster.length)
+          };
+
+          return {
+            hex: rgbToHex(avg.r, avg.g, avg.b),
+            rgb: `${avg.r}, ${avg.g}, ${avg.b}`,
+            hsl: rgbToHsl(avg.r, avg.g, avg.b),
+            percentage: Math.round((cluster.length / totalPixels) * 100),
+            isDark: getIsDark(avg.r, avg.g, avg.b),
+          };
+        })
+        .sort((a, b) => b.percentage - a.percentage);
 
       setPalette(sortedColors);
       setIsProcessing(false);
