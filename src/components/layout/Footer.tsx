@@ -5,26 +5,29 @@ const CATEGORIES = [
     {
         title: 'PDF Tools',
         links: [
-            { label: 'Merge PDF', href: '/tools/merge-pdf' },
-            { label: 'Compress PDF', href: '/tools/compress-pdf' },
-            { label: 'Split PDF', href: '/tools/split-pdf' },
+            { label: 'Merge PDF Online', href: '/tools/merge-pdf' },
+            { label: 'Compress PDF Online', href: '/tools/compress-pdf' },
+            { label: 'Split PDF Online', href: '/tools/split-pdf' },
+            { label: 'View All PDF Tools →', href: '/tools' },
         ],
     },
     {
         title: 'Image Tools',
         links: [
+            { label: 'PNG to JPG Converter', href: '/tools/png-to-jpg' },
+            { label: 'JPG to PNG Converter', href: '/tools/jpg-to-png' },
             { label: 'Image Compressor', href: '/tools/image-compressor' },
-            { label: 'JPG to PDF', href: '/tools/jpg-to-pdf' },
-            { label: 'PDF to JPG', href: '/tools/pdf-to-jpg' },
-            { label: 'PNG to JPG', href: '/tools/png-to-jpg' },
+            { label: 'Color Palette Generator', href: '/tools/image-color-palette-generator' },
+            { label: 'View All Image Tools →', href: '/tools' },
         ],
     },
     {
-        title: 'Converters & Audio',
+        title: 'Utility Tools',
         links: [
-            { label: 'PDF to Word', href: '/tools/pdf-to-word' },
-            { label: 'Word to PDF', href: '/tools/word-to-pdf' },
-            { label: 'MP4 to MP3', href: '/tools/mp4-to-mp3' },
+            { label: 'QR Code Generator', href: '/tools/qr-code-generator' },
+            { label: 'MP4 to MP3 Converter', href: '/tools/mp4-to-mp3' },
+            { label: 'Image Color Palette', href: '/tools/image-color-palette-generator' },
+            { label: 'View All Tools →', href: '/tools' },
         ],
     },
     {
