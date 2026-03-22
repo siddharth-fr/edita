@@ -36,11 +36,10 @@ export function ToolLayout({
   footerContent
 }: ToolLayoutProps) {
   return (
-    <main className="flex-1 flex flex-col items-center w-full pb-28 pt-28 relative overflow-x-clip">
+    <main className="flex-1 flex flex-col items-center w-full pb-32 pt-28 relative overflow-x-clip">
       
-      {/* ── Decorative green-white aurora glow (matching homepage) ── */}
+      {/* ── Decorative aurora glow ── */}
       <div className="pointer-events-none absolute top-0 inset-x-0 -z-10 h-[500px] overflow-hidden">
-        {/* Outer diffuse green bloom */}
         <div
           className="absolute"
           style={{
@@ -51,7 +50,6 @@ export function ToolLayout({
             filter: 'blur(3px)',
           }}
         />
-        {/* Inner brighter emerald core */}
         <div
           className="absolute"
           style={{
@@ -62,79 +60,60 @@ export function ToolLayout({
             filter: 'blur(1px)',
           }}
         />
-        {/* White softener */}
-        <div
-          className="absolute"
-          style={{
-            top: '0%', left: '50%',
-            transform: 'translate(-50%, -10%)',
-            width: 440, height: 260,
-            background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.15) 50%, transparent 70%)',
-          }}
-        />
       </div>
 
-      <div className="max-w-4xl w-full px-4 sm:px-8 mt-12 mb-10">
+      <div className="max-w-4xl w-full px-4 sm:px-8 mt-12">
         {/* ── Header ── */}
         <div className="text-center max-w-2xl mx-auto mb-16 relative">
-          <h1
-            style={{
-              margin: '0 0 18px',
-              fontFamily: 'var(--font-display), sans-serif',
-              fontWeight: 800,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.1,
-              fontSize: 'clamp(38px, 6vw, 48px)',
-              color: '#0C0F17',
-            }}
-          >
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0C0F17] mb-6 font-display">
             {title}
           </h1>
-          <p
-            style={{
-              fontSize: '17px',
-              lineHeight: 1.6,
-              color: '#6B7280',
-              fontWeight: 400,
-            }}
-          >
+          <p className="text-lg text-slate-500 font-medium leading-relaxed">
             {description}
           </p>
         </div>
 
         {/* ── Tool Interface Content ── */}
-        <div className="w-full relative z-10">
+        <div className="w-full relative z-10 mb-20">
           {children}
         </div>
       </div>
 
-      <div className="w-full max-w-5xl px-4 sm:px-8">
-        <HowItWorksSection 
-          title={howItWorksTitle}
-          subtitle={howItWorksSubtitle}
-          steps={howItWorksSteps}
-        />
-      </div>
-
-      <div className="w-full max-w-6xl px-4 sm:px-8">
-        <SimilarToolsSection />
-      </div>
-
-      {faqItems && (
-        <div className="w-full max-w-5xl px-4 sm:px-8">
-          <FAQSection 
-            items={[...faqItems, ...GENERAL_FAQS]}
-            title={faqTitle}
-            subtitle={faqSubtitle}
+      {/* ── Additional Sections ── */}
+      <div className="w-full flex flex-col items-center space-y-4">
+        
+        {/* How It Works */}
+        <div className="w-full max-w-5xl px-4 sm:px-8 bg-slate-50/30 py-20 border-y border-slate-100/10">
+          <HowItWorksSection 
+            title={howItWorksTitle}
+            subtitle={howItWorksSubtitle}
+            steps={howItWorksSteps}
           />
         </div>
-      )}
 
-      {footerContent && (
-        <div className="w-full max-w-4xl px-4 sm:px-8 mt-24">
-          {footerContent}
+        {/* Related Tools */}
+        <div className="w-full max-w-6xl px-4 sm:px-8 py-20">
+          <SimilarToolsSection />
         </div>
-      )}
+
+        {/* FAQ Section */}
+        {faqItems && (
+          <div className="w-full max-w-5xl px-4 sm:px-8 py-20 bg-slate-50/20 border-t border-slate-100/10">
+            <FAQSection 
+              items={[...faqItems, ...GENERAL_FAQS]}
+              title={faqTitle}
+              subtitle={faqSubtitle}
+            />
+          </div>
+        )}
+
+        {/* Custom Footer Content (if any) */}
+        {footerContent && (
+          <div className="w-full max-w-4xl px-4 sm:px-8 py-12">
+            {footerContent}
+          </div>
+        )}
+      </div>
 
     </main>
   );

@@ -46,7 +46,7 @@ export default function HowItWorksSection({ steps, title, subtitle }: HowItWorks
   const displaySteps = steps || defaultSteps;
 
   return (
-    <section className="w-full max-w-6xl px-4 sm:px-8 py-24 mb-16 mx-auto relative overflow-hidden">
+    <section className="w-full relative overflow-hidden">
       {/* Dynamic Background Card Decorations */}
       <div className="absolute top-10 -left-16 rotate-12 opacity-30 select-none pointer-events-none scale-75">
         <CardFace label="Pick" category="STEP 1" theme="blue" size={130} />
@@ -55,7 +55,7 @@ export default function HowItWorksSection({ steps, title, subtitle }: HowItWorks
         <CardFace label="Save" category="STEP 3" theme="purple" size={130} />
       </div>
 
-      <div className="text-center mb-20">
+      <div className="text-center mb-16">
         <h2 style={{
           margin: '0 0 20px',
           fontFamily: 'var(--font-display), sans-serif',

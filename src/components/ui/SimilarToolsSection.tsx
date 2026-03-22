@@ -31,7 +31,7 @@ export default function SimilarToolsSection() {
   }, [currentSlug, currentTool]);
 
   return (
-    <section className="w-full mt-20 pt-16 border-t border-border/40 relative">
+    <section className="w-full relative">
 
       <div className="text-center max-w-2xl mx-auto mb-16 px-4">
         <h2 style={{
