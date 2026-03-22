@@ -62,9 +62,14 @@ export function Footer() {
                         {/* Logo */}
                         <Link
                             href="/"
-                            className="flex items-center gap-1 shrink-0 mb-4"
+                            className="flex items-center gap-2.5 shrink-0 mb-4"
                             style={{ textDecoration: 'none' }}
                         >
+                            <img 
+                                src="/logo-icon.png" 
+                                alt="Edita" 
+                                style={{ width: 32, height: 32, borderRadius: 10 }}
+                            />
                             <span
                                 style={{
                                     fontFamily: 'var(--font-display), sans-serif',
