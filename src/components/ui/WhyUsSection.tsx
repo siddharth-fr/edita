@@ -1,34 +1,29 @@
 'use client';
 
-import { ShieldCheck, Zap, Globe, Layers } from 'lucide-react';
 import { CardFace } from '@/components/ui/HeroCardGrid';
 import { THEME_PALETTE, type AppTheme } from '@/config/themes';
 
 export default function WhyUsSection() {
   const features = [
     {
-      icon: <ShieldCheck size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
       title: "100% Secure & Private",
       desc: "Files never leave your device. All compression and formatting is executed locally via browser.",
       theme: 'emerald' as AppTheme,
       category: 'PRIVACY',
     },
     {
-      icon: <Zap size={22} style={{ color: '#F59E0B' }} strokeWidth={2.5} />,
       title: "Blazing Fast Speeds",
       desc: "Powered by advanced WebAssembly (WASM), skipping long server uploads for immediate results.",
       theme: 'orange' as AppTheme,
       category: 'PERFORMANCE',
     },
     {
-      icon: <Globe size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
       title: "Free With No Limits",
       desc: "Access premium PDF and image tools with zero paywalls, and absolutely no account required.",
       theme: 'green' as AppTheme,
       category: 'ACCESS',
     },
     {
-      icon: <Layers size={22} style={{ color: '#7C3AED' }} strokeWidth={2.5} />,
       title: "Studio-Grade Precision",
       desc: "Intelligent algorithms preserve your original layout and formatting for lossless quality.",
       theme: 'purple' as AppTheme,
@@ -137,10 +132,6 @@ export default function WhyUsSection() {
                 }}
               />
 
-              {/* Icon */}
-              <div className="absolute top-5 right-5 w-11 h-11 bg-white/75 backdrop-blur-md rounded-xl flex items-center justify-center shadow-sm border border-white/40 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                {feature.icon}
-              </div>
             </div>
 
             {/* FOLDER BODY */}

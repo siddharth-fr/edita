@@ -1,6 +1,6 @@
 'use client';
 
-import { MousePointerClick, Cpu, Download, Sparkles, Lock, Zap } from 'lucide-react';
+import { MousePointerClick, Cpu, Download } from 'lucide-react';
 import { CardFace } from '@/components/ui/HeroCardGrid';
 import { THEME_PALETTE, type AppTheme } from '@/config/themes';
 
@@ -172,14 +172,12 @@ export default function HowItWorksPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {[
             {
-              icon: <Lock size={22} style={{ color: '#059669' }} strokeWidth={2.5} />,
               title: "Privacy by Design",
               desc: "Unlike traditional online tools that upload your files to a central server, Edita runs entirely in your web browser. Using advanced technologies like WebAssembly (WASM), we bring the processing power to your computer.",
               theme: 'emerald' as AppTheme,
               category: 'SECURITY'
             },
             {
-              icon: <Zap size={22} style={{ color: '#F59E0B' }} strokeWidth={2.5} />,
               title: "No Limits, No Fees",
               desc: "Because we don't have to pay for expensive server-side processing for every file, we can offer our tools for free, without any file size limits or paywalls. It's a faster, safer, and cheaper way to manage your files.",
               theme: 'blue' as AppTheme,
@@ -216,10 +214,6 @@ export default function HowItWorksPage() {
                   }}
                 />
                 
-                {/* Icon */}
-                <div className="absolute top-5 right-5 w-11 h-11 bg-white/75 backdrop-blur-md rounded-xl flex items-center justify-center shadow-sm border border-white/40 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  {feature.icon}
-                </div>
               </div>
 
               {/* FOLDER BODY */}

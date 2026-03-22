@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 interface FooterBlock {
   title: string;
   description: string | ReactNode;
-  icon: LucideIcon;
+  icon?: LucideIcon;
   category?: string;
   gradient?: string;
 }
@@ -48,11 +48,6 @@ export function ToolFooter({ blocks }: ToolFooterProps) {
                   background: 'radial-gradient(circle at 28% 20%, rgba(255,255,255,0.4), transparent 70%)',
                 }}
               />
-              
-              {/* Icon Container */}
-              <div className="absolute top-5 right-5 w-11 h-11 bg-white/75 backdrop-blur-md rounded-xl flex items-center justify-center shadow-sm border border-white/40 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <block.icon size={22} style={{ color: '#059669' }} strokeWidth={2.5} />
-              </div>
             </div>
 
             {/* FOLDER BODY (Naturally growing) */}
