@@ -3,30 +3,32 @@
 import { useMemo } from 'react';
 import ToolCard from '@/components/ui/ToolCard';
 import { usePathname } from 'next/navigation';
-
-const ALL_TOOLS = [
-  { name: 'Merge PDF', slug: 'merge-pdf', theme: 'blue', category: 'PDF' },
-  { name: 'Compress PDF', slug: 'compress-pdf', theme: 'purple', category: 'PDF' },
-  { name: 'Split PDF', slug: 'split-pdf', theme: 'orange', category: 'PDF' },
-  { name: 'PDF to Word', slug: 'pdf-to-word', theme: 'cyan', category: 'Convert' },
-  { name: 'Word to PDF', slug: 'word-to-pdf', theme: 'indigo', category: 'Convert' },
-  { name: 'JPG to PDF', slug: 'jpg-to-pdf', theme: 'pink', category: 'Image' },
-  { name: 'PDF to JPG', slug: 'pdf-to-jpg', theme: 'rose', category: 'Image' },
-  { name: 'Image Compressor', slug: 'image-compressor', theme: 'green', category: 'Image' },
-  { name: 'PNG to JPG', slug: 'png-to-jpg', theme: 'emerald', category: 'Image' },
-  { name: 'MP4 to MP3', slug: 'mp4-to-mp3', theme: 'violet', category: 'Audio' },
-];
+import { TOOLS, type Tool } from '@/config/tools';
 
 export default function SimilarToolsSection() {
   const pathname = usePathname();
   const currentSlug = pathname.split('/').pop();
 
-  // Filter out the current tool and pick 5 random/popular ones
+  // Find the current tool to get its category
+  const currentTool = TOOLS.find(t => t.slug === currentSlug);
+
+  // Filter and prioritize related tools
   const displayTools = useMemo(() => {
-    return ALL_TOOLS
-      .filter(t => t.slug !== currentSlug)
-      .slice(0, 5);
-  }, [currentSlug]);
+    if (!currentTool) return TOOLS.slice(0, 5);
+
+    // 1. Get tools from the same category
+    const sameCategory = TOOLS.filter(
+      t => t.category === currentTool.category && t.slug !== currentSlug
+    );
+
+    // 2. Get other popular tools if we need more to reach 5
+    const others = TOOLS.filter(
+      t => t.category !== currentTool.category && t.slug !== currentSlug
+    );
+
+    // Combine and take 5
+    return [...sameCategory, ...others].slice(0, 5);
+  }, [currentSlug, currentTool]);
 
   return (
     <section className="w-full mt-20 pt-16 border-t border-border/40 relative">
@@ -41,7 +43,7 @@ export default function SimilarToolsSection() {
           fontSize: 'clamp(28px, 5vw, 36px)',
           color: '#0C0F17',
         }}>
-          Popular <span style={{
+          Related <span style={{
             background: 'linear-gradient(128deg, #34D399 0%, #059669 65%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -54,7 +56,7 @@ export default function SimilarToolsSection() {
           color: '#64748B',
           fontWeight: 400,
         }}>
-          Explore our most loved tools and speed up your workflow.
+          Explore other useful tools to help you with your tasks.
         </p>
       </div>
 
@@ -64,7 +66,7 @@ export default function SimilarToolsSection() {
             key={tool.slug}
             name={tool.name}
             slug={tool.slug}
-            theme={tool.theme as any}
+            theme={tool.theme}
             category={tool.category}
           />
         ))}
