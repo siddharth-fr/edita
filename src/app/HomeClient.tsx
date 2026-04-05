@@ -280,7 +280,7 @@ export default function Home() {
             </a>
             <div
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: 7,
+                display: 'inline-flex', alignItems: 'center',
                 padding: '13px 22px',
                 borderRadius: 18,
                 background: 'rgba(255,255,255,0.78)',
@@ -294,7 +294,6 @@ export default function Home() {
                 letterSpacing: '-0.02em',
               }}
             >
-              <ShieldCheck size={15} style={{ color: '#34D399' }} />
               No sign-up needed
             </div>
           </div>
@@ -302,7 +301,6 @@ export default function Home() {
           {/* ── Feature pills ── */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8 }}>
             {[
-              { icon: <Zap size={11} style={{ color: '#34D399' }} />, label: 'WebAssembly fast' },
               { icon: <Globe size={11} style={{ color: '#34D399' }} />, label: 'Works offline' },
               { icon: <ShieldCheck size={11} style={{ color: '#34D399' }} />, label: '100% private' },
             ].map(({ icon, label }) => (
