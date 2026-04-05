@@ -20,7 +20,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
     >
       <button
         onClick={onClick}
-        className="w-full px-8 py-7 flex items-start gap-6 text-left transition-all duration-200"
+        className="w-full px-5 sm:px-8 py-6 sm:py-7 flex items-start gap-4 sm:gap-6 text-left transition-all duration-200"
         aria-expanded={isOpen}
       >
         <div className="flex-1">

@@ -352,7 +352,9 @@ export default function Home() {
 
       <HeroicHowItWorks />
       <WhyUsSection />
-      <FAQSection />
+      <div className="w-full px-4 sm:px-8">
+        <FAQSection />
+      </div>
 
       {/* FAQ Structured Data for SEO */}
       <Script id="faq-schema" type="application/ld+json">
