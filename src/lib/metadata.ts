@@ -76,6 +76,7 @@ export function constructMetadata({
     },
     icons,
     metadataBase: new URL(SITE_CONFIG.url),
+    colorScheme: 'light',
     alternates: {
       canonical: canonical || SITE_CONFIG.url,
     },

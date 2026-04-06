@@ -30,9 +30,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Anti-dark-mode theme lock script to prevent accidental theme flashes or system overrides */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const html = document.documentElement;
+                html.classList.remove('dark');
+                // Force color scheme preference for browsers that support it
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                   // Optional: We can add more aggressive overrides here if needed
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body
         suppressHydrationWarning
-        className={`${inter.variable} ${displayFont.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`}
+        className={`${inter.variable} ${displayFont.variable} antialiased min-h-screen flex flex-col bg-[#f7f9ff] text-foreground`}
       >
         <ToastProvider>
           <GoogleAnalytics />

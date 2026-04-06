@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Always light — no dark mode override */
+  /* Site-wide theme lock: Force light mode rendering */
   color-scheme: light;
 
   --background: #f7f9ff;
@@ -24,6 +24,9 @@
 }
 
 @theme inline {
+  /* Prevents Tailwind 4 from automatically applying dark variants via system preferences */
+  --color-scheme: light;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -48,7 +51,7 @@
 
 html {
   scroll-behavior: smooth;
-  /* Force browser to render in light mode even on dark-OS devices */
+  /* Explicitly tell browser we only support light mode currently */
   color-scheme: light;
   background-color: #f7f9ff;
   width: 100%;
@@ -56,6 +59,8 @@ html {
 }
 
 body {
+  /* Theme lock: Prevent system forced-dark modes from breaking layouts */
+  color-scheme: light;
   background-color: var(--background);
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
