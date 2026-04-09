@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Tools',   href: '/tools'   },
+  { label: 'Tools', href: '/tools' },
   { label: 'How it Works', href: '/how-it-works' },
-  { label: 'Why Us',  href: '/why-us'   },
+  { label: 'Why Us', href: '/why-us' },
 ];
 
 export function Navbar() {
@@ -19,7 +19,7 @@ export function Navbar() {
   return (
     <>
       <header className={`fixed top-0 z-50 w-full transition-[padding] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isHome ? '' : 'sm:pt-5 pt-3 pointer-events-none'}`}>
-        
+
         {/* If it's home, we need the background across the full width */}
         {isHome && (
           <div
@@ -35,11 +35,10 @@ export function Navbar() {
 
         {/* Symmetric Layout Container */}
         <div
-          className={`relative mx-auto pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center ${
-            isHome
+          className={`relative mx-auto pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center ${isHome
               ? 'h-[54px] px-5 sm:px-10 w-full max-w-[1200px] justify-between'
               : 'h-[54px] px-2.5 sm:px-3 w-fit gap-6 sm:gap-10 rounded-full shadow-[0_15px_35px_rgba(0,0,0,0.1)] border mt-2 sm:mt-0 padding-around bg-white/90 backdrop-blur-xl'
-          }`}
+            }`}
           style={{
             borderColor: isHome ? 'transparent' : 'rgba(0,0,0,0.06)',
           }}
@@ -50,9 +49,9 @@ export function Navbar() {
             className="flex items-center gap-2.5 shrink-0 transition-all hover:opacity-80 active:scale-95 z-20 whitespace-nowrap pl-2"
             style={{ textDecoration: 'none' }}
           >
-            <img 
-              src="/logo-icon.png" 
-              alt="Edita Logo" 
+            <img
+              src="/logo-icon.png"
+              alt="Edita Logo"
               style={{ width: 28, height: 28, borderRadius: 8, boxShadow: '0 4px 10px rgba(5,150,105,0.15)' }}
             />
             <span
@@ -107,16 +106,15 @@ export function Navbar() {
                   alignItems: 'center',
                   padding: '9px 18px',
                   borderRadius: 999,
-                  background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
-                  boxShadow: '0 8px 20px rgba(5,150,105,0.25)',
-                  color: '#fff',
-                  fontSize: 13,
+                  background: 'transparent',
+                  color: '#059669',
+                  fontSize: 14,
                   fontWeight: 700,
                   letterSpacing: '-0.01em',
                   textDecoration: 'none',
                   transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
                 }}
-                className="hidden sm:inline-flex hover:scale-[1.05] hover:shadow-[0_10px_25px_rgba(5,150,105,0.3)] active:scale-[0.96]"
+                className="hidden sm:inline-flex hover:opacity-75 active:scale-[0.96]"
               >
                 Try it free
               </Link>
@@ -138,15 +136,13 @@ export function Navbar() {
         {/* Mobile Nav Overlay Dropdown */}
         {/* We place it here so it references the full width `header` tag boundary, not trapped in the pill's width constraint */}
         <div
-          className={`absolute w-full pointer-events-none transition-all duration-300 ${
-            isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-          }`}
+          className={`absolute w-full pointer-events-none transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+            }`}
           style={{ top: isHome ? '58px' : '64px', zIndex: 100 }}
         >
-          <div 
-            className={`mx-3 bg-white/95 backdrop-blur-2xl border border-gray-100/50 shadow-[0_12px_40px_rgba(0,0,0,0.08)] rounded-[20px] p-2 flex flex-col ${
-              isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
-            }`}
+          <div
+            className={`mx-3 bg-white/95 backdrop-blur-2xl border border-gray-100/50 shadow-[0_12px_40px_rgba(0,0,0,0.08)] rounded-[20px] p-2 flex flex-col ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
+              }`}
           >
             {NAV_LINKS.map(({ label, href }) => {
               const isActive = pathname.startsWith(href);
@@ -155,9 +151,8 @@ export function Navbar() {
                   key={label}
                   href={href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-4 py-3 rounded-xl font-semibold text-[15px] transition-colors ${
-                    isActive ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 active:bg-gray-50'
-                  }`}
+                  className={`px-4 py-3 rounded-xl font-semibold text-[15px] transition-colors ${isActive ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 active:bg-gray-50'
+                    }`}
                 >
                   {label}
                 </Link>
@@ -169,9 +164,9 @@ export function Navbar() {
 
       {/* Invisible Underlay to catch mobile clicks falling outside the active dropdown */}
       {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 z-[45]" 
-          onClick={() => setIsMobileMenuOpen(false)} 
+        <div
+          className="fixed inset-0 z-[45]"
+          onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
     </>

@@ -31,12 +31,12 @@ function shuffled<T>(arr: T[]): T[] {
 export const CardFace = memo(({
   label, category, theme, size,
 }: { label: string; category: string; theme: AppTheme; size: number }) => {
-  const tabH   = size < 130 ? 16 : 24;
+  const tabH = size < 130 ? 16 : 24;
   const radius = size < 130 ? 16 : 24;
-  const inner  = size < 130 ? 12 : 20;
-  const pad    = 4;
-  const fsCat  = size < 130 ? 6.5 : 9;
-  const fsLbl  = size < 130 ? 10 : 13;
+  const inner = size < 130 ? 12 : 20;
+  const pad = 4;
+  const fsCat = size < 130 ? 6.5 : 9;
+  const fsLbl = size < 130 ? 10 : 13;
 
   const pal = THEME_PALETTE[theme] ?? THEME_PALETTE.blue;
   const shellTint = pal.tint;
@@ -102,7 +102,7 @@ CardFace.displayName = 'CardFace';
 
 export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
   const [display, setDisplay] = useState<HeroCard[]>(cards);
-  const [mounted, setMounted]  = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const visuals = shuffled(
@@ -133,10 +133,10 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
       {/* ── Desktop 5×3 grid ── */}
       <div className="pointer-events-none select-none absolute inset-0 overflow-visible hidden lg:block">
         {display.map((card) => {
-          const dist     = Math.sqrt(Math.pow(card.col - 2, 2) + Math.pow(card.row - 1, 2));
-          const norm     = dist / MAX_DIST;
-          const blurPx   = (norm * 4.5).toFixed(1);
-          const opacity  = (mounted ? 0.98 : 0) - norm * 0.18;
+          const dist = Math.sqrt(Math.pow(card.col - 2, 2) + Math.pow(card.row - 1, 2));
+          const norm = dist / MAX_DIST;
+          const blurPx = (norm * 4.5).toFixed(1);
+          const opacity = (mounted ? 0.98 : 0) - norm * 0.18;
           const saturate = (0.96 - norm * 0.12).toFixed(2);
 
           return (
@@ -145,7 +145,7 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
               style={{
                 position: 'absolute',
                 left: COL_POSITIONS[card.col],
-                top:  ROW_POSITIONS[card.row],
+                top: ROW_POSITIONS[card.row],
                 transform: `translate(-50%, -50%) rotate(${card.rotate})`,
                 width: 184,
                 opacity,
@@ -163,34 +163,34 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
       {/* ── Mobile 3×4 grid ── */}
       <div className="pointer-events-none select-none absolute inset-0 overflow-hidden block lg:hidden">
         {mobileSlots.map((slot, i) => {
-           const card = display[i % display.length];
-           // Calculate distance from center grid point (col 1, row 1.5)
-           const dist     = Math.sqrt(Math.pow(slot.col - 1, 2) + Math.pow(slot.row - 1.5, 2));
-           const norm     = dist / MOBILE_MAX_DIST;
-           
-           // Slightly reduced blur/fade radius for tighter mobile screens
-           const blurPx   = (norm * 3.5).toFixed(1);
-           const opacity  = (mounted ? 0.95 : 0) - norm * 0.22;
-           const saturate = (0.96 - norm * 0.15).toFixed(2);
+          const card = display[i % display.length];
+          // Calculate distance from center grid point (col 1, row 1.5)
+          const dist = Math.sqrt(Math.pow(slot.col - 1, 2) + Math.pow(slot.row - 1.5, 2));
+          const norm = dist / MOBILE_MAX_DIST;
 
-           return (
-             <div
-               key={`mobile-grid-${slot.col}-${slot.row}`}
-               style={{
-                 position: 'absolute',
-                 left: MOBILE_COLS[slot.col],
-                 top: MOBILE_ROWS[slot.row],
-                 transform: `translate(-50%, -50%) rotate(${card.rotate})`,
-                 width: 110, // Slightly smaller to ensure 3 columns fit well side-by-side
-                 opacity,
-                 filter: `blur(${blurPx}px) saturate(${saturate})`,
-                 transition: 'opacity 0.55s ease, filter 0.55s ease',
-                 willChange: 'opacity, filter',
-               }}
-             >
-               <CardFace label={card.label} category={card.category} theme={card.theme} size={110} />
-             </div>
-           );
+          // Slightly reduced blur/fade radius for tighter mobile screens
+          const blurPx = (norm * 3.5).toFixed(1);
+          const opacity = (mounted ? 0.95 : 0) - norm * 0.22;
+          const saturate = (0.96 - norm * 0.15).toFixed(2);
+
+          return (
+            <div
+              key={`mobile-grid-${slot.col}-${slot.row}`}
+              style={{
+                position: 'absolute',
+                left: MOBILE_COLS[slot.col],
+                top: MOBILE_ROWS[slot.row],
+                transform: `translate(-50%, -50%) rotate(${card.rotate})`,
+                width: 110, // Slightly smaller to ensure 3 columns fit well side-by-side
+                opacity,
+                filter: `blur(${blurPx}px) saturate(${saturate})`,
+                transition: 'opacity 0.55s ease, filter 0.55s ease',
+                willChange: 'opacity, filter',
+              }}
+            >
+              <CardFace label={card.label} category={card.category} theme={card.theme} size={110} />
+            </div>
+          );
         })}
       </div>
     </>
