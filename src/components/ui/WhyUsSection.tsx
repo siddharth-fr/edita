@@ -85,7 +85,7 @@ export default function WhyUsSection() {
           <p style={{
             fontSize: '17px',
             lineHeight: 1.6,
-            color: '#6B7280',
+            color: '#526071',
             fontWeight: 400,
           }}>
             Whether you need a reliable PDF converter, a high-quality image compressor, or powerful document editing features, Edita provides an all-in-one platform built for speed, uncompromised security, and absolute premium quality without the price tag.
@@ -160,7 +160,7 @@ export default function WhyUsSection() {
                   fontSize: '10px',
                   fontWeight: 700,
                   letterSpacing: '0.08em',
-                  color: '#94A3B8',
+                  color: '#526071',
                   textTransform: 'uppercase',
                   display: 'flex',
                   alignItems: 'center'
@@ -198,7 +198,7 @@ export default function WhyUsSection() {
               <div
                 style={{
                   fontSize: '14px',
-                  color: '#64748B',
+                  color: '#526071',
                   lineHeight: 1.6,
                   fontWeight: 400,
                 }}

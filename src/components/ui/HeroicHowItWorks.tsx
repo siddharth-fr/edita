@@ -58,7 +58,7 @@ export default function HeroicHowItWorks() {
           <p style={{
             fontSize: '17px',
             lineHeight: 1.6,
-            color: '#6B7280',
+            color: '#526071',
             fontWeight: 400,
           }}>
             Edita is designed to be powerful yet remarkably simple. 
@@ -126,7 +126,7 @@ export default function HeroicHowItWorks() {
             </h3>
             <p style={{
               fontSize: '15px',
-              color: '#6B7280',
+              color: '#526071',
               lineHeight: 1.6,
               fontWeight: 400,
               maxWidth: '260px'

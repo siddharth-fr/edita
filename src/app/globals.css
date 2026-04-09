@@ -10,10 +10,12 @@
   --card-foreground: #08101e;
   --border: #dde5f0;
   --muted: #eef2fb;
-  --muted-foreground: #647191;
+  --muted-foreground: #526071;
   --primary: #10B981;
   --primary-foreground: #ffffff;
   --primary-hover: #059669;
+  --primary-dark: #047857;
+  --primary-accessible: #065F46;
   --primary-subtle: #ECFDF5;
   --accent: #34D399;
   --radius: 1.5rem;

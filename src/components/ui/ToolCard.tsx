@@ -120,7 +120,7 @@ export default function ToolCard({
               fontSize: '10px',
               fontWeight: 700,
               letterSpacing: '0.08em',
-              color: '#94A3B8',
+              color: '#526071',
               textTransform: 'uppercase',
               display: 'flex',
               alignItems: 'center'
