@@ -32,7 +32,7 @@ export default function WhyUsSection() {
   ];
 
   return (
-    <section className="w-full max-w-6xl px-4 sm:px-8 mt-12 mb-10 mx-auto">
+    <section className="w-full max-w-6xl px-4 sm:px-8 py-32 mx-auto relative">
       <div className="text-center max-w-2xl mx-auto mb-16 relative z-0">
         {/* Decorative Floating Cards around the title */}
         <div className="absolute -left-8 sm:-left-16 lg:-left-24 top-[-30px] sm:top-[-50px] lg:top-[-70px] -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-110 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>

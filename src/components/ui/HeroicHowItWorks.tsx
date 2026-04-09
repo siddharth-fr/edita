@@ -6,7 +6,7 @@ import { type AppTheme } from '@/config/themes';
 
 export default function HeroicHowItWorks() {
   return (
-    <section className="w-full max-w-6xl px-4 sm:px-8 mt-24 mb-16 relative">
+    <section className="w-full max-w-6xl px-4 sm:px-8 py-32 mx-auto relative">
       <div className="text-center max-w-2xl mx-auto mb-16 relative z-0">
         {/* Static Floating Cards decorating the Title */}
         <div className="absolute -left-8 sm:-left-16 lg:-left-24 top-[-20px] sm:top-[-40px] lg:top-[-60px] -rotate-6 opacity-60 sm:opacity-60 lg:opacity-80 scale-[0.55] sm:scale-75 lg:scale-105 origin-center pointer-events-none -z-10" style={{ width: 140, filter: 'blur(0.5px)' }}>
@@ -40,7 +40,7 @@ export default function HeroicHowItWorks() {
           </div>
 
           <h2 style={{
-            margin: '0 0 18px',
+            margin: '0 0 32px',
             fontFamily: 'var(--font-display), sans-serif',
             fontWeight: 800,
             letterSpacing: '-0.03em',
@@ -94,7 +94,7 @@ export default function HeroicHowItWorks() {
         ].map((item, i) => (
           <div key={i} className="flex flex-col items-center text-center group">
             <div 
-              className="w-24 h-24 rounded-[32px] bg-white shadow-[0_12px_32px_rgba(0,0,0,0.05)] flex items-center justify-center mb-8 relative transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.12)] group-hover:-translate-y-2"
+              className="w-24 h-24 rounded-[32px] bg-white shadow-[0_12px_32px_rgba(0,0,0,0.05)] flex items-center justify-center mb-12 relative transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.12)] group-hover:-translate-y-2"
               style={{
                 border: '1.5px solid rgba(0,0,0,0.03)',
                 background: 'linear-gradient(135deg, #ffffff 0%, #f9fafb 100%)'

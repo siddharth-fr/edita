@@ -106,7 +106,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex-1 flex flex-col items-center w-full pb-28 relative overflow-x-clip"
+      className="flex-1 flex flex-col items-center w-full pb-32 relative overflow-x-clip"
       style={{
         background: '#FAFBFF',
       }}
@@ -165,7 +165,7 @@ export default function Home() {
 
 
         {/* ── Hero content — sits above everything ── */}
-        <div className="relative z-10 flex flex-col items-center text-center max-w-[520px] px-4 py-20 sm:py-24">
+        <div className="relative z-10 flex flex-col items-center text-center max-w-[540px] px-4 py-32 sm:py-40">
 
 
           {/* ── Decorative green-white aurora behind the title ── */}
@@ -204,7 +204,7 @@ export default function Home() {
 
           {/* ── Status chip ── */}
           <div
-            className="inline-flex items-center gap-2 mb-9"
+            className="inline-flex items-center gap-2 mb-12"
             style={{
               padding: '6px 14px',
               borderRadius: 999,
@@ -222,7 +222,7 @@ export default function Home() {
 
           {/* ── Headline ── */}
           <h1 style={{
-            margin: '0 0 22px',
+            margin: '0 0 32px',
             fontFamily: 'var(--font-display), sans-serif',
             fontWeight: 800,
             letterSpacing: '-0.04em',
@@ -244,13 +244,13 @@ export default function Home() {
 
           {/* ── Subtext ── */}
           <p style={{
-            margin: '0 0 36px',
+            margin: '0 0 48px',
             fontSize: 15,
             fontWeight: 400,
             lineHeight: 1.65,
             letterSpacing: '-0.01em',
             color: '#6B7280',
-            maxWidth: 300,
+            maxWidth: 440,
           }}>
             Convert, compress and edit - entirely in your browser.
             <br />Nothing ever leaves your device.
@@ -264,7 +264,7 @@ export default function Home() {
               className="transition-all duration-200 hover:scale-[1.04] active:scale-[0.97]"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
-                padding: '13px 26px',
+                padding: '14px 32px',
                 borderRadius: 18,
                 background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)',
                 boxShadow: '0 8px 26px rgba(5,150,105,0.30)',
@@ -281,7 +281,7 @@ export default function Home() {
             <div
               style={{
                 display: 'inline-flex', alignItems: 'center',
-                padding: '13px 22px',
+                padding: '14px 28px',
                 borderRadius: 18,
                 background: 'rgba(255,255,255,0.78)',
                 backdropFilter: 'blur(12px)',
@@ -329,7 +329,7 @@ export default function Home() {
 
       <section
         id="tools"
-        className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 pt-10 pb-8"
+        className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 py-32"
         style={{
           background:
             'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.95) 100%)'
@@ -339,7 +339,7 @@ export default function Home() {
 
         {/* Trust strip */}
         <div
-          className="mt-14 pt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-semibold"
+          className="mt-32 pt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-xs font-semibold"
           style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
         >
           <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />Private & Secure: Files stay on your device</span>
@@ -350,9 +350,7 @@ export default function Home() {
 
       <HeroicHowItWorks />
       <WhyUsSection />
-      <div className="w-full px-4 sm:px-8">
-        <FAQSection />
-      </div>
+      <FAQSection />
 
       {/* FAQ Structured Data for SEO */}
       <Script id="faq-schema" type="application/ld+json">

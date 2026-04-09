@@ -106,7 +106,7 @@ export default function FAQSection({ items, title, subtitle }: FAQSectionProps) 
   const displayItems = items || HOME_FAQS;
 
   return (
-    <section className="w-full max-w-4xl mx-auto">
+    <section className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-32 relative">
       <div className="text-center mb-16">
         <h2 style={{
           margin: '0 0 16px',

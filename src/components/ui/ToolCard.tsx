@@ -97,7 +97,7 @@ export default function ToolCard({
             height: '58%',
             background: '#ffffff',
             borderRadius: '0 0 20px 20px',
-            padding: '24px 20px 20px 20px',
+            padding: '32px 24px 24px 24px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
