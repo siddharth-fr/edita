@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import mammoth from 'mammoth';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import DOMPurify from 'dompurify';
 import { UploadDropzone } from '@/components/tools/UploadDropzone';
 import { FilePreviewCard, formatBytes } from '@/components/tools/FilePreviewCard';
 import { Button } from '@/components/ui/Button';
@@ -53,9 +54,9 @@ export function WordToPdfClient() {
             const result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer });
             const html = result.value;
 
-            // Render to hidden div
+            // Render to hidden div (Sanitized with DOMPurify)
             const container = renderContainerRef.current;
-            container.innerHTML = html;
+            container.innerHTML = DOMPurify.sanitize(html);
 
             // Wait for font/styles to naturally apply (small buffer)
             await new Promise((resolve) => setTimeout(resolve, 500));
