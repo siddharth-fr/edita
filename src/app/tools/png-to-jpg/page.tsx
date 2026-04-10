@@ -21,6 +21,8 @@ export const metadata = constructMetadata({
 export default function Page() {
   return (
     <ToolLayout 
+      toolSlug="png-to-jpg"
+      canonicalUrl={"/tools/png-to-jpg"} 
       title={m.toolTitle} 
       description={m.toolDescription}
       howItWorksSteps={m.howItWorksSteps}

@@ -20,7 +20,9 @@ export const metadata = constructMetadata({
 
 export default function Page() {
   return (
-    <ToolLayout
+    <ToolLayout 
+      toolSlug="image-compressor"
+      canonicalUrl={"/tools/image-compressor"}
       title={m.toolTitle}
       description={m.toolDescription}
       howItWorksSteps={m.howItWorksSteps}

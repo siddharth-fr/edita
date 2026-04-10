@@ -21,6 +21,8 @@ export const metadata = constructMetadata({
 export default function MergePdfPage() {
   return (
     <ToolLayout 
+      toolSlug="merge-pdf"
+      canonicalUrl={"/tools/merge-pdf"} 
       title={m.toolTitle}
       description={m.toolDescription}
       howItWorksSteps={m.howItWorksSteps}

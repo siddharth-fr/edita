@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -22,6 +22,9 @@ const displayFont = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = constructMetadata();
+export const viewport: Viewport = {
+  colorScheme: 'light',
+};
 
 export default function RootLayout({
   children,

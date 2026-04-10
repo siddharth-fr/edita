@@ -8,6 +8,8 @@ const FAQSection = dynamic(() => import('@/components/ui/FAQSection'));
 
 import { type FAQ } from '@/components/ui/FAQSection';
 import { GENERAL_FAQS } from '@/config/seo';
+import { StructuredData } from '@/components/seo/StructuredData';
+import { getSEOContent } from '@/config/seoContent';
 
 
 interface ToolLayoutProps {
@@ -21,6 +23,7 @@ interface ToolLayoutProps {
   faqTitle?: string;
   faqSubtitle?: string;
   footerContent?: React.ReactNode;
+  toolSlug?: string;
 }
 
 export function ToolLayout({ 
@@ -33,11 +36,23 @@ export function ToolLayout({
   faqItems,
   faqTitle,
   faqSubtitle,
-  footerContent
-}: ToolLayoutProps) {
+  footerContent,
+  toolSlug,
+  canonicalUrl,
+}: ToolLayoutProps & { canonicalUrl?: string }) {
+  // We construct the absolute URL for the structured data. If canonicalUrl isn't provided, fallback
+  const siteUrl = "https://edita.tools";
+  const finalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
+
   return (
     <main className="flex-1 flex flex-col items-center w-full pb-32 pt-28 relative overflow-x-clip">
-      
+      <StructuredData
+        toolName={title}
+        toolDescription={description}
+        url={finalUrl}
+        faqs={faqItems ? [...faqItems, ...GENERAL_FAQS] : GENERAL_FAQS}
+        howItWorksSteps={howItWorksSteps}
+      />
       {/* ── Decorative aurora glow ── */}
       <div className="pointer-events-none absolute top-0 inset-x-0 -z-10 h-[500px] overflow-hidden">
         <div
@@ -111,6 +126,13 @@ export function ToolLayout({
               title={faqTitle}
               subtitle={faqSubtitle}
             />
+          </div>
+        )}
+
+        {/* SEO Long Form Content Section */}
+        {toolSlug && (
+          <div className="w-full max-w-3xl px-4 sm:px-8 py-16 text-left border-t border-slate-100/10">
+            {getSEOContent(toolSlug, title)}
           </div>
         )}
       </div>
