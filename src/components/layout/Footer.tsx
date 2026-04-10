@@ -157,6 +157,37 @@ export function Footer() {
                     ))}
                 </div>
 
+                {/* ── Badges / Featured On ── */}
+                <div className="pt-8 mb-12" style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+                    <div className="flex flex-col items-start gap-4">
+                        <span style={{ 
+                            fontSize: 12, 
+                            fontWeight: 700, 
+                            color: '#9CA3AF', 
+                            textTransform: 'uppercase', 
+                            letterSpacing: '0.05em' 
+                        }}>
+                            Featured On
+                        </span>
+                        <div className="flex flex-wrap gap-6 items-center">
+                            <a 
+                                href="https://findly.tools/edita-tools?utm_source=edita-tools" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="transition-all hover:scale-[1.02] active:scale-[0.98]"
+                            >
+                                <img 
+                                    src="https://findly.tools/badges/findly-tools-badge-light.svg" 
+                                    alt="Featured on Findly.tools" 
+                                    width="160" 
+                                    height="50"
+                                    style={{ height: 'auto', display: 'block' }}
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 {/* ── Bottom area: Copyright & Legal ── */}
                 <div
                     className="flex flex-col md:flex-row items-center justify-between pt-8 gap-4"
