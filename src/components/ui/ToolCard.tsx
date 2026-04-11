@@ -3,6 +3,7 @@
 import { useState } from 'react'
 
 import { THEME_PALETTE, type AppTheme } from '@/config/themes'
+import { trackToolSelected } from '@/lib/ga4'
 
 interface ToolCardProps {
   name: string
@@ -22,6 +23,10 @@ export default function ToolCard({
 
   const pal = THEME_PALETTE[theme] ?? THEME_PALETTE.blue
 
+  const handleClick = () => {
+    trackToolSelected(name, 'homepage_grid');
+  };
+
   return (
 
     <a
@@ -29,6 +34,7 @@ export default function ToolCard({
       style={{ textDecoration: 'none', display: 'block' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={handleClick}
     >
 
       {/* CARD SHELL */}

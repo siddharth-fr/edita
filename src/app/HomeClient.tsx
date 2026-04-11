@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
+import { trackEvent } from '@/lib/ga4';
 import { type AppTheme } from '@/config/themes';
 
 const ToolsSection = dynamic(() => import('@/components/ui/ToolsSection'), { ssr: false });
@@ -94,6 +95,7 @@ export default function Home() {
 
   const handleBrowseTools = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    trackEvent('browse_tools_clicked', { section: 'hero' });
     const element = document.getElementById('tools');
     if (element) {
       const top = element.getBoundingClientRect().top + window.scrollY - 64; // Adjust for scroll padding

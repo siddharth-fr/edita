@@ -10,7 +10,7 @@ declare global {
     gtag: (
       command: 'config' | 'event' | 'js' | 'set',
       targetId: string,
-      config?: Record<string, any>
+      config?: Record<string, string | number | boolean | undefined | null>
     ) => void;
   }
 }
@@ -18,7 +18,7 @@ declare global {
 /**
  * Send a custom event to GA4
  */
-export const trackEvent = (eventName: string, params: Record<string, any> = {}) => {
+export const trackEvent = (eventName: string, params: Record<string, string | number | boolean | undefined | null> = {}) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, params);
   } else {
@@ -52,6 +52,16 @@ export const trackFileDownloaded = (toolName: string, fileType: string) => {
   trackEvent('file_downloaded', {
     tool_name: toolName,
     file_type: fileType,
+  });
+};
+
+/**
+ * Track when a tool is selected (clicked from a list/grid)
+ */
+export const trackToolSelected = (toolName: string, source: string = 'grid') => {
+  trackEvent('tool_selected', {
+    tool_name: toolName,
+    source: source,
   });
 };
 
