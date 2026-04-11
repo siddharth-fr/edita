@@ -25,27 +25,28 @@ export default function ToolsSection({ tools }: { tools: Tool[] }) {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const matches = tools.filter(t => {
-      const matchesQuery = !q || 
-        t.name.toLowerCase().includes(q) ||
-        t.category.toLowerCase().includes(q);
-      
-      let matchesCategory = false;
-      if (category === 'Popular') {
-        matchesCategory = true;
-      } else if (category === 'Utility Tools') {
-        matchesCategory = t.category === 'Utility Tools' || t.category === 'QR Code' || t.category === 'Utility';
-      } else {
-        matchesCategory = t.category === category;
+    
+    if (q) {
+      // If there is a search query, search across ALL tools globally
+      return tools.filter(t => 
+        t.name.toLowerCase().includes(q) || 
+        t.category.toLowerCase().includes(q)
+      );
+    }
+    
+    // Otherwise, filter by the selected category
+    const matchesCategory = tools.filter(t => {
+      if (category === 'Popular') return true;
+      if (category === 'Utility Tools') {
+        return t.category === 'Utility Tools' || t.category === 'QR Code' || t.category === 'Utility';
       }
-      
-      return matchesQuery && matchesCategory;
+      return t.category === category;
     });
 
-    if (category === 'Popular' && !q) {
-      return matches.slice(0, 10);
+    if (category === 'Popular') {
+      return matchesCategory.slice(0, 10);
     }
-    return matches;
+    return matchesCategory;
   }, [tools, query, category]);
 
   return (

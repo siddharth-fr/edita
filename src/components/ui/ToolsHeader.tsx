@@ -50,7 +50,13 @@ export default function ToolsHeader({
             className="text-2xl sm:text-3xl font-black tracking-tight"
             style={{ color: '#0F172A' }}
           >
-            Popular Tools
+            {active 
+              ? 'Search Results' 
+              : selectedCategory === 'Popular' 
+                ? 'Popular Tools' 
+                : selectedCategory.toLowerCase().includes('tools') 
+                  ? selectedCategory 
+                  : `${selectedCategory} Tools`}
           </h2>
           <p className="text-sm mt-1.5 font-medium" style={{ color: '#94A3B8', maxWidth: 400 }}>
             {active
