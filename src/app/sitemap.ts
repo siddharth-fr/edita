@@ -4,13 +4,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://edita.tools';
 
     const pages = [
-        '',
-        'tools',
-        'how-it-works',
-        'why-us',
-        'privacy',
-        'terms',
-        'contact'
+        { path: '', priority: 1, frequency: 'daily' },
+        { path: 'tools', priority: 0.8, frequency: 'weekly' },
+        { path: 'how-it-works', priority: 0.7, frequency: 'monthly' },
+        { path: 'why-us', priority: 0.7, frequency: 'monthly' },
+        { path: 'contact', priority: 0.7, frequency: 'monthly' },
+        { path: 'privacy', priority: 0.4, frequency: 'yearly' },
+        { path: 'terms', priority: 0.4, frequency: 'yearly' },
     ];
 
     const tools = [
@@ -41,17 +41,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
 
     const pageUrls: MetadataRoute.Sitemap = pages.map((page) => ({
-        url: `${baseUrl}/${page}`,
+        url: page.path === '' ? baseUrl : `${baseUrl}/${page.path}`,
         lastModified: new Date(),
-        changeFrequency: page === '' ? 'weekly' : 'monthly',
-        priority: page === '' ? 1 : 0.6,
+        changeFrequency: page.frequency as any,
+        priority: page.priority,
     }));
 
     const toolUrls: MetadataRoute.Sitemap = tools.map((slug) => ({
         url: `${baseUrl}/tools/${slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
-        priority: 0.8,
+        priority: 0.9,
     }));
 
     return [...pageUrls, ...toolUrls];
