@@ -184,6 +184,18 @@ export function Footer() {
                                     style={{ height: 'auto', display: 'block' }}
                                 />
                             </a>
+                            <a 
+                                href="https://tinylaunch.com" 
+                                target="_blank" 
+                                rel="noopener"
+                                className="transition-all hover:scale-[1.02] active:scale-[0.98]"
+                            >
+                                <img 
+                                    src="https://tinylaunch.com/tinylaunch_badge_launching_soon.svg" 
+                                    alt="TinyLaunch Badge" 
+                                    style={{ width: '202px', height: 'auto', display: 'block' }} 
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>
