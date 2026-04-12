@@ -72,7 +72,7 @@ export default function PrivacyClient() {
 
           <h2 className="text-2xl font-bold text-slate-900 mt-8">9. Contact Us</h2>
           <p>
-            If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us via the forms or email addresses provided on our website.
+            If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at <a href="mailto:info@edita.tools" className="text-emerald-600 hover:text-emerald-700 underline font-medium">info@edita.tools</a>.
           </p>
         </div>
       </div>
