@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
@@ -49,10 +50,13 @@ export function Navbar() {
             className="flex items-center gap-2.5 shrink-0 transition-all hover:opacity-80 active:scale-95 z-20 whitespace-nowrap pl-2"
             style={{ textDecoration: 'none' }}
           >
-            <img
+            <Image
               src="/logo-icon.png"
               alt="Edita Logo"
-              style={{ width: 28, height: 28, borderRadius: 8, boxShadow: '0 4px 10px rgba(5,150,105,0.15)' }}
+              width={28}
+              height={28}
+              priority
+              style={{ borderRadius: 8, boxShadow: '0 4px 10px rgba(5,150,105,0.15)' }}
             />
             <span
               style={{

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShieldCheck } from 'lucide-react';
 
 const CATEGORIES = [
@@ -65,10 +66,12 @@ export function Footer() {
                             className="flex items-center gap-2.5 shrink-0 mb-4"
                             style={{ textDecoration: 'none' }}
                         >
-                            <img 
+                            <Image 
                                 src="/logo-icon.png" 
                                 alt="Edita" 
-                                style={{ width: 32, height: 32, borderRadius: 10 }}
+                                width={32}
+                                height={32}
+                                style={{ borderRadius: 10 }}
                             />
                             <span
                                 style={{
@@ -200,6 +203,7 @@ export function Footer() {
                                     <img 
                                         src={badge.src} 
                                         alt={badge.alt} 
+                                        loading="lazy"
                                         style={{ height: badge.height, width: 'auto' }}
                                         className="object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                                     />

@@ -11,11 +11,11 @@ import Script from 'next/script';
 import { trackEvent } from '@/lib/ga4';
 import { type AppTheme } from '@/config/themes';
 
-const ToolsSection = dynamic(() => import('@/components/ui/ToolsSection'), { ssr: false });
-const HeroCardGrid = dynamic(() => import('@/components/ui/HeroCardGrid'), { ssr: false });
-const HeroicHowItWorks = dynamic(() => import('@/components/ui/HeroicHowItWorks'), { ssr: false });
-const WhyUsSection = dynamic(() => import('@/components/ui/WhyUsSection'), { ssr: false });
-const FAQSection = dynamic(() => import('@/components/ui/FAQSection'), { ssr: false });
+import ToolsSection from '@/components/ui/ToolsSection';
+import HeroCardGrid from '@/components/ui/HeroCardGrid';
+import HeroicHowItWorks from '@/components/ui/HeroicHowItWorks';
+import WhyUsSection from '@/components/ui/WhyUsSection';
+import FAQSection from '@/components/ui/FAQSection';
 
 /* ─────────────────────────────────────────────────────────
   Tool catalogue (used in the tools grid below the fold)
