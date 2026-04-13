@@ -34,6 +34,7 @@ const CATEGORIES = [
     {
         title: 'Company',
         links: [
+            { label: 'Use Cases & Solutions', href: '/use-cases' },
             { label: 'How it Works', href: '/how-it-works' },
             { label: 'Why Us', href: '/why-us' },
             { label: 'Privacy Policy', href: '/privacy' },
