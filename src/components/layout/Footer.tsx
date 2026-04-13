@@ -196,6 +196,21 @@ export function Footer() {
                                     style={{ width: '202px', height: 'auto', display: 'block' }} 
                                 />
                             </a>
+                            <a 
+                                href="https://directoryhunt.org/" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="transition-all hover:scale-[1.02] active:scale-[0.98]"
+                                style={{ textDecoration: 'none', display: 'inline-block' }}
+                            >
+                                <img 
+                                    src="https://directoryhunt.org/assets/Badges/featured.svg" 
+                                    alt="Featured on DirectoryHunt.org" 
+                                    width="180" 
+                                    height="49" 
+                                    style={{ height: 'auto', display: 'block' }} 
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>
