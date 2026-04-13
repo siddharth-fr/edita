@@ -169,48 +169,42 @@ export function Footer() {
                         }}>
                             Featured On
                         </span>
-                        <div className="flex flex-wrap gap-6 items-center">
-                            <a 
-                                href="https://findly.tools/edita-tools?utm_source=edita-tools" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="transition-all hover:scale-[1.02] active:scale-[0.98]"
-                            >
-                                <img 
-                                    src="https://findly.tools/badges/findly-tools-badge-light.svg" 
-                                    alt="Featured on Findly.tools" 
-                                    width="160" 
-                                    height="50"
-                                    style={{ height: 'auto', display: 'block' }}
-                                />
-                            </a>
-                            <a 
-                                href="https://tinylaunch.com" 
-                                target="_blank" 
-                                rel="noopener"
-                                className="transition-all hover:scale-[1.02] active:scale-[0.98]"
-                            >
-                                <img 
-                                    src="https://tinylaunch.com/tinylaunch_badge_launching_soon.svg" 
-                                    alt="TinyLaunch Badge" 
-                                    style={{ width: '202px', height: 'auto', display: 'block' }} 
-                                />
-                            </a>
-                            <a 
-                                href="https://directoryhunt.org/" 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="transition-all hover:scale-[1.02] active:scale-[0.98]"
-                                style={{ textDecoration: 'none', display: 'inline-block' }}
-                            >
-                                <img 
-                                    src="https://directoryhunt.org/assets/Badges/featured.svg" 
-                                    alt="Featured on DirectoryHunt.org" 
-                                    width="180" 
-                                    height="49" 
-                                    style={{ height: 'auto', display: 'block' }} 
-                                />
-                            </a>
+                        <div className="flex flex-wrap gap-4 items-center">
+                            {[
+                                { 
+                                    href: "https://findly.tools/edita-tools?utm_source=edita-tools", 
+                                    src: "https://findly.tools/badges/findly-tools-badge-light.svg", 
+                                    alt: "Featured on Findly.tools",
+                                    height: 28
+                                },
+                                { 
+                                    href: "https://tinylaunch.com", 
+                                    src: "https://tinylaunch.com/tinylaunch_badge_launching_soon.svg", 
+                                    alt: "TinyLaunch Badge",
+                                    height: 32
+                                },
+                                { 
+                                    href: "https://directoryhunt.org/", 
+                                    src: "https://directoryhunt.org/assets/Badges/featured.svg", 
+                                    alt: "Featured on DirectoryHunt.org",
+                                    height: 30
+                                }
+                            ].map((badge, idx) => (
+                                <a 
+                                    key={idx}
+                                    href={badge.href}
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center justify-center h-12 px-6 bg-white border border-gray-200/60 rounded-xl transition-all duration-300 hover:border-emerald-500/30 hover:shadow-[0_4px_12px_rgba(16,185,129,0.08)] hover:scale-[1.02] active:scale-[0.98]"
+                                >
+                                    <img 
+                                        src={badge.src} 
+                                        alt={badge.alt} 
+                                        style={{ height: badge.height, width: 'auto' }}
+                                        className="object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                                    />
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>
