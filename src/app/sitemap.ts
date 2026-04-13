@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { PROGRAMMATIC_SEO } from '@/config/programmaticSeo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://edita.tools';
@@ -54,5 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    return [...pageUrls, ...toolUrls];
+    const programmaticUrls: MetadataRoute.Sitemap = Object.keys(PROGRAMMATIC_SEO).map((slug) => ({
+        url: `${baseUrl}/use-cases/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.8,
+    }));
+
+    return [...pageUrls, ...toolUrls, ...programmaticUrls];
 }

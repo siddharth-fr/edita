@@ -24,6 +24,7 @@ interface ToolLayoutProps {
   faqSubtitle?: string;
   footerContent?: React.ReactNode;
   toolSlug?: string;
+  seoContent?: React.ReactNode;
 }
 
 export function ToolLayout({ 
@@ -39,6 +40,7 @@ export function ToolLayout({
   footerContent,
   toolSlug,
   canonicalUrl,
+  seoContent,
 }: ToolLayoutProps & { canonicalUrl?: string }) {
   // We construct the absolute URL for the structured data. If canonicalUrl isn't provided, fallback
   const siteUrl = "https://edita.tools";
@@ -130,9 +132,9 @@ export function ToolLayout({
         )}
 
         {/* SEO Long Form Content Section */}
-        {toolSlug && (
+        {(toolSlug || seoContent) && (
           <div className="w-full max-w-3xl px-4 sm:px-8 py-16 text-left border-t border-slate-100/10">
-            {getSEOContent(toolSlug, title)}
+            {seoContent ? seoContent : getSEOContent(toolSlug!, title)}
           </div>
         )}
       </div>
