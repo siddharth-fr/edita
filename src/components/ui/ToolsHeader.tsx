@@ -42,9 +42,9 @@ export default function ToolsHeader({
   }
 
   return (
-    <div className="flex flex-col gap-4 sm:gap-5 mb-6">
+    <div className="flex flex-col gap-3 sm:gap-5 mb-4 sm:mb-6">
       {/* ── Top Row: Title + Search ── */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-4">
         <div className="flex-1">
           <h2
             className="text-2xl sm:text-3xl font-black tracking-tight"
@@ -144,7 +144,7 @@ export default function ToolsHeader({
       </div>
 
       {/* ── Bottom Row: Category Filter ── */}
-      <div className="flex items-center gap-2 overflow-x-auto px-10 -mx-10 py-4 pb-6 scrollbar-hide" style={{ marginBottom: -16 }}>
+      <div className="flex items-center gap-2 overflow-x-auto px-10 -mx-10 py-2.5 pb-4 sm:py-4 sm:pb-6 scrollbar-hide" style={{ marginBottom: -12 }}>
         <div
           className="flex items-center gap-2"
           style={{ minWidth: 'max-content' }}
