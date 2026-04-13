@@ -117,12 +117,12 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
      Cards are brought fully inside the display bounds (16%-84% width). 
      Center is calculated at col 1, row 1.5 */
   const MOBILE_COLS = ['16%', '50%', '84%'];
-  const MOBILE_ROWS = ['12%', '36%', '64%', '88%'];
+  const MOBILE_ROWS = ['12%', '36%', '64%'];
   const MOBILE_MAX_DIST = Math.sqrt(Math.pow(1, 2) + Math.pow(1.5, 2)); // center is (1, 1.5)
 
   // Generate 12 slots
   const mobileSlots = [];
-  for (let r = 0; r < 4; r++) {
+  for (let r = 0; r < 3; r++) {
     for (let c = 0; c < 3; c++) {
       mobileSlots.push({ col: c, row: r });
     }
@@ -163,6 +163,9 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
       {/* ── Mobile 3×4 grid ── */}
       <div className="pointer-events-none select-none absolute inset-0 overflow-hidden block lg:hidden">
         {mobileSlots.map((slot, i) => {
+          // Skip the center slots strictly behind the hero text on mobile to preserve readability
+          if (slot.col === 1 && (slot.row === 1 || slot.row === 2)) return null;
+
           const card = display[i % display.length];
           // Calculate distance from center grid point (col 1, row 1.5)
           const dist = Math.sqrt(Math.pow(slot.col - 1, 2) + Math.pow(slot.row - 1.5, 2));
@@ -170,8 +173,8 @@ export default function HeroCardGrid({ cards }: { cards: HeroCard[] }) {
 
           // Slightly reduced blur/fade radius for tighter mobile screens
           const blurPx = (norm * 3.5).toFixed(1);
-          const opacity = (mounted ? 0.95 : 0) - norm * 0.22;
-          const saturate = (0.96 - norm * 0.15).toFixed(2);
+          const opacity = (mounted ? 0.88 : 0) - norm * 0.22;
+          const saturate = (0.96 - norm * 0.12).toFixed(2);
 
           return (
             <div

@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import {
-  ShieldCheck, Zap, Globe, ArrowRight, Layers, Lock, Sparkles,
+  ShieldCheck, Zap, Globe, Layers, Lock, Sparkles,
   MousePointerClick, Cpu, Download,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
@@ -73,13 +73,6 @@ const heroGridCards = [
   { label: 'Split PDF', category: 'PDF', theme: 'orange' as AppTheme, col: 1, row: 1, rotate: '-1.5deg' },
   { label: 'Word to PDF', category: 'Convert', theme: 'indigo' as AppTheme, col: 3, row: 1, rotate: '1.5deg' },
   { label: 'JPG to PDF', category: 'Image', theme: 'pink' as AppTheme, col: 4, row: 1, rotate: '-2.5deg' },
-
-  // row 2 — bottom row (all 5 columns)
-  { label: 'PDF to JPG', category: 'Image', theme: 'rose' as AppTheme, col: 0, row: 2, rotate: '-2deg' },
-  { label: 'JPG to PNG', category: 'Image', theme: 'pink' as AppTheme, col: 1, row: 2, rotate: '1deg' },
-  { label: 'MP4 to MP3', category: 'Audio', theme: 'violet' as AppTheme, col: 2, row: 2, rotate: '-1.5deg' },
-  { label: 'Merge PDF', category: 'PDF', theme: 'purple' as AppTheme, col: 3, row: 2, rotate: '2deg' },
-  { label: 'SVG to WebP', category: 'Image', theme: 'orange' as AppTheme, col: 4, row: 2, rotate: '-1deg' },
 ];
 
 /* Grid geometry constants — now live inside HeroCardGrid.tsx */
@@ -93,18 +86,7 @@ export default function Home() {
     // We let the browser handle scroll restoration naturally (bfcache friendly)
   }, []);
 
-  const handleBrowseTools = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    trackEvent('browse_tools_clicked', { section: 'hero' });
-    const element = document.getElementById('tools');
-    if (element) {
-      const top = element.getBoundingClientRect().top + window.scrollY - 64; // Adjust for scroll padding
-      window.scrollTo({
-        top,
-        behavior: 'smooth'
-      });
-    }
-  };
+
 
   return (
     <main
@@ -117,7 +99,7 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════
           HERO
       ════════════════════════════════════════════════════ */}
-      <section className="relative w-full min-h-[620px] sm:min-h-[680px] flex items-center justify-center overflow-hidden px-4">
+      <section className="relative w-full flex items-center justify-center overflow-hidden px-4">
 
         {/* ── Deep-space ambient background ── */}
         <div className="pointer-events-none select-none absolute inset-0 -z-10">
@@ -167,7 +149,7 @@ export default function Home() {
 
 
         {/* ── Hero content — sits above everything ── */}
-        <div className="relative z-10 flex flex-col items-center text-center max-w-[540px] px-4 py-32 sm:py-40">
+        <div className="relative z-10 flex flex-col items-center text-center max-w-[540px] px-4 pt-16 pb-8 sm:pt-20 sm:pb-10">
 
 
           {/* ── Decorative green-white aurora behind the title ── */}
@@ -200,36 +182,20 @@ export default function Home() {
               top: '22%', left: '50%',
               transform: 'translate(-50%, -50%)',
               width: 340, height: 200,
-              background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.18) 45%, transparent 70%)',
+              background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.25) 45%, transparent 70%)',
             }}
           />
 
-          {/* ── Status chip ── */}
-          <div
-            className="inline-flex items-center gap-2 mb-12"
-            style={{
-              padding: '6px 14px',
-              borderRadius: 999,
-              border: '1px solid rgba(52, 211, 153, 0.25)',
-              background: 'rgba(197, 255, 234, 0.08)',
-              color: '#065F46',
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-            }}
-          >
 
-            <span>100% Private & Free</span>
-          </div>
 
           {/* ── Headline ── */}
           <h1 style={{
-            margin: '0 0 32px',
+            margin: '0 0 24px',
             fontFamily: 'var(--font-display), sans-serif',
             fontWeight: 800,
             letterSpacing: '-0.04em',
             lineHeight: 0.92,
-            fontSize: 'clamp(52px, 7.5vw, 78px)',
+            fontSize: 'clamp(42px, 7.5vw, 78px)',
             overflow: 'visible',
           }}>
             <span style={{ display: 'block', color: '#0C0F17' }}>The file tools</span>
@@ -241,69 +207,22 @@ export default function Home() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
+              fontSize: '0.85em'
             }}>you need.</span>
           </h1>
 
           {/* ── Subtext ── */}
-          <p style={{
-            margin: '0 0 48px',
-            fontSize: 15,
-            fontWeight: 400,
-            lineHeight: 1.65,
-            letterSpacing: '-0.01em',
-            color: '#526071',
-            maxWidth: 440,
-          }}>
+          <p className="mb-8 sm:mb-9 text-[#526071] text-sm sm:text-[15px] font-medium leading-[1.6] sm:leading-[1.65] tracking-[-0.01em] max-w-[440px]">
             Convert, compress and edit - entirely in your browser.
-            <br />Nothing ever leaves your device.
+            <br className="hidden sm:block" /> Nothing ever leaves your device.
           </p>
 
-          {/* ── CTAs ── */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 32 }}>
-            <a
-              href="#tools"
-              onClick={handleBrowseTools}
-              className="transition-all duration-200 hover:scale-[1.04] active:scale-[0.97]"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 7,
-                padding: '14px 32px',
-                borderRadius: 18,
-                background: 'linear-gradient(135deg, #10B981 0%, #047857 100%)',
-                boxShadow: '0 8px 26px rgba(4,120,87,0.30)',
-                color: '#fff',
-                fontSize: 14,
-                fontWeight: 700,
-                letterSpacing: '-0.02em',
-                textDecoration: 'none',
-              }}
-            >
-              Popular Tools
-              <ArrowRight size={15} strokeWidth={2.5} />
-            </a>
-            <div
-              style={{
-                display: 'inline-flex', alignItems: 'center',
-                padding: '14px 28px',
-                borderRadius: 18,
-                background: 'rgba(255,255,255,0.78)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(0,0,0,0.08)',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-                color: '#1E293B',
-                fontSize: 14,
-                fontWeight: 600,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              No sign-up needed
-            </div>
-          </div>
+
 
           {/* ── Feature pills ── */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8 }}>
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
             {[
-              { icon: <Globe size={11} style={{ color: '#34D399' }} />, label: 'Works offline' },
+              { icon: <Globe size={11} style={{ color: '#34D399' }} />, label: 'No signup needed' },
               { icon: <ShieldCheck size={11} style={{ color: '#34D399' }} />, label: '100% private' },
             ].map(({ icon, label }) => (
               <span
@@ -331,17 +250,16 @@ export default function Home() {
 
       <section
         id="tools"
-        className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 py-32"
+        className="scroll-mt-16 w-full max-w-6xl px-4 sm:px-8 pb-12 pt-2 sm:pt-4 -mt-4 sm:-mt-8 relative z-20"
         style={{
-          background:
-            'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.95) 100%)'
+          background: 'transparent'
         }}
       >
         <ToolsSection tools={tools} />
 
         {/* Trust strip */}
         <div
-          className="mt-32 pt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-xs font-semibold"
+          className="mt-20 pt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-xs font-semibold"
           style={{ borderTop: '1px solid #e8eef8', color: '#8b9cbd' }}
         >
           <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />Private & Secure: Files stay on your device</span>

@@ -42,9 +42,9 @@ export default function ToolsHeader({
   }
 
   return (
-    <div className="flex flex-col gap-6 mb-10">
+    <div className="flex flex-col gap-4 sm:gap-5 mb-6">
       {/* ── Top Row: Title + Search ── */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4">
         <div className="flex-1">
           <h2
             className="text-2xl sm:text-3xl font-black tracking-tight"
@@ -58,7 +58,7 @@ export default function ToolsHeader({
                   ? selectedCategory 
                   : `${selectedCategory} Tools`}
           </h2>
-          <p className="text-sm mt-1.5 font-medium" style={{ color: '#94A3B8', maxWidth: 400 }}>
+          <p className="text-sm mt-1 sm:mt-1.5 font-medium" style={{ color: '#526071', maxWidth: 400 }}>
             {active
               ? `${filteredCount} result${filteredCount !== 1 ? 's' : ''} for "${query}"`
               : 'Pick any tool and get started instantly'}
@@ -73,7 +73,7 @@ export default function ToolsHeader({
               display: 'flex',
               alignItems: 'center',
               gap: 8,
-              padding: '12px 24px',
+              padding: '12px 20px',
               borderRadius: 18,
               background: '#ffffff',
               border: `1px solid ${active ? '#10B981' : '#E2E8F0'}`,
@@ -83,7 +83,6 @@ export default function ToolsHeader({
               cursor: 'text',
               transition: 'all 0.3s ease',
               width: '100%',
-              minWidth: '300px',
               maxWidth: 360,
             }}
           >
@@ -166,7 +165,7 @@ export default function ToolsHeader({
                   background: isSelected
                     ? 'linear-gradient(135deg, #34D399 0%, #059669 100%)'
                     : '#ffffff',
-                  color: isSelected ? '#ffffff' : '#64748B',
+                  color: isSelected ? '#ffffff' : '#526071',
                   opacity: 0.8,
                   border: isSelected ? '1px solid rgba(5, 150, 105, 0.2)' : '1px solid #E2E8F0',
                   boxShadow: isSelected
