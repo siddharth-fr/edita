@@ -1,5 +1,8 @@
 import { PROGRAMMATIC_SEO } from '@/config/programmaticSeo';
+import { MATRIX_SEO } from '@/config/programmaticSeoMatrix';
 import { notFound } from 'next/navigation';
+
+const ALL_SEO = { ...PROGRAMMATIC_SEO, ...MATRIX_SEO };
 import { ToolLayout } from '@/components/layout/ToolLayout';
 import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
@@ -22,7 +25,7 @@ const ImageColorPalette = dynamic(() => import('@/components/tools/ImageColorPal
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = await params;
-  const seoData = PROGRAMMATIC_SEO[p.slug];
+  const seoData = ALL_SEO[p.slug];
 
   if (!seoData) {
     return {};
@@ -37,14 +40,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export function generateStaticParams() {
-  return Object.keys(PROGRAMMATIC_SEO).map((slug) => ({
+  return Object.keys(ALL_SEO).map((slug) => ({
     slug,
   }));
 }
 
 export default async function ProgrammaticPage({ params }: { params: Promise<{ slug: string }> }) {
   const p = await params;
-  const seoData = PROGRAMMATIC_SEO[p.slug];
+  const seoData = ALL_SEO[p.slug];
 
   if (!seoData) {
     notFound();
