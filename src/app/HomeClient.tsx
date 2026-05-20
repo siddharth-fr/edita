@@ -43,8 +43,36 @@ const tools: { name: string; slug: string; iconKey: string; theme: AppTheme; cat
   { name: 'SVG to JPG', slug: 'svg-to-jpg', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'SVG to WebP', slug: 'svg-to-webp', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'MP4 to MP3', slug: 'mp4-to-mp3', iconKey: 'Music', theme: 'violet', category: 'Audio' },
+  { name: 'SIP Calculator', slug: 'sip-calculator', iconKey: 'TrendingUp', theme: 'blue', category: 'Finance' },
+  { name: 'Compound Interest', slug: 'compound-interest-calculator', iconKey: 'Calculator', theme: 'emerald', category: 'Finance' },
+  { name: 'FD Calculator', slug: 'fd-calculator', iconKey: 'Landmark', theme: 'purple', category: 'Finance' },
+  { name: 'Mutual Fund', slug: 'mutual-fund-calculator', iconKey: 'BarChart3', theme: 'cyan', category: 'Finance' },
+  { name: 'PPF Calculator', slug: 'ppf-calculator', iconKey: 'ShieldCheck', theme: 'indigo', category: 'Finance' },
+  { name: 'RD Calculator', slug: 'rd-calculator', iconKey: 'Repeat', theme: 'orange', category: 'Finance' },
+  { name: 'Loan Calculator', slug: 'loan-calculator', iconKey: 'Wallet', theme: 'emerald', category: 'Finance' },
+  { name: 'Discount Calculator', slug: 'discount-calculator', iconKey: 'Tag', theme: 'rose', category: 'Finance' },
+  { name: 'Margin Calculator', slug: 'margin-calculator', iconKey: 'Percent', theme: 'blue', category: 'Finance' },
+  { name: 'Sales Tax', slug: 'sales-tax-calculator', iconKey: 'Receipt', theme: 'orange', category: 'Finance' },
+  { name: 'Standard Calculator', slug: 'standard-calculator', iconKey: 'Calculator', theme: 'blue', category: 'Math' },
+  { name: 'Scientific Calc', slug: 'scientific-calculator', iconKey: 'Divide', theme: 'indigo', category: 'Math' },
+  { name: 'Differentiation', slug: 'differentiation-calculator', iconKey: 'Variable', theme: 'purple', category: 'Math' },
+  { name: 'Integration Tool', slug: 'integration-calculator', iconKey: 'Sigma', theme: 'emerald', category: 'Math' },
+  { name: 'Equation Solver', slug: 'equation-solver', iconKey: 'X', theme: 'rose', category: 'Math' },
+  { name: 'Quadratic Solver', slug: 'quadratic-solver', iconKey: 'ChevronRight', theme: 'orange', category: 'Math' },
+  { name: 'Matrix Calc', slug: 'matrix-calculator', iconKey: 'Grid', theme: 'cyan', category: 'Math' },
+  { name: 'Statistics Calc', slug: 'statistics-calculator', iconKey: 'BarChart3', theme: 'blue', category: 'Math' },
+  { name: 'GCD & LCM', slug: 'gcd-lcm-calculator', iconKey: 'Minimize2', theme: 'green', category: 'Math' },
+  { name: 'Percentage Calc', slug: 'percentage-calculator', iconKey: 'Percent', theme: 'pink', category: 'Math' },
+  { name: 'Fraction Calc', slug: 'fraction-calculator', iconKey: 'Divide', theme: 'orange', category: 'Math' },
+  { name: 'Logarithm Tool', slug: 'logarithm-calculator', iconKey: 'Binary', theme: 'orange', category: 'Math' },
+  { name: 'Unit Converter', slug: 'unit-converter', iconKey: 'Ruler', theme: 'blue', category: 'Utility' },
+  { name: 'BMI Calculator', slug: 'bmi-calculator', iconKey: 'Activity', theme: 'rose', category: 'Utility' },
+  { name: 'Age Calculator', slug: 'age-calculator', iconKey: 'Calendar', theme: 'emerald', category: 'Utility' },
+  { name: 'Binary Converter', slug: 'binary-converter', iconKey: 'Cpu', theme: 'indigo', category: 'Utility' },
+  { name: 'Random Generator', slug: 'random-generator', iconKey: 'Shuffle', theme: 'purple', category: 'Utility' },
+  { name: 'Roman Numerals', slug: 'roman-numerals', iconKey: 'Hash', theme: 'orange', category: 'Utility' },
   { name: 'QR Code Generator', slug: 'qr-code-generator', iconKey: 'QrCode', theme: 'emerald', category: 'Utility' },
-  { name: 'Image Color Palette', slug: 'image-color-palette-generator', iconKey: 'Palette', theme: 'emerald', category: 'Utility' },
+  { name: 'Color Palette', slug: 'image-color-palette-generator', iconKey: 'Palette', theme: 'emerald', category: 'Utility' },
 ];
 
 /* ─────────────────────────────────────────────────────────
@@ -73,6 +101,13 @@ const heroGridCards = [
   { label: 'Split PDF', category: 'PDF', theme: 'orange' as AppTheme, col: 1, row: 1, rotate: '-1.5deg' },
   { label: 'Word to PDF', category: 'Convert', theme: 'indigo' as AppTheme, col: 3, row: 1, rotate: '1.5deg' },
   { label: 'JPG to PDF', category: 'Image', theme: 'pink' as AppTheme, col: 4, row: 1, rotate: '-2.5deg' },
+
+  // row 2 - bottom row
+  { label: 'SIP Calculator', category: 'Finance', theme: 'blue' as AppTheme, col: 0, row: 2, rotate: '-2deg' },
+  { label: 'Scientific Calc', category: 'Math', theme: 'indigo' as AppTheme, col: 1, row: 2, rotate: '1deg' },
+  { label: 'QR Generator', category: 'Utility', theme: 'emerald' as AppTheme, col: 2, row: 2, rotate: '-1.5deg' },
+  { label: 'Binary Conv', category: 'Utility', theme: 'indigo' as AppTheme, col: 3, row: 2, rotate: '2deg' },
+  { label: 'BMI Calc', category: 'Utility', theme: 'rose' as AppTheme, col: 4, row: 2, rotate: '-1deg' },
 ];
 
 /* Grid geometry constants — now live inside HeroCardGrid.tsx */

@@ -667,6 +667,573 @@ export const TOOL_METADATA = {
         answer: "Currently, you can copy individual color codes. We are working on a feature to download the entire palette as a CSS or JSON file."
       }
     ]
+  },
+  "sip-calculator": {
+    title: "SIP Calculator – Calculate Mutual Fund SIP Returns Online",
+    description: "Calculate your Systematic Investment Plan (SIP) returns with our free online SIP calculator. Estimate future wealth based on monthly investments and expected returns.",
+    keywords: ["sip calculator", "mutual fund calculator", "investment returns calculator", "future wealth calculator", "sip interest calculator"],
+    canonical: "/tools/sip-calculator",
+    toolTitle: "SIP Calculator",
+    toolDescription: "Estimate the potential returns on your Systematic Investment Plans (SIP) instantly.",
+    howItWorksSteps: [
+      { title: "Monthly Investment", desc: "Enter the amount you plan to invest every month in your SIP." },
+      { title: "Set Duration", desc: "Specify the number of years you intend to keep your investment active." },
+      { title: "Expected Return", desc: "Enter the expected annual rate of return (%) for your investment." }
+    ],
+    faqs: [
+      {
+        question: "What is a SIP Calculator?",
+        answer: "A SIP (Systematic Investment Plan) calculator is a simple tool that allows individuals to get an idea of the returns on their mutual fund investments made through SIP."
+      },
+      {
+        question: "How does the SIP calculation work?",
+        answer: "The calculator uses the formula: FV = P × ({[1 + i]^n - 1} / i) × (1 + i), where FV is future value, P is monthly investment, i is periodic rate of interest, and n is number of payments."
+      },
+      {
+        question: "Is this calculator accurate?",
+        answer: "The calculator provides estimates based on your inputs. Actual mutual fund returns may vary based on market performance and fund-specific factors."
+      }
+    ]
+  },
+  "compound-interest-calculator": {
+    title: "Compound Interest Calculator – Calculate Future Value Online",
+    description: "Calculate the future value of your investments with compound interest. Use our free tool to see how your money grows with compounding over time.",
+    keywords: ["compound interest calculator", "future value calculator", "compounding calculator", "investment growth calculator", "interest on interest"],
+    canonical: "/tools/compound-interest-calculator",
+    toolTitle: "Compound Interest Calculator",
+    toolDescription: "Visualize how your investments grow over time with the power of compounding.",
+    howItWorksSteps: [
+      { title: "Initial Investment", desc: "Enter the starting amount or principal of your investment." },
+      { title: "Set Rate & Time", desc: "Specify the annual interest rate and the number of years you'll stay invested." },
+      { title: "Compounding Frequency", desc: "Choose how often interest is added—monthly, quarterly, or yearly." }
+    ],
+    faqs: [
+      {
+        question: "What is compound interest?",
+        answer: "Compound interest is interest calculated on the initial principal, which also includes all of the accumulated interest from previous periods."
+      },
+      {
+        question: "How is it different from simple interest?",
+        answer: "Simple interest is only calculated on the principal amount, while compound interest is calculated on the principal plus the interest that has already been added."
+      }
+    ]
+  },
+  "fd-calculator": {
+    title: "FD Calculator – Calculate Fixed Deposit Returns Online",
+    description: "Calculate your Fixed Deposit (FD) maturity amount and interest earned with our free online calculator. Plan your savings effectively.",
+    keywords: ["fd calculator", "fixed deposit calculator", "fd interest calculator", "maturity amount calculator", "bank fd returns"],
+    canonical: "/tools/fd-calculator",
+    toolTitle: "Fixed Deposit Calculator",
+    toolDescription: "Quickly estimate the maturity value and interest of your bank fixed deposits.",
+    howItWorksSteps: [
+      { title: "Deposit Amount", desc: "Enter the amount you wish to deposit into the fixed deposit scheme." },
+      { title: "Interest Rate", desc: "Enter the annual interest rate offered by the bank or financial institution." },
+      { title: "Tenure", desc: "Specify the duration of the deposit in years or months." }
+    ],
+    faqs: [
+      {
+        question: "What is a Fixed Deposit?",
+        answer: "A Fixed Deposit (FD) is a financial instrument where you invest a sum of money for a fixed tenure at a pre-determined interest rate."
+      },
+      {
+        question: "How is interest calculated on FD?",
+        answer: "Most banks use quarterly compounding for FD interest calculations, though it can vary based on the scheme."
+      }
+    ]
+  },
+  "mutual-fund-calculator": {
+    title: "Mutual Fund Calculator – Estimate Investment Returns",
+    description: "Estimate the growth of your mutual fund investments. Calculate returns for both SIP and Lumpsum investments easily.",
+    keywords: ["mutual fund calculator", "mf returns calculator", "investment estimator", "sip lumpsum calculator", "fund growth"],
+    canonical: "/tools/mutual-fund-calculator",
+    toolTitle: "Mutual Fund Calculator",
+    toolDescription: "Project the potential growth of your mutual fund investments based on historical trends.",
+    howItWorksSteps: [
+      { title: "Investment Type", desc: "Choose between a one-time Lumpsum investment or a recurring SIP." },
+      { title: "Return Rate", desc: "Select an expected annual return percentage based on the fund type." },
+      { title: "Duration", desc: "Enter the number of years you plan to hold your mutual fund units." }
+    ],
+    faqs: [
+      {
+        question: "Why use a mutual fund calculator?",
+        answer: "It helps you set financial goals by showing how much you need to invest to reach a specific target amount."
+      }
+    ]
+  },
+  "ppf-calculator": {
+    title: "PPF Calculator – Plan Public Provident Fund Returns",
+    description: "Calculate your PPF maturity amount and interest with our free tool. Plan your long-term tax-saving investments accurately.",
+    keywords: ["ppf calculator", "public provident fund", "ppf interest calculator", "ppf maturity value", "tax saving investment"],
+    canonical: "/tools/ppf-calculator",
+    toolTitle: "PPF Calculator",
+    toolDescription: "Plan your long-term savings and tax benefits with our Public Provident Fund calculator.",
+    howItWorksSteps: [
+      { title: "Annual Deposit", desc: "Enter the amount you plan to deposit in your PPF account each year." },
+      { title: "Current Interest", desc: "The calculator uses the current government-notified PPF interest rate." },
+      { title: "Maturity Period", desc: "PPF has a mandatory lock-in of 15 years, which can be extended." }
+    ],
+    faqs: [
+      {
+        question: "What is PPF?",
+        answer: "Public Provident Fund (PPF) is a popular long-term savings-cum-tax-saving instrument backed by the Government of India."
+      }
+    ]
+  },
+  "rd-calculator": {
+    title: "RD Calculator – Calculate Recurring Deposit Maturity Online",
+    description: "Calculate the interest and maturity amount for your Recurring Deposits (RD) with our easy-to-use calculator.",
+    keywords: ["rd calculator", "recurring deposit calculator", "rd interest calculator", "rd maturity amount", "monthly savings"],
+    canonical: "/tools/rd-calculator",
+    toolTitle: "RD Calculator",
+    toolDescription: "See how your monthly savings grow in a recurring deposit account.",
+    howItWorksSteps: [
+      { title: "Monthly Deposit", desc: "Enter the fixed amount you will deposit every month." },
+      { title: "Interest Rate", desc: "Enter the annual interest rate provided for the RD account." },
+      { title: "Duration", desc: "Select the total number of months or years for the deposit." }
+    ],
+    faqs: [
+      {
+        question: "How does an RD work?",
+        answer: "In a Recurring Deposit, you invest a fixed amount every month for a specific period and earn interest at a fixed rate."
+      }
+    ]
+  },
+  "standard-calculator": {
+    title: "Standard Calculator – Free Online Basic Math Tool",
+    description: "Perform basic mathematical operations like addition, subtraction, multiplication, and division with our free online calculator. Simple, fast, and private.",
+    keywords: ["standard calculator", "basic calculator", "online calculator", "addition calculator", "subtraction tool"],
+    canonical: "/tools/standard-calculator",
+    toolTitle: "Standard Calculator",
+    toolDescription: "A simple and efficient tool for your everyday mathematical calculations.",
+    howItWorksSteps: [
+      { title: "Enter Numbers", desc: "Use the keypad or your keyboard to enter the numbers for your calculation." },
+      { title: "Select Operation", desc: "Choose the mathematical operation you want to perform (+, -, *, /)." },
+      { title: "Get Result", desc: "The result is displayed instantly as you type or press the equal sign." }
+    ],
+    faqs: [
+      {
+        question: "Is this calculator suitable for complex math?",
+        answer: "This is a standard calculator designed for basic arithmetic. For calculus or logarithms, please use our specialized tools."
+      }
+    ]
+  },
+  "differentiation-calculator": {
+    title: "Differentiation Tool – Calculate Derivatives Online Free",
+    description: "Calculate derivatives of mathematical expressions instantly. Use our free differentiation tool for calculus homework and complex math problems.",
+    keywords: ["differentiation calculator", "derivative calculator", "calculus tool", "calculate derivatives", "math solver"],
+    canonical: "/tools/differentiation-calculator",
+    toolTitle: "Differentiation Tool",
+    toolDescription: "Find the derivative of any mathematical function with step-by-step-like speed.",
+    howItWorksSteps: [
+      { title: "Enter Function", desc: "Input the mathematical expression you want to differentiate (e.g., x^2 + 2x)." },
+      { title: "Variable Selection", desc: "Specify the variable to differentiate with respect to (usually x)." },
+      { title: "Calculate", desc: "Get the resulting derivative expression instantly." }
+    ],
+    faqs: [
+      {
+        question: "Can it handle trigonometric functions?",
+        answer: "Yes, our tool can differentiate various functions including polynomials, trigonometric, exponential, and logarithmic expressions."
+      }
+    ]
+  },
+  "integration-calculator": {
+    title: "Integration Tool – Evaluate Integrals Online Free",
+    description: "Evaluate definite and indefinite integrals of mathematical functions. A fast and secure tool for calculus students and professionals.",
+    keywords: ["integration calculator", "integral calculator", "evaluate integrals", "calculus solver", "math integration tool"],
+    canonical: "/tools/integration-calculator",
+    toolTitle: "Integration Tool",
+    toolDescription: "Solve complex integration problems quickly in your browser.",
+    howItWorksSteps: [
+      { title: "Enter Function", desc: "Input the function you want to integrate (e.g., 2x + 5)." },
+      { title: "Integral Type", desc: "Choose between indefinite or definite integration (with limits)." },
+      { title: "Result", desc: "View the integrated result, including the constant of integration for indefinite integrals." }
+    ],
+    faqs: [
+      {
+        question: "Does it support double or triple integrals?",
+        answer: "Currently, the tool supports single variable integration. We are working on adding multi-variable support in the future."
+      }
+    ]
+  },
+  "logarithm-calculator": {
+    title: "Logarithm Tool – Calculate Logs for Any Base Online",
+    description: "Calculate logarithms for any base easily. Our free tool supports natural logs (ln), common logs (log10), and custom base logarithms.",
+    keywords: ["logarithm calculator", "log tool", "calculate logs", "natural log calculator", "log base calculator"],
+    canonical: "/tools/logarithm-calculator",
+    toolTitle: "Logarithm Tool",
+    toolDescription: "Find the logarithm of any number with any base instantly.",
+    howItWorksSteps: [
+      { title: "Enter Number", desc: "Input the number you want to find the logarithm of." },
+      { title: "Set Base", desc: "Specify the base of the logarithm (e.g., 10, e, or a custom number)." },
+      { title: "Get Log", desc: "The calculated logarithm value is displayed instantly." }
+    ],
+    faqs: [
+      {
+        question: "What bases are supported?",
+        answer: "You can calculate logarithms for any positive base except 1. Common bases like 10 (log) and e (ln) are pre-filled as options."
+      }
+    ]
+  },
+  "scientific-calculator": {
+    title: "Scientific Calculator – Free Online Advanced Math Tool",
+    description: "Perform advanced mathematical operations including trigonometry, logarithms, and exponents with our free scientific calculator.",
+    keywords: ["scientific calculator", "advanced calculator", "trigonometry tool", "online math calculator"],
+    canonical: "/tools/scientific-calculator",
+    toolTitle: "Scientific Calculator",
+    toolDescription: "A powerful tool for complex mathematical and scientific calculations.",
+    howItWorksSteps: [
+      { title: "Enter Expression", desc: "Type your mathematical expression using functions like sin, cos, tan, log, etc." },
+      { title: "Choose Format", desc: "Select between Radian and Degree modes for trigonometric calculations." },
+      { title: "Solve", desc: "Get highly accurate results for your advanced calculations instantly." }
+    ],
+    faqs: [
+      {
+        question: "Does it support radians and degrees?",
+        answer: "Yes, you can easily toggle between radian and degree modes for all trigonometric functions."
+      }
+    ]
+  },
+  "percentage-calculator": {
+    title: "Percentage Calculator – Calculate Percentages & Discounts",
+    description: "Easily calculate percentages, discount amounts, interest increases, and decreases with our free online tool.",
+    keywords: ["percentage calculator", "calculate percent", "discount calculator", "increase decrease calculator"],
+    canonical: "/tools/percentage-calculator",
+    toolTitle: "Percentage Calculator",
+    toolDescription: "Quickly solve percentage-based problems like discounts, markups, and differences.",
+    howItWorksSteps: [
+      { title: "Choose Type", desc: "Select the type of percentage problem you want to solve (e.g., 'X is what % of Y')." },
+      { title: "Input Values", desc: "Enter the numbers relevant to your specific percentage calculation." },
+      { title: "Instant Result", desc: "View the calculated percentage or final amount immediately." }
+    ],
+    faqs: [
+      {
+        question: "Can I use this for sales tax calculations?",
+        answer: "Absolutely. You can use the 'Percentage Increase' option to quickly calculate final prices including tax."
+      }
+    ]
+  },
+  "fraction-calculator": {
+    title: "Fraction Calculator – Add, Subtract & Simplify Fractions",
+    description: "Perform arithmetic operations on fractions and simplify them to the lowest terms. Supports mixed and improper fractions.",
+    keywords: ["fraction calculator", "simplify fractions", "add fractions online", "mixed fractions tool"],
+    canonical: "/tools/fraction-calculator",
+    toolTitle: "Fraction Calculator",
+    toolDescription: "Add, subtract, multiply, and divide fractions easily with simplification.",
+    howItWorksSteps: [
+      { title: "Enter Fractions", desc: "Input your two fractions (e.g., 1/2 and 3/4) into the fields." },
+      { title: "Select Operation", desc: "Choose whether to add, subtract, multiply, or divide the fractions." },
+      { title: "Simplify", desc: "The tool automatically simplifies the resulting fraction to its lowest terms." }
+    ],
+    faqs: [
+      {
+        question: "Does it handle mixed numbers?",
+        answer: "Yes, you can input mixed numbers, and the calculator will convert them as needed to find the result."
+      }
+    ]
+  },
+  "equation-solver": {
+    title: "Equation Solver – Solve Linear & Algebraic Equations Online",
+    description: "Find the value of variables in linear and simple algebraic equations instantly with our free equation solver.",
+    keywords: ["equation solver", "solve for x", "algebra solver", "linear equation tool"],
+    canonical: "/tools/equation-solver",
+    toolTitle: "Equation Solver",
+    toolDescription: "Solve mathematical equations and find the value of unknown variables.",
+    howItWorksSteps: [
+      { title: "Input Equation", desc: "Type your equation into the solver (e.g., 2x + 5 = 15)." },
+      { title: "Solve", desc: "The engine solves the equation step-by-step or provides the final variable values." },
+      { title: "Get Answer", desc: "Review the roots or solutions found for your algebraic expression." }
+    ],
+    faqs: [
+      {
+        question: "What types of equations can it solve?",
+        answer: "Currently, we focus on linear equations and basic algebraic expressions. For quadratic equations, we recommend using our specialized Quadratic Solver."
+      }
+    ]
+  },
+  "quadratic-solver": {
+    title: "Quadratic Equation Solver – Find Roots & Discriminants",
+    description: "Solve quadratic equations of the form ax² + bx + c = 0. Find real and complex roots, vertex, and disciminant instantly.",
+    keywords: ["quadratic solver", "quadratic formula calculator", "roots of equation", "solve ax2+bx+c"],
+    canonical: "/tools/quadratic-solver",
+    toolTitle: "Quadratic Equation Solver",
+    toolDescription: "Easily find solutions for quadratic equations and visualize their properties.",
+    howItWorksSteps: [
+      { title: "Enter Coefficients", desc: "Input the 'a', 'b', and 'c' values of your quadratic equation." },
+      { title: "Calculate", desc: "Our engine uses the quadratic formula to find the roots and vertex." },
+      { title: "Review Roots", desc: "See both real and complex roots, along with the step-by-step discriminant calculation." }
+    ],
+    faqs: [
+      {
+        question: "Does it handle complex roots?",
+        answer: "Yes. If the discriminant is negative, the solver will provide the complex solutions in 'a + bi' format."
+      }
+    ]
+  },
+  "matrix-calculator": {
+    title: "Matrix Calculator – Determinants, Inverses & Operations",
+    description: "Perform matrix calculations including addition, multiplication, determinants, and inverses for square and rectangular matrices.",
+    keywords: ["matrix calculator", "matrix determinant", "matrix inverse", "linear algebra tool"],
+    canonical: "/tools/matrix-calculator",
+    toolTitle: "Matrix Calculator",
+    toolDescription: "A comprehensive tool for performing matrix algebra operations.",
+    howItWorksSteps: [
+      { title: "Define Dimensions", desc: "Choose the number of rows and columns for your matrices." },
+      { title: "Input Data", desc: "Fill in the elements of the matrices for the calculation." },
+      { title: "Select Operation", desc: "Choose to add, multiply, or find the determinant/inverse." }
+    ],
+    faqs: [
+      {
+        question: "What size matrices are supported?",
+        answer: "While there's no hard limit, the interface is optimized for matrices up to 5x5 for clarity."
+      }
+    ]
+  },
+  "statistics-calculator": {
+    title: "Statistics Calculator – Mean, Median, Mode & Std Dev",
+    description: "Analyze datasets with our free statistics tool. Calculate mean, median, mode, variance, and standard deviation instantly.",
+    keywords: ["statistics calculator", "mean median mode", "standard deviation tool", "stdev calculator"],
+    canonical: "/tools/statistics-calculator",
+    toolTitle: "Statistics Calculator",
+    toolDescription: "Simplify data analysis with our comprehensive statistical calculator.",
+    howItWorksSteps: [
+      { title: "Input Dataset", desc: "Enter your numbers separated by commas or new lines." },
+      { title: "Analyze", desc: "The tool automatically calculates all key descriptive statistics." },
+      { title: "Review Results", desc: "See the dispersion, central tendency, and variance of your data." }
+    ],
+    faqs: [
+      {
+        question: "Does it calculate sample or population standard deviation?",
+        answer: "Our tool provides both sample and population calculations to suit your specific statistical needs."
+      }
+    ]
+  },
+  "gcd-lcm-calculator": {
+    title: "GCD & LCM Calculator – Find Factors & Multiples Online",
+    description: "Calculate the Greatest Common Divisor (GCD) and Least Common Multiple (LCM) for multiple numbers instantly.",
+    keywords: ["gcd calculator", "lcm calculator", "greatest common divisor", "least common multiple"],
+    canonical: "/tools/gcd-lcm-calculator",
+    toolTitle: "GCD & LCM Calculator",
+    toolDescription: "Quickly find the common factors and multiples behind your numbers.",
+    howItWorksSteps: [
+      { title: "Enter Numbers", desc: "Provide two or more numbers separated by commas." },
+      { title: "Calculate", desc: "Our engine finds the highest common factor and lowest common multiple." },
+      { title: "View Results", desc: "The GCD and LCM are displayed instantly for your review." }
+    ],
+    faqs: [
+      {
+        question: "Can I find GCD for more than two numbers?",
+        answer: "Yes, you can input a list of multiple numbers to find their collective GCD and LCM."
+      }
+    ]
+  },
+  "unit-converter": {
+    title: "Unit Converter – Length, Weight, Temp & More Online",
+    description: "Convert between various units of measurement including length, mass, temperature, and area with our free online tool.",
+    keywords: ["unit converter", "metric to imperial", "convert units online", "length weight converter"],
+    canonical: "/tools/unit-converter",
+    toolTitle: "Unit Converter",
+    toolDescription: "Easily switch between different systems of measurement for any value.",
+    howItWorksSteps: [
+      { title: "Select Category", desc: "Choose the type of measurement (e.g., Length, Mass, Volume)." },
+      { title: "Set Units", desc: "Choose the 'from' and 'to' units for your conversion." },
+      { title: "Enter Value", desc: "Type the amount you want to convert to see the result instantly." }
+    ],
+    faqs: [
+      {
+        question: "Which units are supported?",
+        answer: "We support over 50+ units across categories like length, mass, temperature, volume, area, and speed."
+      }
+    ]
+  },
+  "bmi-calculator": {
+    title: "BMI Calculator – Calculate Body Mass Index Free",
+    description: "Check your Body Mass Index (BMI) and health category based on height and weight. Fast and private health tool.",
+    keywords: ["bmi calculator", "body mass index", "health calculator", "weight category tool"],
+    canonical: "/tools/bmi-calculator",
+    toolTitle: "BMI Calculator",
+    toolDescription: "Determine your BMI and understand your health classification.",
+    howItWorksSteps: [
+      { title: "Enter Height", desc: "Provide your height in centimeters or feet/inches." },
+      { title: "Enter Weight", desc: "Provide your weight in kilograms or pounds." },
+      { title: "Get BMI", desc: "See your calculated BMI score and health category (e.g., Normal, Overweight)." }
+    ],
+    faqs: [
+      {
+        question: "Is BMI an accurate measure of health?",
+        answer: "BMI is a useful general screening tool but doesn't account for muscle mass vs. fat composition. Consult a professional for a detailed health analysis."
+      }
+    ]
+  },
+  "age-calculator": {
+    title: "Age Calculator – Find Age in Years, Months & Days",
+    description: "Calculate your exact age using your date of birth. See how many years, months, and days you have been alive.",
+    keywords: ["age calculator", "calculate age from dob", "how old am i", "dob tool"],
+    canonical: "/tools/age-calculator",
+    toolTitle: "Age Calculator",
+    toolDescription: "Determine exact age and time elapsed between any two dates.",
+    howItWorksSteps: [
+      { title: "Select Birth Date", desc: "Choose your date of birth from the calendar picker." },
+      { title: "Compare Date", desc: "Set the comparison date (typically 'Today' by default)." },
+      { title: "Result", desc: "See your age broken down into years, months, days, and even minutes." }
+    ],
+    faqs: [
+      {
+        question: "Can I calculate time between two historical dates?",
+        answer: "Yes, you can change both the 'Start' and 'End' dates to calculate the duration between any two points in time."
+      }
+    ]
+  },
+  "binary-converter": {
+    title: "Binary Converter – Decimal, Hex & Octal Tool Online",
+    description: "Convert numbers between binary, decimal, hexadecimal, and octal systems instantly. Perfect for programmers and students.",
+    keywords: ["binary converter", "hex to decimal", "binary to hex", "number system tool"],
+    canonical: "/tools/binary-converter",
+    toolTitle: "Binary Converter",
+    toolDescription: "Easily translate values between different base number systems.",
+    howItWorksSteps: [
+      { title: "Choose Input Base", desc: "Select if you are entering a Decimal, Binary, or Hexadecimal value." },
+      { title: "Enter Value", desc: "Type the number you wish to convert." },
+      { title: "See All Outputs", desc: "The tool shows the value translated to all other major number systems simultaneously." }
+    ],
+    faqs: [
+      {
+        question: "What is the maximum number I can convert?",
+        answer: "The tool handles standard 64-bit integer ranges, which covers almost all common computing needs."
+      }
+    ]
+  },
+  "random-generator": {
+    title: "Random Number Generator – Sequence & List Picker",
+    description: "Generate truly random numbers or pick from custom lists. Secure, private, and customizable randomizer tool.",
+    keywords: ["random number generator", "list randomizer", "pick one tool", "random sequence creator"],
+    canonical: "/tools/random-generator",
+    toolTitle: "Random Number Generator",
+    toolDescription: "Generate random values for games, research, or decision-making.",
+    howItWorksSteps: [
+      { title: "Set Range", desc: "Define the minimum and maximum numbers for your random generation." },
+      { title: "Choose Quantity", desc: "Decide how many random numbers you need to generate at once." },
+      { title: "Roll", desc: "Click the generate button to get your unique set of random values." }
+    ],
+    faqs: [
+      {
+        question: "Is this cryptographically secure?",
+        answer: "We use standard browser-based PRNGs which are suitable for general use, games, and basic research, but not recommended for high-stakes cryptography."
+      }
+    ]
+  },
+  "roman-numerals": {
+    title: "Roman Numeral Converter – Roman to Arabic & Arabic to Roman",
+    description: "Convert standard numbers into Roman numerals and vice versa. Support for large numbers with proper formatting.",
+    keywords: ["roman numeral converter", "arabic to roman", "convert numbers to roman", "roman to decimal"],
+    canonical: "/tools/roman-numerals",
+    toolTitle: "Roman Numeral Converter",
+    toolDescription: "Translate between modern number systems and ancient Roman numerals.",
+    howItWorksSteps: [
+      { title: "Enter Input", desc: "Type either a standard number (Arabic) or a Roman numeral string (e.g., MC)." },
+      { title: "Auto-Convert", desc: "The tool identifies the input type and provides the translation instantly." },
+      { title: "Validate", desc: "Ensure your Roman numerals are correctly formatted according to standard rules." }
+    ],
+    faqs: [
+      {
+        question: "Up to what number does this converter work?",
+        answer: "We support standard Roman numeral conventions up to 3,999 (MMMCMXCIX)."
+      }
+    ]
+  },
+  "scientific-calculator": {
+    title: "Scientific Calculator – Advanced Math Tool Online",
+    description: "Perform advanced mathematical operations including trigonometry, logarithms, and powers with our free online scientific calculator.",
+    keywords: ["scientific calculator", "advanced calculator", "trigonometry calculator", "math tool online"],
+    canonical: "/tools/scientific-calculator",
+    toolTitle: "Scientific Calculator",
+    toolDescription: "A powerful calculator for complex scientific and engineering problems.",
+    howItWorksSteps: [
+      { title: "Enter Expression", desc: "Type your mathematical expression using functions like sin, cos, and log." },
+      { title: "Calculate", desc: "Click equal to see the result. Supports complex nesting and parentheses." },
+      { title: "Review", desc: "View the history and precise results of your calculations." }
+    ],
+    faqs: [
+      {
+        question: "Does it support degrees and radians?",
+        answer: "Yes, you can toggle between degrees and radians for trigonometric functions."
+      }
+    ]
+  },
+  "loan-calculator": {
+    title: "Loan Calculator – Estimate Monthly EMIs & Interest",
+    description: "Calculate your monthly loan EMIs, total interest, and final repayment amount. Accurate and easy to use.",
+    keywords: ["loan calculator", "emi calculator", "mortgage calculator", "interest estimator"],
+    canonical: "/tools/loan-calculator",
+    toolTitle: "Loan Calculator",
+    toolDescription: "Plan your finances with accurate monthly installment estimates.",
+    howItWorksSteps: [
+      { title: "Enter Amount", desc: "Input the total loan principal you plan to borrow." },
+      { title: "Set Rate", desc: "Specify the annual interest rate offered by the lender." },
+      { title: "Choose Tenure", desc: "Select the repayment period in years." }
+    ],
+    faqs: [
+      {
+        question: "Does this include taxes or insurance?",
+        answer: "This calculator focuses on the principal and interest components of your loan repayment."
+      }
+    ]
+  },
+  "discount-calculator": {
+    title: "Discount Calculator – Calculate Savings & Final Price",
+    description: "Quickly find the final price after discounts and see exactly how much you save with our free tool.",
+    keywords: ["discount calculator", "sale price tool", "savings calculator", "percentage off"],
+    canonical: "/tools/discount-calculator",
+    toolTitle: "Discount Calculator",
+    toolDescription: "Instantly see the value of any sale or percentage discount.",
+    howItWorksSteps: [
+      { title: "Original Price", desc: "Enter the base price before any discount is applied." },
+      { title: "Discount Rate", desc: "Input the percentage off or fixed amount discount." },
+      { title: "Calculate", desc: "See your final price and total savings immediately." }
+    ],
+    faqs: [
+      {
+        question: "Can I use it for tax calculations too?",
+        answer: "Yes, you can treat tax as a 'negative' discount by entering it as a surcharge if needed."
+      }
+    ]
+  },
+  "margin-calculator": {
+    title: "Margin Calculator – Calculate Gross Profit & Markup",
+    description: "Analyze your business profitability by calculating margins, markups, and total profit from cost and revenue data.",
+    keywords: ["margin calculator", "markup calculator", "profit tool", "business calculator"],
+    canonical: "/tools/margin-calculator",
+    toolTitle: "Margin Calculator",
+    toolDescription: "Determine the profitability of your products with precision.",
+    howItWorksSteps: [
+      { title: "Enter Cost", desc: "Input the total cost spent on producing or acquiring the item." },
+      { title: "Enter Revenue", desc: "Input the selling price or total revenue generated." },
+      { title: "See Results", desc: "View the gross margin and markup percentages instantly." }
+    ],
+    faqs: [
+      {
+        question: "What is the difference between margin and markup?",
+        answer: "Margin is the percentage of revenue that is profit, while markup is the percentage profit added to the cost."
+      }
+    ]
+  },
+  "sales-tax-calculator": {
+    title: "Sales Tax Calculator – Add or Remove Sales Tax Online",
+    description: "Calculate sales tax for any net amount. Add tax to find the gross total or remove it to find the base price.",
+    keywords: ["sales tax calculator", "vat calculator", "gst calculator", "tax tool"],
+    canonical: "/tools/sales-tax-calculator",
+    toolTitle: "Sales Tax Calculator",
+    toolDescription: "Easily handle tax calculations for any transaction.",
+    howItWorksSteps: [
+      { title: "Net Amount", desc: "Enter the amount before tax is applied." },
+      { title: "Tax Rate", desc: "Specify the applicable sales tax percentage." },
+      { title: "Get Total", desc: "See the tax amount and total gross price instantly." }
+    ],
+    faqs: [
+      {
+        question: "Does it work for GST and VAT?",
+        answer: "Yes, you can use any tax rate percentage to calculate VAT, GST, or local sales tax."
+      }
+    ]
   }
 };
 

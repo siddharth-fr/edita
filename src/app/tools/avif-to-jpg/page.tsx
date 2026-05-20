@@ -4,7 +4,7 @@ import { constructMetadata } from "@/lib/metadata";
 import { TOOL_METADATA } from "@/config/seo";
 
 const ImageConverter = dynamic(() => import('@/components/tools/ImageConverter').then(mod => mod.ImageConverter), {
-  loading: () => <div className="h-[400px] w-full animate-pulse bg-muted rounded-3xl" />
+  loading: () => <div className="h-100 w-full animate-pulse bg-muted rounded-3xl" />
 });
 
 import { ToolFooter } from '@/components/ui/ToolFooter';
