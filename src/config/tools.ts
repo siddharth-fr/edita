@@ -56,9 +56,11 @@ export const TOOLS: Tool[] = [
   { name: 'Random Number Generator', slug: 'random-generator', iconKey: 'Shuffle', theme: 'purple', category: 'Utility' },
   { name: 'Roman Numeral Converter', slug: 'roman-numerals', iconKey: 'Hash', theme: 'orange', category: 'Utility' },
   { name: 'QR Code Generator', slug: 'qr-code-generator', iconKey: 'QrCode', theme: 'emerald', category: 'Utility' },
+  { name: 'PDF Viewer', slug: 'pdf-viewer', iconKey: 'FileText', theme: 'emerald', category: 'PDF' },
   { name: 'Image Color Palette', slug: 'image-color-palette-generator', iconKey: 'Palette', theme: 'emerald', category: 'Utility' },
   { name: 'Loan Calculator', slug: 'loan-calculator', iconKey: 'Wallet', theme: 'emerald', category: 'Finance' },
   { name: 'Discount Calculator', slug: 'discount-calculator', iconKey: 'Tag', theme: 'rose', category: 'Finance' },
   { name: 'Margin Calculator', slug: 'margin-calculator', iconKey: 'Percent', theme: 'blue', category: 'Finance' },
   { name: 'Sales Tax Calculator', slug: 'sales-tax-calculator', iconKey: 'Receipt', theme: 'orange', category: 'Finance' },
+  { name: 'Online Compiler', slug: 'online-compiler', iconKey: 'Code', theme: 'emerald', category: 'Utility' },
 ];

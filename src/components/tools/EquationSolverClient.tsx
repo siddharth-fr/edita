@@ -14,6 +14,7 @@ export function EquationSolverClient() {
         try {
             // Check if it's an equality or expression
             const eqToSolve = equation.includes('=') ? equation : `${equation}=0`;
+            // @ts-ignore
             const solutions = nerdamer.solve(eqToSolve, variable);
             return {
                 solutions: solutions.toString().replace(/[\[\]]/g, '').split(','),
@@ -70,7 +71,7 @@ export function EquationSolverClient() {
                                     {result && 'error' in result ? result.error : ''}
                                 </div>
                             ) : result?.solutions ? (
-                                result.solutions.map((sol, i) => (
+                                result.solutions.map((sol: string, i: number) => (
                                     <div key={i} className="p-6 bg-white border border-rose-500/20 rounded-2xl shadow-sm">
                                         <div className="text-2xl font-black text-foreground">{sol.trim()}</div>
                                     </div>

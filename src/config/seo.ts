@@ -1140,25 +1140,6 @@ export const TOOL_METADATA = {
       }
     ]
   },
-  "scientific-calculator": {
-    title: "Scientific Calculator – Advanced Math Tool Online",
-    description: "Perform advanced mathematical operations including trigonometry, logarithms, and powers with our free online scientific calculator.",
-    keywords: ["scientific calculator", "advanced calculator", "trigonometry calculator", "math tool online"],
-    canonical: "/tools/scientific-calculator",
-    toolTitle: "Scientific Calculator",
-    toolDescription: "A powerful calculator for complex scientific and engineering problems.",
-    howItWorksSteps: [
-      { title: "Enter Expression", desc: "Type your mathematical expression using functions like sin, cos, and log." },
-      { title: "Calculate", desc: "Click equal to see the result. Supports complex nesting and parentheses." },
-      { title: "Review", desc: "View the history and precise results of your calculations." }
-    ],
-    faqs: [
-      {
-        question: "Does it support degrees and radians?",
-        answer: "Yes, you can toggle between degrees and radians for trigonometric functions."
-      }
-    ]
-  },
   "loan-calculator": {
     title: "Loan Calculator – Estimate Monthly EMIs & Interest",
     description: "Calculate your monthly loan EMIs, total interest, and final repayment amount. Accurate and easy to use.",
@@ -1232,6 +1213,68 @@ export const TOOL_METADATA = {
       {
         question: "Does it work for GST and VAT?",
         answer: "Yes, you can use any tax rate percentage to calculate VAT, GST, or local sales tax."
+      }
+    ]
+  },
+  "pdf-viewer": {
+    title: "PDF Viewer – Read, Search & Annotate PDFs Online Free",
+    description: "View and annotate PDF files directly in your browser. Fast, private, and 100% free PDF viewer with search, zoom, and text selection. No uploads needed.",
+    keywords: ["pdf viewer", "read pdf online", "pdf reader free", "browser pdf viewer", "annotate pdf", "search pdf", "private pdf reader"],
+    canonical: "/tools/pdf-viewer",
+    toolTitle: "PDF Viewer",
+    toolDescription: "View, search, zoom, and annotate PDF files instantly in your browser. Completely free and private.",
+    howItWorksSteps: [
+      { title: "Upload PDF", desc: "Drag and drop your PDF file or click to browse. Files are cached locally for quick access." },
+      { title: "Browse & Search", desc: "Scroll through pages, use the search bar to find text, zoom in and out, or switch view modes." },
+      { title: "Annotate & Download", desc: "Highlight, underline, or draw on your PDF. Download the modified version with your annotations." }
+    ],
+    faqs: [
+      {
+        question: "Is it safe to view sensitive PDFs here?",
+        answer: "Absolutely. Your PDF is processed entirely in your browser — it never leaves your device. The file is stored locally in memory and cached via IndexedDB for convenience."
+      },
+      {
+        question: "Can I search for text within a PDF?",
+        answer: "Yes. The PDF viewer includes a full-text search bar that highlights all matches on the document, with navigation between results."
+      },
+      {
+        question: "How do I annotate or highlight a PDF?",
+        answer: "Use the annotation sidebar to select tools like Highlight, Underline, Strikethrough, Pen, or shapes. Your annotations are rendered on top of the PDF."
+      },
+      {
+        question: "Can I download the PDF after viewing?",
+        answer: "Yes, you can download the original PDF or, after using editing features, download the modified version with changes applied."
+      },
+      {
+        question: "Does the PDF stay in cache after I close it?",
+        answer: "Yes, uploaded PDFs are stored in your browser's IndexedDB cache so you can reopen them quickly from the recent files list without re-uploading."
+      }
+    ]
+  },
+  "online-compiler": {
+    title: "Online Compiler - Free Browser-based IDE | Edita",
+    description: "Write, run, and test C, C++, Java, and Python code directly in your browser. A fast, private, and modern online compiler with a clean IDE interface.",
+    keywords: ["online compiler", "browser ide", "python compiler", "c++ compiler", "java compiler", "free online ide"],
+    canonical: "/tools/online-compiler",
+    toolTitle: "Online Compiler",
+    toolDescription: "Write, run, and test your code instantly in a modern, fully-featured browser IDE.",
+    howItWorksSteps: [
+      { title: "Select Language", desc: "Choose from C, C++, Java, or Python using the sidebar." },
+      { title: "Write Code", desc: "Use the advanced editor with syntax highlighting, autocomplete, and error checking." },
+      { title: "Run & Test", desc: "Execute your code instantly and view the output or errors in the built-in console." }
+    ],
+    faqs: [
+      {
+        question: "Which programming languages are supported?",
+        answer: "Currently, our online compiler supports C, C++, Java, and Python. We plan to add more languages in the future."
+      },
+      {
+        question: "Where does my code run?",
+        answer: "Your code runs on a secure sandbox execution engine, meaning you don't need to install any compilers or interpreters locally on your device."
+      },
+      {
+        question: "Can I save my code files?",
+        answer: "Yes, you can download your active file directly to your device by clicking the download icon in the file explorer."
       }
     ]
   }
