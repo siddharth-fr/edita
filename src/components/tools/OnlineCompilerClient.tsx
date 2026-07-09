@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Editor from '@monaco-editor/react';
-import { Play, Loader2, FileCode } from 'lucide-react';
+import { Play, Loader2, FileCode, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 const LANGUAGES = {
@@ -51,8 +51,12 @@ export function OnlineCompilerClient() {
     python: LANGUAGES.python.defaultCode,
   });
   
-  const [output, setOutput] = useState<string>('');
-  const [stdin, setStdin] = useState<string>('');
+  const [terminalContent, setTerminalContent] = useState<string>('');
+  const [lastInput, setLastInput] = useState<string>('');
+  const [lastOutput, setLastOutput] = useState<string>('');
+  const [isModified, setIsModified] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [hasRun, setHasRun] = useState<boolean>(false);
   const [isRunning, setIsRunning] = useState(false);
 
   const handleCodeChange = (value: string | undefined) => {
@@ -66,7 +70,24 @@ export function OnlineCompilerClient() {
   const executeCode = async () => {
     if (isRunning) return;
     setIsRunning(true);
-    setOutput('Compiling and running...');
+    setHasRun(false);
+    
+    // Smart Input Parsing:
+    // If they haven't touched the terminal, reuse their last input.
+    // If they appended text to the output, extract only the newly appended text as the new input!
+    // If they completely deleted/changed it, use the whole new text as input.
+    let currentInput = terminalContent;
+    if (!isModified) {
+      currentInput = lastInput;
+    } else {
+      if (lastOutput && terminalContent.startsWith(lastOutput)) {
+        currentInput = terminalContent.substring(lastOutput.length);
+      }
+    }
+    
+    setLastInput(currentInput);
+    
+    setTerminalContent('Compiling and running...');
 
     try {
       const response = await fetch('https://wandbox.org/api/compile.json', {
@@ -75,80 +96,91 @@ export function OnlineCompilerClient() {
         body: JSON.stringify({
           compiler: LANGUAGES[activeLang].wandboxName,
           code: codes[activeLang],
-          stdin: stdin,
+          stdin: currentInput,
           save: false
         })
       });
 
       const data = await response.json();
+      setHasRun(true);
+      let outputToDisplay = '';
       if (data.status === "0") {
-        setOutput(data.program_output || data.compiler_message || 'Process exited with no output.');
+        outputToDisplay = data.program_output || data.compiler_message || 'Process exited with no output.';
+        setTerminalContent(outputToDisplay);
+        setIsError(false);
       } else {
-        setOutput(data.compiler_error || data.program_error || 'Execution failed.');
+        outputToDisplay = data.compiler_error || data.program_error || 'Execution failed.';
+        setTerminalContent(outputToDisplay);
+        setIsError(true);
       }
+      setLastOutput(outputToDisplay);
+      setIsModified(false); // Reset modified flag
     } catch (err) {
-      setOutput('Failed to execute code. Execution engine might be down.');
+      setHasRun(true);
+      setIsError(true);
+      setTerminalContent('Failed to execute code. Execution engine might be down.');
+      setLastOutput('Failed to execute code. Execution engine might be down.');
+      setIsModified(false);
     } finally {
       setIsRunning(false);
     }
   };
 
   return (
-    <div className="w-full bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden border border-slate-100 flex flex-col">
+    <div className="w-full bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden border border-slate-200 flex flex-col font-sans">
       
-      {/* Top Toolbar */}
-      <div className="px-8 py-5 border-b border-slate-100 flex items-center justify-between">
-        <div className="flex items-center space-x-6">
+      {/* Top Toolbar: Language Selector */}
+      <div className="px-4 py-3 border-b border-slate-200 flex items-center bg-white">
+        <span className="text-sm font-semibold text-slate-700 mr-4">Language:</span>
+        <div className="flex items-center space-x-2">
           {(Object.keys(LANGUAGES) as LanguageKey[]).map((lang) => (
             <button
               key={lang}
               onClick={() => setActiveLang(lang)}
-              className={`relative p-2 rounded-xl transition-all duration-200 flex items-center justify-center ${
+              className={`relative px-3 py-1.5 rounded-md transition-all duration-200 flex items-center gap-2 ${
                 activeLang === lang 
-                  ? 'bg-slate-50 ring-1 ring-slate-200/60 shadow-sm' 
-                  : 'hover:bg-slate-50 opacity-60 hover:opacity-100'
+                  ? 'bg-blue-50 text-blue-700 ring-1 ring-blue-200' 
+                  : 'hover:bg-slate-50 text-slate-600'
               }`}
               title={LANGUAGES[lang].name}
             >
               <img 
                 src={LANGUAGES[lang].logo} 
                 alt={LANGUAGES[lang].name} 
-                className="w-7 h-7 object-contain" 
+                className="w-4 h-4 object-contain" 
               />
+              <span className="text-sm font-medium">{LANGUAGES[lang].name}</span>
             </button>
           ))}
         </div>
-        
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 shadow-sm text-sm font-medium text-slate-700 hover:border-emerald-200 hover:shadow-emerald-500/5 transition-all cursor-default">
-            <span className="mt-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>main{LANGUAGES[activeLang].extension}</span>
-          </div>
-          <Button
-            size="lg"
-            onClick={executeCode}
-            disabled={isRunning}
-            isLoading={isRunning}
-            className="shadow-lg shadow-emerald-500/20 w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98] bg-[#10b981] hover:bg-[#059669] text-white"
-          >
-            {isRunning ? 'Running...' : (
-              <>
-                <Play className="w-4 h-4 mr-2 fill-current" />
-                Run
-              </>
-            )}
-          </Button>
-        </div>
       </div>
 
-      {/* Editor & Output Area */}
-      <div className="flex flex-col lg:flex-row min-h-[500px]">
+      {/* Main Workspace */}
+      <div className="flex flex-col lg:flex-row min-h-[600px] divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
         
-        {/* Left Pane: Codes here */}
-        <div className="flex-1 lg:w-1/2 flex flex-col border-r border-slate-100">
-          <div className="px-8 py-6 pb-2">
-            <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">Code</h2>
+        {/* Left Pane: Editor */}
+        <div className="flex-1 lg:w-1/2 flex flex-col bg-white">
+          {/* Editor Toolbar */}
+          <div className="flex items-center justify-between border-b border-slate-200 bg-[#f8f9fa] h-12">
+            <div className="px-4 h-full flex items-center border-r border-slate-200 bg-white shadow-[0_2px_0_0_#fff]">
+              <span className="text-[14px] font-medium text-slate-600 font-mono">main{LANGUAGES[activeLang].extension}</span>
+            </div>
+            
+            <div className="flex items-center px-2">
+              <Button
+                size="sm"
+                onClick={executeCode}
+                disabled={isRunning}
+                isLoading={isRunning}
+                className="bg-[#0052ff] hover:bg-[#0042cc] text-white rounded font-medium px-6 h-8 text-[14px]"
+              >
+                {isRunning ? 'Running...' : 'Run'}
+              </Button>
+            </div>
           </div>
-          <div className="flex-1 relative pb-4">
+          
+          {/* Editor Content */}
+          <div className="flex-1 relative">
             <Editor
               height="100%"
               language={LANGUAGES[activeLang].monacoLanguage}
@@ -157,10 +189,10 @@ export function OnlineCompilerClient() {
               onChange={handleCodeChange}
               options={{
                 minimap: { enabled: false },
-                fontSize: 15,
+                fontSize: 14,
                 fontFamily: "'JetBrains Mono', 'Fira Code', Consolas, monospace",
-                lineHeight: 1.6,
-                padding: { top: 16, bottom: 16 },
+                lineHeight: 1.5,
+                padding: { top: 12, bottom: 12 },
                 scrollBeyondLastLine: false,
                 smoothScrolling: true,
                 cursorBlinking: "smooth",
@@ -175,34 +207,50 @@ export function OnlineCompilerClient() {
                 lineNumbersMinChars: 3,
                 glyphMargin: false,
                 folding: false,
-                matchBrackets: 'never',
+                matchBrackets: 'always',
+                autoClosingBrackets: 'always',
+                autoClosingQuotes: 'always',
               }}
             />
           </div>
         </div>
 
-        {/* Right Pane: Input & Output */}
-        <div className="flex-1 lg:w-1/2 flex flex-col bg-[#fafafa]/50 divide-y divide-slate-100">
-          <div className="flex-1 flex flex-col min-h-[200px] max-h-[300px]">
-            <div className="px-8 py-6 pb-2">
-              <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">Standard Input</h2>
-            </div>
-            <div className="flex-1 px-8 pb-6">
-              <textarea
-                value={stdin}
-                onChange={(e) => setStdin(e.target.value)}
-                placeholder="Enter input here..."
-                className="w-full h-full bg-white border border-slate-200 rounded-xl p-4 font-mono text-[14px] text-slate-700 resize-none focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
-              />
-            </div>
+        {/* Right Pane: Output */}
+        <div className="flex-1 lg:w-1/2 flex flex-col bg-[#fcfcfc]">
+          {/* Output Toolbar */}
+          <div className="flex items-center justify-between px-4 border-b border-slate-200 bg-white h-12">
+            <h2 className="text-[14px] font-medium text-slate-700">Output</h2>
+            <button 
+              onClick={() => { 
+                setTerminalContent(''); 
+                setHasRun(false); 
+                setIsError(false); 
+                setIsModified(true);
+                setLastInput('');
+                setLastOutput('');
+              }} 
+              className="text-[13px] text-slate-600 hover:text-slate-900 px-3 py-1 border border-slate-200 rounded bg-white transition-colors"
+            >
+              Clear
+            </button>
           </div>
-          <div className="flex-1 flex flex-col min-h-[250px] bg-white/40">
-            <div className="px-8 py-6 pb-2">
-              <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">Output</h2>
-            </div>
-            <div className="flex-1 px-8 pb-8 pt-2 font-mono text-[14px] leading-relaxed text-slate-700 whitespace-pre-wrap overflow-y-auto">
-              {output || <span className="text-slate-400 italic">Output will appear here after execution...</span>}
-            </div>
+          
+          <div className="flex-1 p-4 font-mono text-[14px] flex flex-col overflow-y-auto">
+            <textarea
+              value={terminalContent}
+              onChange={(e) => {
+                setTerminalContent(e.target.value);
+                setIsModified(true);
+              }}
+              placeholder="Output Terminal"
+              className={`w-full flex-1 bg-transparent border-none outline-none resize-none focus:ring-0 p-0 text-[13px] leading-relaxed ${isError && !isModified ? "text-red-600" : "text-slate-800"}`}
+              spellCheck="false"
+            />
+            {hasRun && !isRunning && !isModified && (
+              <div className={`pt-4 mt-2 border-t border-slate-100 ${isError ? 'text-red-500' : 'text-emerald-500'} text-[13px] shrink-0`}>
+                === Code Execution {isError ? 'Failed' : 'Successful'} ===
+              </div>
+            )}
           </div>
         </div>
         

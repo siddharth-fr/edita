@@ -1,6 +1,13 @@
+import dynamic from 'next/dynamic';
+import { ToolLayout } from '@/components/layout/ToolLayout';
 import { constructMetadata } from "@/lib/metadata";
 import { TOOL_METADATA } from "@/config/seo";
-import { OnlineCompilerClient } from "@/components/tools/OnlineCompilerClient";
+import { ToolFooter } from '@/components/ui/ToolFooter';
+import { Code2, Zap } from 'lucide-react';
+
+const OnlineCompilerClient = dynamic(() => import('@/components/tools/OnlineCompilerClient').then(mod => mod.OnlineCompilerClient), {
+  loading: () => <div className="h-[600px] w-full animate-pulse bg-muted rounded-xl" />
+});
 
 const m = TOOL_METADATA["online-compiler"];
 
@@ -13,16 +20,31 @@ export const metadata = constructMetadata({
 
 export default function Page() {
   return (
-    <main className="flex flex-col w-full min-h-[calc(100vh-64px)] mt-16 bg-slate-50 py-12 px-4">
-      <div className="max-w-5xl mx-auto w-full">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-slate-900 mb-4 tracking-tight">
-          Online Compiler
-        </h1>
-        <p className="text-center text-slate-500 mb-12 text-lg">
-          Write, compile, and run your code instantly in your browser.
-        </p>
-        <OnlineCompilerClient />
-      </div>
-    </main>
+    <ToolLayout 
+      toolSlug="online-compiler"
+      canonicalUrl={"/tools/online-compiler"} 
+      title={m.toolTitle || "Online Compiler"} 
+      description={m.toolDescription || "Write, compile, and run your code instantly in your browser."}
+      howItWorksSteps={m.howItWorksSteps}
+      faqItems={m.faqs}
+      footerContent={
+        <ToolFooter 
+          blocks={[
+            {
+              title: "Multiple Languages Supported",
+              description: "Write and run code in popular languages including Python, Java, C, and C++. Perfect for practicing algorithms, testing snippets, or learning a new language.",
+              icon: Code2
+            },
+            {
+              title: "Lightning Fast Execution",
+              description: "Our cloud infrastructure compiles and runs your code instantly. See the output of your programs without having to set up a local development environment.",
+              icon: Zap
+            }
+          ]}
+        />
+      }
+    >
+    <OnlineCompilerClient />
+    </ToolLayout>
   );
 }
