@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+<img src="public/logo-icon.png" width="120" alt="Edita Logo">
 
-First, run the development server:
+# Edita
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Browser-powered productivity tools.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Fast. Private. Modern.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[Website](https://edita.tools) • [Documentation](#getting-started) • [Contributing](#contributing)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![React](https://img.shields.io/badge/React-19-61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-v4-38BDF8)
+![License](https://img.shields.io/github/license/USERNAME/edita)
 
-## Learn More
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## About
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edita is a modern collection of browser-powered productivity tools built with performance, privacy, and simplicity in mind.
 
-## Deploy on Vercel
+Instead of relying on cloud processing whenever possible, Edita performs operations directly in your browser using modern web technologies like WebAssembly. Your files stay on your device, making the experience faster and more private.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Whether you're compressing PDFs, converting images, editing files, or writing code in the built-in online compiler, Edita is designed to be fast, clean, and accessible.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Why Edita?
+
+✨ Privacy-first
+
+Your files remain on your device whenever possible.
+
+⚡ Fast
+
+No unnecessary uploads or waiting for servers.
+
+🌐 Browser Native
+
+Works on any modern browser without installation.
+
+🎨 Beautiful
+
+Minimal UI with carefully designed interactions.
+
+🧩 Modular
+
+Each tool is independent and optimized for its purpose.
+
+---
+
+## Features
+
+### File Tools
+
+- PDF utilities
+- Image conversion
+- Image compression
+- Audio conversion
+- QR Generator
+- Color Palette Generator
+
+### Developer Tools
+
+- Online Compiler
+- Browser IDE
+- Monaco Editor
+- Multiple programming languages
+
+### Coming Soon
+
+- AI Utilities
+- Browser Extension
+- Desktop Application
+- Cloud Sync
+- Mobile App
+
+---
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- WebAssembly (WASM)
+- Monaco Editor
+- FFmpeg.wasm
+- PDF-Lib
+
+---
