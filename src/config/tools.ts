@@ -30,6 +30,7 @@ export const TOOLS: Tool[] = [
   { name: 'SVG to PNG Converter', slug: 'svg-to-png', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'SVG to JPG Converter', slug: 'svg-to-jpg', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
   { name: 'SVG to WebP Converter', slug: 'svg-to-webp', iconKey: 'ImageIcon', theme: 'orange', category: 'Image' },
+  { name: 'Image Converter', slug: 'image-converter', iconKey: 'ImageIcon', theme: 'blue', category: 'Image' },
   { name: 'MP4 to MP3 Converter', slug: 'mp4-to-mp3', iconKey: 'Music', theme: 'violet', category: 'Audio' },
   { name: 'SIP Calculator', slug: 'sip-calculator', iconKey: 'TrendingUp', theme: 'blue', category: 'Finance' },
   { name: 'Compound Interest', slug: 'compound-interest-calculator', iconKey: 'Calculator', theme: 'emerald', category: 'Finance' },
@@ -63,4 +64,5 @@ export const TOOLS: Tool[] = [
   { name: 'Margin Calculator', slug: 'margin-calculator', iconKey: 'Percent', theme: 'blue', category: 'Finance' },
   { name: 'Sales Tax Calculator', slug: 'sales-tax-calculator', iconKey: 'Receipt', theme: 'orange', category: 'Finance' },
   { name: 'Online Compiler', slug: 'online-compiler', iconKey: 'Code', theme: 'emerald', category: 'Utility' },
+  { name: 'JSON Formatter', slug: 'json-formatter', iconKey: 'Braces', theme: 'indigo', category: 'Utility' },
 ];

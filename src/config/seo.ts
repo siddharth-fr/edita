@@ -583,6 +583,60 @@ export const TOOL_METADATA = {
       }
     ]
   },
+  "image-converter": {
+    title: "Image Converter – Convert WebP, AVIF, HEIC, JPG, PNG Free",
+    description: "Convert images between WebP, AVIF, HEIC, JPG, and PNG formats for free. Fast, private, browser-based image converter.",
+    keywords: ["image converter", "convert heic to jpg", "webp to png", "avif to jpg", "heic converter", "free image converter"],
+    canonical: "/tools/image-converter",
+    toolTitle: "Image Converter",
+    toolDescription: "A universal tool to convert your images between WebP, AVIF, HEIC, JPG, and PNG formats.",
+    howItWorksSteps: [
+      { title: "Select Image", desc: "Upload the image you want to convert (supports HEIC, WebP, AVIF, JPG, PNG)." },
+      { title: "Choose Format", desc: "Select your desired output format from the dropdown menu." },
+      { title: "Download", desc: "Download your converted image instantly in high quality." }
+    ],
+    faqs: [
+      {
+        question: "Can I convert iPhone HEIC photos to JPG?",
+        answer: "Yes, you can easily convert your Apple HEIC or HEIF photos to universally compatible JPG or PNG formats directly in your browser."
+      },
+      {
+        question: "Is my image uploaded to a server?",
+        answer: "Never. All conversions happen entirely on your device, ensuring maximum privacy and zero data usage."
+      },
+      {
+        question: "Does converting between these formats lose quality?",
+        answer: "We use high-quality encoding to preserve maximum visual detail, though converting from lossless (PNG) to lossy (JPG) inherently involves some compression."
+      }
+    ]
+  },
+  "json-formatter": {
+    title: "JSON Formatter & Validator – Beautify & Validate JSON Free",
+    description: "Format, beautify, minify, and validate JSON online for free. Instant syntax error detection with a rich code editor. Private, browser-based processing.",
+    keywords: ["json formatter", "json validator", "json beautifier", "json minifier", "format json online", "validate json", "json linter"],
+    canonical: "/tools/json-formatter",
+    toolTitle: "JSON Formatter & Validator",
+    toolDescription: "Paste your JSON to instantly format, minify, or validate it with clear error messages.",
+    howItWorksSteps: [
+      { title: "Paste JSON", desc: "Paste or type your raw JSON into the editor." },
+      { title: "Format or Validate", desc: "Click Format to beautify, Minify to compact, or Validate to check for errors." },
+      { title: "Copy Result", desc: "Copy the processed JSON to your clipboard with one click." }
+    ],
+    faqs: [
+      {
+        question: "What does the JSON formatter do?",
+        answer: "It takes raw or minified JSON and re-indents it with 2-space formatting so it is easy to read and navigate."
+      },
+      {
+        question: "What happens when my JSON is invalid?",
+        answer: "The validator will show you the exact parse error message, including the position of the syntax mistake, so you can fix it quickly."
+      },
+      {
+        question: "Is my JSON data sent to a server?",
+        answer: "Never. All formatting and validation happens entirely in your browser using JavaScript. Your data never leaves your device."
+      }
+    ]
+  },
   "mp4-to-mp3": {
     title: "MP4 to MP3 Converter – Extract Audio from Video Free",
     description: "Convert MP4 videos to MP3 audio online for free. Fast, private audio extraction directly in your browser using FFmpeg WASM.",

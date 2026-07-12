@@ -8,7 +8,7 @@ import { trackToolUsed, trackFileUploaded, trackFileDownloaded, trackConversion 
 import { useToast } from '@/hooks/useToast';
 import { validateFiles } from '@/lib/file-validation';
 
-export type ImageFormat = 'png' | 'jpg' | 'webp' | 'avif' | 'svg';
+export type ImageFormat = 'png' | 'jpg' | 'webp' | 'avif' | 'svg' | 'heic';
 export type OutputFormat = 'png' | 'jpg' | 'webp' | 'avif';
 
 const FORMAT_LABELS: Record<ImageFormat, string> = {
@@ -16,7 +16,8 @@ const FORMAT_LABELS: Record<ImageFormat, string> = {
     jpg: 'JPG',
     webp: 'WebP',
     avif: 'AVIF',
-    svg: 'SVG'
+    svg: 'SVG',
+    heic: 'HEIC'
 };
 
 const MIME_TYPES: Record<string, string> = {
@@ -25,7 +26,9 @@ const MIME_TYPES: Record<string, string> = {
     'image/jpg': 'jpg',
     'image/webp': 'webp',
     'image/avif': 'avif',
-    'image/svg+xml': 'svg'
+    'image/svg+xml': 'svg',
+    'image/heic': 'heic',
+    'image/heif': 'heic'
 };
 
 const OUTPUT_MIME_TYPES: Record<OutputFormat, string> = {
@@ -64,7 +67,7 @@ export function ImageConverter({
         const { valid, rejectedCount } = validateFiles(files, acceptStr);
         
         if (rejectedCount > 0) {
-            error("Invalid File Type", "Please upload a supported image format (PNG, JPG, WebP, AVIF, SVG).");
+            error("Invalid File Type", "Please upload a supported image format (PNG, JPG, WebP, AVIF, SVG, HEIC).");
         }
 
         if (valid.length > 0) {
@@ -109,7 +112,33 @@ export function ImageConverter({
         }
     };
 
-    const processImage = (file: File, targetFormat: OutputFormat): Promise<Blob | null> => {
+    const processImage = async (file: File, targetFormat: OutputFormat): Promise<Blob | null> => {
+        let inputFile = file;
+        
+        if (file.type === 'image/heic' || file.type === 'image/heif' || file.name.toLowerCase().endsWith('.heic') || file.name.toLowerCase().endsWith('.heif')) {
+            try {
+                const heic2any = (await import('heic2any')).default;
+                const convertedBlob = await heic2any({ 
+                    blob: file, 
+                    toType: "image/jpeg",
+                    quality: 0.92
+                });
+                
+                if (targetFormat === 'jpg') {
+                    return Array.isArray(convertedBlob) ? convertedBlob[0] as Blob : convertedBlob as Blob;
+                }
+                
+                inputFile = new File(
+                    [Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob], 
+                    "temp.jpg", 
+                    { type: "image/jpeg" }
+                );
+            } catch (error) {
+                console.error("HEIC conversion error:", error);
+                throw new Error("Failed to decode HEIC image");
+            }
+        }
+
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.onload = (e) => {
@@ -146,7 +175,7 @@ export function ImageConverter({
                 }
             };
             reader.onerror = () => reject(new Error('Failed to read file'));
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(inputFile);
         });
     };
 
