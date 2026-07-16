@@ -65,4 +65,5 @@ export const TOOLS: Tool[] = [
   { name: 'Sales Tax Calculator', slug: 'sales-tax-calculator', iconKey: 'Receipt', theme: 'orange', category: 'Finance' },
   { name: 'Online Compiler', slug: 'online-compiler', iconKey: 'Code', theme: 'emerald', category: 'Utility' },
   { name: 'JSON Formatter', slug: 'json-formatter', iconKey: 'Braces', theme: 'indigo', category: 'Utility' },
+  { name: 'AI Token Visualizer', slug: 'ai-token-visualizer', iconKey: 'Cpu', theme: 'violet', category: 'Utility' },
 ];

@@ -637,6 +637,29 @@ export const TOOL_METADATA = {
       }
     ]
   },
+  "ai-token-visualizer": {
+    title: "AI Token Visualizer - Estimate Tokens for ChatGPT, Claude, Gemini",
+    description: "Visualize and estimate token usage for popular AI models in real-time. Pure logic, no APIs required.",
+    keywords: ["ai token visualizer", "token counter", "chatgpt tokens", "claude tokens", "gemini tokens", "token estimation"],
+    canonical: "/tools/ai-token-visualizer",
+    toolTitle: "AI Token Visualizer",
+    toolDescription: "Estimate token counts and visualize limits for ChatGPT, Claude, and Gemini.",
+    howItWorksSteps: [
+      { title: "Paste Prompt", desc: "Type or paste your prompt into the text area." },
+      { title: "Select Model", desc: "Choose your target AI model to apply the appropriate token estimation logic." },
+      { title: "View Metrics", desc: "Instantly see the estimated token count and context consumption." }
+    ],
+    faqs: [
+      {
+        question: "Does this tool use an API?",
+        answer: "No, this tool uses heuristic mathematical formulas to estimate token counts directly in your browser. No data is sent to any servers."
+      },
+      {
+        question: "How accurate is the token estimation?",
+        answer: "It provides a very close estimate using model-specific character-to-token ratios. It's designed for fast visualization rather than exact billing calculations."
+      }
+    ]
+  },
   "mp4-to-mp3": {
     title: "MP4 to MP3 Converter – Extract Audio from Video Free",
     description: "Convert MP4 videos to MP3 audio online for free. Fast, private audio extraction directly in your browser using FFmpeg WASM.",
