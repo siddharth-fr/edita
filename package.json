@@ -9,9 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@anthropic-ai/tokenizer": "^0.0.4",
     "@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/util": "^0.12.2",
     "@hello-pangea/dnd": "^18.0.1",
+    "@lenml/tokenizer-gemini": "^3.7.2",
     "@monaco-editor/react": "^4.7.0",
     "@types/dompurify": "^3.2.0",
     "@types/katex": "^0.16.8",
@@ -24,6 +26,7 @@
     "docx": "^9.6.1",
     "dompurify": "^3.4.5",
     "fraction.js": "^5.3.4",
+    "gpt-tokenizer": "^3.4.0",
     "heic2any": "^0.0.4",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",

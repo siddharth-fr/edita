@@ -28,6 +28,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['@anthropic-ai/tokenizer', 'tiktoken', '@lenml/tokenizer-gemini'],
   async headers() {
     return [
       {
