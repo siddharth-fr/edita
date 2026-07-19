@@ -66,4 +66,5 @@ export const TOOLS: Tool[] = [
   { name: 'Online Compiler', slug: 'online-compiler', iconKey: 'Code', theme: 'emerald', category: 'Utility' },
   { name: 'JSON Formatter', slug: 'json-formatter', iconKey: 'Braces', theme: 'indigo', category: 'Utility' },
   { name: 'AI Token Visualizer', slug: 'ai-token-visualizer', iconKey: 'Cpu', theme: 'violet', category: 'Utility' },
+  { name: 'Regex Tester', slug: 'regex-tester', iconKey: 'SearchCode', theme: 'violet', category: 'Utility' },
 ];

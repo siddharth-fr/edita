@@ -1354,6 +1354,37 @@ export const TOOL_METADATA = {
         answer: "Yes, you can download your active file directly to your device by clicking the download icon in the file explorer."
       }
     ]
+  },
+  "regex-tester": {
+    title: "Regex Tester – Test & Debug Regular Expressions Online Free",
+    description: "Test, validate, and debug regular expressions in real time. Instantly see matched text, capture groups, and pattern results as you type. Free, private, and browser-based.",
+    keywords: ["regex tester", "regular expression tester", "regex validator online", "debug regex", "test regex online", "capture groups", "regex flags"],
+    canonical: "/tools/regex-tester",
+    toolTitle: "Regex Tester",
+    toolDescription: "Test, validate, and debug regular expressions instantly. See matches, capture groups, and named groups highlighted in real time as you type.",
+    howItWorksSteps: [
+      { title: "Enter a Pattern", desc: "Type your regular expression into the pattern field and set flags like global, case-insensitive, and multiline." },
+      { title: "Paste Your Test String", desc: "Add any text to the test string area. Matches are highlighted live as you type — no submit button needed." },
+      { title: "Inspect Results", desc: "Explore every match, its index, capture groups, and named groups in the collapsible match inspector." }
+    ],
+    faqs: [
+      {
+        question: "Does it support named capture groups?",
+        answer: "Yes. Any named group using the (?<name>...) syntax is automatically detected and displayed separately in the match inspector."
+      },
+      {
+        question: "Which regex flags are supported?",
+        answer: "All standard JavaScript regex flags are supported: g (global), i (case-insensitive), m (multiline), s (dot-all), u (unicode), and y (sticky). You can toggle them with the flag buttons or type them directly."
+      },
+      {
+        question: "Is my data private?",
+        answer: "Absolutely. All regex matching is performed locally in your browser using JavaScript's built-in RegExp engine. Your patterns and test strings never leave your device."
+      },
+      {
+        question: "What are the preset patterns for?",
+        answer: "The presets provide ready-to-use patterns for common use cases like email, URL, IPv4, date, and hex color validation so you can get started instantly without writing a pattern from scratch."
+      }
+    ]
   }
 };
 
