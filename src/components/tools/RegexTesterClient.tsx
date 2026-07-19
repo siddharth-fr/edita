@@ -29,17 +29,17 @@ interface RegexStatus {
 // ─── Highlighted test string ────────────────────────────────────────────────
 
 const HIGHLIGHT_COLORS = [
-  'bg-violet-200 text-violet-900',
   'bg-emerald-200 text-emerald-900',
+  'bg-sky-200 text-sky-900',
   'bg-amber-200 text-amber-900',
   'bg-rose-200 text-rose-900',
-  'bg-sky-200 text-sky-900',
+  'bg-indigo-200 text-indigo-900',
 ];
 
 function HighlightedText({ text, matches }: { text: string; matches: MatchResult[] }) {
   if (!matches.length) {
     return (
-      <span className="font-mono text-sm text-foreground whitespace-pre-wrap break-all leading-relaxed">
+      <span className="font-sans text-sm text-foreground whitespace-pre-wrap break-all leading-relaxed">
         {text}
       </span>
     );
@@ -77,7 +77,7 @@ function HighlightedText({ text, matches }: { text: string; matches: MatchResult
   }
 
   return (
-    <span className="font-mono text-sm text-foreground whitespace-pre-wrap break-all leading-relaxed">
+    <span className="font-sans text-sm text-foreground whitespace-pre-wrap break-all leading-relaxed">
       {parts}
     </span>
   );
@@ -96,10 +96,10 @@ function MatchRow({ match, index }: { match: MatchResult; index: number }) {
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-muted/30 transition-colors"
       >
-        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-[10px] font-bold">
+        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] font-bold">
           {index + 1}
         </span>
-        <span className="flex-1 font-mono text-sm text-foreground truncate">{JSON.stringify(match.fullMatch)}</span>
+        <span className="flex-1 font-sans text-sm text-foreground truncate">{JSON.stringify(match.fullMatch)}</span>
         <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest flex-shrink-0">
           idx {match.index}
         </span>
@@ -114,7 +114,7 @@ function MatchRow({ match, index }: { match: MatchResult; index: number }) {
         <div className="border-t border-border px-4 py-3 bg-muted/20 space-y-2">
           {match.groups.map((g, gi) => (
             <div key={gi} className="flex items-start gap-3">
-              <span className="text-[10px] font-bold text-violet-600 uppercase tracking-widest mt-0.5 w-14 flex-shrink-0">
+              <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest mt-0.5 w-14 flex-shrink-0">
                 G{gi + 1}
               </span>
               <span className="font-mono text-xs text-foreground break-all leading-relaxed">
@@ -237,10 +237,6 @@ export function RegexTesterClient() {
         {/* Top bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-muted/30">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
-            <span className="ml-3 text-xs font-mono font-medium text-muted-foreground">regex pattern</span>
           </div>
           <button
             id="regex-copy-btn"
@@ -254,7 +250,7 @@ export function RegexTesterClient() {
 
         {/* Pattern input row */}
         <div className="flex items-center gap-2 px-6 py-5 border-b border-border">
-          <span className="text-2xl font-mono font-bold text-violet-400 select-none leading-none">/</span>
+          <span className="text-2xl font-mono font-bold text-emerald-400 select-none leading-none">/</span>
           <input
             id="regex-pattern-input"
             type="text"
@@ -264,7 +260,7 @@ export function RegexTesterClient() {
             spellCheck={false}
             className="flex-1 font-mono text-base text-foreground bg-transparent outline-none placeholder:text-muted-foreground/40"
           />
-          <span className="text-2xl font-mono font-bold text-violet-400 select-none leading-none">/</span>
+          <span className="text-2xl font-mono font-bold text-emerald-400 select-none leading-none">/</span>
           <input
             id="regex-flags-input"
             type="text"
@@ -273,7 +269,7 @@ export function RegexTesterClient() {
             placeholder="gi"
             spellCheck={false}
             maxLength={6}
-            className="w-12 font-mono text-base text-violet-600 font-semibold bg-transparent outline-none placeholder:text-muted-foreground/40"
+            className="w-12 font-mono text-base text-emerald-600 font-semibold bg-transparent outline-none placeholder:text-muted-foreground/40"
           />
         </div>
 
@@ -286,11 +282,10 @@ export function RegexTesterClient() {
               id={`regex-flag-${flag}`}
               title={title}
               onClick={() => toggleFlag(flag)}
-              className={`px-2.5 py-1 rounded-xl text-xs font-mono font-semibold transition-all border ${
-                flags.includes(flag)
-                  ? 'bg-violet-600 text-white border-violet-700'
-                  : 'bg-muted/30 text-muted-foreground border-border hover:border-violet-300 hover:text-violet-600'
-              }`}
+              className={`px-2.5 py-1 rounded-full text-xs font-sans font-semibold transition-all border ${flags.includes(flag)
+                  ? 'bg-emerald-600 text-white border-emerald-700'
+                  : 'bg-muted/30 text-muted-foreground border-border hover:border-emerald-300 hover:text-emerald-700'
+                }`}
             >
               {flag}
             </button>
@@ -298,13 +293,12 @@ export function RegexTesterClient() {
         </div>
 
         {/* Status bar */}
-        <div className={`flex items-center gap-2 px-6 py-3 text-xs font-medium transition-colors ${
-          status.type === 'error'
+        <div className={`flex items-center gap-2 px-6 py-3 text-xs font-medium transition-colors ${status.type === 'error'
             ? 'bg-red-50 text-red-600'
             : status.type === 'valid'
-            ? 'bg-emerald-50 text-emerald-700'
-            : 'bg-muted/20 text-muted-foreground'
-        }`}>
+              ? 'bg-emerald-50 text-emerald-700'
+              : 'bg-muted/20 text-muted-foreground'
+          }`}>
           {status.type === 'error' ? (
             <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
           ) : status.type === 'valid' ? (
@@ -312,7 +306,7 @@ export function RegexTesterClient() {
           ) : (
             <Search className="w-3.5 h-3.5 flex-shrink-0" />
           )}
-          <span className="font-mono">{status.message ?? 'Enter a pattern to begin'}</span>
+          <span className="font-sans">{status.message ?? 'Enter a pattern to begin'}</span>
         </div>
       </div>
 
@@ -324,7 +318,7 @@ export function RegexTesterClient() {
             key={p.label}
             id={`regex-preset-${p.label.toLowerCase().replace(/\s+/g, '-')}`}
             onClick={() => { setPattern(p.pattern); setFlags(p.flags); setTestString(p.testString); }}
-            className="px-3 py-1.5 rounded-xl text-xs font-medium border border-border bg-muted/20 text-foreground hover:bg-violet-50 hover:border-violet-300 hover:text-violet-700 transition-all"
+            className="px-3 py-1.5 rounded-xl text-xs font-sans font-medium border border-border bg-muted/20 text-foreground hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-700 transition-all"
           >
             {p.label}
           </button>
@@ -353,13 +347,13 @@ export function RegexTesterClient() {
             placeholder="Paste or type your test string here…"
             spellCheck={false}
             rows={8}
-            className="w-full bg-muted/30 border border-border rounded-2xl px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground/40 resize-y outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-400 transition-all leading-relaxed"
+            className="w-full bg-muted/30 border border-border rounded-2xl px-4 py-3 font-sans text-sm text-foreground placeholder:text-muted-foreground/40 resize-none outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all leading-relaxed"
           />
 
           {/* Live preview */}
           {testString && (
-            <div className="rounded-2xl bg-violet-500/5 border border-violet-500/10 px-4 py-3">
-              <span className="text-[10px] font-bold text-violet-600 uppercase tracking-widest block mb-2">Live Preview</span>
+            <div className="rounded-2xl bg-emerald-500/5 border border-emerald-500/10 px-4 py-3">
+              <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest block mb-2">Live Preview</span>
               <HighlightedText text={testString} matches={matches} />
             </div>
           )}
@@ -370,7 +364,7 @@ export function RegexTesterClient() {
           <div className="flex items-center gap-2">
             <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Matches</label>
             {matches.length > 0 && (
-              <span className="bg-violet-100 text-violet-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
+              <span className="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
                 {matches.length}
               </span>
             )}
@@ -441,7 +435,7 @@ export function RegexTesterClient() {
           <div className="border-t border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {CHEAT_SHEET.map((item) => (
               <div key={item.token} className="bg-card px-5 py-3.5 flex gap-3 items-center">
-                <code className="text-violet-600 font-mono text-xs font-bold bg-violet-50 px-2 py-1 rounded-lg flex-shrink-0">
+                <code className="text-emerald-700 font-mono text-xs font-bold bg-emerald-50 px-2 py-1 rounded-lg flex-shrink-0">
                   {item.token}
                 </code>
                 <span className="text-xs text-muted-foreground">{item.desc}</span>
